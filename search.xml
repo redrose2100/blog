@@ -1,281 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>RobotFramework安装教程</title>
-    <url>/blog/2020/07/11/RobotFramework%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p>
-<h4 id="1、安装python3-7-6的虚拟环境"><a href="#1、安装python3-7-6的虚拟环境" class="headerlink" title="1、安装python3.7.6的虚拟环境"></a>1、安装python3.7.6的虚拟环境</h4><p>打开cmd，执行如下命令创建python3.7.6的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n RobotFrameworkEnv python&#x3D;3.7.6</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、激活RobotFrameworkEnv虚拟环境"><a href="#2、激活RobotFrameworkEnv虚拟环境" class="headerlink" title="2、激活RobotFrameworkEnv虚拟环境"></a>2、激活RobotFrameworkEnv虚拟环境</h4><p>执行如下命令，激活RobotFrameworkEnv虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate RobotFrameworkEnv</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、安装RobotFramework包"><a href="#3、安装RobotFramework包" class="headerlink" title="3、安装RobotFramework包"></a>3、安装RobotFramework包</h4><p>执行如下命令，安装RobotFramework包</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install robotframework</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、安装wxPython包"><a href="#4、安装wxPython包" class="headerlink" title="4、安装wxPython包"></a>4、安装wxPython包</h4><p>执行如下命令，安装wxPython</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install wxpython</span><br></pre></td></tr></table></figure>
-
-<h4 id="5、安装Ride编辑器"><a href="#5、安装Ride编辑器" class="headerlink" title="5、安装Ride编辑器"></a>5、安装Ride编辑器</h4><p>执行如下命令，安装RobotFramework-ride编辑器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install robotframework-ride</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、启动RF"><a href="#6、启动RF" class="headerlink" title="6、启动RF"></a>6、启动RF</h4><p>在cmd中执行如下命令，即可启动RobotFramework的图形化界面</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ride</span><br></pre></td></tr></table></figure>]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>pytest初体验</title>
+      <link href="/blog/2020/07/11/pytest%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+      <url>/blog/2020/07/11/pytest%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1、新建一个py文件，比如-test-ex-01-py-编写如下代码段："><a href="#1、新建一个py文件，比如-test-ex-01-py-编写如下代码段：" class="headerlink" title="1、新建一个py文件，比如 test_ex_01.py, 编写如下代码段："></a>1、新建一个py文件，比如 test_ex_01.py, 编写如下代码段：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"># 被测函数，传入一个参数x，函数功能将x加100然后返回</span><br><span class="line">def func(x):</span><br><span class="line">    return x+100</span><br><span class="line"></span><br><span class="line"># 测试脚本</span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;test_01&quot;)</span><br><span class="line">    assert(func(3) &#x3D;&#x3D; 100)  # 测试结果应该不通过</span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;test_02&quot;)</span><br><span class="line">    assert(func(4)) &#x3D;&#x3D; 104  # 测试结果应该通过</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&quot;__main__&quot;:</span><br><span class="line">    # -s 打印脚本执行过程中的详细信息</span><br><span class="line">    # &quot;test_ex_01.py&quot; 指定执行测试脚本的文件名</span><br><span class="line">    pytest.main([&quot;-s&quot;,&quot;test_ex_01.py&quot;])</span><br></pre></td></tr></table></figure><h4 id="2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败"><a href="#2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败" class="headerlink" title="2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败"></a>2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">D:\Miniconda\envs\PytestEnv\python.exe G:&#x2F;lamb_source&#x2F;pytest_example&#x2F;cases&#x2F;test_ex_01.py</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items</span><br><span class="line"></span><br><span class="line">test_ex_01.py test_01</span><br><span class="line">Ftest_02</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; FAILURES &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">___________________________________ test_01 ___________________________________</span><br><span class="line"></span><br><span class="line">    def test_01():</span><br><span class="line">        print(&quot;test_01&quot;)</span><br><span class="line">&gt;       assert(func(3) &#x3D;&#x3D; 100)  # 测试结果应该不通过</span><br><span class="line">E       assert 103 &#x3D;&#x3D; 100</span><br><span class="line">E        +  where 103 &#x3D; func(3)</span><br><span class="line"></span><br><span class="line">test_ex_01.py:28: AssertionError</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; short test summary info &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">FAILED test_ex_01.py::test_01 - assert 103 &#x3D;&#x3D; 100</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 1 failed, 1 passed in 0.14s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure><h4 id="3、-也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行"><a href="#3、-也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行" class="headerlink" title="3、 也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行"></a>3、 也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s test_ex_01.py</span><br></pre></td></tr></table></figure><p>执行结果如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases&gt;pytest -s test_ex_01.py</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py test_01</span><br><span class="line">Ftest_02</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; FAILURES &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">_______________________________________________________________________________ test_01 ________________________________________________________________________________</span><br><span class="line"></span><br><span class="line">    def test_01():</span><br><span class="line">        print(&quot;test_01&quot;)</span><br><span class="line">&gt;       assert(func(3) &#x3D;&#x3D; 100)</span><br><span class="line">E       assert 103 &#x3D;&#x3D; 100</span><br><span class="line">E        +  where 103 &#x3D; func(3)</span><br><span class="line"></span><br><span class="line">test_ex_01.py:27: AssertionError</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; short test summary info &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">FAILED test_ex_01.py::test_01 - assert 103 &#x3D;&#x3D; 100</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 1 failed, 1 passed in 0.12s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>自动化测试</category>
+          
+          <category> 自动化测试 </category>
+          
       </categories>
-      <tags>
-        <tag>python-RobotFramework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown 基础语法</title>
-    <url>/blog/2020/07/10/markdown-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h2><p>一个#号是一级标题，二个#号是二级标题，以此类推，支持六级</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题 </span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h5 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h5><h2 id="2、字体"><a href="#2、字体" class="headerlink" title="2、字体"></a>2、字体</h2><ul>
-<li>加粗</li>
-</ul>
-<p>要加粗的文字左右分别用两个*括起来</p>
-<ul>
-<li>斜体</li>
-</ul>
-<p>要斜体的文字左右分别用一个*括起来</p>
-<ul>
-<li>斜体加粗</li>
-</ul>
-<p>要倾斜和加粗的文字左右分别用三个*括起来</p>
-<ul>
-<li>删除线</li>
-</ul>
-<p>要加删除线的文字左右分别用两个~括起来</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是要加粗的文字**</span><br><span class="line">*这是要倾斜的文字*</span><br><span class="line">***这是要倾斜并且加粗的文字***</span><br><span class="line">~~这是要加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><strong>这是要加粗的文字</strong></p>
-<p><em>这是要倾斜的文字</em></p>
-<p><strong><em>这是要倾斜并且加粗的文字</em></strong></p>
-<p><del>这是要加删除线的文字</del></p>
-<h2 id="3、引用"><a href="#3、引用" class="headerlink" title="3、引用"></a>3、引用</h2><p>在应用的文字前加 &gt; 即可</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 这是应用的内容</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<blockquote>
-<p>这是引用的内容</p>
-</blockquote>
-<h2 id="4、分割线"><a href="#4、分割线" class="headerlink" title="4、分割线"></a>4、分割线</h2><p>三个或三个以上的-或者* 都可以</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">****</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<h2 id="5、图片"><a href="#5、图片" class="headerlink" title="5、图片"></a>5、图片</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![blockchain](https:&#x2F;&#x2F;ss0.bdstatic.com&#x2F;70cFvHSh_Q1YnxGkpoWK1HF6hhy&#x2F;it&#x2F;</span><br><span class="line">u&#x3D;702257389,1274025419&amp;fm&#x3D;27&amp;gp&#x3D;0.jpg &quot;区块链&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p>![blockchain](<a href="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/" target="_blank" rel="noopener">https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/</a><br>u=702257389,1274025419&amp;fm=27&amp;gp=0.jpg “区块链”)</p>
-<h2 id="6、超链接"><a href="#6、超链接" class="headerlink" title="6、超链接"></a>6、超链接</h2><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[简书](http:&#x2F;&#x2F;jianshu.com)</span><br><span class="line">[百度](http:&#x2F;&#x2F;baidu.com)</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a></p>
-<p><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
-<h3 id="7、列表"><a href="#7、列表" class="headerlink" title="7、列表"></a>7、列表</h3><ul>
-<li>无序列表</li>
-</ul>
-<p>语法：无需列表用- * + 任何一种都可以</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br></pre></td></tr></table></figure>
-<p>注意：- + * 跟内容之间都要有一个空格</p>
-<p>效果如下：</p>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li><p>列表内容</p>
-</li>
-<li><p>有序列表</p>
-</li>
-</ul>
-<p>语法：数字加点</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br></pre></td></tr></table></figure>
-
-<p>注意：序号跟内容之间要有空格</p>
-<p>效果如下：</p>
-<ol>
-<li>列表内容</li>
-<li>列表内容</li>
-<li>列表内容</li>
-</ol>
-<ul>
-<li>列表嵌套</li>
-</ul>
-<p>上一级和下一级敲三个空格即可</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 一级无序列表</span><br><span class="line">   * 二级无序列表</span><br><span class="line">   * 二级无序列表</span><br><span class="line">   * 二级无序列表</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<ul>
-<li>一级无序列表<ul>
-<li>二级无序列表</li>
-<li>二级无序列表</li>
-<li>二级无序列表</li>
-</ul>
-</li>
-</ul>
-<h2 id="8、表格"><a href="#8、表格" class="headerlink" title="8、表格"></a>8、表格</h2><p>语法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|姓名|技能|排行|</span><br><span class="line">|:---|:---:|---:|</span><br><span class="line">|刘备|哭|大哥|</span><br><span class="line">|关羽|打|二哥|</span><br><span class="line">|张飞|骂|三弟|</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left">姓名</th>
-<th align="center">技能</th>
-<th align="right">排行</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">刘备</td>
-<td align="center">哭</td>
-<td align="right">大哥</td>
-</tr>
-<tr>
-<td align="left">关羽</td>
-<td align="center">打</td>
-<td align="right">二哥</td>
-</tr>
-<tr>
-<td align="left">张飞</td>
-<td align="center">骂</td>
-<td align="right">三弟</td>
-</tr>
-</tbody></table>
-<h2 id="9、代码"><a href="#9、代码" class="headerlink" title="9、代码"></a>9、代码</h2><p>语法：</p>
-<p>单行代码：代码之间分别用一个反引号包起来</p>
-<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
-<p>示例1：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;print(111)&#96;</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p><code>print(111)</code></p>
-<p>示例2：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">    if a&gt;1:</span><br><span class="line">        print(11111)</span><br><span class="line">    else:</span><br><span class="line">        print(22222)</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
-
-<p>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p>
-<p>效果如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if a&gt;1:</span><br><span class="line">    print(11111)</span><br><span class="line">else:</span><br><span class="line">    print(22222)</span><br></pre></td></tr></table></figure>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> python_pytest </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pytest的安装</title>
+      <link href="/blog/2020/07/11/pytest%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+      <url>/blog/2020/07/11/pytest%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p><h4 id="1、安装python3-8-3的虚拟环境"><a href="#1、安装python3-8-3的虚拟环境" class="headerlink" title="1、安装python3.8.3的虚拟环境"></a>1、安装python3.8.3的虚拟环境</h4><p>打开cmd窗口，执行如下命令安装名为PytestEnv的基于python3.8.3的虚拟环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n PytestEnv python&#x3D;3.8.3</span><br></pre></td></tr></table></figure><h4 id="2、激活名为PytestEnv的虚拟环境"><a href="#2、激活名为PytestEnv的虚拟环境" class="headerlink" title="2、激活名为PytestEnv的虚拟环境"></a>2、激活名为PytestEnv的虚拟环境</h4><p>执行如下命令激活名为PytestEnv的虚拟环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate PytestEnv</span><br></pre></td></tr></table></figure><h4 id="3、安装pytest"><a href="#3、安装pytest" class="headerlink" title="3、安装pytest"></a>3、安装pytest</h4><p>执行如下命令安装pytest</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest</span><br></pre></td></tr></table></figure><h4 id="4、安装pytest-html"><a href="#4、安装pytest-html" class="headerlink" title="4、安装pytest-html"></a>4、安装pytest-html</h4><p>执行如下命令，安装pytest-html，用于生成测试用例的html报告</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest-html</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>markdown</category>
+          
+          <category> 自动化测试 </category>
+          
       </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>miniconda的安装与使用</title>
-    <url>/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1、Miniconda是做什么用的？"><a href="#1、Miniconda是做什么用的？" class="headerlink" title="1、Miniconda是做什么用的？"></a>1、Miniconda是做什么用的？</h2><p>简单点来说，miniconda是为了方便的创建多个python虚拟环境，方便多个python项目同时开发的时候，每个项目都有自己独立的python开发环境，可以理解为virtualenv的高级版，使用起来非常方便</p>
-<h2 id="2、win10下如何下载安装？"><a href="#2、win10下如何下载安装？" class="headerlink" title="2、win10下如何下载安装？"></a>2、win10下如何下载安装？</h2><ul>
-<li><p>打开miniconda官网地址，根据操作系统位数选择，这里选择windows系统下64位，python3.7版本的软件安装包，然后点击即可下载<br><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p>
-</li>
-<li><p>下载完成后，然后找到下载的安装文件Miniconda3-latest-Windows-x86_64.exe，然后【右键】-【以管理员权限运行】，在选择install for的步骤时，选择【all users】，安装路径推荐放在D:/Miniconda  路径下（尽量不要安装到C盘，因为C盘是系统盘，选择将Miniconda3天假到系统环境变量中，其他步骤中均保持默认即可</p>
-</li>
-</ul>
-<h2 id="3、Miniconda如何使用？"><a href="#3、Miniconda如何使用？" class="headerlink" title="3、Miniconda如何使用？"></a>3、Miniconda如何使用？</h2><ul>
-<li>创建python虚拟环境：</li>
-</ul>
-<p>比如这里创建一个名称为Test1Env的虚拟环境，指定其python版本为3.8.3，则打开cmd窗口，然后执行如下命令，遇到提示继续输入y即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n Test1Env python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看当前已经安装的虚拟环境列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>激活指定名称的虚拟环境</li>
-</ul>
-<p>比如激活名称为Test1ENV的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate Test1Env</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>退出当前环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除虚拟环境</li>
-</ul>
-<p>比如删除名称为Test1Env的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n Test1Env</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> python_pytest </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RobotFramework安装教程</title>
+      <link href="/blog/2020/07/11/RobotFramework%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+      <url>/blog/2020/07/11/RobotFramework%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p><h4 id="1、安装python3-7-6的虚拟环境"><a href="#1、安装python3-7-6的虚拟环境" class="headerlink" title="1、安装python3.7.6的虚拟环境"></a>1、安装python3.7.6的虚拟环境</h4><p>打开cmd，执行如下命令创建python3.7.6的虚拟环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n RobotFrameworkEnv python&#x3D;3.7.6</span><br></pre></td></tr></table></figure><h4 id="2、激活RobotFrameworkEnv虚拟环境"><a href="#2、激活RobotFrameworkEnv虚拟环境" class="headerlink" title="2、激活RobotFrameworkEnv虚拟环境"></a>2、激活RobotFrameworkEnv虚拟环境</h4><p>执行如下命令，激活RobotFrameworkEnv虚拟环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate RobotFrameworkEnv</span><br></pre></td></tr></table></figure><h4 id="3、安装RobotFramework包"><a href="#3、安装RobotFramework包" class="headerlink" title="3、安装RobotFramework包"></a>3、安装RobotFramework包</h4><p>执行如下命令，安装RobotFramework包</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework</span><br></pre></td></tr></table></figure><h4 id="4、安装wxPython包"><a href="#4、安装wxPython包" class="headerlink" title="4、安装wxPython包"></a>4、安装wxPython包</h4><p>执行如下命令，安装wxPython</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wxpython</span><br></pre></td></tr></table></figure><h4 id="5、安装Ride编辑器"><a href="#5、安装Ride编辑器" class="headerlink" title="5、安装Ride编辑器"></a>5、安装Ride编辑器</h4><p>执行如下命令，安装RobotFramework-ride编辑器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework-ride</span><br></pre></td></tr></table></figure><h4 id="6、启动RF"><a href="#6、启动RF" class="headerlink" title="6、启动RF"></a>6、启动RF</h4><p>在cmd中执行如下命令，即可启动RobotFramework的图形化界面</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ride</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>python基础</category>
+          
+          <category> 自动化测试 </category>
+          
       </categories>
-      <tags>
-        <tag>python_env</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pytest的安装</title>
-    <url>/blog/2020/07/11/pytest%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p>
-<h4 id="1、安装python3-8-3的虚拟环境"><a href="#1、安装python3-8-3的虚拟环境" class="headerlink" title="1、安装python3.8.3的虚拟环境"></a>1、安装python3.8.3的虚拟环境</h4><p>打开cmd窗口，执行如下命令安装名为PytestEnv的基于python3.8.3的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n PytestEnv python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、激活名为PytestEnv的虚拟环境"><a href="#2、激活名为PytestEnv的虚拟环境" class="headerlink" title="2、激活名为PytestEnv的虚拟环境"></a>2、激活名为PytestEnv的虚拟环境</h4><p>执行如下命令激活名为PytestEnv的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate PytestEnv</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、安装pytest"><a href="#3、安装pytest" class="headerlink" title="3、安装pytest"></a>3、安装pytest</h4><p>执行如下命令安装pytest</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install pytest</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、安装pytest-html"><a href="#4、安装pytest-html" class="headerlink" title="4、安装pytest-html"></a>4、安装pytest-html</h4><p>执行如下命令，安装pytest-html，用于生成测试用例的html报告</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install pytest-html</span><br></pre></td></tr></table></figure>
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> python-RobotFramework </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>miniconda的安装与使用</title>
+      <link href="/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+      <url>/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、Miniconda是做什么用的？"><a href="#1、Miniconda是做什么用的？" class="headerlink" title="1、Miniconda是做什么用的？"></a>1、Miniconda是做什么用的？</h2><p>简单点来说，miniconda是为了方便的创建多个python虚拟环境，方便多个python项目同时开发的时候，每个项目都有自己独立的python开发环境，可以理解为virtualenv的高级版，使用起来非常方便</p><h2 id="2、win10下如何下载安装？"><a href="#2、win10下如何下载安装？" class="headerlink" title="2、win10下如何下载安装？"></a>2、win10下如何下载安装？</h2><ul><li><p>打开miniconda官网地址，根据操作系统位数选择，这里选择windows系统下64位，python3.7版本的软件安装包，然后点击即可下载<br><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p></li><li><p>下载完成后，然后找到下载的安装文件Miniconda3-latest-Windows-x86_64.exe，然后【右键】-【以管理员权限运行】，在选择install for的步骤时，选择【all users】，安装路径推荐放在D:/Miniconda  路径下（尽量不要安装到C盘，因为C盘是系统盘，选择将Miniconda3天假到系统环境变量中，其他步骤中均保持默认即可</p></li></ul><h2 id="3、Miniconda如何使用？"><a href="#3、Miniconda如何使用？" class="headerlink" title="3、Miniconda如何使用？"></a>3、Miniconda如何使用？</h2><ul><li>创建python虚拟环境：</li></ul><p>比如这里创建一个名称为Test1Env的虚拟环境，指定其python版本为3.8.3，则打开cmd窗口，然后执行如下命令，遇到提示继续输入y即可</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n Test1Env python&#x3D;3.8.3</span><br></pre></td></tr></table></figure><ul><li>查看当前已经安装的虚拟环境列表</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure><ul><li>激活指定名称的虚拟环境</li></ul><p>比如激活名称为Test1ENV的虚拟环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate Test1Env</span><br></pre></td></tr></table></figure><ul><li>退出当前环境</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure><ul><li>删除虚拟环境</li></ul><p>比如删除名称为Test1Env的虚拟环境</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env remove -n Test1Env</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>自动化测试</category>
+          
+          <category> python基础 </category>
+          
       </categories>
-      <tags>
-        <tag>python_pytest</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pytest初体验</title>
-    <url>/blog/2020/07/11/pytest%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
-    <content><![CDATA[<h4 id="1、新建一个py文件，比如-test-ex-01-py-编写如下代码段："><a href="#1、新建一个py文件，比如-test-ex-01-py-编写如下代码段：" class="headerlink" title="1、新建一个py文件，比如 test_ex_01.py, 编写如下代码段："></a>1、新建一个py文件，比如 test_ex_01.py, 编写如下代码段：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"># 被测函数，传入一个参数x，函数功能将x加100然后返回</span><br><span class="line">def func(x):</span><br><span class="line">    return x+100</span><br><span class="line"></span><br><span class="line"># 测试脚本</span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;test_01&quot;)</span><br><span class="line">    assert(func(3) &#x3D;&#x3D; 100)  # 测试结果应该不通过</span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;test_02&quot;)</span><br><span class="line">    assert(func(4)) &#x3D;&#x3D; 104  # 测试结果应该通过</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&quot;__main__&quot;:</span><br><span class="line">    # -s 打印脚本执行过程中的详细信息</span><br><span class="line">    # &quot;test_ex_01.py&quot; 指定执行测试脚本的文件名</span><br><span class="line">    pytest.main([&quot;-s&quot;,&quot;test_ex_01.py&quot;])</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败"><a href="#2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败" class="headerlink" title="2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败"></a>2、在pycharm中执行当前文件及可以执行此文件中的测试用例脚本，结果如下：与预期一致，一个通过，一个失败</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">D:\Miniconda\envs\PytestEnv\python.exe G:&#x2F;lamb_source&#x2F;pytest_example&#x2F;cases&#x2F;test_ex_01.py</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items</span><br><span class="line"></span><br><span class="line">test_ex_01.py test_01</span><br><span class="line">Ftest_02</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; FAILURES &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">___________________________________ test_01 ___________________________________</span><br><span class="line"></span><br><span class="line">    def test_01():</span><br><span class="line">        print(&quot;test_01&quot;)</span><br><span class="line">&gt;       assert(func(3) &#x3D;&#x3D; 100)  # 测试结果应该不通过</span><br><span class="line">E       assert 103 &#x3D;&#x3D; 100</span><br><span class="line">E        +  where 103 &#x3D; func(3)</span><br><span class="line"></span><br><span class="line">test_ex_01.py:28: AssertionError</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; short test summary info &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">FAILED test_ex_01.py::test_01 - assert 103 &#x3D;&#x3D; 100</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 1 failed, 1 passed in 0.14s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、-也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行"><a href="#3、-也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行" class="headerlink" title="3、 也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行"></a>3、 也可以在pycham中打开下方的terminal，然后在终端中执行如下命令对上述测试用例文件进行运行</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pytest -s test_ex_01.py</span><br></pre></td></tr></table></figure>
-
-<p>执行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases&gt;pytest -s test_ex_01.py</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py test_01</span><br><span class="line">Ftest_02</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; FAILURES &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">_______________________________________________________________________________ test_01 ________________________________________________________________________________</span><br><span class="line"></span><br><span class="line">    def test_01():</span><br><span class="line">        print(&quot;test_01&quot;)</span><br><span class="line">&gt;       assert(func(3) &#x3D;&#x3D; 100)</span><br><span class="line">E       assert 103 &#x3D;&#x3D; 100</span><br><span class="line">E        +  where 103 &#x3D; func(3)</span><br><span class="line"></span><br><span class="line">test_ex_01.py:27: AssertionError</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; short test summary info &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">FAILED test_ex_01.py::test_01 - assert 103 &#x3D;&#x3D; 100</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 1 failed, 1 passed in 0.12s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> python_env </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown 基础语法</title>
+      <link href="/blog/2020/07/10/markdown-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+      <url>/blog/2020/07/10/markdown-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h2><p>一个#号是一级标题，二个#号是二级标题，以此类推，支持六级</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题 </span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure><p>效果如下：</p><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h5 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h5><h2 id="2、字体"><a href="#2、字体" class="headerlink" title="2、字体"></a>2、字体</h2><ul><li>加粗</li></ul><p>要加粗的文字左右分别用两个*括起来</p><ul><li>斜体</li></ul><p>要斜体的文字左右分别用一个*括起来</p><ul><li>斜体加粗</li></ul><p>要倾斜和加粗的文字左右分别用三个*括起来</p><ul><li>删除线</li></ul><p>要加删除线的文字左右分别用两个~括起来</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是要加粗的文字**</span><br><span class="line">*这是要倾斜的文字*</span><br><span class="line">***这是要倾斜并且加粗的文字***</span><br><span class="line">~~这是要加删除线的文字~~</span><br></pre></td></tr></table></figure><p>效果如下：</p><p><strong>这是要加粗的文字</strong></p><p><em>这是要倾斜的文字</em></p><p><strong><em>这是要倾斜并且加粗的文字</em></strong></p><p><del>这是要加删除线的文字</del></p><h2 id="3、引用"><a href="#3、引用" class="headerlink" title="3、引用"></a>3、引用</h2><p>在应用的文字前加 &gt; 即可</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这是应用的内容</span><br></pre></td></tr></table></figure><p>效果如下：</p><blockquote><p>这是引用的内容</p></blockquote><h2 id="4、分割线"><a href="#4、分割线" class="headerlink" title="4、分割线"></a>4、分割线</h2><p>三个或三个以上的-或者* 都可以</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">****</span><br></pre></td></tr></table></figure><p>效果如下：</p><hr><hr><hr><hr><h2 id="5、图片"><a href="#5、图片" class="headerlink" title="5、图片"></a>5、图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![blockchain](https:&#x2F;&#x2F;ss0.bdstatic.com&#x2F;70cFvHSh_Q1YnxGkpoWK1HF6hhy&#x2F;it&#x2F;</span><br><span class="line">u&#x3D;702257389,1274025419&amp;fm&#x3D;27&amp;gp&#x3D;0.jpg &quot;区块链&quot;)</span><br></pre></td></tr></table></figure><p>效果如下：</p><p>![blockchain](<a href="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/" target="_blank" rel="noopener">https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/</a><br>u=702257389,1274025419&amp;fm=27&amp;gp=0.jpg “区块链”)</p><h2 id="6、超链接"><a href="#6、超链接" class="headerlink" title="6、超链接"></a>6、超链接</h2><p>语法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[简书](http:&#x2F;&#x2F;jianshu.com)</span><br><span class="line">[百度](http:&#x2F;&#x2F;baidu.com)</span><br></pre></td></tr></table></figure><p>效果如下：</p><p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a></p><p><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p><h3 id="7、列表"><a href="#7、列表" class="headerlink" title="7、列表"></a>7、列表</h3><ul><li>无序列表</li></ul><p>语法：无需列表用- * + 任何一种都可以</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br></pre></td></tr></table></figure><p>注意：- + * 跟内容之间都要有一个空格</p><p>效果如下：</p><ul><li>列表内容</li></ul><ul><li>列表内容</li></ul><ul><li><p>列表内容</p></li><li><p>有序列表</p></li></ul><p>语法：数字加点</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br></pre></td></tr></table></figure><p>注意：序号跟内容之间要有空格</p><p>效果如下：</p><ol><li>列表内容</li><li>列表内容</li><li>列表内容</li></ol><ul><li>列表嵌套</li></ul><p>上一级和下一级敲三个空格即可</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 一级无序列表</span><br><span class="line">   * 二级无序列表</span><br><span class="line">   * 二级无序列表</span><br><span class="line">   * 二级无序列表</span><br></pre></td></tr></table></figure><p>效果如下：</p><ul><li>一级无序列表<ul><li>二级无序列表</li><li>二级无序列表</li><li>二级无序列表</li></ul></li></ul><h2 id="8、表格"><a href="#8、表格" class="headerlink" title="8、表格"></a>8、表格</h2><p>语法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|姓名|技能|排行|</span><br><span class="line">|:---|:---:|---:|</span><br><span class="line">|刘备|哭|大哥|</span><br><span class="line">|关羽|打|二哥|</span><br><span class="line">|张飞|骂|三弟|</span><br></pre></td></tr></table></figure><p>效果如下：</p><table><thead><tr><th align="left">姓名</th><th align="center">技能</th><th align="right">排行</th></tr></thead><tbody><tr><td align="left">刘备</td><td align="center">哭</td><td align="right">大哥</td></tr><tr><td align="left">关羽</td><td align="center">打</td><td align="right">二哥</td></tr><tr><td align="left">张飞</td><td align="center">骂</td><td align="right">三弟</td></tr></tbody></table><h2 id="9、代码"><a href="#9、代码" class="headerlink" title="9、代码"></a>9、代码</h2><p>语法：</p><p>单行代码：代码之间分别用一个反引号包起来</p><p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p><p>示例1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;print(111)&#96;</span><br></pre></td></tr></table></figure><p>效果：</p><p><code>print(111)</code></p><p>示例2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">    if a&gt;1:</span><br><span class="line">        print(11111)</span><br><span class="line">    else:</span><br><span class="line">        print(22222)</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure><p>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p><p>效果如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if a&gt;1:</span><br><span class="line">    print(11111)</span><br><span class="line">else:</span><br><span class="line">    print(22222)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>自动化测试</category>
+          
+          <category> markdown </category>
+          
       </categories>
-      <tags>
-        <tag>python_pytest</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
