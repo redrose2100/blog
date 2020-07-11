@@ -29,50 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>miniconda的安装与使用</title>
-    <url>/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1、Miniconda是做什么用的？"><a href="#1、Miniconda是做什么用的？" class="headerlink" title="1、Miniconda是做什么用的？"></a>1、Miniconda是做什么用的？</h2><p>简单点来说，miniconda是为了方便的创建多个python虚拟环境，方便多个python项目同时开发的时候，每个项目都有自己独立的python开发环境，可以理解为virtualenv的高级版，使用起来非常方便</p>
-<h2 id="2、win10下如何下载安装？"><a href="#2、win10下如何下载安装？" class="headerlink" title="2、win10下如何下载安装？"></a>2、win10下如何下载安装？</h2><ul>
-<li><p>打开miniconda官网地址，根据操作系统位数选择，这里选择windows系统下64位，python3.7版本的软件安装包，然后点击即可下载<br><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p>
-</li>
-<li><p>下载完成后，然后找到下载的安装文件Miniconda3-latest-Windows-x86_64.exe，然后【右键】-【以管理员权限运行】，在选择install for的步骤时，选择【all users】，安装路径推荐放在D:/Miniconda  路径下（尽量不要安装到C盘，因为C盘是系统盘，选择将Miniconda3天假到系统环境变量中，其他步骤中均保持默认即可</p>
-</li>
-</ul>
-<h2 id="3、Miniconda如何使用？"><a href="#3、Miniconda如何使用？" class="headerlink" title="3、Miniconda如何使用？"></a>3、Miniconda如何使用？</h2><ul>
-<li>创建python虚拟环境：</li>
-</ul>
-<p>比如这里创建一个名称为Test1Env的虚拟环境，指定其python版本为3.8.3，则打开cmd窗口，然后执行如下命令，遇到提示继续输入y即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n Test1Env python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看当前已经安装的虚拟环境列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>激活指定名称的虚拟环境</li>
-</ul>
-<p>比如激活名称为Test1ENV的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate Test1Env</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>退出当前环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除虚拟环境</li>
-</ul>
-<p>比如删除名称为Test1Env的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n Test1Env</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>python基础</category>
-      </categories>
-      <tags>
-        <tag>python_env</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>markdown 基础语法</title>
     <url>/blog/2020/07/10/markdown-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h2 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h2><p>一个#号是一级标题，二个#号是二级标题，以此类推，支持六级</p>
@@ -234,6 +190,50 @@
       </categories>
       <tags>
         <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>miniconda的安装与使用</title>
+    <url>/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1、Miniconda是做什么用的？"><a href="#1、Miniconda是做什么用的？" class="headerlink" title="1、Miniconda是做什么用的？"></a>1、Miniconda是做什么用的？</h2><p>简单点来说，miniconda是为了方便的创建多个python虚拟环境，方便多个python项目同时开发的时候，每个项目都有自己独立的python开发环境，可以理解为virtualenv的高级版，使用起来非常方便</p>
+<h2 id="2、win10下如何下载安装？"><a href="#2、win10下如何下载安装？" class="headerlink" title="2、win10下如何下载安装？"></a>2、win10下如何下载安装？</h2><ul>
+<li><p>打开miniconda官网地址，根据操作系统位数选择，这里选择windows系统下64位，python3.7版本的软件安装包，然后点击即可下载<br><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p>
+</li>
+<li><p>下载完成后，然后找到下载的安装文件Miniconda3-latest-Windows-x86_64.exe，然后【右键】-【以管理员权限运行】，在选择install for的步骤时，选择【all users】，安装路径推荐放在D:/Miniconda  路径下（尽量不要安装到C盘，因为C盘是系统盘，选择将Miniconda3天假到系统环境变量中，其他步骤中均保持默认即可</p>
+</li>
+</ul>
+<h2 id="3、Miniconda如何使用？"><a href="#3、Miniconda如何使用？" class="headerlink" title="3、Miniconda如何使用？"></a>3、Miniconda如何使用？</h2><ul>
+<li>创建python虚拟环境：</li>
+</ul>
+<p>比如这里创建一个名称为Test1Env的虚拟环境，指定其python版本为3.8.3，则打开cmd窗口，然后执行如下命令，遇到提示继续输入y即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n Test1Env python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看当前已经安装的虚拟环境列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>激活指定名称的虚拟环境</li>
+</ul>
+<p>比如激活名称为Test1ENV的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate Test1Env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>退出当前环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除虚拟环境</li>
+</ul>
+<p>比如删除名称为Test1Env的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n Test1Env</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>python基础</category>
+      </categories>
+      <tags>
+        <tag>python_env</tag>
       </tags>
   </entry>
   <entry>
