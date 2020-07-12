@@ -29,6 +29,50 @@
       </tags>
   </entry>
   <entry>
+    <title>miniconda的安装与使用</title>
+    <url>/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1、Miniconda是做什么用的？"><a href="#1、Miniconda是做什么用的？" class="headerlink" title="1、Miniconda是做什么用的？"></a>1、Miniconda是做什么用的？</h2><p>简单点来说，miniconda是为了方便的创建多个python虚拟环境，方便多个python项目同时开发的时候，每个项目都有自己独立的python开发环境，可以理解为virtualenv的高级版，使用起来非常方便</p>
+<h2 id="2、win10下如何下载安装？"><a href="#2、win10下如何下载安装？" class="headerlink" title="2、win10下如何下载安装？"></a>2、win10下如何下载安装？</h2><ul>
+<li><p>打开miniconda官网地址，根据操作系统位数选择，这里选择windows系统下64位，python3.7版本的软件安装包，然后点击即可下载<br><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p>
+</li>
+<li><p>下载完成后，然后找到下载的安装文件Miniconda3-latest-Windows-x86_64.exe，然后【右键】-【以管理员权限运行】，在选择install for的步骤时，选择【all users】，安装路径推荐放在D:/Miniconda  路径下（尽量不要安装到C盘，因为C盘是系统盘，选择将Miniconda3天假到系统环境变量中，其他步骤中均保持默认即可</p>
+</li>
+</ul>
+<h2 id="3、Miniconda如何使用？"><a href="#3、Miniconda如何使用？" class="headerlink" title="3、Miniconda如何使用？"></a>3、Miniconda如何使用？</h2><ul>
+<li>创建python虚拟环境：</li>
+</ul>
+<p>比如这里创建一个名称为Test1Env的虚拟环境，指定其python版本为3.8.3，则打开cmd窗口，然后执行如下命令，遇到提示继续输入y即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n Test1Env python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看当前已经安装的虚拟环境列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>激活指定名称的虚拟环境</li>
+</ul>
+<p>比如激活名称为Test1ENV的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate Test1Env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>退出当前环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除虚拟环境</li>
+</ul>
+<p>比如删除名称为Test1Env的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n Test1Env</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>python基础</category>
+      </categories>
+      <tags>
+        <tag>python_env</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown 基础语法</title>
     <url>/blog/2020/07/10/markdown-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h2 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h2><p>一个#号是一级标题，二个#号是二级标题，以此类推，支持六级</p>
@@ -193,47 +237,54 @@
       </tags>
   </entry>
   <entry>
-    <title>miniconda的安装与使用</title>
-    <url>/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1、Miniconda是做什么用的？"><a href="#1、Miniconda是做什么用的？" class="headerlink" title="1、Miniconda是做什么用的？"></a>1、Miniconda是做什么用的？</h2><p>简单点来说，miniconda是为了方便的创建多个python虚拟环境，方便多个python项目同时开发的时候，每个项目都有自己独立的python开发环境，可以理解为virtualenv的高级版，使用起来非常方便</p>
-<h2 id="2、win10下如何下载安装？"><a href="#2、win10下如何下载安装？" class="headerlink" title="2、win10下如何下载安装？"></a>2、win10下如何下载安装？</h2><ul>
-<li><p>打开miniconda官网地址，根据操作系统位数选择，这里选择windows系统下64位，python3.7版本的软件安装包，然后点击即可下载<br><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener">https://docs.conda.io/en/latest/miniconda.html</a></p>
-</li>
-<li><p>下载完成后，然后找到下载的安装文件Miniconda3-latest-Windows-x86_64.exe，然后【右键】-【以管理员权限运行】，在选择install for的步骤时，选择【all users】，安装路径推荐放在D:/Miniconda  路径下（尽量不要安装到C盘，因为C盘是系统盘，选择将Miniconda3天假到系统环境变量中，其他步骤中均保持默认即可</p>
-</li>
-</ul>
-<h2 id="3、Miniconda如何使用？"><a href="#3、Miniconda如何使用？" class="headerlink" title="3、Miniconda如何使用？"></a>3、Miniconda如何使用？</h2><ul>
-<li>创建python虚拟环境：</li>
-</ul>
-<p>比如这里创建一个名称为Test1Env的虚拟环境，指定其python版本为3.8.3，则打开cmd窗口，然后执行如下命令，遇到提示继续输入y即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n Test1Env python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
+    <title>pytest中测试用例类及函数的命名规范</title>
+    <url>/blog/2020/07/12/pytest%E4%B8%AD%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%B1%BB%E5%8F%8A%E5%87%BD%E6%95%B0%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<p>注：当前使用的pytest版本为5.4.3</p>
+<h4 id="1、测试脚本文件命名要求以test开头，文件中类之外的方法要求以test开头"><a href="#1、测试脚本文件命名要求以test开头，文件中类之外的方法要求以test开头" class="headerlink" title="1、测试脚本文件命名要求以test开头，文件中类之外的方法要求以test开头"></a>1、测试脚本文件命名要求以test开头，文件中类之外的方法要求以test开头</h4><p>比如文件结构：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----test_ex_001</span><br><span class="line">   |----test_ex.py</span><br></pre></td></tr></table></figure>
+<p>其中 test_ex.py中的内容为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def test_a():</span><br><span class="line">    print(&quot;test  a&quot;)</span><br><span class="line">    </span><br><span class="line">def test_b():</span><br><span class="line">    print(&quot;test b&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm的的terminal中通过cd进入到test_ex_001的目录下，执行如下命令即可执行当前目录下的所有脚本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
+<p>结果如下显示，有两个脚本通过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases\test_ex_001&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases\test_ex_001</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex.py test  a</span><br><span class="line">.test b</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<h4 id="2、下面验证一下文件名不是test开头的效果"><a href="#2、下面验证一下文件名不是test开头的效果" class="headerlink" title="2、下面验证一下文件名不是test开头的效果"></a>2、下面验证一下文件名不是test开头的效果</h4><p>文件结构：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----test_ex_002</span><br><span class="line">   |----ex.py</span><br></pre></td></tr></table></figure>
+<p>其中ex.py文件中的内容为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def test_a():</span><br><span class="line">    print(&quot;test  a&quot;)</span><br><span class="line"></span><br><span class="line">def test_b():</span><br><span class="line">    print(&quot;test b&quot;)</span><br></pre></td></tr></table></figure>
+<p>此时在pycharm的terminal中进入到test_ex_002的目录中，继续执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
+<p>执行结果如下，显示没有用例被执行，原因就是测试文件名没有以test开头</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases\test_ex_002&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases\test_ex_002</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 0 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; no tests ran in 0.02s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<p>所以命令行中pytest命令原理就是从指定目录（如果未指定就从当前目录）递归的寻找test开头的py文件，然后再执行找到的所有文件中的测试脚本<br>当然这里如果想执行，也是可以执行的，只不过需要单独指定这个文件的名字，比如执行如下命令,也是可以执行的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pytest -s ex.py</span><br></pre></td></tr></table></figure>
+<p>显示结果如下，有两个用例通过</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases\test_ex_002&gt;pytest -s ex.py</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases\test_ex_002</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">ex.py test  a</span><br><span class="line">.test b</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed in 0.01s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<h4 id="3、-文件中类之外函数的命名必须以test开头，注意新版本pytest中以不再支持以test结尾的函数了（再早之前老版本是支持的）"><a href="#3、-文件中类之外函数的命名必须以test开头，注意新版本pytest中以不再支持以test结尾的函数了（再早之前老版本是支持的）" class="headerlink" title="3、 文件中类之外函数的命名必须以test开头，注意新版本pytest中以不再支持以test结尾的函数了（再早之前老版本是支持的）"></a>3、 文件中类之外函数的命名必须以test开头，注意新版本pytest中以不再支持以test结尾的函数了（再早之前老版本是支持的）</h4><p>文件结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----test_ex_003</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>其中test_ex_01.py文件内容如下，共写了6个方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def test_a():</span><br><span class="line">    print(&quot;test_a&quot;)</span><br><span class="line"></span><br><span class="line">def testa():</span><br><span class="line">    print(&quot;testa&quot;)</span><br><span class="line"></span><br><span class="line">def Test_a():</span><br><span class="line">    print(&quot;Test_a&quot;)</span><br><span class="line"></span><br><span class="line">def Testa():</span><br><span class="line">    print(&quot;Testa&quot;)</span><br><span class="line"></span><br><span class="line">def a_test():</span><br><span class="line">    print(&quot;a_test&quot;)</span><br><span class="line"></span><br><span class="line">def atest():</span><br><span class="line">    print(&quot;atest&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm的terminal中进入到test_ex_003的目录，执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
+<p>显示结果如下，只有test_a和testa两个方法执行了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases\test_ex_003&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases\test_ex_003</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py test_a</span><br><span class="line">.testa</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed in 0.04s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<h4 id="4、类中的测试方法，要求类名必须以Test开头，类中的方法也必须以test开头"><a href="#4、类中的测试方法，要求类名必须以Test开头，类中的方法也必须以test开头" class="headerlink" title="4、类中的测试方法，要求类名必须以Test开头，类中的方法也必须以test开头"></a>4、类中的测试方法，要求类名必须以Test开头，类中的方法也必须以test开头</h4><p>文件结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----test_ex_004</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>其中 test_ex_01.py 文件中的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">class TestExample01:</span><br><span class="line">    def test_a(self):</span><br><span class="line">        print(&quot;TestExample01.test_a&quot;)</span><br><span class="line">    def testa(self):</span><br><span class="line">        print(&quot;TestExample01.testa&quot;)</span><br><span class="line">    def a_test(self):</span><br><span class="line">        print(&quot;TestExample01.a_test&quot;)</span><br><span class="line">    def atest(self):</span><br><span class="line">        print(&quot;TestExample01.atest&quot;)</span><br><span class="line">    def Test_a(self):</span><br><span class="line">        print(&quot;TestExample01.Test_a&quot;)</span><br><span class="line">    def Testa(self):</span><br><span class="line">        print(&quot;TestExample01.Testa&quot;)</span><br><span class="line"></span><br><span class="line">class Example01Test:</span><br><span class="line">    def test_a(self):</span><br><span class="line">        print(&quot;Example01Test.test_a&quot;)</span><br><span class="line">    def testa(self):</span><br><span class="line">        print(&quot;Example01Test.testa&quot;)</span><br><span class="line">    def a_test(self):</span><br><span class="line">        print(&quot;Example01Test.a_test&quot;)</span><br><span class="line">    def atest(self):</span><br><span class="line">        print(&quot;Example01Test.atest&quot;)</span><br><span class="line">    def Test_a(self):</span><br><span class="line">        print(&quot;Example01Test.Test_a&quot;)</span><br><span class="line">    def Testa(self):</span><br><span class="line">        print(&quot;Example01Test.Testa&quot;)</span><br><span class="line"></span><br><span class="line">class testExample01:</span><br><span class="line">    def test_a(self):</span><br><span class="line">        print(&quot;testExample01.test_a&quot;)</span><br><span class="line">    def testa(self):</span><br><span class="line">        print(&quot;testExample01.testa&quot;)</span><br><span class="line">    def a_test(self):</span><br><span class="line">        print(&quot;testExample01.a_test&quot;)</span><br><span class="line">    def atest(self):</span><br><span class="line">        print(&quot;testExample01.atest&quot;)</span><br><span class="line">    def Test_a(self):</span><br><span class="line">        print(&quot;testExample01.Test_a&quot;)</span><br><span class="line">    def Testa(self):</span><br><span class="line">        print(&quot;testExample01.Testa&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm的terminal中进入到test_ex_004的目录，执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
+<p>显示结果如下，只有TestExample01.test_a和TestExample01.testa两个方法执行了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example\cases\test_ex_004&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example\cases\test_ex_004</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py TestExample01.test_a</span><br><span class="line">.TestExample01.testa</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed in 0.07s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>查看当前已经安装的虚拟环境列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>激活指定名称的虚拟环境</li>
-</ul>
-<p>比如激活名称为Test1ENV的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate Test1Env</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>退出当前环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除虚拟环境</li>
-</ul>
-<p>比如删除名称为Test1Env的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda env remove -n Test1Env</span><br></pre></td></tr></table></figure>]]></content>
+<p>综上可以看出，pytest要求测试脚本的文件要以test开头，测试文件中的函数要以test开头，测试文件中的类要以Test开头，测试脚本中的测试类中的函数同样也要以test开头</p>
+<p>特别需要注意的是，老版本是支持以test结尾的函数的，但是新版本的pytest已经不再支持test结尾的函数了</p>
+]]></content>
       <categories>
-        <category>python基础</category>
+        <category>自动化测试</category>
       </categories>
       <tags>
-        <tag>python_env</tag>
+        <tag>python_pytest</tag>
       </tags>
   </entry>
   <entry>
