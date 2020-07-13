@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="使用文件组织用例的时候，如果想在所有用例之前只执行一次初始化操作，而当所有用例执行完成之后再进行公共的清理配置操作，在文件组织用例的形式下是做不到的，这个时候就需要使用测试类来组织用例 在使用类组织用例的时候，类名必须是Test开头，类不能有初始化函数init，类中的测试用例名称同样必须test开头，此外，类中可以有setup和teardown，setup是在类中每个用例执行之前执行，teardo">
+  <meta name="description" content="测试类中的setup与teardown共有三类：  setup_class 和 teardown_class 在类的所有用例之前和之后执行 setup_methond 和 teardown_method 在类中每个用例之前和之后执行 setup 和 teardown 也是在类中的每个用例之前和之后执行，但是setup在setup_method之后执行，teardown在teardown_metho">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytest系列(6)--使用类组织用例">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(6)--%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%BB%84%E7%BB%87%E7%94%A8%E4%BE%8B/index.html">
+<meta property="og:title" content="pytest系列(8)--测试类中的setup与teardown">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(8)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E4%B8%AD%E7%9A%84setup%E4%B8%8Eteardown/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="使用文件组织用例的时候，如果想在所有用例之前只执行一次初始化操作，而当所有用例执行完成之后再进行公共的清理配置操作，在文件组织用例的形式下是做不到的，这个时候就需要使用测试类来组织用例 在使用类组织用例的时候，类名必须是Test开头，类不能有初始化函数init，类中的测试用例名称同样必须test开头，此外，类中可以有setup和teardown，setup是在类中每个用例执行之前执行，teardo">
+<meta property="og:description" content="测试类中的setup与teardown共有三类：  setup_class 和 teardown_class 在类的所有用例之前和之后执行 setup_methond 和 teardown_method 在类中每个用例之前和之后执行 setup 和 teardown 也是在类中的每个用例之前和之后执行，但是setup在setup_method之后执行，teardown在teardown_metho">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-13T13:46:42.000Z">
-<meta property="article:modified_time" content="2020-07-13T14:02:12.433Z">
+<meta property="article:published_time" content="2020-07-13T17:53:33.000Z">
+<meta property="article:modified_time" content="2020-07-13T18:05:43.959Z">
 <meta property="article:author" content="微信：redrose2100">
 <meta property="article:tag" content="python_pytest">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(6)--%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%BB%84%E7%BB%87%E7%94%A8%E4%BE%8B/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(8)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E4%B8%AD%E7%9A%84setup%E4%B8%8Eteardown/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>pytest系列(6)--使用类组织用例 | Redrose2100的博客首页</title>
+  <title>pytest系列(8)--测试类中的setup与teardown | Redrose2100的博客首页</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(6)--%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%BB%84%E7%BB%87%E7%94%A8%E4%BE%8B/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(8)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E4%B8%AD%E7%9A%84setup%E4%B8%8Eteardown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -289,7 +289,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytest系列(6)--使用类组织用例
+          pytest系列(8)--测试类中的setup与teardown
         </h1>
 
         <div class="post-meta">
@@ -300,7 +300,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-13 21:46:42 / 修改时间：22:02:12" itemprop="dateCreated datePublished" datetime="2020-07-13T21:46:42+08:00">2020-07-13</time>
+              <time title="创建时间：2020-07-14 01:53:33 / 修改时间：02:05:43" itemprop="dateCreated datePublished" datetime="2020-07-14T01:53:33+08:00">2020-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,8 +328,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(6)--%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%BB%84%E7%BB%87%E7%94%A8%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(6)--%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%BB%84%E7%BB%87%E7%94%A8%E4%BE%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(8)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E4%B8%AD%E7%9A%84setup%E4%B8%8Eteardown/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(8)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E4%B8%AD%E7%9A%84setup%E4%B8%8Eteardown/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -339,7 +339,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -358,17 +358,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>使用文件组织用例的时候，如果想在所有用例之前只执行一次初始化操作，而当所有用例执行完成之后再进行公共的清理配置操作，在文件组织用例的形式下是做不到的，这个时候就需要使用测试类来组织用例</p>
-<p>在使用类组织用例的时候，类名必须是Test开头，类不能有初始化函数<strong>init</strong>，类中的测试用例名称同样必须test开头，此外，类中可以有setup和teardown，setup是在类中每个用例执行之前执行，teardown是在每个用例执行结束之后执行</p>
-<p>除此以外，类中还有setup_class和teardown_class，setup_class是在类的所有用例执行前执行一次，待所有用例执行结束之后，再执行testdown_class方法</p>
-<p>创建如下结构文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_006</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>其中test_ex_01.py文件中编写如下测试代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class TestFunction(object):</span><br><span class="line">    def setup_class(self):</span><br><span class="line">        print(&quot;\nin setup_class&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown_class(self):</span><br><span class="line">        print(&quot;in teardown_class&quot;)</span><br><span class="line"></span><br><span class="line">    def setup(self):</span><br><span class="line">        print(&quot;in setup&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown(self):</span><br><span class="line">        print(&quot;in teardown&quot;)</span><br><span class="line"></span><br><span class="line">    def test_func1(self):</span><br><span class="line">        print(&quot;in test_func1&quot;)</span><br><span class="line"></span><br><span class="line">    def test_func2(self):</span><br><span class="line">        print(&quot;in test_func2&quot;)</span><br><span class="line"></span><br><span class="line">    def test_func3(self):</span><br><span class="line">        print(&quot;in test_func3&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm的terminal中切换至ex_006的目录中，然后执行如下命令</p>
+        <p>测试类中的setup与teardown共有三类：</p>
+<ul>
+<li>setup_class 和 teardown_class 在类的所有用例之前和之后执行</li>
+<li>setup_methond 和 teardown_method 在类中每个用例之前和之后执行</li>
+<li>setup 和 teardown 也是在类中的每个用例之前和之后执行，但是setup在setup_method之后执行，teardown在teardown_methond之前执行</li>
+</ul>
+<p>建立如下文件结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_008</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>其中在test_ex_01.py中编写如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class TestExample():</span><br><span class="line"></span><br><span class="line">    def setup_class(self):</span><br><span class="line">        print(&quot;\nin setup_class&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown_class(self):</span><br><span class="line">        print(&quot;in teardown_class&quot;)</span><br><span class="line"></span><br><span class="line">    def setup_method(self):</span><br><span class="line">        print(&quot;in setup_method&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown_method(self):</span><br><span class="line">        print(&quot;in teardown_method&quot;)</span><br><span class="line"></span><br><span class="line">    def setup(self):</span><br><span class="line">        print(&quot;in setup&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown(self):</span><br><span class="line">        print(&quot;teardown&quot;)</span><br><span class="line"></span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm的terminal中切换至ex_008目录中，然后执行如下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：与上述分析结果一致</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_006&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_006</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in setup_class</span><br><span class="line">in setup</span><br><span class="line">in test_func1</span><br><span class="line">.in teardown</span><br><span class="line">in setup</span><br><span class="line">in test_func2</span><br><span class="line">.in teardown</span><br><span class="line">in setup</span><br><span class="line">in test_func3</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.04s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下，与上述分析结果一致：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_008&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_008</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in setup_class</span><br><span class="line">in setup_method</span><br><span class="line">in setup</span><br><span class="line">in test_01</span><br><span class="line">.teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in setup</span><br><span class="line">in test_02</span><br><span class="line">.teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in setup</span><br><span class="line">in test_03</span><br><span class="line">.teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in teardown_class</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.04s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -406,13 +409,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(5)--%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87%E7%94%A8%E4%BE%8B/" rel="prev" title="pytest系列(5)--使用文件组织用例">
-      <i class="fa fa-chevron-left"></i> pytest系列(5)--使用文件组织用例
+    <a href="/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(7)--%E6%96%AD%E8%A8%80%E4%BD%BF%E7%94%A8assert/" rel="prev" title="pytest系列(7)--断言使用assert">
+      <i class="fa fa-chevron-left"></i> pytest系列(7)--断言使用assert
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/13/pytest%E7%B3%BB%E5%88%97(7)--%E6%96%AD%E8%A8%80%E4%BD%BF%E7%94%A8assert/" rel="next" title="pytest系列(7)--断言使用assert">
-      pytest系列(7)--断言使用assert <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
