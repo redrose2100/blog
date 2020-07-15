@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="pytest的fixture另一个强大的功能就是在函数执行前后增加操作，类似setup和teardown操作，但是比setup和teardown的操作更加灵活 具体使用方式是同样定义一个函数，然后用装饰器标记为fixture，然后在此函数中使用一个yield语句，yield语句之前的就会在测试用例之前使用，yield之后的语句就会在测试用例执行完成之后再执行 创建如下文件结构： 12ex_012">
+  <meta name="description" content="fixture的第一种调用方式就是作为参数传入，在测试用例中按照参数位置的先后顺序执行 创建如下文件结构： 12ex_017   |----test_ex_01.py 在test_ex_01.py找那个编写如下代码：test_01中通过参数传入的方式调用一个fixture，而test_02则通过参数传递的方式调用两个fixture，这两个fixture的调用顺序跟参数的位置一致 123456789">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytest系列(12)--fixture功能-在函数执行前后插入操作">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="pytest系列(17)--fixture调用方式-参数传入">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(17)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-%E5%8F%82%E6%95%B0%E4%BC%A0%E5%85%A5/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="pytest的fixture另一个强大的功能就是在函数执行前后增加操作，类似setup和teardown操作，但是比setup和teardown的操作更加灵活 具体使用方式是同样定义一个函数，然后用装饰器标记为fixture，然后在此函数中使用一个yield语句，yield语句之前的就会在测试用例之前使用，yield之后的语句就会在测试用例执行完成之后再执行 创建如下文件结构： 12ex_012">
+<meta property="og:description" content="fixture的第一种调用方式就是作为参数传入，在测试用例中按照参数位置的先后顺序执行 创建如下文件结构： 12ex_017   |----test_ex_01.py 在test_ex_01.py找那个编写如下代码：test_01中通过参数传入的方式调用一个fixture，而test_02则通过参数传递的方式调用两个fixture，这两个fixture的调用顺序跟参数的位置一致 123456789">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-15T04:40:59.000Z">
-<meta property="article:modified_time" content="2020-07-15T04:55:06.090Z">
+<meta property="article:published_time" content="2020-07-15T18:00:02.000Z">
+<meta property="article:modified_time" content="2020-07-15T18:13:11.674Z">
 <meta property="article:author" content="微信：redrose2100">
 <meta property="article:tag" content="python_pytest">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(17)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-%E5%8F%82%E6%95%B0%E4%BC%A0%E5%85%A5/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>pytest系列(12)--fixture功能-在函数执行前后插入操作 | Redrose2100的博客首页</title>
+  <title>pytest系列(17)--fixture调用方式-参数传入 | Redrose2100的博客首页</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(17)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-%E5%8F%82%E6%95%B0%E4%BC%A0%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -289,7 +289,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytest系列(12)--fixture功能-在函数执行前后插入操作
+          pytest系列(17)--fixture调用方式-参数传入
         </h1>
 
         <div class="post-meta">
@@ -300,7 +300,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-15 12:40:59 / 修改时间：12:55:06" itemprop="dateCreated datePublished" datetime="2020-07-15T12:40:59+08:00">2020-07-15</time>
+              <time title="创建时间：2020-07-16 02:00:02 / 修改时间：02:13:11" itemprop="dateCreated datePublished" datetime="2020-07-16T02:00:02+08:00">2020-07-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,8 +328,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(17)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-%E5%8F%82%E6%95%B0%E4%BC%A0%E5%85%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(17)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-%E5%8F%82%E6%95%B0%E4%BC%A0%E5%85%A5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -339,7 +339,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -358,16 +358,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>pytest的fixture另一个强大的功能就是在函数执行前后增加操作，类似setup和teardown操作，但是比setup和teardown的操作更加灵活</p>
-<p>具体使用方式是同样定义一个函数，然后用装饰器标记为fixture，然后在此函数中使用一个yield语句，yield语句之前的就会在测试用例之前使用，yield之后的语句就会在测试用例执行完成之后再执行</p>
+        <p>fixture的第一种调用方式就是作为参数传入，在测试用例中按照参数位置的先后顺序执行</p>
 <p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_012</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>在test_ex_01.py文件中编写如下代码，实现一个fixture函数func，这里面有一个yield语句，它上面的都会在测试用例执行之前执行，它下面的会在测试用例执行之后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">@pytest.fixture()</span><br><span class="line">def func():</span><br><span class="line">    print(&quot;run before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;run after testcase......&quot;)</span><br><span class="line"></span><br><span class="line">def test_01(func):</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line">    </span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line">    </span><br><span class="line">def test_03(func):</span><br><span class="line">    print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm的terminal中切换到ex_012目录，然后执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_017</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>在test_ex_01.py找那个编写如下代码：test_01中通过参数传入的方式调用一个fixture，而test_02则通过参数传递的方式调用两个fixture，这两个fixture的调用顺序跟参数的位置一致</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">@pytest.fixture(scope&#x3D;&quot;function&quot;)</span><br><span class="line">def func1():</span><br><span class="line">    print(&quot;in fixture func1 before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in fixture func1 after testcase......&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.fixture(scope&#x3D;&quot;function&quot;)</span><br><span class="line">def func2():</span><br><span class="line">    print(&quot;in fixture func2 before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in fixture func2 after testcase......&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_01(func1):</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line">def test_02(func1,func2):</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm的terminal中进入到ex_017的目录，然后执行如下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：运行结果与分析一致，其中test_02这个测试用例的入参中没有设置func的参数，所以不会调用func的fixture功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_012&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_012</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py run before testcase......</span><br><span class="line">in test_01</span><br><span class="line">.run after testcase......</span><br><span class="line">in test_02</span><br><span class="line">.run before testcase......</span><br><span class="line">in test_03</span><br><span class="line">.run after testcase......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_017&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_017</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 2 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py in fixture func1 before testcase......</span><br><span class="line">in test_01</span><br><span class="line">.in fixture func1 after testcase......</span><br><span class="line">in fixture func1 before testcase......</span><br><span class="line">in fixture func2 before testcase......</span><br><span class="line">in test_02</span><br><span class="line">.in fixture func2 after testcase......</span><br><span class="line">in fixture func1 after testcase......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed in 0.02s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -405,13 +404,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(11)--fixture%E5%8A%9F%E8%83%BD-%E5%90%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%B3%A8%E5%85%A5%E5%8F%82%E6%95%B0/" rel="prev" title="pytest系列(11)--fixture功能-向测试用例注入参数">
-      <i class="fa fa-chevron-left"></i> pytest系列(11)--fixture功能-向测试用例注入参数
+    <a href="/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(16)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-session/" rel="prev" title="pytest系列(16)--fixture的作用范围-session">
+      <i class="fa fa-chevron-left"></i> pytest系列(16)--fixture的作用范围-session
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/" rel="next" title="pytest系列(13)--fixture的作用范围-function">
-      pytest系列(13)--fixture的作用范围-function <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
