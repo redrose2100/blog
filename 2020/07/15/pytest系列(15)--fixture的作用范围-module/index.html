@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在定义fuxture函数的时候，可以使用scope来定义fixture作用的范围，如果不指定，则默认为函数级，即与scope&#x3D;“function”是一样 定义为function级别，则只要在测试用例的参数中使用了fixture函数名，则就会在测试用例的之前和之后执行fixture对应的操作 创建如下文件结构： 12ex_013   |----test_ex_01.py 其中在test_ex_01.">
+  <meta name="description" content="在python中module即文件，所有fixture定义为module时，顾名思义，此fixture将在当前文件中去起作用 这里需要特别说明的是，当fixture的scope定义为module时，只要当前文件中有一个测试用例使用了fixture，不管这个用例是在类外，还是在类中，都会在当前文件（模块）的所有测试用例执行之前去执行fixture定义的行为以及当前文件的所有用例结束之后同样去执行fi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytest系列(13)--fixture的作用范围-function">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/index.html">
+<meta property="og:title" content="pytest系列(15)--fixture的作用范围-module">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(15)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-module/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="在定义fuxture函数的时候，可以使用scope来定义fixture作用的范围，如果不指定，则默认为函数级，即与scope&#x3D;“function”是一样 定义为function级别，则只要在测试用例的参数中使用了fixture函数名，则就会在测试用例的之前和之后执行fixture对应的操作 创建如下文件结构： 12ex_013   |----test_ex_01.py 其中在test_ex_01.">
+<meta property="og:description" content="在python中module即文件，所有fixture定义为module时，顾名思义，此fixture将在当前文件中去起作用 这里需要特别说明的是，当fixture的scope定义为module时，只要当前文件中有一个测试用例使用了fixture，不管这个用例是在类外，还是在类中，都会在当前文件（模块）的所有测试用例执行之前去执行fixture定义的行为以及当前文件的所有用例结束之后同样去执行fi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-15T14:37:12.000Z">
-<meta property="article:modified_time" content="2020-07-15T14:48:45.992Z">
+<meta property="article:published_time" content="2020-07-15T15:14:28.000Z">
+<meta property="article:modified_time" content="2020-07-15T15:26:15.547Z">
 <meta property="article:author" content="微信：redrose2100">
 <meta property="article:tag" content="python_pytest">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(15)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-module/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>pytest系列(13)--fixture的作用范围-function | Redrose2100的博客首页</title>
+  <title>pytest系列(15)--fixture的作用范围-module | Redrose2100的博客首页</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(15)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -289,7 +289,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytest系列(13)--fixture的作用范围-function
+          pytest系列(15)--fixture的作用范围-module
         </h1>
 
         <div class="post-meta">
@@ -300,7 +300,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-15 22:37:12 / 修改时间：22:48:45" itemprop="dateCreated datePublished" datetime="2020-07-15T22:37:12+08:00">2020-07-15</time>
+              <time title="创建时间：2020-07-15 23:14:28 / 修改时间：23:26:15" itemprop="dateCreated datePublished" datetime="2020-07-15T23:14:28+08:00">2020-07-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -328,8 +328,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(15)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-module/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(15)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-module/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -339,7 +339,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.7k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -358,18 +358,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在定义fuxture函数的时候，可以使用scope来定义fixture作用的范围，如果不指定，则默认为函数级，即与scope=“function”是一样</p>
-<p>定义为function级别，则只要在测试用例的参数中使用了fixture函数名，则就会在测试用例的之前和之后执行fixture对应的操作</p>
+        <p>在python中module即文件，所有fixture定义为module时，顾名思义，此fixture将在当前文件中去起作用</p>
+<p>这里需要特别说明的是，当fixture的scope定义为module时，只要当前文件中有一个测试用例使用了fixture，不管这个用例是在类外，还是在类中，都会在当前文件（模块）的所有测试用例执行之前去执行fixture定义的行为以及当前文件的所有用例结束之后同样去执行fixture定义的对应操作</p>
 <p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_013</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>其中在test_ex_01.py中编写如下代码，即定义了两个fixture，func1为未明确指定scope的范围，func2指定了scope的值为function，在类外定义了三个测试用例，其中test_03为使用fixture，在测试类中也定义了三个测试用例方法，test_03也未应用fixture</p>
-<p>当fixture的scope未指定或指定为function时，不管是类外的测试用例还是测试类中的测试用例方法，只要在测试用例方法的参数中指定了fixture，则都会在每个测试用例之前和之后执行fixture定义的对应的操作</p>
-<p>test_ex_01.py中代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@pytest.fixture()</span><br><span class="line">def func1():</span><br><span class="line">    print(&quot;\nin func1 before testcase.......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in func1 after testcase......&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@pytest.fixture(scope&#x3D;&quot;function&quot;)</span><br><span class="line">def func2():</span><br><span class="line">    print(&quot;\nin func2 before testcase.......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in func2 after testcase......&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_01(func1):</span><br><span class="line">    print(&quot;in outer class test_01&quot;)</span><br><span class="line"></span><br><span class="line">def test_02(func2):</span><br><span class="line">    print(&quot;in outer class test_02&quot;)</span><br><span class="line"></span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;\nin outer class test_03&quot;)</span><br><span class="line"></span><br><span class="line">class TestExample:</span><br><span class="line"></span><br><span class="line">    def test_01(self,func1):</span><br><span class="line">        print(&quot;in inner class test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self,func2):</span><br><span class="line">        print(&quot;in inner class test_02&quot;)</span><br><span class="line"></span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;\nin inner class test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm的terminal中切换至ex_013的目录中，然后执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_015</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>test_ex_01.py文件中编写如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">@pytest.fixture(scope&#x3D;&quot;module&quot;)</span><br><span class="line">def func():</span><br><span class="line">    print(&quot;\nin fixture before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in fixture after testcase......&quot;)</span><br><span class="line"></span><br><span class="line">def test_01(func):</span><br><span class="line">    print(&quot;in outer class test_01&quot;)</span><br><span class="line"></span><br><span class="line">def test_02(func):</span><br><span class="line">    print(&quot;in outer class test_02&quot;)</span><br><span class="line"></span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;\nin outer class test_03&quot;)</span><br><span class="line"></span><br><span class="line">class TestExample:</span><br><span class="line"></span><br><span class="line">    def test_01(self,func):</span><br><span class="line">        print(&quot;in inner class test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self,func):</span><br><span class="line">        print(&quot;in inner class test_02&quot;)</span><br><span class="line"></span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;\nin inner class test_03&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm中的termin中切换至ex_015目录下，然后执行如下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下，与上述分析结论一致：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_013&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_013</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 6 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in func1 before testcase.......</span><br><span class="line">in outer class test_01</span><br><span class="line">.in func1 after testcase......</span><br><span class="line"></span><br><span class="line">in func2 before testcase.......</span><br><span class="line">in outer class test_02</span><br><span class="line">.in func2 after testcase......</span><br><span class="line"></span><br><span class="line">in outer class test_03</span><br><span class="line">.</span><br><span class="line">in func1 before testcase.......</span><br><span class="line">in inner class test_01</span><br><span class="line">.in func1 after testcase......</span><br><span class="line"></span><br><span class="line">in func2 before testcase.......</span><br><span class="line">in inner class test_02</span><br><span class="line">.in func2 after testcase......</span><br><span class="line"></span><br><span class="line">in inner class test_03</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 6 passed in 0.03s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_015&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_015</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 6 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in fixture before testcase......</span><br><span class="line">in outer class test_01</span><br><span class="line">.in outer class test_02</span><br><span class="line">.</span><br><span class="line">in outer class test_03</span><br><span class="line">.in inner class test_01</span><br><span class="line">.in inner class test_02</span><br><span class="line">.</span><br><span class="line">in inner class test_03</span><br><span class="line">.in fixture after testcase......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 6 passed in 0.03s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -407,13 +405,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/" rel="prev" title="pytest系列(12)--fixture功能-在函数执行前后插入操作">
-      <i class="fa fa-chevron-left"></i> pytest系列(12)--fixture功能-在函数执行前后插入操作
+    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(14)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-class/" rel="prev" title="pytest系列(14)--fixture的作用范围-class">
+      <i class="fa fa-chevron-left"></i> pytest系列(14)--fixture的作用范围-class
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(14)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-class/" rel="next" title="pytest系列(14)--fixture的作用范围-class">
-      pytest系列(14)--fixture的作用范围-class <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
