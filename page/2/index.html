@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,127 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/11/pytest%E7%B3%BB%E5%88%97(1)--%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/11/pytest%E7%B3%BB%E5%88%97(1)--%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">pytest系列(1)--环境安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-11 09:12:11" itemprop="dateCreated datePublished" datetime="2020-07-11T09:12:11+08:00">2020-07-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-12 22:45:27" itemprop="dateModified" datetime="2020-07-12T22:45:27+08:00">2020-07-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/07/11/pytest%E7%B3%BB%E5%88%97(1)--%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/11/pytest%E7%B3%BB%E5%88%97(1)--%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>781</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p>
+<h4 id="1、安装python3-8-3的虚拟环境"><a href="#1、安装python3-8-3的虚拟环境" class="headerlink" title="1、安装python3.8.3的虚拟环境"></a>1、安装python3.8.3的虚拟环境</h4><p>打开cmd窗口，执行如下命令安装名为PytestEnv的基于python3.8.3的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n PytestEnv python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、激活名为PytestEnv的虚拟环境"><a href="#2、激活名为PytestEnv的虚拟环境" class="headerlink" title="2、激活名为PytestEnv的虚拟环境"></a>2、激活名为PytestEnv的虚拟环境</h4><p>执行如下命令激活名为PytestEnv的虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate PytestEnv</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、安装pytest"><a href="#3、安装pytest" class="headerlink" title="3、安装pytest"></a>3、安装pytest</h4><p>执行如下命令安装pytest</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4、安装pytest-html"><a href="#4、安装pytest-html" class="headerlink" title="4、安装pytest-html"></a>4、安装pytest-html</h4><p>执行如下命令，安装pytest-html，用于生成测试用例的html报告</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest-html</span><br></pre></td></tr></table></figure>
+<h4 id="5、查看安装的pytest版本"><a href="#5、查看安装的pytest版本" class="headerlink" title="5、查看安装的pytest版本"></a>5、查看安装的pytest版本</h4><p>执行如下命令查看pytest版本信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version</span><br></pre></td></tr></table></figure>
+<p>显示信息如下所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation&gt;pytest --version</span><br><span class="line">This is pytest version 5.4.3, imported from d:\miniconda\envs\pytestenv\lib\site-packages\pytest\__init__.py</span><br><span class="line">setuptools registered plugins:</span><br><span class="line">  pytest-html-2.1.1 at d:\miniconda\envs\pytestenv\lib\site-packages\pytest_html\plugin.py</span><br><span class="line">  pytest-metadata-1.10.0 at d:\miniconda\envs\pytestenv\lib\site-packages\pytest_metadata\plugin.py</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -826,12 +947,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">43k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">36 分钟</span>
+    <span title="站点阅读时长">39 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
