@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,109 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(10)--%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97%E7%9A%84setup%E5%92%8Cteardown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(10)--%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97%E7%9A%84setup%E5%92%8Cteardown/" class="post-title-link" itemprop="url">pytest系列(10)--测试模块的setup和teardown</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-14 02:36:18 / 修改时间：02:51:07" itemprop="dateCreated datePublished" datetime="2020-07-14T02:36:18+08:00">2020-07-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(10)--%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97%E7%9A%84setup%E5%92%8Cteardown/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(10)--%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97%E7%9A%84setup%E5%92%8Cteardown/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>测试模块的setup和teardown只有一种，即：setup_module和teardown_module，在模块即文件中的所有测试用例包括测试类中和测试类外的之前和之后运行一次</p>
+<p>创建如下文件结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_010</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>在test_ex_01.py文件中编写如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">def setup_module():</span><br><span class="line">    print(&quot;\nin setup_module&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown_module():</span><br><span class="line">    print(&quot;in teardown_module&quot;)</span><br><span class="line">    </span><br><span class="line">def setup_function():</span><br><span class="line">    print(&quot;in setup_function&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown_function():</span><br><span class="line">    print(&quot;in teardown_function&quot;)</span><br><span class="line">    </span><br><span class="line">def setup():</span><br><span class="line">    print(&quot;in class outer setup&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown():</span><br><span class="line">    print(&quot;in class outer teardown&quot;)</span><br><span class="line">    </span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in class outer test_01&quot;)</span><br><span class="line">    </span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in class outer test_02&quot;)</span><br><span class="line">    </span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;in class outer test_03&quot;)</span><br><span class="line">    </span><br><span class="line">class TestExample():</span><br><span class="line">    def setup_class(self):</span><br><span class="line">        print(&quot;in setup_class&quot;)</span><br><span class="line">        </span><br><span class="line">    def testdown_class(self):</span><br><span class="line">        print(&quot;in teardown_class&quot;)</span><br><span class="line">        </span><br><span class="line">    def setup_method(self):</span><br><span class="line">        print(&quot;in setup_method&quot;)</span><br><span class="line">        </span><br><span class="line">    def teardown_method(self):</span><br><span class="line">        print(&quot;in teardown_method&quot;)</span><br><span class="line">        </span><br><span class="line">    def setup(self):</span><br><span class="line">        print(&quot;in class inner setup&quot;)</span><br><span class="line">        </span><br><span class="line">    def teardown(self):</span><br><span class="line">        print(&quot;in class inner teardown&quot;)</span><br><span class="line">    </span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in class inner test_01&quot;)</span><br><span class="line">        </span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in class inner test_02&quot;)</span><br><span class="line">    </span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;in class inner test_03&quot;)</span><br></pre></td></tr></table></figure>
+<p>在pycharm的terminal中切换到ex_010的目录中，然后执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
+<p>运行结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_010&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_010</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 7 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in setup_module</span><br><span class="line">in setup_function</span><br><span class="line">in class outer setup</span><br><span class="line">in class outer test_01</span><br><span class="line">.in class outer teardown</span><br><span class="line">in teardown_function</span><br><span class="line">in setup_function</span><br><span class="line">in class outer setup</span><br><span class="line">in class outer test_02</span><br><span class="line">.in class outer teardown</span><br><span class="line">in teardown_function</span><br><span class="line">in setup_function</span><br><span class="line">in class outer setup</span><br><span class="line">in class outer test_03</span><br><span class="line">.in class outer teardown</span><br><span class="line">in teardown_function</span><br><span class="line">in setup_class</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in teardown_class</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in class inner test_01</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in class inner test_02</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in class inner test_03</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in teardown_module</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 7 passed in 0.06s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1246,124 +1349,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">RobotFramework系列-环境安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-11 00:33:16" itemprop="dateCreated datePublished" datetime="2020-07-11T00:33:16+08:00">2020-07-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-12 21:36:35" itemprop="dateModified" datetime="2020-07-12T21:36:35+08:00">2020-07-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-robotframework/" itemprop="url" rel="index"><span itemprop="name">python_robotframework</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>460</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p>
-<h4 id="1、安装python3-7-6的虚拟环境"><a href="#1、安装python3-7-6的虚拟环境" class="headerlink" title="1、安装python3.7.6的虚拟环境"></a>1、安装python3.7.6的虚拟环境</h4><p>打开cmd，执行如下命令创建python3.7.6的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n RobotFrameworkEnv python&#x3D;3.7.6</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、激活RobotFrameworkEnv虚拟环境"><a href="#2、激活RobotFrameworkEnv虚拟环境" class="headerlink" title="2、激活RobotFrameworkEnv虚拟环境"></a>2、激活RobotFrameworkEnv虚拟环境</h4><p>执行如下命令，激活RobotFrameworkEnv虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate RobotFrameworkEnv</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、安装RobotFramework包"><a href="#3、安装RobotFramework包" class="headerlink" title="3、安装RobotFramework包"></a>3、安装RobotFramework包</h4><p>执行如下命令，安装RobotFramework包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、安装wxPython包"><a href="#4、安装wxPython包" class="headerlink" title="4、安装wxPython包"></a>4、安装wxPython包</h4><p>执行如下命令，安装wxPython</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wxpython</span><br></pre></td></tr></table></figure>
-
-<h4 id="5、安装Ride编辑器"><a href="#5、安装Ride编辑器" class="headerlink" title="5、安装Ride编辑器"></a>5、安装Ride编辑器</h4><p>执行如下命令，安装RobotFramework-ride编辑器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework-ride</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、启动RF"><a href="#6、启动RF" class="headerlink" title="6、启动RF"></a>6、启动RF</h4><p>在cmd中执行如下命令，即可启动RobotFramework的图形化界面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ride</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1418,12 +1403,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">69k</span>
+    <span title="站点总字数">74k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:03</span>
+    <span title="站点阅读时长">1:08</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
