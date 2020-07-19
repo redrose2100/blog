@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,110 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">pytest系列(24)--pytest的skip和skipif-嵌套使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-19 20:51:04 / 修改时间：21:04:47" itemprop="dateCreated datePublished" datetime="2020-07-19T20:51:04+08:00">2020-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>pytest 的skip/skipif在跳过模块，跳过类，跳过函数这个三个层级是可以嵌套使用的，嵌套使用的规则就是只要有一个是真，则执行跳过操作</p>
+<p>创建如下文件结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_024</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
+<p>其中在test_ex_01.py编写如下在代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"># 因为1！&#x3D;2 ，所以这个跳过不会生效</span><br><span class="line">pytestmark&#x3D;pytest.mark.skipif(1&#x3D;&#x3D;2,reason&#x3D;&quot;跳过模块&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 因为没有skip生效，所以此用例会执行</span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"># 因为这个函数层级的skiif中1&#x3D;&#x3D;1为真，所以skip会生效，即不会执行此用例</span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;1,reason&#x3D;&quot;跳过test_02&quot;)</span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 此类没有类层级的skip</span><br><span class="line">class TestExample01():</span><br><span class="line">    # 因为函数层级的skip为真，会跳过</span><br><span class="line">    @pytest.mark.skipif(2&#x3D;&#x3D;2,reaon&#x3D;&quot;跳过test_01&quot;)</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br><span class="line"></span><br><span class="line">因为类层级的skip会生效，所以这个类中的所有测试函数都不会执行</span><br><span class="line">@pytest.mark.skip(&quot;跳过TestExample02类&quot;)</span><br><span class="line">class TestExample02():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample02.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample02.test_02&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>在pycharm中的terminal中切入到ex_024目录中，然后执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_024&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_024</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 6 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py in test_01</span><br><span class="line">.ssin TestExample01.test_02</span><br><span class="line">.ss</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed, 4 skipped in 0.03s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1215,113 +1319,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(14)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(14)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-class/" class="post-title-link" itemprop="url">pytest系列(14)--fixture的作用范围-class</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-15 22:55:14 / 修改时间：23:04:13" itemprop="dateCreated datePublished" datetime="2020-07-15T22:55:14+08:00">2020-07-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(14)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-class/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(14)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-class/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>fixture的scope值还可以是class，此时则fixture定义的动作就会在测试类class的所有用例之前和之后运行，这里需要注意两点</p>
-<ul>
-<li>测试类中只要有一个测试用例的参数中使用了class级别的fixture，则在整个测试类的所有测试用例之前都会去执行fixture定义的动作，以及此测试类的所有用例结束后同样要运行fixture指定的动作</li>
-<li>如果在类外的函数中去使用class级别的fixture，则此时在测试类外每个测试用例中，fixture跟上一节讲的function级别的fixture作用是一致的，即在类外的函数中弱引用了fixture，则在此函数之前和之后同样去执行fixture定义的对应的操作</li>
-</ul>
-<p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_014</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>在test_ex_01.py文件中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">@pytest.fixture(scope&#x3D;&quot;class&quot;)</span><br><span class="line">def func():</span><br><span class="line">    print(&quot;\nin fixture before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in fixture after testcase......&quot;)</span><br><span class="line"></span><br><span class="line">def test_01(func):</span><br><span class="line">    print(&quot;in outer class test_01&quot;)</span><br><span class="line"></span><br><span class="line">def test_02(func):</span><br><span class="line">    print(&quot;in outer class test_02&quot;)</span><br><span class="line"></span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;\nin outer class test_03&quot;)</span><br><span class="line"></span><br><span class="line">class TestExample:</span><br><span class="line"></span><br><span class="line">    def test_01(self,func):</span><br><span class="line">        print(&quot;in inner class test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self,func):</span><br><span class="line">        print(&quot;in inner class test_02&quot;)</span><br><span class="line"></span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;\nin inner class test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm的terminal中切换至ex_014的目录中，然后执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_014&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_014</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 6 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in fixture before testcase......</span><br><span class="line">in outer class test_01</span><br><span class="line">.in fixture after testcase......</span><br><span class="line"></span><br><span class="line">in fixture before testcase......</span><br><span class="line">in outer class test_02</span><br><span class="line">.in fixture after testcase......</span><br><span class="line"></span><br><span class="line">in outer class test_03</span><br><span class="line">.</span><br><span class="line">in fixture before testcase......</span><br><span class="line">in inner class test_01</span><br><span class="line">.in inner class test_02</span><br><span class="line">.</span><br><span class="line">in inner class test_03</span><br><span class="line">.in fixture after testcase......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 6 passed in 0.04s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1376,12 +1373,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">88k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:20</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
