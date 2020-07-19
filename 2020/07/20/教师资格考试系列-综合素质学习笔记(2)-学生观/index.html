@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="pytest的fixture另一个强大的功能就是在函数执行前后增加操作，类似setup和teardown操作，但是比setup和teardown的操作更加灵活 具体使用方式是同样定义一个函数，然后用装饰器标记为fixture，然后在此函数中使用一个yield语句，yield语句之前的就会在测试用例之前使用，yield之后的语句就会在测试用例执行完成之后再执行 创建如下文件结构： 12ex_012">
+  <meta name="description" content="理解记忆知识点：1 以人文本的学生观的内涵 （1）学生是具有独立意义的主体，是不以教师意志为转移的客观存在 （2）学生是有个性和差异的人，具有自身的独特性 （3）学生是发展中的人，具有巨大的发展潜力 1）学生的身心发展具有规律性 2）学生具有巨大的发展潜能 3）学生是处于发展过程中的人 4）学生的发展是全面的发展    选择题知识点：1 人的全面发展思想（马克思关于“人的全面发展”思想） （1）人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytest系列(12)--fixture功能-在函数执行前后插入操作">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="教师资格考试系列--综合素质学习笔记(2)-学生观">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/20/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)-%E5%AD%A6%E7%94%9F%E8%A7%82/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="pytest的fixture另一个强大的功能就是在函数执行前后增加操作，类似setup和teardown操作，但是比setup和teardown的操作更加灵活 具体使用方式是同样定义一个函数，然后用装饰器标记为fixture，然后在此函数中使用一个yield语句，yield语句之前的就会在测试用例之前使用，yield之后的语句就会在测试用例执行完成之后再执行 创建如下文件结构： 12ex_012">
+<meta property="og:description" content="理解记忆知识点：1 以人文本的学生观的内涵 （1）学生是具有独立意义的主体，是不以教师意志为转移的客观存在 （2）学生是有个性和差异的人，具有自身的独特性 （3）学生是发展中的人，具有巨大的发展潜力 1）学生的身心发展具有规律性 2）学生具有巨大的发展潜能 3）学生是处于发展过程中的人 4）学生的发展是全面的发展    选择题知识点：1 人的全面发展思想（马克思关于“人的全面发展”思想） （1）人">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-15T04:40:59.000Z">
-<meta property="article:modified_time" content="2020-07-15T04:55:06.090Z">
+<meta property="article:published_time" content="2020-07-19T16:29:13.000Z">
+<meta property="article:modified_time" content="2020-07-19T17:29:17.281Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="python_pytest">
+<meta property="article:tag" content="教师资格考试">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/20/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)-%E5%AD%A6%E7%94%9F%E8%A7%82/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>pytest系列(12)--fixture功能-在函数执行前后插入操作 | Redrose2100的博客首页</title>
+  <title>教师资格考试系列--综合素质学习笔记(2)-学生观 | Redrose2100的博客首页</title>
   
 
 
@@ -193,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -205,6 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#理解记忆知识点："><span class="nav-number">1.</span> <span class="nav-text">理解记忆知识点：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-以人文本的学生观的内涵"><span class="nav-number">1.0.1.</span> <span class="nav-text">1 以人文本的学生观的内涵</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择题知识点："><span class="nav-number">2.</span> <span class="nav-text">选择题知识点：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-人的全面发展思想（马克思关于“人的全面发展”思想）"><span class="nav-number">2.0.1.</span> <span class="nav-text">1 人的全面发展思想（马克思关于“人的全面发展”思想）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-全面发展教育的含义："><span class="nav-number">2.0.2.</span> <span class="nav-text">2 全面发展教育的含义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-全面发展教育的构成："><span class="nav-number">2.0.3.</span> <span class="nav-text">3 全面发展教育的构成：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-以为本的教育内涵"><span class="nav-number">2.0.4.</span> <span class="nav-text">4 以为本的教育内涵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-学生是具有独立意义的主体，是不以教师意志为转移的客观存在"><span class="nav-number">2.0.5.</span> <span class="nav-text">5 学生是具有独立意义的主体，是不以教师意志为转移的客观存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-学生是有个性和差异的人，具有自身的独特性"><span class="nav-number">2.0.6.</span> <span class="nav-text">6 学生是有个性和差异的人，具有自身的独特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-学生的身心发展具有规律性"><span class="nav-number">2.0.7.</span> <span class="nav-text">7 学生的身心发展具有规律性</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -276,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/20/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)-%E5%AD%A6%E7%94%9F%E8%A7%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -289,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytest系列(12)--fixture功能-在函数执行前后插入操作
+          教师资格考试系列--综合素质学习笔记(2)-学生观
         </h1>
 
         <div class="post-meta">
@@ -300,7 +301,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-15 12:40:59 / 修改时间：12:55:06" itemprop="dateCreated datePublished" datetime="2020-07-15T12:40:59+08:00">2020-07-15</time>
+              <time title="创建时间：2020-07-20 00:29:13 / 修改时间：01:29:17" itemprop="dateCreated datePublished" datetime="2020-07-20T00:29:13+08:00">2020-07-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +309,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
+                  <a href="/blog/categories/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">教师资格考试</span></a>
                 </span>
             </span>
 
@@ -328,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(12)--fixture%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E5%89%8D%E5%90%8E%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/07/20/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)-%E5%AD%A6%E7%94%9F%E8%A7%82/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/20/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)-%E5%AD%A6%E7%94%9F%E8%A7%82/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -339,14 +340,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>942</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -358,16 +359,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>pytest的fixture另一个强大的功能就是在函数执行前后增加操作，类似setup和teardown操作，但是比setup和teardown的操作更加灵活</p>
-<p>具体使用方式是同样定义一个函数，然后用装饰器标记为fixture，然后在此函数中使用一个yield语句，yield语句之前的就会在测试用例之前使用，yield之后的语句就会在测试用例执行完成之后再执行</p>
-<p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_012</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>在test_ex_01.py文件中编写如下代码，实现一个fixture函数func，这里面有一个yield语句，它上面的都会在测试用例执行之前执行，它下面的会在测试用例执行之后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">@pytest.fixture()</span><br><span class="line">def func():</span><br><span class="line">    print(&quot;run before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;run after testcase......&quot;)</span><br><span class="line"></span><br><span class="line">def test_01(func):</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line">    </span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line">    </span><br><span class="line">def test_03(func):</span><br><span class="line">    print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm的terminal中切换到ex_012目录，然后执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：运行结果与分析一致，其中test_02这个测试用例的入参中没有设置func的参数，所以不会调用func的fixture功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_012&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_012</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py run before testcase......</span><br><span class="line">in test_01</span><br><span class="line">.run after testcase......</span><br><span class="line">in test_02</span><br><span class="line">.run before testcase......</span><br><span class="line">in test_03</span><br><span class="line">.run after testcase......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+        <h1 id="理解记忆知识点："><a href="#理解记忆知识点：" class="headerlink" title="理解记忆知识点："></a>理解记忆知识点：</h1><h3 id="1-以人文本的学生观的内涵"><a href="#1-以人文本的学生观的内涵" class="headerlink" title="1 以人文本的学生观的内涵"></a>1 以人文本的学生观的内涵</h3><ul>
+<li>（1）学生是具有独立意义的主体，是不以教师意志为转移的客观存在</li>
+<li>（2）学生是有个性和差异的人，具有自身的独特性</li>
+<li>（3）学生是发展中的人，具有巨大的发展潜力<ul>
+<li>1）学生的身心发展具有规律性</li>
+<li>2）学生具有巨大的发展潜能</li>
+<li>3）学生是处于发展过程中的人</li>
+<li>4）学生的发展是全面的发展</li>
+</ul>
+</li>
+</ul>
+<h1 id="选择题知识点："><a href="#选择题知识点：" class="headerlink" title="选择题知识点："></a>选择题知识点：</h1><h3 id="1-人的全面发展思想（马克思关于“人的全面发展”思想）"><a href="#1-人的全面发展思想（马克思关于“人的全面发展”思想）" class="headerlink" title="1 人的全面发展思想（马克思关于“人的全面发展”思想）"></a>1 人的全面发展思想（马克思关于“人的全面发展”思想）</h3><ul>
+<li>（1）人的发展与其所处的社会生活是相联系的</li>
+<li>（2）旧式分工造成了人的片面发展</li>
+<li>（3）机器大工业生产为人的全面发展提供了基础和可能</li>
+<li>（4）社会主义制度是实现人的全面发展的社会制度条件</li>
+<li>（5）教育与生产劳动相结合是培养全面发展的人的唯一途径<h3 id="2-全面发展教育的含义："><a href="#2-全面发展教育的含义：" class="headerlink" title="2 全面发展教育的含义："></a>2 全面发展教育的含义：</h3></li>
+<li>是对含有各方面的素质培养功能的整体教育的一种概括，是对为使受教育者多方面得到发展而实施的多种素质培养的教育活动的综合，是由多种相互联系而又各具特点的教育所组成<h3 id="3-全面发展教育的构成："><a href="#3-全面发展教育的构成：" class="headerlink" title="3 全面发展教育的构成："></a>3 全面发展教育的构成：</h3></li>
+<li>德育、智育、体育、美育、劳动技术教育是全面发展教育的基本组成部分<h3 id="4-以为本的教育内涵"><a href="#4-以为本的教育内涵" class="headerlink" title="4 以为本的教育内涵"></a>4 以为本的教育内涵</h3>教育活动中的“以人文本”，就是以全体学生的全面发展为本，“以学生为本”是“以人文本”的教育延展</li>
+</ul>
+<p>主要体现在：</p>
+<ul>
+<li>（1）必须面向全体学生</li>
+<li>（2）必须以学生作为教育活动的出发点</li>
+<li>（3）必须以促进学生全面发展为目标<h3 id="5-学生是具有独立意义的主体，是不以教师意志为转移的客观存在"><a href="#5-学生是具有独立意义的主体，是不以教师意志为转移的客观存在" class="headerlink" title="5 学生是具有独立意义的主体，是不以教师意志为转移的客观存在"></a>5 学生是具有独立意义的主体，是不以教师意志为转移的客观存在</h3><ul>
+<li>1）学生在教育活动中处于主题地位</li>
+<li>2）学生具有个体独立性，不以教师意志为转移</li>
+<li>3）学生在教育活动中具有主题的需求和责权<h3 id="6-学生是有个性和差异的人，具有自身的独特性"><a href="#6-学生是有个性和差异的人，具有自身的独特性" class="headerlink" title="6 学生是有个性和差异的人，具有自身的独特性"></a>6 学生是有个性和差异的人，具有自身的独特性</h3></li>
+<li>1）学生是完整的人</li>
+<li>2）每个学生都有其自身的独特性</li>
+<li>3）学生与成人之间存在着巨大的差异<h3 id="7-学生的身心发展具有规律性"><a href="#7-学生的身心发展具有规律性" class="headerlink" title="7 学生的身心发展具有规律性"></a>7 学生的身心发展具有规律性</h3></li>
+<li>个体身心发展的一般规律：顺序性、阶段性、不平衡性、互补性和个别差异性</li>
+<li>a）顺序性：教育者应该按照学生身心发展规律进行施教，要循序渐进，不能拔苗助长</li>
+<li>b）阶段性：身心发展的阶段性规律决定教育工作者必须根据不同年龄阶段的特点分阶段进行</li>
+<li>c）不平衡性：统一方面发展速度在不同年龄阶段不均衡，不同方面在不同发展时期具有不均衡性，适时而教，即要在儿童发展的关键时期或最佳时期及时进行教育</li>
+<li>d）互补性：扬长避短，注重发展学生的自身优势，促进学生的个性发展</li>
+<li>e）个别差异性：每个人都是不同的，要求教育者要因材施教</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -396,7 +428,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/python-pytest/" rel="tag"># python_pytest</a>
+              <a href="/blog/tags/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95/" rel="tag"># 教师资格考试</a>
           </div>
 
         
@@ -405,13 +437,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(11)--fixture%E5%8A%9F%E8%83%BD-%E5%90%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%B3%A8%E5%85%A5%E5%8F%82%E6%95%B0/" rel="prev" title="pytest系列(11)--fixture功能-向测试用例注入参数">
-      <i class="fa fa-chevron-left"></i> pytest系列(11)--fixture功能-向测试用例注入参数
+    <a href="/blog/2020/07/19/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)-%E6%95%99%E8%82%B2%E8%A7%82/" rel="prev" title="教师资格考试系列--综合素质学习笔记(1)-教育观">
+      <i class="fa fa-chevron-left"></i> 教师资格考试系列--综合素质学习笔记(1)-教育观
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/15/pytest%E7%B3%BB%E5%88%97(13)--fixture%E7%9A%84%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4-function/" rel="next" title="pytest系列(13)--fixture的作用范围-function">
-      pytest系列(13)--fixture的作用范围-function <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
