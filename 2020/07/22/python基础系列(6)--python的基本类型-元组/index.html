@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="pytest 的skip&#x2F;skipif在跳过模块，跳过类，跳过函数这个三个层级是可以嵌套使用的，嵌套使用的规则就是只要有一个是真，则执行跳过操作 创建如下文件结构： 12ex_024   |----test_ex_01.py 其中在test_ex_01.py编写如下在代码 12345678910111213141516171819202122232425262728293031323334impo">
+  <meta name="description" content="1 元组的定义及特点12345&gt;&gt;&gt; type((1,2,3,4))&lt;class &#39;tuple&#39;&gt;&gt;&gt;&gt; type((&quot;hello&quot;,True,1,2,4))&lt;class &#39;tuple&#39;&gt;&gt;&gt;&gt; 2 元组的常用运算1234567891011121314151617181">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytest系列(24)--pytest的skip和skipif-嵌套使用">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="python基础系列(6)--python的基本类型-元组">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="pytest 的skip&#x2F;skipif在跳过模块，跳过类，跳过函数这个三个层级是可以嵌套使用的，嵌套使用的规则就是只要有一个是真，则执行跳过操作 创建如下文件结构： 12ex_024   |----test_ex_01.py 其中在test_ex_01.py编写如下在代码 12345678910111213141516171819202122232425262728293031323334impo">
+<meta property="og:description" content="1 元组的定义及特点12345&gt;&gt;&gt; type((1,2,3,4))&lt;class &#39;tuple&#39;&gt;&gt;&gt;&gt; type((&quot;hello&quot;,True,1,2,4))&lt;class &#39;tuple&#39;&gt;&gt;&gt;&gt; 2 元组的常用运算1234567891011121314151617181">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-19T12:51:04.000Z">
-<meta property="article:modified_time" content="2020-07-19T13:04:47.067Z">
+<meta property="article:published_time" content="2020-07-22T15:16:50.000Z">
+<meta property="article:modified_time" content="2020-07-22T15:29:16.533Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="python_pytest">
+<meta property="article:tag" content="python基础">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>pytest系列(24)--pytest的skip和skipif-嵌套使用 | Redrose2100的博客首页</title>
+  <title>python基础系列(6)--python的基本类型-元组 | Redrose2100的博客首页</title>
   
 
 
@@ -193,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -205,6 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-元组的定义及特点"><span class="nav-number">1.</span> <span class="nav-text">1 元组的定义及特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-元组的常用运算"><span class="nav-number">2.</span> <span class="nav-text">2 元组的常用运算</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -276,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -289,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytest系列(24)--pytest的skip和skipif-嵌套使用
+          python基础系列(6)--python的基本类型-元组
         </h1>
 
         <div class="post-meta">
@@ -300,7 +301,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-19 20:51:04 / 修改时间：21:04:47" itemprop="dateCreated datePublished" datetime="2020-07-19T20:51:04+08:00">2020-07-19</time>
+              <time title="创建时间：2020-07-22 23:16:50 / 修改时间：23:29:16" itemprop="dateCreated datePublished" datetime="2020-07-22T23:16:50+08:00">2020-07-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +309,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
+                  <a href="/blog/categories/python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">python基础</span></a>
                 </span>
             </span>
 
@@ -328,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/19/pytest%E7%B3%BB%E5%88%97(24)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -339,14 +340,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>960</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -358,16 +359,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>pytest 的skip/skipif在跳过模块，跳过类，跳过函数这个三个层级是可以嵌套使用的，嵌套使用的规则就是只要有一个是真，则执行跳过操作</p>
-<p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_024</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>其中在test_ex_01.py编写如下在代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"># 因为1！&#x3D;2 ，所以这个跳过不会生效</span><br><span class="line">pytestmark&#x3D;pytest.mark.skipif(1&#x3D;&#x3D;2,reason&#x3D;&quot;跳过模块&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 因为没有skip生效，所以此用例会执行</span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"># 因为这个函数层级的skiif中1&#x3D;&#x3D;1为真，所以skip会生效，即不会执行此用例</span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;1,reason&#x3D;&quot;跳过test_02&quot;)</span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 此类没有类层级的skip</span><br><span class="line">class TestExample01():</span><br><span class="line">    # 因为函数层级的skip为真，会跳过</span><br><span class="line">    @pytest.mark.skipif(2&#x3D;&#x3D;2,reaon&#x3D;&quot;跳过test_01&quot;)</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br><span class="line"></span><br><span class="line">因为类层级的skip会生效，所以这个类中的所有测试函数都不会执行</span><br><span class="line">@pytest.mark.skip(&quot;跳过TestExample02类&quot;)</span><br><span class="line">class TestExample02():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample02.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample02.test_02&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>在pycharm中的terminal中切入到ex_024目录中，然后执行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_024&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_024</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 6 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py in test_01</span><br><span class="line">.ssin TestExample01.test_02</span><br><span class="line">.ss</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed, 4 skipped in 0.03s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+        <h4 id="1-元组的定义及特点"><a href="#1-元组的定义及特点" class="headerlink" title="1 元组的定义及特点"></a>1 元组的定义及特点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; type((1,2,3,4))</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; type((&quot;hello&quot;,True,1,2,4))</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-元组的常用运算"><a href="#2-元组的常用运算" class="headerlink" title="2 元组的常用运算"></a>2 元组的常用运算</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">(1, 2, 3, 4, 5, 6)</span><br><span class="line">&gt;&gt;&gt; a[0]</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; a[1]</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; a[-1]</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt; a[1:3]</span><br><span class="line">(2, 3)</span><br><span class="line">&gt;&gt;&gt; a[::2]</span><br><span class="line">(1, 3, 5)</span><br><span class="line">&gt;&gt;&gt; (1,2,3)+(4,5,6)</span><br><span class="line">(1, 2, 3, 4, 5, 6)</span><br><span class="line">&gt;&gt;&gt; (1,2,3)*3</span><br><span class="line">(1, 2, 3, 1, 2, 3, 1, 2, 3)</span><br><span class="line">&gt;&gt;&gt; type((1))</span><br><span class="line">&lt;class &#39;int&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; type((1,))</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; a[0]</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; a[0]&#x3D;10</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: &#39;tuple&#39; object does not support item assignment</span><br><span class="line">&gt;&gt;&gt; type((,))</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1</span><br><span class="line">    type((,))</span><br><span class="line">          ^</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; type(())</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; type([1])</span><br><span class="line">&lt;class &#39;list&#39;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -396,7 +389,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/python-pytest/" rel="tag"># python_pytest</a>
+              <a href="/blog/tags/python%E5%9F%BA%E7%A1%80/" rel="tag"># python基础</a>
           </div>
 
         
@@ -405,13 +398,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/18/pytest%E7%B3%BB%E5%88%97(23)--pytest%E7%9A%84skip%E5%92%8Cskipif-%E8%B7%B3%E8%BF%87%E6%A8%A1%E5%9D%97/" rel="prev" title="pytest系列(23)--pytest的skip和skipif-跳过模块">
-      <i class="fa fa-chevron-left"></i> pytest系列(23)--pytest的skip和skipif-跳过模块
+    <a href="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%88%97%E8%A1%A8/" rel="prev" title="python基础系列(5)--python的基本类型-列表">
+      <i class="fa fa-chevron-left"></i> python基础系列(5)--python的基本类型-列表
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/19/%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%80%83%E8%AF%95%E7%B3%BB%E5%88%97-%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)-%E6%95%99%E8%82%B2%E8%A7%82/" rel="next" title="教师资格考试系列--综合素质学习笔记(1)-教育观">
-      教师资格考试系列--综合素质学习笔记(1)-教育观 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
