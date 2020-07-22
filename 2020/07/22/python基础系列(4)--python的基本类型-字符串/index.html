@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="测试类外的setup和teardown有两类：  setup_function 和 teardown_function 在类外的每个用例之前和之后执行 setup 和 teardown 在类外的每个测试用例之前和之后执行，其中setup在setup_function之后执行，teardown在teardown_function之前执行  创建如下文件结构： 12ex_009   |----test">
+  <meta name="description" content="1 字符串的表示方法python中字符串可以用单引号，双引号，三引号三种表示方法 12345678910111213141516171819&gt;&gt;&gt; &#39;hello world&#39;&#39;hello world&#39;&gt;&gt;&gt; &quot;hello world&quot;&#39;hello world&#39;&gt;&gt;&gt; &#39;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytest系列(9)--测试类外的setup和teardown">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(9)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%A4%96%E7%9A%84setup%E5%92%8Cteardown/index.html">
+<meta property="og:title" content="python基础系列(4)--python的基本类型-字符串">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="测试类外的setup和teardown有两类：  setup_function 和 teardown_function 在类外的每个用例之前和之后执行 setup 和 teardown 在类外的每个测试用例之前和之后执行，其中setup在setup_function之后执行，teardown在teardown_function之前执行  创建如下文件结构： 12ex_009   |----test">
+<meta property="og:description" content="1 字符串的表示方法python中字符串可以用单引号，双引号，三引号三种表示方法 12345678910111213141516171819&gt;&gt;&gt; &#39;hello world&#39;&#39;hello world&#39;&gt;&gt;&gt; &quot;hello world&quot;&#39;hello world&#39;&gt;&gt;&gt; &#39;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-13T18:18:27.000Z">
-<meta property="article:modified_time" content="2020-07-13T18:32:02.700Z">
+<meta property="article:published_time" content="2020-07-22T12:42:30.000Z">
+<meta property="article:modified_time" content="2020-07-22T14:23:18.269Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="python_pytest">
+<meta property="article:tag" content="python基础">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(9)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%A4%96%E7%9A%84setup%E5%92%8Cteardown/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>pytest系列(9)--测试类外的setup和teardown | Redrose2100的博客首页</title>
+  <title>python基础系列(4)--python的基本类型-字符串 | Redrose2100的博客首页</title>
   
 
 
@@ -193,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -205,6 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-字符串的表示方法"><span class="nav-number">1.</span> <span class="nav-text">1 字符串的表示方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-转义字符"><span class="nav-number">2.</span> <span class="nav-text">2 转义字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-字符串的常用运算"><span class="nav-number">3.</span> <span class="nav-text">3 字符串的常用运算</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -276,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(9)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%A4%96%E7%9A%84setup%E5%92%8Cteardown/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -289,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytest系列(9)--测试类外的setup和teardown
+          python基础系列(4)--python的基本类型-字符串
         </h1>
 
         <div class="post-meta">
@@ -300,7 +301,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-14 02:18:27 / 修改时间：02:32:02" itemprop="dateCreated datePublished" datetime="2020-07-14T02:18:27+08:00">2020-07-14</time>
+              <time title="创建时间：2020-07-22 20:42:30 / 修改时间：22:23:18" itemprop="dateCreated datePublished" datetime="2020-07-22T20:42:30+08:00">2020-07-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +309,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
+                  <a href="/blog/categories/python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">python基础</span></a>
                 </span>
             </span>
 
@@ -328,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(9)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%A4%96%E7%9A%84setup%E5%92%8Cteardown/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(9)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%A4%96%E7%9A%84setup%E5%92%8Cteardown/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -339,14 +340,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -358,18 +359,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>测试类外的setup和teardown有两类：</p>
-<ul>
-<li>setup_function 和 teardown_function 在类外的每个用例之前和之后执行</li>
-<li>setup 和 teardown 在类外的每个测试用例之前和之后执行，其中setup在setup_function之后执行，teardown在teardown_function之前执行</li>
-</ul>
-<p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_009</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>test_ex_01.py文件中编写如下测试代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def setup_function():</span><br><span class="line">    print(&quot;\nin setup_function&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown_function():</span><br><span class="line">    print(&quot;in teardown_function&quot;)</span><br><span class="line">    </span><br><span class="line">def setup():</span><br><span class="line">    print(&quot;in setup&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown():</span><br><span class="line">    print(&quot;in teardown&quot;)</span><br><span class="line">    </span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line">    </span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line">    </span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>执行结果如下：与上述分析结果一致：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_009&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_009</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py</span><br><span class="line">in setup_function</span><br><span class="line">in setup</span><br><span class="line">in test_01</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_function</span><br><span class="line"></span><br><span class="line">in setup_function</span><br><span class="line">in setup</span><br><span class="line">in test_02</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_function</span><br><span class="line"></span><br><span class="line">in setup_function</span><br><span class="line">in setup</span><br><span class="line">in test_03</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_function</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+        <h4 id="1-字符串的表示方法"><a href="#1-字符串的表示方法" class="headerlink" title="1 字符串的表示方法"></a>1 字符串的表示方法</h4><p>python中字符串可以用单引号，双引号，三引号三种表示方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &#39;hello world&#39;</span><br><span class="line">&#39;hello world&#39;</span><br><span class="line">&gt;&gt;&gt; &quot;hello world&quot;</span><br><span class="line">&#39;hello world&#39;</span><br><span class="line">&gt;&gt;&gt; &#39;1&#39;</span><br><span class="line">&#39;1&#39;</span><br><span class="line">&gt;&gt;&gt; type(&#39;1&#39;)</span><br><span class="line">&lt;class &#39;str&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; &quot;let&#39;s go&quot;</span><br><span class="line">&quot;let&#39;s go&quot;</span><br><span class="line">&gt;&gt;&gt; &#39;let&quot;s go&#39;</span><br><span class="line">&#39;let&quot;s go&#39;</span><br><span class="line">&gt;&gt;&gt; &#39;let\&#39; go&#39;</span><br><span class="line">&quot;let&#39; go&quot;</span><br><span class="line">&gt;&gt;&gt; &quot;&quot;&quot;hello wold</span><br><span class="line">... hahaha</span><br><span class="line">... hehehe</span><br><span class="line">... &quot;&quot;&quot;</span><br><span class="line">&#39;hello wold\nhahaha\nhehehe\n&#39;</span><br></pre></td></tr></table></figure>
+<h4 id="2-转义字符"><a href="#2-转义字符" class="headerlink" title="2 转义字符"></a>2 转义字符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">\n   换行</span><br><span class="line">\\   \</span><br><span class="line">\t   制表符</span><br><span class="line">\&quot;   &quot;</span><br><span class="line"></span><br><span class="line">如：</span><br><span class="line">&gt;&gt;&gt; print(&quot;hello \\n world&quot;)</span><br><span class="line">hello \n world</span><br><span class="line">&gt;&gt;&gt; print(&quot;hello \&quot;Tom\&quot;&quot;)</span><br><span class="line">hello &quot;Tom&quot;</span><br><span class="line">&gt;&gt;&gt; print(&quot;hello\tworld&quot;)</span><br><span class="line">hello   world</span><br><span class="line">&gt;&gt;&gt; print(&quot;hello\nworld&quot;)</span><br><span class="line">hello</span><br><span class="line">world</span><br><span class="line">&gt;&gt;&gt; print(&quot;C:\north\nrothwest&quot;)</span><br><span class="line">C:</span><br><span class="line">orth</span><br><span class="line">rothwest</span><br><span class="line">&gt;&gt;&gt; print(&quot;C:\\north\\northwest&quot;)</span><br><span class="line">C:\north\northwest</span><br><span class="line">&gt;&gt;&gt; print(r&quot;C:\north\northwest&quot;)</span><br><span class="line">C:\north\northwest</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-字符串的常用运算"><a href="#3-字符串的常用运算" class="headerlink" title="3 字符串的常用运算"></a>3 字符串的常用运算</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &quot;hello&quot;+&quot;world&quot;</span><br><span class="line">&#39;helloworld&#39;</span><br><span class="line">&gt;&gt;&gt; &quot;hello&quot;*3</span><br><span class="line">&#39;hellohellohello&#39;</span><br><span class="line">&gt;&gt;&gt; a&#x3D;&quot;hello world&quot;</span><br><span class="line">&gt;&gt;&gt; print(a[0])</span><br><span class="line">h</span><br><span class="line">&gt;&gt;&gt; print(a[2])</span><br><span class="line">l</span><br><span class="line">&gt;&gt;&gt; print(a[-1])</span><br><span class="line">d</span><br><span class="line">&gt;&gt;&gt; print(a[-3])</span><br><span class="line">r</span><br><span class="line">&gt;&gt;&gt; print(a[0:4])</span><br><span class="line">hell</span><br><span class="line">&gt;&gt;&gt; print(a[0:-1])</span><br><span class="line">hello worl</span><br><span class="line">&gt;&gt;&gt; print(a[0:10])</span><br><span class="line">hello worl</span><br><span class="line">&gt;&gt;&gt; print(a[0:11])</span><br><span class="line">hello world</span><br><span class="line">&gt;&gt;&gt; print(a[11])</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">IndexError: string index out of range</span><br><span class="line">&gt;&gt;&gt; print(a[1:3])</span><br><span class="line">el</span><br><span class="line">&gt;&gt;&gt; print(a[1:9:3])</span><br><span class="line">eoo</span><br><span class="line">&gt;&gt;&gt; print(a[:3])</span><br><span class="line">hel</span><br><span class="line">&gt;&gt;&gt; print(a[3:])</span><br><span class="line">lo world</span><br><span class="line">&gt;&gt;&gt; print(a[::3])</span><br><span class="line">hlwl</span><br><span class="line">&gt;&gt;&gt; print(a[5:1])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; print(a[10:0])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -398,7 +391,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/python-pytest/" rel="tag"># python_pytest</a>
+              <a href="/blog/tags/python%E5%9F%BA%E7%A1%80/" rel="tag"># python基础</a>
           </div>
 
         
@@ -407,13 +400,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(8)--%E6%B5%8B%E8%AF%95%E7%B1%BB%E4%B8%AD%E7%9A%84setup%E4%B8%8Eteardown/" rel="prev" title="pytest系列(8)--测试类中的setup与teardown">
-      <i class="fa fa-chevron-left"></i> pytest系列(8)--测试类中的setup与teardown
+    <a href="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="prev" title="python基础系列(3)--python的基本数据类型-数字">
+      <i class="fa fa-chevron-left"></i> python基础系列(3)--python的基本数据类型-数字
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/14/pytest%E7%B3%BB%E5%88%97(10)--%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97%E7%9A%84setup%E5%92%8Cteardown/" rel="next" title="pytest系列(10)--测试模块的setup和teardown">
-      pytest系列(10)--测试模块的setup和teardown <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
