@@ -270,6 +270,166 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/" class="post-title-link" itemprop="url">python基础系列(6)--python的基本类型-元组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-22 23:16:50" itemprop="dateCreated datePublished" datetime="2020-07-22T23:16:50+08:00">2020-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-28 13:31:28" itemprop="dateModified" datetime="2020-07-28T13:31:28+08:00">2020-07-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">python基础</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%85%83%E7%BB%84/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-元组的定义及特点"><a href="#1-元组的定义及特点" class="headerlink" title="1 元组的定义及特点"></a>1 元组的定义及特点</h4><ul>
+<li><p>（1）元组的定义，使用小括号括起来(),也可以直接赋给多个值，如果一个值在后面加一个逗号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; a&#x3D;1,2,3</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">(1, 2, 3)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; a&#x3D;1,</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">(1,)</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &#39;tuple&#39;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（2）元组是不可变的，不能对元组的元素进行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[1]&#x3D;100</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: &#39;tuple&#39; object does not support item assignment</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="2-元组的常用运算"><a href="#2-元组的常用运算" class="headerlink" title="2 元组的常用运算"></a>2 元组的常用运算</h4><ul>
+<li><p>（1）元组中元素可以通过位置下标来方位，第一个元素的下标为0，下标不可超过元素的长度范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[0]</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; a[5]</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt; a[7]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">IndexError: tuple index out of range</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（2）元组中元素的下标可以是负数，负数表示从右边开始标记，-1表示最后一个元素，-2表示倒数第二个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[-1]</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt; a[-2]</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; a[-6]</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; a[-7]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">IndexError: tuple index out of range</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（3）元组中的元素可以通过切片操作获取元组的一部分，切片操作坚持左闭右开原则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[0:4]</span><br><span class="line">(1, 2, 3, 4)</span><br><span class="line">&gt;&gt;&gt; a[4:5]</span><br><span class="line">(5,)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（4）元组的切片操作第二个参数可以超过元组的长度，超出元组的长度时默认取到最后一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[2:6]</span><br><span class="line">(3, 4, 5, 6)</span><br><span class="line">&gt;&gt;&gt; a[2:10]</span><br><span class="line">(3, 4, 5, 6)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（5）元组的切片操作第一个和第二个参数都可以省略，第一个参数省略时表示左侧从第一个元素开始取，第二个参数<br>省略时表示右侧取到最后一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[:4]</span><br><span class="line">(1, 2, 3, 4)</span><br><span class="line">&gt;&gt;&gt; a[3:]</span><br><span class="line">(4, 5, 6)</span><br><span class="line">&gt;&gt;&gt; a[:]</span><br><span class="line">(1, 2, 3, 4, 5, 6)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（6）元组的切片操作第一个参数表示的位置可以在第二个参数表示的位置的右侧，此时返回为一个空元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; a[5:1]</span><br><span class="line">()</span><br><span class="line">&gt;&gt;&gt; a[-1:-3]</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（7）元素的切片操作还可以有第三个参数，表示步长</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6,7,8,9,0)</span><br><span class="line">&gt;&gt;&gt; a[1:9:3]</span><br><span class="line">(2, 5, 8)</span><br><span class="line">&gt;&gt;&gt; a[::-1]</span><br><span class="line">(0, 9, 8, 7, 6, 5, 4, 3, 2, 1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（8）len()函数返回元组长度，即元素的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; len(a)</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（9）max()函数返回元组中元素的最大值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; max(a)</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（10）min()函数返回元组中的元素的最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; min(a)</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（11）sum()函数返回元祖中的所有元素之和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5)</span><br><span class="line">&gt;&gt;&gt; sum(a)</span><br><span class="line">15</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（12）in, not in 判断元组中是否包含某元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,5,6)</span><br><span class="line">&gt;&gt;&gt; 0 in a</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; 0 not in a</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; 4 in a</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（13）两个元组可以用加号，加起来，形成一个新的元组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (1,2,3)+(1,2,3)</span><br><span class="line">(1, 2, 3, 1, 2, 3)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（14）元组也可以乘以一个数字将现有元组的元素复制多倍构造新的元组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (1,2,3)*3</span><br><span class="line">(1, 2, 3, 1, 2, 3, 1, 2, 3)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="3-元组中常用的函数"><a href="#3-元组中常用的函数" class="headerlink" title="3 元组中常用的函数"></a>3 元组中常用的函数</h4><p>因为元组是不可变的，元组中的元素不可修改，所以元组的可用函数就很少了，只有count和index两个</p>
+<ul>
+<li>（1）count(value) 返回元组中元素的个数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,2,1,2,3,2,1)</span><br><span class="line">&gt;&gt;&gt; a.count(1)</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; a.count(4)</span><br><span class="line">0</span><br></pre></td></tr></table></figure></li>
+<li>（2）index(value, start=0, stop=9223372036854775807) 返回查询到的第一个元素的位置索引值，可以指定查询的起始和结束位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a&#x3D;(1,2,3,4,3,2,1,2,3,4)</span><br><span class="line">&gt;&gt;&gt; a.index(3)</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt; a.index(3,3)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; a.index(3,5,8)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">ValueError: tuple.index(x): x not in tuple</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/22/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--python%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1498,110 +1658,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s -m smoke</span><br></pre></td></tr></table></figure>
 <p>运行结果如下，将打了smoke标签的几个用例执行了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_020&gt;pytest -s -m smoke</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_020</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 7 items &#x2F; 3 deselected &#x2F; 4 selected                                                                                                                           </span><br><span class="line"></span><br><span class="line">test_ex_01.py in test_02</span><br><span class="line">.in test_03</span><br><span class="line">.in test_05</span><br><span class="line">.in test_07</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; warnings summary &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">test_ex_01.py:6</span><br><span class="line">  G:\lamb_source\pytest_example_for_full_documentation\ex_020\test_ex_01.py:6: PytestUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You can register cu</span><br><span class="line">stom marks to avoid this warning - for details, see https:&#x2F;&#x2F;docs.pytest.org&#x2F;en&#x2F;latest&#x2F;mark.html</span><br><span class="line">    @pytest.mark.smoke</span><br><span class="line"></span><br><span class="line">test_ex_01.py:10</span><br><span class="line">  G:\lamb_source\pytest_example_for_full_documentation\ex_020\test_ex_01.py:10: PytestUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You can register c</span><br><span class="line">ustom marks to avoid this warning - for details, see https:&#x2F;&#x2F;docs.pytest.org&#x2F;en&#x2F;latest&#x2F;mark.html</span><br><span class="line">    @pytest.mark.smoke</span><br><span class="line"></span><br><span class="line">test_ex_01.py:18</span><br><span class="line">  G:\lamb_source\pytest_example_for_full_documentation\ex_020\test_ex_01.py:18: PytestUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You can register c</span><br><span class="line">ustom marks to avoid this warning - for details, see https:&#x2F;&#x2F;docs.pytest.org&#x2F;en&#x2F;latest&#x2F;mark.html</span><br><span class="line">    @pytest.mark.smoke</span><br><span class="line"></span><br><span class="line">test_ex_01.py:25</span><br><span class="line">  G:\lamb_source\pytest_example_for_full_documentation\ex_020\test_ex_01.py:25: PytestUnknownMarkWarning: Unknown pytest.mark.smoke - is this a typo?  You can register c</span><br><span class="line">ustom marks to avoid this warning - for details, see https:&#x2F;&#x2F;docs.pytest.org&#x2F;en&#x2F;latest&#x2F;mark.html</span><br><span class="line">    @pytest.mark.smoke</span><br><span class="line"></span><br><span class="line">-- Docs: https:&#x2F;&#x2F;docs.pytest.org&#x2F;en&#x2F;latest&#x2F;warnings.html</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 4 passed, 3 deselected, 4 warnings in 0.06s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(19)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-autouse-true/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(19)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-autouse-true/" class="post-title-link" itemprop="url">pytest系列(19)--fixture调用方式-autouse=true</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-16 02:24:16 / 修改时间：02:30:32" itemprop="dateCreated datePublished" datetime="2020-07-16T02:24:16+08:00">2020-07-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-pytest/" itemprop="url" rel="index"><span itemprop="name">python_pytest</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(19)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-autouse-true/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/16/pytest%E7%B3%BB%E5%88%97(19)--fixture%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F-autouse-true/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>如果所有的用例都需要执行的fixture，就没有必要再所有用例中通过传参的方式或者标记的方式，pytest的fixture提供了一种更为简洁的用例，即在定义fixture的时候，将参数autouse设置为True时，则在执行用例的时候自动去加载，无需显示调用</p>
-<p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ex_019</span><br><span class="line">   |----test_ex_01.py</span><br></pre></td></tr></table></figure>
-<p>在文件test_ex_01.py中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@pytest.fixture(scope&#x3D;&quot;function&quot;,autouse&#x3D;True)</span><br><span class="line">def func3():</span><br><span class="line">    print(&quot;in fixture func3 before testcase......&quot;)</span><br><span class="line">    yield</span><br><span class="line">    print(&quot;in fixture func3 after testcase......&quot;)</span><br><span class="line"></span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm的termin中切换至ex_019的目录，然后执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下，可以发现在三个测试用例中并未显示调用fixture，但是仍然执行了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_019&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_019</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_ex_01.py in fixture func3 before testcase......</span><br><span class="line">in test_01</span><br><span class="line">.in fixture func3 after testcase......</span><br><span class="line">in fixture func3 before testcase......</span><br><span class="line">in test_02</span><br><span class="line">.in fixture func3 after testcase......</span><br><span class="line">in fixture func3 before testcase......</span><br><span class="line">in test_03</span><br><span class="line">.in fixture func3 after testcase......</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.06s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
 
       
     </div>
