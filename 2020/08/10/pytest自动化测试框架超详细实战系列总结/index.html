@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="注：默认环境已经安装了miniconda，若未安装，请参考Miniconda安装 1、安装python3.7.6的虚拟环境打开cmd，执行如下命令创建python3.7.6的虚拟环境 1conda create -n RobotFrameworkEnv python&#x3D;3.7.6  2、激活RobotFrameworkEnv虚拟环境执行如下命令，激活RobotFrameworkEnv虚拟环">
+  <meta name="description" content="pytest系列(1)–安装以及快速入门pytest系列(2)–测试用例的组织及运行pytest系列(3)–断言的使用pytest系列(4)–setup与teardownpytest系列(5)–fixture详解pytest系列(6)–skip和skipif详解pytest系列(7)–parametrize参数化详解pytest系列(8)–repeat插件详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RobotFramework系列-环境安装">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:title" content="pytest自动化测试框架超详细实战系列总结">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/10/pytest%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E8%B6%85%E8%AF%A6%E7%BB%86%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="注：默认环境已经安装了miniconda，若未安装，请参考Miniconda安装 1、安装python3.7.6的虚拟环境打开cmd，执行如下命令创建python3.7.6的虚拟环境 1conda create -n RobotFrameworkEnv python&#x3D;3.7.6  2、激活RobotFrameworkEnv虚拟环境执行如下命令，激活RobotFrameworkEnv虚拟环">
+<meta property="og:description" content="pytest系列(1)–安装以及快速入门pytest系列(2)–测试用例的组织及运行pytest系列(3)–断言的使用pytest系列(4)–setup与teardownpytest系列(5)–fixture详解pytest系列(6)–skip和skipif详解pytest系列(7)–parametrize参数化详解pytest系列(8)–repeat插件详解">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-10T16:33:16.000Z">
-<meta property="article:modified_time" content="2020-07-12T13:36:35.216Z">
+<meta property="article:published_time" content="2020-08-10T12:53:14.000Z">
+<meta property="article:modified_time" content="2020-08-10T13:00:10.670Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="python_robotframework">
+<meta property="article:tag" content="pytest系列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/10/pytest%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E8%B6%85%E8%AF%A6%E7%BB%86%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>RobotFramework系列-环境安装 | Redrose2100的博客首页</title>
+  <title>pytest自动化测试框架超详细实战系列总结 | Redrose2100的博客首页</title>
   
 
 
@@ -205,7 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装python3-7-6的虚拟环境"><span class="nav-number">1.</span> <span class="nav-text">1、安装python3.7.6的虚拟环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、激活RobotFrameworkEnv虚拟环境"><span class="nav-number">2.</span> <span class="nav-text">2、激活RobotFrameworkEnv虚拟环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、安装RobotFramework包"><span class="nav-number">3.</span> <span class="nav-text">3、安装RobotFramework包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、安装wxPython包"><span class="nav-number">4.</span> <span class="nav-text">4、安装wxPython包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、安装Ride编辑器"><span class="nav-number">5.</span> <span class="nav-text">5、安装Ride编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、启动RF"><span class="nav-number">6.</span> <span class="nav-text">6、启动RF</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-1-–安装以及快速入门"><span class="nav-number">1.</span> <span class="nav-text">pytest系列(1)–安装以及快速入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-2-–测试用例的组织及运行"><span class="nav-number">2.</span> <span class="nav-text">pytest系列(2)–测试用例的组织及运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-3-–断言的使用"><span class="nav-number">3.</span> <span class="nav-text">pytest系列(3)–断言的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-4-–setup与teardown"><span class="nav-number">4.</span> <span class="nav-text">pytest系列(4)–setup与teardown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-5-–fixture详解"><span class="nav-number">5.</span> <span class="nav-text">pytest系列(5)–fixture详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-6-–skip和skipif详解"><span class="nav-number">6.</span> <span class="nav-text">pytest系列(6)–skip和skipif详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-7-–parametrize参数化详解"><span class="nav-number">7.</span> <span class="nav-text">pytest系列(7)–parametrize参数化详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pytest系列-8-–repeat插件详解"><span class="nav-number">8.</span> <span class="nav-text">pytest系列(8)–repeat插件详解</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -277,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/10/pytest%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E8%B6%85%E8%AF%A6%E7%BB%86%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -290,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          RobotFramework系列-环境安装
+          pytest自动化测试框架超详细实战系列总结
         </h1>
 
         <div class="post-meta">
@@ -299,23 +299,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-11 00:33:16" itemprop="dateCreated datePublished" datetime="2020-07-11T00:33:16+08:00">2020-07-11</time>
+              <time title="创建时间：2020-08-10 20:53:14 / 修改时间：21:00:10" itemprop="dateCreated datePublished" datetime="2020-08-10T20:53:14+08:00">2020-08-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-12 21:36:35" itemprop="dateModified" datetime="2020-07-12T21:36:35+08:00">2020-07-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python-robotframework/" itemprop="url" rel="index"><span itemprop="name">python_robotframework</span></a>
+                  <a href="/blog/categories/pytest%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pytest系列</span></a>
                 </span>
             </span>
 
@@ -335,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/07/11/RobotFramework%E7%B3%BB%E5%88%97-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/08/10/pytest%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E8%B6%85%E8%AF%A6%E7%BB%86%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/10/pytest%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E8%B6%85%E8%AF%A6%E7%BB%86%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -346,7 +340,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>460</span>
+              <span>181</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -365,24 +359,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>注：默认环境已经安装了miniconda，若未安装，请参考<a href="https://redrose2100.github.io/blog/2020/07/10/miniconda%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Miniconda安装</a></p>
-<h4 id="1、安装python3-7-6的虚拟环境"><a href="#1、安装python3-7-6的虚拟环境" class="headerlink" title="1、安装python3.7.6的虚拟环境"></a>1、安装python3.7.6的虚拟环境</h4><p>打开cmd，执行如下命令创建python3.7.6的虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n RobotFrameworkEnv python&#x3D;3.7.6</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、激活RobotFrameworkEnv虚拟环境"><a href="#2、激活RobotFrameworkEnv虚拟环境" class="headerlink" title="2、激活RobotFrameworkEnv虚拟环境"></a>2、激活RobotFrameworkEnv虚拟环境</h4><p>执行如下命令，激活RobotFrameworkEnv虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate RobotFrameworkEnv</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、安装RobotFramework包"><a href="#3、安装RobotFramework包" class="headerlink" title="3、安装RobotFramework包"></a>3、安装RobotFramework包</h4><p>执行如下命令，安装RobotFramework包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework</span><br></pre></td></tr></table></figure>
-
-<h4 id="4、安装wxPython包"><a href="#4、安装wxPython包" class="headerlink" title="4、安装wxPython包"></a>4、安装wxPython包</h4><p>执行如下命令，安装wxPython</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wxpython</span><br></pre></td></tr></table></figure>
-
-<h4 id="5、安装Ride编辑器"><a href="#5、安装Ride编辑器" class="headerlink" title="5、安装Ride编辑器"></a>5、安装Ride编辑器</h4><p>执行如下命令，安装RobotFramework-ride编辑器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install robotframework-ride</span><br></pre></td></tr></table></figure>
-
-<h4 id="6、启动RF"><a href="#6、启动RF" class="headerlink" title="6、启动RF"></a>6、启动RF</h4><p>在cmd中执行如下命令，即可启动RobotFramework的图形化界面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ride</span><br></pre></td></tr></table></figure>
+        <h3 id="pytest系列-1-–安装以及快速入门"><a href="#pytest系列-1-–安装以及快速入门" class="headerlink" title="pytest系列(1)–安装以及快速入门"></a><a href="https://redrose2100.github.io/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(1)--%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" target="_blank" rel="noopener">pytest系列(1)–安装以及快速入门</a></h3><h3 id="pytest系列-2-–测试用例的组织及运行"><a href="#pytest系列-2-–测试用例的组织及运行" class="headerlink" title="pytest系列(2)–测试用例的组织及运行"></a><a href="https://redrose2100.github.io/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(2)--%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%9A%84%E7%BB%84%E7%BB%87%E5%8F%8A%E8%BF%90%E8%A1%8C/" target="_blank" rel="noopener">pytest系列(2)–测试用例的组织及运行</a></h3><h3 id="pytest系列-3-–断言的使用"><a href="#pytest系列-3-–断言的使用" class="headerlink" title="pytest系列(3)–断言的使用"></a><a href="https://redrose2100.github.io/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(3)--%E6%96%AD%E8%A8%80%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">pytest系列(3)–断言的使用</a></h3><h3 id="pytest系列-4-–setup与teardown"><a href="#pytest系列-4-–setup与teardown" class="headerlink" title="pytest系列(4)–setup与teardown"></a><a href="https://redrose2100.github.io/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(4)--setup%E4%B8%8Eteardown/" target="_blank" rel="noopener">pytest系列(4)–setup与teardown</a></h3><h3 id="pytest系列-5-–fixture详解"><a href="#pytest系列-5-–fixture详解" class="headerlink" title="pytest系列(5)–fixture详解"></a><a href="https://redrose2100.github.io/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(5)--fixture%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">pytest系列(5)–fixture详解</a></h3><h3 id="pytest系列-6-–skip和skipif详解"><a href="#pytest系列-6-–skip和skipif详解" class="headerlink" title="pytest系列(6)–skip和skipif详解"></a><a href="https://redrose2100.github.io/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(6)--skip%E5%92%8Cskipif%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">pytest系列(6)–skip和skipif详解</a></h3><h3 id="pytest系列-7-–parametrize参数化详解"><a href="#pytest系列-7-–parametrize参数化详解" class="headerlink" title="pytest系列(7)–parametrize参数化详解"></a><a href="https://redrose2100.github.io/blog/2020/08/10/pytest%E7%B3%BB%E5%88%97(7)--parametrize%E5%8F%82%E6%95%B0%E5%8C%96%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">pytest系列(7)–parametrize参数化详解</a></h3><h3 id="pytest系列-8-–repeat插件详解"><a href="#pytest系列-8-–repeat插件详解" class="headerlink" title="pytest系列(8)–repeat插件详解"></a><a href="https://redrose2100.github.io/blog/2020/08/10/pytest%E7%B3%BB%E5%88%97(8)--repeat%E6%8F%92%E4%BB%B6%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">pytest系列(8)–repeat插件详解</a></h3>
     </div>
 
     
@@ -411,7 +388,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/python-robotframework/" rel="tag"># python_robotframework</a>
+              <a href="/blog/tags/pytest%E7%B3%BB%E5%88%97/" rel="tag"># pytest系列</a>
           </div>
 
         
@@ -420,13 +397,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/10/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--Python%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85-miniconda%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="python基础系列(2)--Python环境的安装-miniconda的使用">
-      <i class="fa fa-chevron-left"></i> python基础系列(2)--Python环境的安装-miniconda的使用
+    <a href="/blog/2020/08/10/pytest%E7%B3%BB%E5%88%97(8)--repeat%E6%8F%92%E4%BB%B6%E8%AF%A6%E8%A7%A3/" rel="prev" title="pytest系列(8)--repeat插件详解">
+      <i class="fa fa-chevron-left"></i> pytest系列(8)--repeat插件详解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/20/python%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(1)--python%E7%AE%80%E4%BB%8B/" rel="next" title="python基础系列(1)--python简介">
-      python基础系列(1)--python简介 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
