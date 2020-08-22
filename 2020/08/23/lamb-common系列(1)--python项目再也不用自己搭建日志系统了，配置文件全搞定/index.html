@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 设计模式简介 设计模式（Design Pattern）是一套被反复使用，多数人知晓的，经过分类编目的、代码设计经验的总结 设计模式是为了可重用代码，让代码更容易被他人理解、保证代码可靠性 设计模式使代码编程真正的工程化，设计模式是软件工程的基石  2 设计模式的分类 创建型模式 简单工厂模式（Simple Factory） 工厂方法模式（Factory Method） 抽象工厂模式（Abstr">
+  <meta name="description" content="1 lamb-common 简介lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库 2 lamb-common 的安装执行如下命令即可： 1pip install lamb_common 如：linux平台： 1234567[root@redrose2100 lamb-common]# pip3 install lamb_commonCollecting lam">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式python系列(1)--设计模式简介">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:title" content="lamb-common系列(1)--python项目再也不用自己搭建日志系统了，配置文件全搞定">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/23/lamb-common%E7%B3%BB%E5%88%97(1)--python%E9%A1%B9%E7%9B%AE%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%BA%86%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%A8%E6%90%9E%E5%AE%9A/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="1 设计模式简介 设计模式（Design Pattern）是一套被反复使用，多数人知晓的，经过分类编目的、代码设计经验的总结 设计模式是为了可重用代码，让代码更容易被他人理解、保证代码可靠性 设计模式使代码编程真正的工程化，设计模式是软件工程的基石  2 设计模式的分类 创建型模式 简单工厂模式（Simple Factory） 工厂方法模式（Factory Method） 抽象工厂模式（Abstr">
+<meta property="og:description" content="1 lamb-common 简介lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库 2 lamb-common 的安装执行如下命令即可： 1pip install lamb_common 如：linux平台： 1234567[root@redrose2100 lamb-common]# pip3 install lamb_commonCollecting lam">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-10T23:46:08.000Z">
-<meta property="article:modified_time" content="2020-08-11T10:18:22.023Z">
+<meta property="article:published_time" content="2020-08-22T17:09:06.000Z">
+<meta property="article:modified_time" content="2020-08-22T17:13:40.287Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="设计模式python系列">
+<meta property="article:tag" content="lamb-common系列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/23/lamb-common%E7%B3%BB%E5%88%97(1)--python%E9%A1%B9%E7%9B%AE%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%BA%86%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%A8%E6%90%9E%E5%AE%9A/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>设计模式python系列(1)--设计模式简介 | Redrose2100的博客首页</title>
+  <title>lamb-common系列(1)--python项目再也不用自己搭建日志系统了，配置文件全搞定 | Redrose2100的博客首页</title>
   
 
 
@@ -205,7 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设计模式简介"><span class="nav-number">1.</span> <span class="nav-text">1 设计模式简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-设计模式的分类"><span class="nav-number">2.</span> <span class="nav-text">2 设计模式的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设计模式的六大原则"><span class="nav-number">3.</span> <span class="nav-text">3 设计模式的六大原则</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lamb-common-简介"><span class="nav-number">1.</span> <span class="nav-text">1 lamb-common 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-lamb-common-的安装"><span class="nav-number">2.</span> <span class="nav-text">2 lamb-common 的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-lamb-common-的日志功能使用方法"><span class="nav-number">3.</span> <span class="nav-text">3 lamb-common 的日志功能使用方法</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -277,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/23/lamb-common%E7%B3%BB%E5%88%97(1)--python%E9%A1%B9%E7%9B%AE%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%BA%86%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%A8%E6%90%9E%E5%AE%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -290,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          设计模式python系列(1)--设计模式简介
+          lamb-common系列(1)--python项目再也不用自己搭建日志系统了，配置文件全搞定
         </h1>
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-11 07:46:08 / 修改时间：18:18:22" itemprop="dateCreated datePublished" datetime="2020-08-11T07:46:08+08:00">2020-08-11</time>
+              <time title="创建时间：2020-08-23 01:09:06 / 修改时间：01:13:40" itemprop="dateCreated datePublished" datetime="2020-08-23T01:09:06+08:00">2020-08-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">设计模式python系列</span></a>
+                  <a href="/blog/categories/lamb-common%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">lamb-common系列</span></a>
                 </span>
             </span>
 
@@ -329,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/08/23/lamb-common%E7%B3%BB%E5%88%97(1)--python%E9%A1%B9%E7%9B%AE%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%BA%86%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%A8%E6%90%9E%E5%AE%9A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/23/lamb-common%E7%B3%BB%E5%88%97(1)--python%E9%A1%B9%E7%9B%AE%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F%E4%BA%86%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%A8%E6%90%9E%E5%AE%9A/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -340,14 +340,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>880</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -359,67 +359,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-设计模式简介"><a href="#1-设计模式简介" class="headerlink" title="1 设计模式简介"></a>1 设计模式简介</h4><ul>
-<li>设计模式（Design Pattern）是一套被反复使用，多数人知晓的，经过分类编目的、代码设计经验的总结</li>
-<li>设计模式是为了可重用代码，让代码更容易被他人理解、保证代码可靠性</li>
-<li>设计模式使代码编程真正的工程化，设计模式是软件工程的基石</li>
-</ul>
-<h4 id="2-设计模式的分类"><a href="#2-设计模式的分类" class="headerlink" title="2 设计模式的分类"></a>2 设计模式的分类</h4><ul>
-<li>创建型模式<ul>
-<li>简单工厂模式（Simple Factory）</li>
-<li>工厂方法模式（Factory Method）</li>
-<li>抽象工厂模式（Abstract Factory）</li>
-<li>创建者模式（Builder）</li>
-<li>原型模式（Prototype）</li>
-<li>单例模式（Singleton）</li>
-</ul>
-</li>
-<li>结构型模式<ul>
-<li>外观模式（Facade）</li>
-<li>适配器模式（Adapter）</li>
-<li>代理模式（Proxy）</li>
-<li>装饰模式（Decorator）</li>
-<li>桥模式（Bridge）</li>
-<li>组合模式（Composite）</li>
-<li>享元模式（Flyweight）</li>
+        <h4 id="1-lamb-common-简介"><a href="#1-lamb-common-简介" class="headerlink" title="1 lamb-common 简介"></a>1 lamb-common 简介</h4><p>lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库</p>
+<h4 id="2-lamb-common-的安装"><a href="#2-lamb-common-的安装" class="headerlink" title="2 lamb-common 的安装"></a>2 lamb-common 的安装</h4><p>执行如下命令即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install lamb_common</span><br></pre></td></tr></table></figure>
+<p>如：linux平台：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# pip3 install lamb_common</span><br><span class="line">Collecting lamb_common</span><br><span class="line">  Downloading lamb_common-0.0.2.tar.gz (4.3 kB)</span><br><span class="line">Using legacy &#39;setup.py install&#39; for lamb-common, since package &#39;wheel&#39; is not installed.</span><br><span class="line">Installing collected packages: lamb-common</span><br><span class="line">    Running setup.py install for lamb-common ... done</span><br><span class="line">Successfully installed lamb-common-0.0.2</span><br></pre></td></tr></table></figure>
+<p>windows平台</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">G:\lamb-common&gt;pip install lamb_common</span><br><span class="line">Collecting lamb_common</span><br><span class="line">  Downloading lamb_common-0.0.2.tar.gz (4.3 kB)</span><br><span class="line">Using legacy &#39;setup.py install&#39; for lamb-common, since package &#39;wheel&#39; is not installed.</span><br><span class="line">Installing collected packages: lamb-common</span><br><span class="line">    Running setup.py install for lamb-common ... done</span><br><span class="line">Successfully installed lamb-common-0.0.2</span><br></pre></td></tr></table></figure>
+<h4 id="3-lamb-common-的日志功能使用方法"><a href="#3-lamb-common-的日志功能使用方法" class="headerlink" title="3 lamb-common 的日志功能使用方法"></a>3 lamb-common 的日志功能使用方法</h4><ul>
+<li><p>1 linux平台</p>
+<ul>
+<li>（1）vi /etc/lamb-common/log.conf 编辑log配置文件，默认文件如下，为lanb-common包本身提供的日志系统<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[lamb-common]</span><br><span class="line">name&#x3D;lamb-common</span><br><span class="line">path&#x3D;&#x2F;var&#x2F;log&#x2F;lamb-common&#x2F;</span><br><span class="line">console_level&#x3D;INFO</span><br><span class="line">file_level&#x3D;INFO</span><br><span class="line">fmt&#x3D;%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s | %(message)s</span><br><span class="line">datafmt&#x3D;%Y-%m-%d_%H:%M:%S</span><br></pre></td></tr></table></figure></li>
+<li>（2）例如在一个新的项目如demo_test中使用lamb-common提供的日志系统，只需要将上述配置复制一份，然后将lamb-common修改为demo_test即可，如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[lamb-common]</span><br><span class="line">name&#x3D;lamb-common</span><br><span class="line">path&#x3D;&#x2F;var&#x2F;log&#x2F;lamb-common&#x2F;</span><br><span class="line">console_level&#x3D;INFO</span><br><span class="line">file_level&#x3D;INFO</span><br><span class="line">fmt&#x3D;%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s | %(message)s</span><br><span class="line">datafmt&#x3D;%Y-%m-%d_%H:%M:%S</span><br><span class="line">  </span><br><span class="line">[demo_test]</span><br><span class="line">name&#x3D;demo_test</span><br><span class="line">path&#x3D;&#x2F;var&#x2F;log&#x2F;demo_test&#x2F;</span><br><span class="line">console_level&#x3D;INFO</span><br><span class="line">file_level&#x3D;INFO</span><br><span class="line">fmt&#x3D;%(asctime)s | %(levelname)s | %(filename)s:%(lineno)s | %(message)s</span><br><span class="line">datafmt&#x3D;%Y-%m-%d_%H:%M:%S</span><br></pre></td></tr></table></figure></li>
+<li>（3）然后在新的模块中直接写入下面三行，即可随意使用log进行打印日志了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.lib.common.log.log import lamb_common_logger</span><br><span class="line">import logging</span><br><span class="line"></span><br><span class="line">log&#x3D;logging.getLogger(&quot;demo_test&quot;)</span><br></pre></td></tr></table></figure>
+实例如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.lib.common.log.log import lamb_common_logger</span><br><span class="line">import logging</span><br><span class="line"></span><br><span class="line">log&#x3D;logging.getLogger(&quot;demo_test&quot;)</span><br><span class="line">def func01():</span><br><span class="line">    log.info(&quot;info&quot;)</span><br><span class="line">    log.debug(&quot;debug&quot;)</span><br><span class="line">    log.error(&quot;error&quot;)</span><br><span class="line">    log.warning(&quot;warning&quot;)</span><br><span class="line"></span><br><span class="line">func01()</span><br></pre></td></tr></table></figure>
+执行结果如下，且保存到日志文件 /var/log/demo_test/demo_test.log中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">log saved at &#x2F;var&#x2F;log&#x2F;demo_test&#x2F;demo_test.log</span><br><span class="line">2020-08-22_23:59:16 | tests&#x2F;test.py:6 in func01() | INFO | info</span><br><span class="line">2020-08-22_23:59:16 | tests&#x2F;test.py:8 in func01() | ERROR | error</span><br><span class="line">2020-08-22_23:59:16 | tests&#x2F;test.py:9 in func01() | WARNING | warning</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>行为型模式<ul>
-<li>模板方法模式（Template Method）</li>
-<li>观察者模式（Observer）</li>
-<li>状态模式（State）</li>
-<li>策略模式（Strategy）</li>
-<li>职责链模式（Chain of Responsibility）</li>
-<li>命令模式（Command）</li>
-<li>访问者模式（Visitor)</li>
-<li>调停者模式（Mediator）</li>
-<li>备忘录模式（Memento）</li>
-<li>迭代器模式（Iterator）</li>
-<li>解释器模式（Interpreter）<h4 id="3-设计模式的六大原则"><a href="#3-设计模式的六大原则" class="headerlink" title="3 设计模式的六大原则"></a>3 设计模式的六大原则</h4></li>
-</ul>
+<li><p>2 windows 平台<br> windows平台使用方式与linux平台基本是一致的，注意点主要有以下两点：</p>
+<ul>
+<li><p>配置文件在代码中，即 */site-packages/lamb_common/conf/log.conf</p>
 </li>
-<li>开闭原则(Open Close Principle)<ul>
-<li>开闭原则就是对扩展开放，对修改关闭</li>
-</ul>
+<li><p>生成日志的路径在脚本所在的盘的根目录/var/log/lamb_common/lamb_common.log</p>
+<p>例如如下测试代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.lib.common.log.log import lamb_common_logger</span><br><span class="line">import logging</span><br><span class="line"></span><br><span class="line">log&#x3D;logging.getLogger(&quot;lamb_common&quot;)</span><br><span class="line">def func01():</span><br><span class="line">    log.info(&quot;info&quot;)</span><br><span class="line">    log.debug(&quot;debug&quot;)</span><br><span class="line">    log.error(&quot;error&quot;)</span><br><span class="line">    log.warning(&quot;warning&quot;)</span><br><span class="line"></span><br><span class="line">func01()</span><br></pre></td></tr></table></figure>
+<p>执行结果如下，因为此例子测试代码再G盘，所以日志路径为 G:/var/log/lamb_common/lamb_common.log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Python38\python.exe G:&#x2F;lamb-common&#x2F;tests&#x2F;test.py</span><br><span class="line">2020-08-23_00:05:05 | G:&#x2F;lamb-common&#x2F;tests&#x2F;test.py:6 in func01() | INFO | info</span><br><span class="line">2020-08-23_00:05:05 | G:&#x2F;lamb-common&#x2F;tests&#x2F;test.py:8 in func01() | ERROR | error</span><br><span class="line">2020-08-23_00:05:05 | G:&#x2F;lamb-common&#x2F;tests&#x2F;test.py:9 in func01() | WARNING | warning</span><br><span class="line">log saved at &#x2F;var&#x2F;log&#x2F;lamb_common&#x2F;lamb_common.log</span><br></pre></td></tr></table></figure>
 </li>
-<li>里氏代换原则(Liskow Substitution Principle)<ul>
-<li>里氏代换原则是面向对象设计的基本原则之一，任何基类可以出现的地方，子类一定可以出现</li>
-</ul>
-</li>
-<li>依赖倒转原则(Dependence Inversion Principle)<ul>
-<li>只对接口编程，依赖于抽象而不依赖于具体</li>
-</ul>
-</li>
-<li>接口隔离原则(Interface Segregation Principle)<ul>
-<li>使用多个隔离的接口，比使用单个接口更好</li>
-</ul>
-</li>
-<li>迪米特法则（最少知道原则）(Demeter Principle)<ul>
-<li>一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立</li>
-</ul>
-</li>
-<li>合成复用原则(Composite Reuse Principle)<ul>
-<li>原则是尽量使用合成/聚合，尽量减少使用继承</li>
 </ul>
 </li>
 </ul>
@@ -452,7 +418,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" rel="tag"># 设计模式python系列</a>
+              <a href="/blog/tags/lamb-common%E7%B3%BB%E5%88%97/" rel="tag"># lamb-common系列</a>
           </div>
 
         
@@ -461,13 +427,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/08/10/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E8%B6%85%E8%AF%A6%E7%BB%86%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/" rel="prev" title="python基础知识超详细实战系列总结">
-      <i class="fa fa-chevron-left"></i> python基础知识超详细实战系列总结
+    <a href="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/" rel="prev" title="python高级语法系列(3)--python中常见内置类型">
+      <i class="fa fa-chevron-left"></i> python高级语法系列(3)--python中常见内置类型
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(2)--type%E3%80%81object%E5%92%8Cclass%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="next" title="python高级语法系列(2)--type、object和class的关系">
-      python高级语法系列(2)--type、object和class的关系 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
