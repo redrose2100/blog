@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 lamb-common 简介lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库 2 lamb-common 的安装 1 安装最新版本1pip3 install lamb-common 2 安装指定版本1pip3 install lamb-common&#x3D;&#x3D;&amp;#123;版本号&amp;#125; 3 lamb-common 的SSH功能使用方法从 l">
+  <meta name="description" content="1 执行如下安装命令12345yum install -y xinetdyum install -y telnet-serveryum install -y telnet  2 执行 vi &#x2F;etc&#x2F;xinetd.d&#x2F;telnet 命令打开文件，若存在，则将disable&#x3D;yes修改为disable&#x3D;no，若文件不存在在直接编辑输入如下内容，保存退出1234567891011121314# def">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lamb-common系列(2)--非常简单的对linux服务器的SSH操作库">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/index.html">
+<meta property="og:title" content="Linux系统环境安装系列(4)--centos7如何开启telnet功能">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="1 lamb-common 简介lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库 2 lamb-common 的安装 1 安装最新版本1pip3 install lamb-common 2 安装指定版本1pip3 install lamb-common&#x3D;&#x3D;&amp;#123;版本号&amp;#125; 3 lamb-common 的SSH功能使用方法从 l">
+<meta property="og:description" content="1 执行如下安装命令12345yum install -y xinetdyum install -y telnet-serveryum install -y telnet  2 执行 vi &#x2F;etc&#x2F;xinetd.d&#x2F;telnet 命令打开文件，若存在，则将disable&#x3D;yes修改为disable&#x3D;no，若文件不存在在直接编辑输入如下内容，保存退出1234567891011121314# def">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-27T16:18:06.000Z">
-<meta property="article:modified_time" content="2020-08-27T16:21:33.967Z">
+<meta property="article:published_time" content="2020-08-28T04:25:07.000Z">
+<meta property="article:modified_time" content="2020-08-28T04:38:05.937Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="lamb-common系列">
+<meta property="article:tag" content="Linux系统环境安装系列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>lamb-common系列(2)--非常简单的对linux服务器的SSH操作库 | Redrose2100的博客首页</title>
+  <title>Linux系统环境安装系列(4)--centos7如何开启telnet功能 | Redrose2100的博客首页</title>
   
 
 
@@ -205,7 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lamb-common-简介"><span class="nav-number">1.</span> <span class="nav-text">1 lamb-common 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-lamb-common-的安装"><span class="nav-number">2.</span> <span class="nav-text">2 lamb-common 的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-lamb-common-的SSH功能使用方法"><span class="nav-number">3.</span> <span class="nav-text">3 lamb-common 的SSH功能使用方法</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-执行如下安装命令"><span class="nav-number">1.</span> <span class="nav-text">1 执行如下安装命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出"><span class="nav-number">2.</span> <span class="nav-text">2 执行 vi &#x2F;etc&#x2F;xinetd.d&#x2F;telnet 命令打开文件，若存在，则将disable&#x3D;yes修改为disable&#x3D;no，若文件不存在在直接编辑输入如下内容，保存退出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-执行如下命令启动telnet服务"><span class="nav-number">3.</span> <span class="nav-text">3 执行如下命令启动telnet服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-执行如下命令查看服务是否已启动"><span class="nav-number">4.</span> <span class="nav-text">4 执行如下命令查看服务是否已启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"><span class="nav-number">5.</span> <span class="nav-text">5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1"><span class="nav-number">6.</span> <span class="nav-text">6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -277,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -290,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          lamb-common系列(2)--非常简单的对linux服务器的SSH操作库
+          Linux系统环境安装系列(4)--centos7如何开启telnet功能
         </h1>
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-28 00:18:06 / 修改时间：00:21:33" itemprop="dateCreated datePublished" datetime="2020-08-28T00:18:06+08:00">2020-08-28</time>
+              <time title="创建时间：2020-08-28 12:25:07 / 修改时间：12:38:05" itemprop="dateCreated datePublished" datetime="2020-08-28T12:25:07+08:00">2020-08-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/lamb-common%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">lamb-common系列</span></a>
+                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Linux系统环境安装系列</span></a>
                 </span>
             </span>
 
@@ -329,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -340,7 +340,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>978</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -359,15 +359,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-lamb-common-简介"><a href="#1-lamb-common-简介" class="headerlink" title="1 lamb-common 简介"></a>1 lamb-common 简介</h4><p>lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库</p>
-<h4 id="2-lamb-common-的安装"><a href="#2-lamb-common-的安装" class="headerlink" title="2 lamb-common 的安装"></a>2 lamb-common 的安装</h4><ul>
-<li>1 安装最新版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common</span><br></pre></td></tr></table></figure></li>
-<li>2 安装指定版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common&#x3D;&#x3D;&#123;版本号&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-lamb-common-的SSH功能使用方法"><a href="#3-lamb-common-的SSH功能使用方法" class="headerlink" title="3 lamb-common 的SSH功能使用方法"></a>3 lamb-common 的SSH功能使用方法</h4>从 lamb-common-0.0.5 版本开始lamb-common开始提供SSH功能，使用起来非常简单方便</li>
-</ul>
-<p>通过对SSHClient类实例化，调用exec_command、upload，download，close方法对本地和远端机器做对应的操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.api.ssh import SSHClient</span><br><span class="line"></span><br><span class="line">ssh&#x3D;SSHClient(ip&#x3D;&quot;192.168.1.200&quot;,port&#x3D;22,username&#x3D;&quot;root&quot;,password&#x3D;&quot;root&quot;,prompt&#x3D;&quot;#&quot;)</span><br><span class="line"># 通过ssh方式在远端机器上执行 ls &#x2F; 的命令</span><br><span class="line">ssh.exec_command(&quot;ls &#x2F;&quot;)</span><br><span class="line"></span><br><span class="line"># 将本地当前路径下的__init__.py 文件上传到远端服务器的 &#x2F;opt&#x2F;unittest_test&#x2F;__init__.py</span><br><span class="line">ssh.upload(&quot;__init__.py&quot;,&quot;&#x2F;opt&#x2F;unittest_test&#x2F;__init__.py&quot;)</span><br><span class="line"></span><br><span class="line"># 将远端服务器上的 &#x2F;etc&#x2F;lamb_common&#x2F;log.conf 下载到本地 D:&#x2F;log.conf </span><br><span class="line">self.ssh.download(&quot;&#x2F;etc&#x2F;lamb_common&#x2F;log.conf&quot;,&quot;D:&#x2F;log.conf&quot;)</span><br><span class="line"></span><br><span class="line"># 关闭ssh连接通道</span><br><span class="line">ssh.close()</span><br></pre></td></tr></table></figure>
-<p>这样一来，对于在linux上执行命令，上传下载文件等操作实现起来非常简单方便</p>
+        <h4 id="1-执行如下安装命令"><a href="#1-执行如下安装命令" class="headerlink" title="1 执行如下安装命令"></a>1 执行如下安装命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y xinetd</span><br><span class="line"></span><br><span class="line">yum install -y telnet-server</span><br><span class="line"></span><br><span class="line">yum install -y telnet</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出"><a href="#2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出" class="headerlink" title="2 执行 vi /etc/xinetd.d/telnet 命令打开文件，若存在，则将disable=yes修改为disable=no，若文件不存在在直接编辑输入如下内容，保存退出"></a>2 执行 vi /etc/xinetd.d/telnet 命令打开文件，若存在，则将disable=yes修改为disable=no，若文件不存在在直接编辑输入如下内容，保存退出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># default: yes</span><br><span class="line"># description: The telnet server servestelnet sessions; it uses \</span><br><span class="line">#      unencrypted username&#x2F;password pairs for authentication.</span><br><span class="line">service telnet</span><br><span class="line">&#123;  </span><br><span class="line">  flags           &#x3D; REUSE  </span><br><span class="line">  socket_type     &#x3D; stream  </span><br><span class="line">  wait            &#x3D; no  </span><br><span class="line">  user            &#x3D; root  </span><br><span class="line">  server          &#x3D;&#x2F;usr&#x2F;sbin&#x2F;in.telnetd  </span><br><span class="line">  log_on_failure  +&#x3D; USERID  </span><br><span class="line">  disable         &#x3D; no   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-执行如下命令启动telnet服务"><a href="#3-执行如下命令启动telnet服务" class="headerlink" title="3 执行如下命令启动telnet服务"></a>3 执行如下命令启动telnet服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xinetd</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-执行如下命令查看服务是否已启动"><a href="#4-执行如下命令查看服务是否已启动" class="headerlink" title="4 执行如下命令查看服务是否已启动"></a>4 执行如下命令查看服务是否已启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep xinetd</span><br></pre></td></tr></table></figure>
+<p>执行结果若如下则表示已经启动OK</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# ps -ef | grep xinetd</span><br><span class="line">root      69017      1  0 12:32 ?        00:00:00 &#x2F;usr&#x2F;sbin&#x2F;xinetd -stayalive -pidfile &#x2F;var&#x2F;run&#x2F;xinetd.pid</span><br><span class="line">root      69686   4669  0 12:33 pts&#x2F;0    00:00:00 grep --color&#x3D;auto xinetd</span><br><span class="line">[root@redrose2100 lamb-common]#</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"><a href="#5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录" class="headerlink" title="5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"></a>5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# useradd admin</span><br><span class="line">[root@redrose2100 lamb-common]# passwd admin</span><br><span class="line">Changing password for user admin.</span><br><span class="line">New password:</span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password:</span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br><span class="line">[root@redrose2100 lamb-common]#</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1"><a href="#6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1" class="headerlink" title="6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1"></a>6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# telnet 127.0.0.1</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to 127.0.0.1.</span><br><span class="line">Escape character is &#39;^]&#39;.</span><br><span class="line"></span><br><span class="line">Kernel 3.10.0-1127.el7.x86_64 on an x86_64</span><br><span class="line">redrose2100 login: admin</span><br><span class="line">Password:</span><br><span class="line">[admin@redrose2100 ~]$ who am i</span><br><span class="line">admin    pts&#x2F;3        2020-08-28 12:37 (localhost)</span><br><span class="line">[admin@redrose2100 ~]$</span><br></pre></td></tr></table></figure>
+
+<p>OK，至此，telnet服务已经启动OK了</p>
 
     </div>
 
@@ -397,7 +403,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/lamb-common%E7%B3%BB%E5%88%97/" rel="tag"># lamb-common系列</a>
+              <a href="/blog/tags/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97/" rel="tag"># Linux系统环境安装系列</a>
           </div>
 
         
@@ -406,13 +412,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/08/24/git%E4%B8%93%E9%A2%98(3)--git%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" rel="prev" title="git专题(3)--git回退操作命令">
-      <i class="fa fa-chevron-left"></i> git专题(3)--git回退操作命令
+    <a href="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/" rel="prev" title="lamb-common系列(2)--非常简单的对linux服务器的SSH操作库">
+      <i class="fa fa-chevron-left"></i> lamb-common系列(2)--非常简单的对linux服务器的SSH操作库
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" rel="next" title="Linux系统环境安装系列(4)--centos7如何开启telnet功能">
-      Linux系统环境安装系列(4)--centos7如何开启telnet功能 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
