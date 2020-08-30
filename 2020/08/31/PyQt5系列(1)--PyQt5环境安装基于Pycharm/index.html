@@ -23,15 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Redrose2100的博客首页">
-<meta property="og:url" content="https://github.com/redrose2100/blog/categories/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="####注： 本文假设python和pycharm均已安装完成，python笨版本为3.6以上 1 安装PyQt5在cmd窗口执行如下命令： 1pip install PyQt5 2 安装PyQt5-tools在cmd窗口执行如下命令： 1pip install PyQt5-tools 3 配置环境变量在【计算机（此电脑）】右键-【属性】-【高级系统设置】-【高级】-【环境变量】，然后在系统变量中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyQt5系列(1)--PyQt5环境安装基于Pycharm">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
+<meta property="og:description" content="####注： 本文假设python和pycharm均已安装完成，python笨版本为3.6以上 1 安装PyQt5在cmd窗口执行如下命令： 1pip install PyQt5 2 安装PyQt5-tools在cmd窗口执行如下命令： 1pip install PyQt5-tools 3 配置环境变量在【计算机（此电脑）】右键-【属性】-【高级系统设置】-【高级】-【环境变量】，然后在系统变量中">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-30T23:33:22.000Z">
+<meta property="article:modified_time" content="2020-08-30T23:49:24.785Z">
 <meta property="article:author" content="微信：redrose2100">
+<meta property="article:tag" content="PyQt5系列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/categories/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/">
 
 
 <script class="page-configurations">
@@ -39,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 公共基础 | Redrose2100的博客首页</title>
+  <title>PyQt5系列(1)--PyQt5环境安装基于Pycharm | Redrose2100的博客首页</title>
   
 
 
@@ -188,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -200,6 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装PyQt5"><span class="nav-number">1.</span> <span class="nav-text">1 安装PyQt5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装PyQt5-tools"><span class="nav-number">2.</span> <span class="nav-text">2 安装PyQt5-tools</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-配置环境变量"><span class="nav-number">3.</span> <span class="nav-text">3 配置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Pycharm配置"><span class="nav-number">4.</span> <span class="nav-text">4 Pycharm配置</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -264,57 +270,174 @@
       <div class="main-inner">
         
 
-        <div class="content category">
+        <div class="content post posts-expand">
           
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PyQt5系列(1)--PyQt5环境安装基于Pycharm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-31 07:33:22 / 修改时间：07:49:24" itemprop="dateCreated datePublished" datetime="2020-08-31T07:33:22+08:00">2020-08-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/PyQt5%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">PyQt5系列</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">公共基础
-          <small>分类</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>725</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>####注： 本文假设python和pycharm均已安装完成，python笨版本为3.6以上</p>
+<h4 id="1-安装PyQt5"><a href="#1-安装PyQt5" class="headerlink" title="1 安装PyQt5"></a>1 安装PyQt5</h4><p>在cmd窗口执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5</span><br></pre></td></tr></table></figure>
+<h4 id="2-安装PyQt5-tools"><a href="#2-安装PyQt5-tools" class="headerlink" title="2 安装PyQt5-tools"></a>2 安装PyQt5-tools</h4><p>在cmd窗口执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5-tools</span><br></pre></td></tr></table></figure>
+<h4 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3 配置环境变量"></a>3 配置环境变量</h4><p>在【计算机（此电脑）】右键-【属性】-【高级系统设置】-【高级】-【环境变量】，然后在系统变量中新建一个变量：Qt_Plugin_Path，它的值为（根据自己的安装位置调整）：<br>D:\Python38\Lib\site-packages\PyQt5\Qt\plugins</p>
+<h4 id="4-Pycharm配置"><a href="#4-Pycharm配置" class="headerlink" title="4 Pycharm配置"></a>4 Pycharm配置</h4><ul>
+<li>（1）打开Pycharm，点击【File】-【Setting】-【Tools】-【External Tools】</li>
+<li>（2）点击“+”，在弹出的Edit tool窗口中设置如下内容：<ul>
+<li>Name ： 设置为：QtDesigner</li>
+<li>Program： 设置为（根据自己的安装位置调整）：D:\Python38\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe</li>
+<li>Working directory：设置为：$FileDir$</li>
+</ul>
+</li>
+<li>（3）点击OK保存</li>
+<li>（4）同样的方法点击“+”，在弹出的Edit Tool窗口设置如下内容：<ul>
+<li>Name：设置为：PyUIC</li>
+<li>Program：设置为（根据自己的安装位置调整）：D:\Python38\python.exe</li>
+<li>Argument：设置为：-m PyQt5.uic.pyuic  $FileName$ -o $FileNameWithoutExtension$.py</li>
+<li>Working directory：设置为：$FileDir$</li>
+</ul>
+</li>
+</ul>
+<p>至此PyQt5 就已经安装OK了</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-10T07:31:12+08:00"
-              content="2020-07-10">
-          07-10
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="document.getElementById('post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div id="post-reward">
+      
+      <div>
+        <img src="/blog/images/wechat.jpg" alt="微信：redrose2100 微信">
+        <p>微信</p>
+      </div>
+      
+      <div>
+        <img src="/blog/images/aipay.png" alt="微信：redrose2100 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/blog/2020/07/10/markdown-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" itemprop="url">
-            <span itemprop="name">markdown 基础语法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/PyQt5%E7%B3%BB%E5%88%97/" rel="tag"># PyQt5系列</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/" rel="prev" title="lamb-common系列(3)--非常简单的对linux服务器的Telnet操作库">
+      <i class="fa fa-chevron-left"></i> lamb-common系列(3)--非常简单的对linux服务器的Telnet操作库
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
         </div>
         
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
