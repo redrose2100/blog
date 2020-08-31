@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,113 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/23/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(1)--centos7%E4%B8%8A%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85python3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/08/23/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(1)--centos7%E4%B8%8A%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85python3/" class="post-title-link" itemprop="url">Linux系统环境安装系列(1)--centos7 上手动安装python3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-23 08:52:25 / 修改时间：09:12:18" itemprop="dateCreated datePublished" datetime="2020-08-23T08:52:25+08:00">2020-08-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Linux系统环境安装系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/08/23/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(1)--centos7%E4%B8%8A%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85python3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/23/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(1)--centos7%E4%B8%8A%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85python3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>因为centos7自带的python是2.7.5版本，但是当前已经在使用python3了，这里详细演示如何手动安装python3</p>
+<h4 id="1-安装python3前的准备工作："><a href="#1-安装python3前的准备工作：" class="headerlink" title="1 安装python3前的准备工作："></a>1 安装python3前的准备工作：</h4><p>使用root用户执行如下命令，安装 底层依赖工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall &quot;Development tools&quot;</span><br><span class="line">yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br><span class="line">yum install -y libffi-devel zlib1g-dev</span><br><span class="line">yum install zlib* -y</span><br></pre></td></tr></table></figure>
+<h4 id="2-在-opt-目录下下载python3-8-5的安装包"><a href="#2-在-opt-目录下下载python3-8-5的安装包" class="headerlink" title="2 在/opt/目录下下载python3.8.5的安装包"></a>2 在/opt/目录下下载python3.8.5的安装包</h4><p>从python官网找到源码下载的地方，即Gzipped source tarball上【右键】-【复制链接地址】，如这里是3.8.5的链接：然后使用wget即可下载，如果linux未连网可以手工下载后上传linux服务器</p>
+<p><a href="https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.8.5&#x2F;Python-3.8.5.tgz</span><br></pre></td></tr></table></figure>
+<h4 id="3-解压下载的python安装包"><a href="#3-解压下载的python安装包" class="headerlink" title="3 解压下载的python安装包"></a>3 解压下载的python安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf Python-3.8.5.tgz</span><br></pre></td></tr></table></figure>
+<h4 id="4-然后进入解压缩的目录中"><a href="#4-然后进入解压缩的目录中" class="headerlink" title="4 然后进入解压缩的目录中"></a>4 然后进入解压缩的目录中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd Python-3.8.5&#x2F;</span><br></pre></td></tr></table></figure>
+<h4 id="5-分别执行如下两条命令进行安装"><a href="#5-分别执行如下两条命令进行安装" class="headerlink" title="5 分别执行如下两条命令进行安装"></a>5 分别执行如下两条命令进行安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;python3 --enable-optimizations --with-ssl</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h4 id="6-分别执行如下两条命令检查是否安装ok"><a href="#6-分别执行如下两条命令检查是否安装ok" class="headerlink" title="6 分别执行如下两条命令检查是否安装ok"></a>6 分别执行如下两条命令检查是否安装ok</h4><p>注意：这里因为没有卸载系统的python2.7.5，所以python命令默认的还是python2.7.5，如果使用安装的python3.8.5需要使用python3命令<br>pip也同样需要使用pip3命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br><span class="line"></span><br><span class="line">pip3 --version</span><br></pre></td></tr></table></figure>
+<p>如下能正确显示版本号，则表示安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 Python-3.8.5]# python3 --version</span><br><span class="line">Python 3.8.5</span><br><span class="line">[root@redrose2100 Python-3.8.5]# pip3 --version</span><br><span class="line">pip 20.2.2 from &#x2F;usr&#x2F;local&#x2F;python3&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;pip (python 3.8)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1437,139 +1544,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(6)--skip%E5%92%8Cskipif%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(6)--skip%E5%92%8Cskipif%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">pytest系列(6)--skip和skipif详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-09 23:25:55 / 修改时间：23:52:35" itemprop="dateCreated datePublished" datetime="2020-08-09T23:25:55+08:00">2020-08-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/pytest%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pytest系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(6)--skip%E5%92%8Cskipif%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(6)--skip%E5%92%8Cskipif%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-测试用例中函数级跳过"><a href="#1-测试用例中函数级跳过" class="headerlink" title="1 测试用例中函数级跳过"></a>1 测试用例中函数级跳过</h4><p>在函数上面加一个@pytest.mark.skip()装饰器即表示此函数所代表的测试用例不再执行，skip函数可以指定一个reason的参数，表示跳过此用例的原因，同样skipif函数则表示通过判断一定的条件，满足条件时则跳过此用例，skipif第二个参数同样是reason表示跳过的原因</p>
-<p>在test_example.py编写如下代码，在类外和类中的函数分表增加skip和skipif装饰器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skip()</span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skip(reason&#x3D;&quot;功能暂时不支持&quot;)</span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;in test_03&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;1,reason&#x3D;&quot;跳过，测试skipif的功能是否生效&quot;)</span><br><span class="line">def test_04():</span><br><span class="line">    print(&quot;in test_04&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;2,reason&#x3D;&quot;跳过，测试skipif的功能是否生效&quot;)</span><br><span class="line">def test_05():</span><br><span class="line">    print(&quot;in test_05&quot;)</span><br><span class="line"></span><br><span class="line">def test_06():</span><br><span class="line">    print(&quot;in test_06&quot;)</span><br><span class="line"></span><br><span class="line">class TestExample():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    @pytest.mark.skip()</span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample.test_02&quot;)</span><br><span class="line"></span><br><span class="line">    @pytest.mark.skip(reason&#x3D;&quot;功能暂时不支持&quot;)</span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;in TestExample.test_03&quot;)</span><br><span class="line"></span><br><span class="line">    @pytest.mark.skipif(1 &#x3D;&#x3D; 1, reason&#x3D;&quot;跳过，测试skipif的功能是否生效&quot;)</span><br><span class="line">    def test_04(self):</span><br><span class="line">        print(&quot;in TestExample.test_04&quot;)</span><br><span class="line"></span><br><span class="line">    @pytest.mark.skipif(1 &#x3D;&#x3D; 2, reason&#x3D;&quot;跳过，测试skipif的功能是否生效&quot;)</span><br><span class="line">    def test_05(self):</span><br><span class="line">        print(&quot;in TestExample.test_05&quot;)</span><br><span class="line"></span><br><span class="line">    def test_06(self):</span><br><span class="line">        print(&quot;in TestExample.test_06&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm中terminal中执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下，和上述分析预期一致：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\test_demo&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\test_demo</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 12 items                                                                                                                                                      </span><br><span class="line"></span><br><span class="line">test_example.py in test_01</span><br><span class="line">.sssin test_05</span><br><span class="line">.in test_06</span><br><span class="line">.in TestExample.test_01</span><br><span class="line">.sssin TestExample.test_05</span><br><span class="line">.in TestExample.test_06</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 6 passed, 6 skipped in 0.07s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-测试用例中跳过测试类"><a href="#2-测试用例中跳过测试类" class="headerlink" title="2 测试用例中跳过测试类"></a>2 测试用例中跳过测试类</h4><p>跳过类中skip和skipif的用法不变，唯一改变的就是将skip或者skipif的装饰器放到要跳过的类的上面</p>
-<p>在test_example.py中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TestExample01():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skip(&quot;跳过测试类&quot;)</span><br><span class="line">class TestExample02():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample02.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample02.test_02&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;1,reason&#x3D;&quot;跳过测试类&quot;)</span><br><span class="line">class TestExample03():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample03.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample03.test_02&quot;)</span><br><span class="line"></span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;2,reason&#x3D;&quot;跳过测试类&quot;)</span><br><span class="line">class TestExample04():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample04.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample04.test_02&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm中terminal中执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下，和上述分析预期一致：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\test_demo&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\test_demo</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 10 items                                                                                                                                                      </span><br><span class="line"></span><br><span class="line">test_example.py in test_01</span><br><span class="line">.in test_02</span><br><span class="line">.in TestExample01.test_01</span><br><span class="line">.in TestExample01.test_02</span><br><span class="line">.ssssin TestExample04.test_01</span><br><span class="line">.in TestExample04.test_02</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 6 passed, 4 skipped in 0.06s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-在测试用例中跳过测试模块"><a href="#3-在测试用例中跳过测试模块" class="headerlink" title="3 在测试用例中跳过测试模块"></a>3 在测试用例中跳过测试模块</h4><p>skip和skipif跳过模块和跳过类以及函数略有区别，跳过模块即跳过文件，很简单，只需要在当前文件中增加如下一行即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytestmark&#x3D;pytest.mark.skip(reason&#x3D;&quot;跳过模块&quot;)</span><br></pre></td></tr></table></figure>
-<p>创建如下文件结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ex_023</span><br><span class="line">   |----test_ex_01.py</span><br><span class="line">   |----test_ex_02.py</span><br><span class="line">   |----test_ex_03.py</span><br></pre></td></tr></table></figure>
-<p>其中在test_ex_01.py中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TestExample01():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br></pre></td></tr></table></figure>
-<p>test_ex_02.py中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">pytestmark&#x3D;pytest.mark.skip(reason&#x3D;&quot;跳过模块&quot;)</span><br><span class="line"></span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TestExample01():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br></pre></td></tr></table></figure>
-<p>test_ex03.py文件中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line">pytestmark&#x3D;pytest.mark.skipif(1&#x3D;&#x3D;1,reason&#x3D;&quot;跳过模块&quot;)</span><br><span class="line"></span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TestExample01():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br></pre></td></tr></table></figure>
-<p>在pycharm中的terminal中切入到ex_023目录下，然后执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\ex_023&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\ex_023</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 12 items                                                                                                                                                      </span><br><span class="line"></span><br><span class="line">test_ex_01.py in test_01</span><br><span class="line">.in test_02</span><br><span class="line">.in TestExample01.test_01</span><br><span class="line">.in TestExample01.test_02</span><br><span class="line">.</span><br><span class="line">test_ex_02.py ssss</span><br><span class="line">test_ex_03.py ssss</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 4 passed, 8 skipped in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-skip-skipif-嵌套使用"><a href="#4-skip-skipif-嵌套使用" class="headerlink" title="4 skip skipif 嵌套使用"></a>4 skip skipif 嵌套使用</h4><p>pytest 的skip/skipif在跳过模块，跳过类，跳过函数这个三个层级是可以嵌套使用的，嵌套使用的规则就是只要有一个是真，则执行跳过操作</p>
-<p>在test_example.py编写如下在代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import pytest</span><br><span class="line"></span><br><span class="line"># 因为1！&#x3D;2 ，所以这个跳过不会生效</span><br><span class="line">pytestmark&#x3D;pytest.mark.skipif(1&#x3D;&#x3D;2,reason&#x3D;&quot;跳过模块&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 因为没有skip生效，所以此用例会执行</span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line"># 因为这个函数层级的skiif中1&#x3D;&#x3D;1为真，所以skip会生效，即不会执行此用例</span><br><span class="line">@pytest.mark.skipif(1&#x3D;&#x3D;1,reason&#x3D;&quot;跳过test_02&quot;)</span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 此类没有类层级的skip</span><br><span class="line">class TestExample01():</span><br><span class="line">    # 因为函数层级的skip为真，会跳过</span><br><span class="line">    @pytest.mark.skipif(2&#x3D;&#x3D;2,reaon&#x3D;&quot;跳过test_01&quot;)</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample01.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample01.test_02&quot;)</span><br><span class="line"></span><br><span class="line">#因为类层级的skip会生效，所以这个类中的所有测试函数都不会执行</span><br><span class="line">@pytest.mark.skip(&quot;跳过TestExample02类&quot;)</span><br><span class="line">class TestExample02():</span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in TestExample02.test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in TestExample02.test_02&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>在pycharm中的terminal中切入到test_example.py目录中，然后执行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -s</span><br></pre></td></tr></table></figure>
-<p>运行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\test_demo&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\test_demo</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 6 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_example.py in test_01</span><br><span class="line">.ssin TestExample01.test_02</span><br><span class="line">.ss</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 2 passed, 4 skipped in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1624,7 +1598,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">301k</span>
+    <span title="站点总字数">302k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
