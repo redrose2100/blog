@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,134 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/10/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(1)--python%E4%B8%AD%E7%9A%84%E4%B8%80%E5%88%87%E7%9A%86%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/08/10/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(1)--python%E4%B8%AD%E7%9A%84%E4%B8%80%E5%88%87%E7%9A%86%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">python高级语法系列(1)--python中的一切皆对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-10 22:41:30" itemprop="dateCreated datePublished" datetime="2020-08-10T22:41:30+08:00">2020-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-17 07:12:11" itemprop="dateModified" datetime="2020-08-17T07:12:11+08:00">2020-08-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/08/10/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(1)--python%E4%B8%AD%E7%9A%84%E4%B8%80%E5%88%87%E7%9A%86%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/10/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(1)--python%E4%B8%AD%E7%9A%84%E4%B8%80%E5%88%87%E7%9A%86%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-python中一切皆对象，类和函数都是“一等公民”，其中一等公民的含义如下："><a href="#1-python中一切皆对象，类和函数都是“一等公民”，其中一等公民的含义如下：" class="headerlink" title="1 python中一切皆对象，类和函数都是“一等公民”，其中一等公民的含义如下："></a>1 python中一切皆对象，类和函数都是“一等公民”，其中一等公民的含义如下：</h4><ul>
+<li>赋值给一个变量</li>
+<li>可以增加到集合对象中</li>
+<li>可以作为参数传递给参数</li>
+<li>可以作为函数的返回值</li>
+</ul>
+<h4 id="2-下面用代码演示在python中类和函数都是一等公民"><a href="#2-下面用代码演示在python中类和函数都是一等公民" class="headerlink" title="2 下面用代码演示在python中类和函数都是一等公民"></a>2 下面用代码演示在python中类和函数都是一等公民</h4><ul>
+<li><p>（1） 类和函数都可以进行赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 定义一个函数</span><br><span class="line">def func(name&#x3D;&quot;default&quot;):</span><br><span class="line">    print(name)</span><br><span class="line"></span><br><span class="line"># 函数赋值</span><br><span class="line">my_func&#x3D;func</span><br><span class="line">my_func(&quot;jack&quot;)</span><br><span class="line"></span><br><span class="line"># 定义一个类</span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&#39;person&#39;)</span><br><span class="line"></span><br><span class="line"># 类进行赋值</span><br><span class="line">MyPerson&#x3D;Person</span><br><span class="line">p&#x3D;MyPerson()</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jack</span><br><span class="line">person</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>（2）类和函数都可以加到列表中去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 定义一个函数</span><br><span class="line">def func(name&#x3D;&quot;default&quot;):</span><br><span class="line">    print(name)</span><br><span class="line"></span><br><span class="line"># 定义一个类</span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&#39;person&#39;)</span><br><span class="line"></span><br><span class="line"># 定义一个列表</span><br><span class="line">obj_list&#x3D;[]</span><br><span class="line"># 函数和类可以加到列表中</span><br><span class="line">obj_list.append(func)</span><br><span class="line">obj_list.append(Person)</span><br><span class="line">for item in obj_list:</span><br><span class="line">    item()</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">default</span><br><span class="line">person</span><br></pre></td></tr></table></figure></li>
+<li><p>（3）类和函数都可以作为参数传入函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 定义一个函数</span><br><span class="line">def func(name&#x3D;&quot;default&quot;):</span><br><span class="line">    print(name)</span><br><span class="line"></span><br><span class="line"># 定义一个类</span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&#39;person&#39;)</span><br><span class="line"></span><br><span class="line"># 定义一个执行函数，参数为一个函数</span><br><span class="line">def run(func):</span><br><span class="line">    print(&quot;begin to run func&quot;)</span><br><span class="line">    func()</span><br><span class="line">    print(&quot;finish running func...&quot;)</span><br><span class="line"></span><br><span class="line">run(func)</span><br><span class="line">run(Person)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">begin to run func</span><br><span class="line">default</span><br><span class="line">finish running func...</span><br><span class="line">begin to run func</span><br><span class="line">person</span><br><span class="line">finish running func...</span><br></pre></td></tr></table></figure></li>
+<li><p>（4）类和函数都可以作为函数的返回值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 函数作为函数的返回值</span><br><span class="line">def func_01():</span><br><span class="line">    def func():</span><br><span class="line">        print(&quot;jack&quot;)</span><br><span class="line">    return func</span><br><span class="line"></span><br><span class="line"># 类作为函数的返回值</span><br><span class="line">def func_02():</span><br><span class="line">    class Person():</span><br><span class="line">        def __init__(self):</span><br><span class="line">            print(&quot;person&quot;)</span><br><span class="line">    return Person</span><br><span class="line"></span><br><span class="line">f&#x3D;func_01()</span><br><span class="line">f()</span><br><span class="line">p&#x3D;func_02()</span><br><span class="line">p()</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jack</span><br><span class="line">person</span><br></pre></td></tr></table></figure>
+<p>总结：在python中，函数和类都和普通的变量一样，都可以赋值，加到列表中，也可以作为函数的参数传入函数，也可以作为函数的返回值返回</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1475,345 +1603,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/07/python%E4%B8%93%E9%A2%98%E7%B3%BB%E5%88%97(4)--setuptools%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/07/python%E4%B8%93%E9%A2%98%E7%B3%BB%E5%88%97(4)--setuptools%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">python专题系列(4)--setuptools详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-07 12:38:39" itemprop="dateCreated datePublished" datetime="2020-08-07T12:38:39+08:00">2020-08-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-09 01:13:53" itemprop="dateModified" datetime="2020-08-09T01:13:53+08:00">2020-08-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python%E4%B8%93%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">python专题</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/07/python%E4%B8%93%E9%A2%98%E7%B3%BB%E5%88%97(4)--setuptools%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/07/python%E4%B8%93%E9%A2%98%E7%B3%BB%E5%88%97(4)--setuptools%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-setuptools-安装，执行如下命令即可："><a href="#1-setuptools-安装，执行如下命令即可：" class="headerlink" title="1 setuptools 安装，执行如下命令即可："></a>1 setuptools 安装，执行如下命令即可：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install setuptools</span><br></pre></td></tr></table></figure>
-<p>如下表示已经安装ok</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(PythonBaseEnv) G:\study\pkg_01&gt;pip install --upgrade setuptools</span><br><span class="line">Collecting setuptools</span><br><span class="line">  Downloading setuptools-49.2.1-py3-none-any.whl (789 kB)</span><br><span class="line">     |████████████████████████████████| 789 kB 273 kB&#x2F;s</span><br><span class="line">Installing collected packages: setuptools</span><br><span class="line">  Attempting uninstall: setuptools</span><br><span class="line">    Found existing installation: setuptools 49.2.0.post20200714</span><br><span class="line">    Uninstalling setuptools-49.2.0.post20200714:</span><br><span class="line">      Successfully uninstalled setuptools-49.2.0.post20200714</span><br><span class="line">Successfully installed setuptools-49.2.1</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-将最简单的pkg-01-的包打包为-tar-gz的源码包"><a href="#2-将最简单的pkg-01-的包打包为-tar-gz的源码包" class="headerlink" title="2 将最简单的pkg_01 的包打包为.tar.gz的源码包"></a>2 将最简单的pkg_01 的包打包为.tar.gz的源码包</h4><ul>
-<li>（1） 创建如下文件目录<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pkg_01</span><br><span class="line">   |----pkg_01</span><br><span class="line">   |       |----__init__.py</span><br><span class="line">   |       |----math</span><br><span class="line">   |              |----__init__.py</span><br><span class="line">   |              |----common.py</span><br><span class="line">   |----setup.py</span><br></pre></td></tr></table></figure></li>
-<li>(2) 在setup.py文件中编写如下代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name&#x3D;&quot;pkg_01&quot;,</span><br><span class="line">    version&#x3D;&quot;0.0.1&quot;,</span><br><span class="line">    package&#x3D;find_packages(),</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>(3) 在 pkg_01.math.common.py中写一个加法的函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def add(a,b):</span><br><span class="line">    return (a+b)</span><br></pre></td></tr></table></figure></li>
-<li>(4) 在cmd或者pycharm的终端中切换到pkg_01的根目录中，然后执行如下命令即可打包一个最简单的.tar.gz包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist --format&#x3D;gztar</span><br></pre></td></tr></table></figure></li>
-<li>(5) 在cmd或者pycharm的终端中继续执行如下命令对我们上面打的包进行安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install dist&#x2F;pkg_01-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></li>
-<li>(6) 进入python交互式环境中，对上面的安装的pkg_01的包进行测试,如下，表示pkg_01已经安装ok，并且add方法功能也正常<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(PythonBaseEnv) G:\study\pkg_01&gt;python</span><br><span class="line">Python 3.8.3 (default, Jul  2 2020, 17:30:36) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; from pkg_01.math.common import add</span><br><span class="line">&gt;&gt;&gt; a&#x3D;add(100,200)</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">300</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">* (7)源码包一般常用的就是.tar.gz和.zip包</span><br></pre></td></tr></table></figure>
-<h4 id="3-将上述最简单的pkg-01打包为windows标砖软件msi格式"><a href="#3-将上述最简单的pkg-01打包为windows标砖软件msi格式" class="headerlink" title="3 将上述最简单的pkg_01打包为windows标砖软件msi格式"></a>3 将上述最简单的pkg_01打包为windows标砖软件msi格式</h4></li>
-<li>（1） 在cmd或者pycharm的终端中执行如下命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup bdist --format&#x3D;msi</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(PythonBaseEnv) G:\study\pkg_01&gt;python setup.py  bdist --format&#x3D;msi</span><br><span class="line">D:\Miniconda\envs\PythonBaseEnv\lib\distutils\dist.py:274: UserWarning: Unknown distribution option: &#39;package&#39;</span><br><span class="line">  warnings.warn(msg)</span><br><span class="line">running bdist</span><br><span class="line">running bdist_msi</span><br><span class="line">running build</span><br><span class="line">installing to build\bdist.win-amd64\msi</span><br><span class="line">running install_egg_info</span><br><span class="line">running egg_info</span><br><span class="line">writing pkg_01.egg-info\PKG-INFO</span><br><span class="line">writing dependency_links to pkg_01.egg-info\dependency_links.txt</span><br><span class="line">writing top-level names to pkg_01.egg-info\top_level.txt</span><br><span class="line">reading manifest file &#39;pkg_01.egg-info\SOURCES.txt&#39;</span><br><span class="line">writing manifest file &#39;pkg_01.egg-info\SOURCES.txt&#39;</span><br><span class="line">Copying pkg_01.egg-info to build\bdist.win-amd64\msi\Lib\site-packages\pkg_01-0.0.1-py3.8.egg-info</span><br><span class="line">running install_scripts</span><br><span class="line">removing &#39;build\bdist.win-amd64\msi&#39; (and everything under it)</span><br></pre></td></tr></table></figure></li>
-<li>（2）执行如下命令将已经安装的pkg_01的包卸载掉<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall pkg_01</span><br></pre></td></tr></table></figure></li>
-<li>(3) 找打dist目录下生成的pkg_01-0.0.1.win-amd64.msi软件，双击执行</li>
-<li>(4) 然后选择“install for all users”选项，点击“next”</li>
-<li>(5) 继续选择“next”，然后点击“finish”，完成安装</li>
-<li>(6) 在cmd中，使用系统中的pip执行 pip list 发现pkg_01包已经安装上去了</li>
-</ul>
-<h4 id="4-将pkg-01包打包为rpm包"><a href="#4-将pkg-01包打包为rpm包" class="headerlink" title="4 将pkg_01包打包为rpm包"></a>4 将pkg_01包打包为rpm包</h4><ul>
-<li>(1) 首先将pkg_01的源码上传至linux，在windows上是无法打包rpm包的</li>
-<li>(2) 在linux上首先执行pip list，确保当前pkg_01在linux上是没有安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 pkg_01]# pwd</span><br><span class="line">&#x2F;opt&#x2F;pkg_01</span><br><span class="line">(base) [root@redrose2100 pkg_01]# pip list</span><br><span class="line">Package                Version</span><br><span class="line">---------------------- -------------------</span><br><span class="line">certifi                2020.4.5.1</span><br><span class="line">cffi                   1.14.0</span><br><span class="line">chardet                3.0.4</span><br><span class="line">conda                  4.8.3</span><br><span class="line">conda-package-handling 1.7.0</span><br><span class="line">cryptography           2.9.2</span><br><span class="line">idna                   2.9</span><br><span class="line">pip                    20.0.2</span><br><span class="line">pycosat                0.6.3</span><br><span class="line">pycparser              2.20</span><br><span class="line">pyOpenSSL              19.1.0</span><br><span class="line">PySocks                1.7.1</span><br><span class="line">requests               2.23.0</span><br><span class="line">ruamel-yaml            0.15.87</span><br><span class="line">setuptools             46.4.0.post20200518</span><br><span class="line">six                    1.14.0</span><br><span class="line">tqdm                   4.46.0</span><br><span class="line">urllib3                1.25.8</span><br><span class="line">wheel                  0.34.2</span><br><span class="line">(base) [root@redrose2100 pkg_01]#</span><br></pre></td></tr></table></figure></li>
-<li>(3) 进入到pkg_01目录下，执行如下命令将pkg_01打包为rpm包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py bdist --format&#x3D;rpm</span><br></pre></td></tr></table></figure>
-则会在dist目录下生成如下三个文件，两个rpm和一个tar.gz<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 pkg_01]# ls dist&#x2F;</span><br><span class="line">pkg_01-0.0.1-1.noarch.rpm  pkg_01-0.0.1-1.src.rpm  pkg_01-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></li>
-<li>(4) 然后可以安装pkg_01-0.0.1-1.noarch.rpm包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh dist&#x2F;pkg_01-0.0.1-1.noarch.rpm(base) [root@redrose2100 pkg_01]# rpm -ivh dist&#x2F;pkg_01-0.0.1-1.noarch.rpm</span><br><span class="line">Preparing...                          ################################# [100%]</span><br><span class="line">Updating &#x2F; installing...</span><br><span class="line">   1:pkg_01-0.0.1-1                   ################################# [100%]</span><br></pre></td></tr></table></figure></li>
-<li>(5) 再次执行pip list，发现此时pkg-01已经安装ok了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 pkg_01]# pip list</span><br><span class="line">Package                Version</span><br><span class="line">---------------------- -------------------</span><br><span class="line">certifi                2020.4.5.1</span><br><span class="line">cffi                   1.14.0</span><br><span class="line">chardet                3.0.4</span><br><span class="line">conda                  4.8.3</span><br><span class="line">conda-package-handling 1.7.0</span><br><span class="line">cryptography           2.9.2</span><br><span class="line">idna                   2.9</span><br><span class="line">pip                    20.0.2</span><br><span class="line">pkg-01                 0.0.1</span><br><span class="line">pycosat                0.6.3</span><br><span class="line">pycparser              2.20</span><br><span class="line">pyOpenSSL              19.1.0</span><br><span class="line">PySocks                1.7.1</span><br><span class="line">requests               2.23.0</span><br><span class="line">ruamel-yaml            0.15.87</span><br><span class="line">setuptools             46.4.0.post20200518</span><br><span class="line">six                    1.14.0</span><br><span class="line">tqdm                   4.46.0</span><br><span class="line">urllib3                1.25.8</span><br><span class="line">wheel                  0.34.2</span><br><span class="line">(base) [root@redrose2100 pkg_01]#</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="5-打包方式常用的基本就上面集中，下面重点就是详细配置setup-py文件了"><a href="#5-打包方式常用的基本就上面集中，下面重点就是详细配置setup-py文件了" class="headerlink" title="5 打包方式常用的基本就上面集中，下面重点就是详细配置setup.py文件了"></a>5 打包方式常用的基本就上面集中，下面重点就是详细配置setup.py文件了</h4><table>
-<thead>
-<tr>
-<th>名称</th>
-<th align="left">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>name</td>
-<td align="left">包的名称</td>
-</tr>
-<tr>
-<td>version</td>
-<td align="left">软件包的版本号</td>
-</tr>
-<tr>
-<td>description</td>
-<td align="left">软件包的描述</td>
-</tr>
-<tr>
-<td>long_description</td>
-<td align="left">软件包的详细描述</td>
-</tr>
-<tr>
-<td>long_description_context_type</td>
-<td align="left">软件包详细描述的类型，比如text/markdown</td>
-</tr>
-<tr>
-<td>author</td>
-<td align="left">软件包的作者</td>
-</tr>
-<tr>
-<td>author_email</td>
-<td align="left">软件包的作者的邮件地址</td>
-</tr>
-<tr>
-<td>maintainer</td>
-<td align="left">当前维护者</td>
-</tr>
-<tr>
-<td>maintainer_email</td>
-<td align="left">当前维护者的电子邮箱</td>
-</tr>
-<tr>
-<td>url</td>
-<td align="left">指定软件包主页的url</td>
-</tr>
-<tr>
-<td>download_url</td>
-<td align="left">指定要下载软件包的url</td>
-</tr>
-<tr>
-<td>package</td>
-<td align="left">指定setuptools将操作的软件包</td>
-</tr>
-<tr>
-<td>py_modules</td>
-<td align="left">指定setuptools将操作的模块</td>
-</tr>
-<tr>
-<td>scripts</td>
-<td align="left">用于呀构建和安装的独立脚本文件</td>
-</tr>
-<tr>
-<td>ext_package</td>
-<td align="left">软件包提供的扩展的基本软件包</td>
-</tr>
-<tr>
-<td>ext_module</td>
-<td align="left">指定要构建的python扩展列表的实例列表</td>
-</tr>
-<tr>
-<td>classifiers</td>
-<td align="left">描述程序包类别的字符串列表</td>
-</tr>
-<tr>
-<td>distclass</td>
-<td align="left">要使用的子类</td>
-</tr>
-<tr>
-<td>script_name</td>
-<td align="left">用于是定setup.py脚本的名称，默认为 sys.argv[0]</td>
-</tr>
-<tr>
-<td>script_args</td>
-<td align="left">用于指定setup.py脚本的参数列表</td>
-</tr>
-<tr>
-<td>options</td>
-<td align="left">用于给setup.py脚本提供的默认的options</td>
-</tr>
-<tr>
-<td>license</td>
-<td align="left">指定软件包的约束协议</td>
-</tr>
-<tr>
-<td>keywords</td>
-<td align="left">用于描述元数据的字符串列表或者逗号隔开的字符串</td>
-</tr>
-<tr>
-<td>platform</td>
-<td align="left">字符串列表或者逗号隔开的字符串，表示软件支持的平台</td>
-</tr>
-<tr>
-<td>cmdclass</td>
-<td align="left">字典提供命令名到Command子类的映射</td>
-</tr>
-<tr>
-<td>data_files</td>
-<td align="left">指定要分发的文件列表</td>
-</tr>
-<tr>
-<td>package_dir</td>
-<td align="left">提供程序包到目录名称的映射</td>
-</tr>
-<tr>
-<td>install_requires</td>
-<td align="left">安装依赖</td>
-</tr>
-<tr>
-<td>include_package_data</td>
-<td align="left">如果设置为True，setuptools则表示将在MANIFEST.in文件指定的包目录中自动包含找到的所有数据文件</td>
-</tr>
-<tr>
-<td>exclude_package_data</td>
-<td align="left">字典将包名称映射到应从包目录中排除的全局模式列表。您可以使用它来修剪包含的所有多余文件include_package_data</td>
-</tr>
-<tr>
-<td>package_data</td>
-<td align="left">包数据文件</td>
-</tr>
-<tr>
-<td>entry_points</td>
-<td align="left">字典将入口点组名称映射到定义入口点的字符串或字符串列表。入口点用于支持动态发现项目提供的服务或插件</td>
-</tr>
-<tr>
-<td>python_requires</td>
-<td align="left">与Python版本的版本说明符（在PEP 440中定义）相对应的字符串</td>
-</tr>
-<tr>
-<td>namespace_packages</td>
-<td align="left">命名项目的“命名空间包”的字符串列表。名称空间包是可以拆分为多个项目发行版的包</td>
-</tr>
-<tr>
-<td>#### 6 将pkg_01包继续丰富，最后上传至github以及pypi上</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* （1） 在工程根目录新建一个README.rst文件，文件内容比如如下：采用markdown语法</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### 功能：用于演示一个简单打包流程以及上传pypi流程的包</span><br></pre></td></tr></table></figure></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* (2) 将代码包上传至github：<a href="https://github.com/redrose2100/pkg_01">https://github.com/redrose2100/pkg_01</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* (3) 将setup.py文件丰富为如下内容：</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name&#x3D;&quot;pkg_01&quot;,</span><br><span class="line">    version&#x3D;&quot;0.0.1&quot;,</span><br><span class="line">    descriptions&#x3D;(&quot;used to demo distribute python package&quot;),</span><br><span class="line">    package&#x3D;find_packages(),</span><br><span class="line">    author&#x3D;&quot;redrose2100&quot;,</span><br><span class="line">    author_email&#x3D;&quot;hitredrose@163.com&quot;,</span><br><span class="line">    license&#x3D;&quot;GPLv3&quot;,</span><br><span class="line">    url&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;redrose2100&#x2F;pkg_01&quot;,</span><br><span class="line">    install_requires&#x3D;[]</span><br><span class="line">)</span><br></pre></td></tr></table></figure></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* （4） 在pypi上注册账号，并邮件激活</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* （5） windows在C:\Users\Administrator 目录下创建 .pypirc文件，内容为：</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[distutils]</span><br><span class="line">index-servers &#x3D;pypi</span><br><span class="line"></span><br><span class="line">[pypi]</span><br><span class="line">username: 用户名</span><br><span class="line">password: 密码</span><br></pre></td></tr></table></figure></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* （6) 使用如下命令安装twine</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install twine</span><br></pre></td></tr></table></figure></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>* (7) 执行如下命令将打的包上传</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twine upload dist&#x2F;*</span><br></pre></td></tr></table></figure></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>执行结果如下：</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(PythonBaseEnv) G:\study\pkg_01&gt;twine upload dist&#x2F;*</span><br><span class="line">Uploading distributions to https:&#x2F;&#x2F;upload.pypi.org&#x2F;legacy&#x2F;</span><br><span class="line">Uploading pkg_01-0.0.1.tar.gz</span><br><span class="line">100%|██████████████████████████████████████████████████████████████████████████████████</span><br><span class="line">100%|██████████████████████████████████████████████████████████████████████████████████</span><br><span class="line">██████████████████████████████████████████████| 3.62k&#x2F;3.62k [00:04&lt;00:00, 826B&#x2F;s]</span><br><span class="line"></span><br><span class="line">View at:</span><br><span class="line">https:&#x2F;&#x2F;pypi.org&#x2F;project&#x2F;pkg-01&#x2F;0.0.1&#x2F;</span><br><span class="line"></span><br><span class="line">(PythonBaseEnv) G:\study\pkg_01&gt;</span><br></pre></td></tr></table></figure></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>打开浏览器 输入 <a href="https://pypi.org/project/pkg-01/0.0.1/" target="_blank" rel="noopener">https://pypi.org/project/pkg-01/0.0.1/</a> 既可以看到发布的包了</td>
-<td align="left"></td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1868,12 +1657,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">323k</span>
+    <span title="站点总字数">327k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:54</span>
+    <span title="站点阅读时长">4:57</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
