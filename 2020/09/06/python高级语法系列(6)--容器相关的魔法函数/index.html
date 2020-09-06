@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 对象三个特征 身份 ，可以通过id()获得 类型 值2 python中常见的内置类型 （1）None（全局唯一） （2）数值 int float complex bool   （3）序列类型 list bytes,bytearray,memoryview range tuple str array   （4）迭代类型 （5）映射类型（dict） （6）集合 set frozenset   （7">
+  <meta name="description" content="123456789__len__(self) 定义当被 len() 调用时的行为（返回容器中元素的个数）__getitem__(self, key) 定义获取容器中指定元素的行为，相当于 self[key]__setitem__(self, key, value) 定义设置容器中指定元素的行为，相当于 self[key] &#x3D; value__delitem__(self, key) 定义删">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python高级语法系列(3)--python中常见内置类型">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="python高级语法系列(6)--容器相关的魔法函数">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="1 对象三个特征 身份 ，可以通过id()获得 类型 值2 python中常见的内置类型 （1）None（全局唯一） （2）数值 int float complex bool   （3）序列类型 list bytes,bytearray,memoryview range tuple str array   （4）迭代类型 （5）映射类型（dict） （6）集合 set frozenset   （7">
+<meta property="og:description" content="123456789__len__(self) 定义当被 len() 调用时的行为（返回容器中元素的个数）__getitem__(self, key) 定义获取容器中指定元素的行为，相当于 self[key]__setitem__(self, key, value) 定义设置容器中指定元素的行为，相当于 self[key] &#x3D; value__delitem__(self, key) 定义删">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-17T10:47:40.000Z">
-<meta property="article:modified_time" content="2020-08-17T11:06:41.078Z">
+<meta property="article:published_time" content="2020-09-06T00:36:12.000Z">
+<meta property="article:modified_time" content="2020-09-06T00:39:01.302Z">
 <meta property="article:author" content="微信：redrose2100">
 <meta property="article:tag" content="python高级语法系列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>python高级语法系列(3)--python中常见内置类型 | Redrose2100的博客首页</title>
+  <title>python高级语法系列(6)--容器相关的魔法函数 | Redrose2100的博客首页</title>
   
 
 
@@ -193,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -205,7 +205,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-对象三个特征"><span class="nav-number">1.</span> <span class="nav-text">1 对象三个特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-python中常见的内置类型"><span class="nav-number">2.</span> <span class="nav-text">2 python中常见的内置类型</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -277,7 +276,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -290,7 +289,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          python高级语法系列(3)--python中常见内置类型
+          python高级语法系列(6)--容器相关的魔法函数
         </h1>
 
         <div class="post-meta">
@@ -301,7 +300,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-17 18:47:40 / 修改时间：19:06:41" itemprop="dateCreated datePublished" datetime="2020-08-17T18:47:40+08:00">2020-08-17</time>
+              <time title="创建时间：2020-09-06 08:36:12 / 修改时间：08:39:01" itemprop="dateCreated datePublished" datetime="2020-09-06T08:36:12+08:00">2020-09-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,8 +328,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -340,14 +339,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>247</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -359,46 +358,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-对象三个特征"><a href="#1-对象三个特征" class="headerlink" title="1 对象三个特征"></a>1 对象三个特征</h4><ul>
-<li>身份 ，可以通过id()获得</li>
-<li>类型</li>
-<li>值<h4 id="2-python中常见的内置类型"><a href="#2-python中常见的内置类型" class="headerlink" title="2 python中常见的内置类型"></a>2 python中常见的内置类型</h4></li>
-<li>（1）None（全局唯一）</li>
-<li>（2）数值<ul>
-<li>int</li>
-<li>float</li>
-<li>complex</li>
-<li>bool</li>
-</ul>
-</li>
-<li>（3）序列类型<ul>
-<li>list</li>
-<li>bytes,bytearray,memoryview</li>
-<li>range</li>
-<li>tuple</li>
-<li>str</li>
-<li>array</li>
-</ul>
-</li>
-<li>（4）迭代类型</li>
-<li>（5）映射类型（dict）</li>
-<li>（6）集合<ul>
-<li>set</li>
-<li>frozenset</li>
-</ul>
-</li>
-<li>（7）上下文管理类型(with)</li>
-<li>其他<ul>
-<li>模块类型</li>
-<li>class 和 实例</li>
-<li>函数类型</li>
-<li>方法类型</li>
-<li>代码类型</li>
-<li>object对象</li>
-<li>type类型</li>
-<li>ellipsis</li>
-<li>notimplemented类型</li>
-</ul>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">__len__(self) 定义当被 len() 调用时的行为（返回容器中元素的个数）</span><br><span class="line"></span><br><span class="line">__getitem__(self, key) 定义获取容器中指定元素的行为，相当于 self[key]</span><br><span class="line"></span><br><span class="line">__setitem__(self, key, value) 定义设置容器中指定元素的行为，相当于 self[key] &#x3D; value</span><br><span class="line"></span><br><span class="line">__delitem__(self, key) 定义删除容器中指定元素的行为，相当于 del self[key]</span><br><span class="line"></span><br><span class="line">__contains__(self, item) 定义当使用成员测试运算符（in 或 not in）时的行为</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果一个勒种重写了<strong>len</strong>()魔法函数后，则可以直接对该类的对象使用len()方法计算长度，否则则不可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(len(s))</span><br></pre></td></tr></table></figure>
+执行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 6, in &lt;module&gt;</span><br><span class="line">    print(len(s))</span><br><span class="line">TypeError: object of type &#39;Student&#39; has no len()</span><br></pre></td></tr></table></figure>
+下面给上面的类中加一个<strong>len</strong>()方法的重写，返回学生名字的长度<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">    def __len__(self):</span><br><span class="line">        return len(self.name)</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(len(s))</span><br></pre></td></tr></table></figure>
+执行结果为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></li>
+<li>如果一个类重写了<strong>contains</strong>()方法，则对该类的对象可以使用in方法，否则不可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(&quot;J&quot; in s)</span><br></pre></td></tr></table></figure>
+执行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 8, in &lt;module&gt;</span><br><span class="line">    print(&quot;J&quot; in s)</span><br><span class="line">TypeError: argument of type &#39;Student&#39; is not iterable</span><br></pre></td></tr></table></figure>
+下面给上面的类中增加<strong>contains</strong>方法的实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __contains__(self,item):</span><br><span class="line">        return item in self.name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(&quot;J&quot; in s)</span><br></pre></td></tr></table></figure>
+执行结果为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">True</span><br></pre></td></tr></table></figure></li>
+<li><strong>getitem</strong>()，<strong>setitem</strong>() 可以让一个类拥有类似dict的使用方式去获取、设置属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.attr&#x3D;&#123;&#125;</span><br><span class="line"></span><br><span class="line">    def __setitem__(self, key, value):</span><br><span class="line">        self.attr[key]&#x3D;value</span><br><span class="line"></span><br><span class="line">    def __getitem__(self, item):</span><br><span class="line">        return self.attr[item]</span><br><span class="line"></span><br><span class="line">s&#x3D;Student()</span><br><span class="line">s[&quot;name&quot;]&#x3D;&quot;Jack&quot;</span><br><span class="line">s[&quot;age&quot;]&#x3D;20</span><br><span class="line">print(s[&quot;name&quot;])</span><br><span class="line">print(s[&quot;age&quot;])</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">20</span><br></pre></td></tr></table></figure></li>
+<li><strong>delitem</strong>() 可以使用del 方法去删除类对象的某一个属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.attr&#x3D;&#123;&#125;</span><br><span class="line"></span><br><span class="line">    def __setitem__(self, key, value):</span><br><span class="line">        self.attr[key]&#x3D;value</span><br><span class="line"></span><br><span class="line">    def __getitem__(self, item):</span><br><span class="line">        return self.attr[item]</span><br><span class="line"></span><br><span class="line">    def __delitem__(self, key):</span><br><span class="line">        del self.attr[key]</span><br><span class="line"></span><br><span class="line">s&#x3D;Student()</span><br><span class="line">s[&quot;name&quot;]&#x3D;&quot;Jack&quot;</span><br><span class="line">s[&quot;age&quot;]&#x3D;20</span><br><span class="line">print(s[&quot;name&quot;])</span><br><span class="line">print(s[&quot;age&quot;])</span><br><span class="line">del s[&quot;name&quot;]</span><br><span class="line">print(s[&quot;age&quot;])</span><br><span class="line">print(s[&quot;name&quot;])</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">20</span><br><span class="line">20</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    print(s[&quot;name&quot;])</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 9, in __getitem__</span><br><span class="line">    return self.attr[item]</span><br><span class="line">KeyError: &#39;name&#39;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -439,12 +413,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(2)--type%E3%80%81object%E5%92%8Cclass%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="prev" title="python高级语法系列(2)--type、object和class的关系">
-      <i class="fa fa-chevron-left"></i> python高级语法系列(2)--type、object和class的关系
+    <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(5)-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" rel="prev" title="python高级语法系列(5)--字符串相关的魔法函数">
+      <i class="fa fa-chevron-left"></i> python高级语法系列(5)--字符串相关的魔法函数
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/2020/08/23/lamb-common%E7%B3%BB%E5%88%97(1)--%E4%BE%BF%E6%8D%B7%E9%AB%98%E6%95%88%E7%AE%80%E5%8D%95%E7%9A%84%E7%9A%84python%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD/" rel="next" title="lamb-common系列(1)--便捷高效简单的的python项目日志功能">
-      lamb-common系列(1)--便捷高效简单的的python项目日志功能 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" rel="next" title="python高级语法系列(7)--迭代器相关的魔法函数">
+      python高级语法系列(7)--迭代器相关的魔法函数 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,563 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(9)--属性相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:43:50 / 修改时间：10:19:17" itemprop="dateCreated datePublished" datetime="2020-09-06T08:43:50+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">__getattr__(self, name) 定义当用户试图获取一个不存在的属性时的行为</span><br><span class="line"></span><br><span class="line">__setattr__(self, name, value) 定义当一个属性被设置时的行为</span><br><span class="line"></span><br><span class="line">__delattr__(self, name) 定义当一个属性被删除时的行为</span><br><span class="line"></span><br><span class="line">__getattribute__(self, name) 定义当该类的属性被访问时的行为</span><br><span class="line"></span><br><span class="line">__dir__(self) 定义当 dir() 被调用时的行为</span><br><span class="line"></span><br><span class="line">__get__(self, instance, owner) 定义当描述符的值被取得时的行为</span><br><span class="line"></span><br><span class="line">__set__(self, instance, value) 定义当描述符的值被改变时的行为</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__getattr__，__setattr__，__delattr__<br>当我们访问一个不存在的属性的时候，会抛出异常，提示我们不存在这个属性。而这个异常就是<strong>getattr</strong>方法抛出的，其原因在于他是访问一个不存在的属性的最后落脚点，作为异常抛出的地方提示出错再适合不过了</li>
+</ul>
+<p>如果不重写<strong>getattr</strong>魔法函数，当访问不存在属性时会自动报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 7, in &lt;module&gt;</span><br><span class="line">    print(s.age)</span><br><span class="line">AttributeError: &#39;Student&#39; object has no attribute &#39;age&#39;</span><br></pre></td></tr></table></figure>
+<p>__getattr__可以在有一些属性不存在的时候异常处理可以更灵活</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __getattr__(self,item):</span><br><span class="line">        print(&quot;no &#123;attr&#125; exist...&quot;.format(attr&#x3D;item))</span><br><span class="line">        return 0</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">print(s.name)</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">no age exist...</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>同样<strong>setattr</strong>也可以在属性设置的时候做一些功能增强功能,包括初始化的时候如果有初始化变量也会走到这个魔法函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __setattr__(self,key,value):</span><br><span class="line">        print(&quot;in __setattr__...key&#x3D;&#123;key&#125;,value&#x3D;&#123;value&#125;&quot;.format(key&#x3D;key,value&#x3D;value))</span><br><span class="line">        object.__setattr__(self,key,value)</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">s.age&#x3D;20</span><br><span class="line">s.name&#x3D;&quot;hello&quot;</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">in __setattr__...key&#x3D;name,value&#x3D;Jack</span><br><span class="line">in __setattr__...key&#x3D;age,value&#x3D;20</span><br><span class="line">in __setattr__...key&#x3D;name,value&#x3D;hello</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+<p>需要注意的是下面一段代码是一个死循环,具体来说当实例化的时候进入<strong>init</strong>函数，然后对name进行设置，<br>然后进入<strong>setattr</strong>函数，进入之后又开始进行self.key=value的设置，则再次进入<strong>setattr</strong>函数，<br>即已经进入死循环了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __setattr__(self,key,value):</span><br><span class="line">        print(&quot;in __setattr__...key&#x3D;&#123;key&#125;,value&#x3D;&#123;value&#125;&quot;.format(key&#x3D;key,value&#x3D;value))</span><br><span class="line">        self.key&#x3D;value</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">s.age&#x3D;20</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>魔法函数<strong>delattr</strong>和<strong>setattr</strong>的使用方法基本是一致的，同样要注意容易陷入死循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name,age):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line">        self.age&#x3D;age</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;,20)</span><br><span class="line">print(s.age)</span><br><span class="line">del s.age</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">20</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 9, in &lt;module&gt;</span><br><span class="line">    print(s.age)</span><br><span class="line">AttributeError: &#39;Student2&#39; object has no attribute &#39;age&#39;</span><br></pre></td></tr></table></figure>
+<p>最后需要注意的是<strong>getattr</strong>方法只有当属性不存在的时候才会走进来，而<strong>setattr</strong>只要是对属性设置，不管属性是否已经存在，都会走进来</p>
+<ul>
+<li>__getattribute__:调用对象的属性时，都会进入到<strong>getattribute</strong>魔法函数，然后进入基类的<strong>getattribute</strong>,所以<strong>getattribute</strong>功能也是给获取属性<br>的时候做功能增强，如果属性存在，则不会调用<em>getattr__方法，如果属性不存在，则会抛出AttributeError异常，此时则会进入<strong>getattr</strong>方法<br>需要注意的是：如果重写了<em>_getattribute</em></em>,则需要判断如果属性不存在应继续主动抛出异常，因为此时不会自动触发异常了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __getattribute__(self, item):</span><br><span class="line">        print(&quot;in __getattribute__  get attr &#123;attr&#125;&quot;.format(attr&#x3D;item))</span><br><span class="line">        return object.__getattribute__(self,item)</span><br><span class="line"></span><br><span class="line">    def __getattr__(self,item):</span><br><span class="line">        print(&quot;no &#123;attr&#125; exist...&quot;.format(attr&#x3D;item))</span><br><span class="line">        return 0</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">print(s.name)</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">in __getattribute__  get attr name</span><br><span class="line">Jack</span><br><span class="line">in __getattribute__  get attr age</span><br><span class="line">no age exist...</span><br><span class="line">0</span><br></pre></td></tr></table></figure></li>
+<li>__get__与<strong>set</strong><br>__get__和<strong>set</strong>方法通俗点来说就是在至少两个类中起作用，说白了就是实现对象的绑定关系的</li>
+</ul>
+<p>注意：如下只有在Group类的类成员变量用Student类初始化进行赋值的时候，才会走到Student类中的<strong>get</strong>和<strong>set</strong>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __get__(self,instance,owner):</span><br><span class="line">        print(&quot;in Student __get__ name is &#123;name&#125;&quot;.format(name&#x3D;self.name))</span><br><span class="line">        return self</span><br><span class="line"></span><br><span class="line">    def __set__(self,instance,value):</span><br><span class="line">        self &#x3D; value</span><br><span class="line">        print(&quot;in Student __set__ name is &#123;name&#125;&quot;.format(name&#x3D;self.name))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Group(object):</span><br><span class="line">    menber1&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.menber2&#x3D;Student(&quot;Hellen&quot;)</span><br><span class="line"></span><br><span class="line">group&#x3D;Group()</span><br><span class="line">print(group.menber1)</span><br><span class="line">print(group.menber2)</span><br><span class="line">stu1&#x3D;Student(&quot;Tom&quot;)</span><br><span class="line">group.menber1&#x3D;stu1</span><br><span class="line">stu2&#x3D;Student(&quot;Sam&quot;)</span><br><span class="line">group.menber2&#x3D;stu2</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">in Student __get__ name is Jack</span><br><span class="line">&lt;__main__.Student object at 0x000001DCD3423B50&gt;</span><br><span class="line">&lt;__main__.Student object at 0x000001DCD342E430&gt;</span><br><span class="line">in Student __set__ name is Tom</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(8)--%E7%B1%BB%E3%80%81call%E3%80%81%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(8)--%E7%B1%BB%E3%80%81call%E3%80%81%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(8)--类、call、数字转化相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:41:21 / 修改时间：08:43:22" itemprop="dateCreated datePublished" datetime="2020-09-06T08:41:21+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(8)--%E7%B1%BB%E3%80%81call%E3%80%81%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(8)--%E7%B1%BB%E3%80%81call%E3%80%81%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-类中实现了-call-函数之后，则该类的对象也可以像函数一样调用，而调用的时候就是调用这个魔法函数，一个非常常用的场景就是装饰器类"><a href="#1-类中实现了-call-函数之后，则该类的对象也可以像函数一样调用，而调用的时候就是调用这个魔法函数，一个非常常用的场景就是装饰器类" class="headerlink" title="1 类中实现了__call__()函数之后，则该类的对象也可以像函数一样调用，而调用的时候就是调用这个魔法函数，一个非常常用的场景就是装饰器类"></a>1 类中实现了__call__()函数之后，则该类的对象也可以像函数一样调用，而调用的时候就是调用这个魔法函数，一个非常常用的场景就是装饰器类</h4><p>先看一个简单的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __call__(self,age,sex):</span><br><span class="line">        print(&quot;age is :&#123;age&#125;,sex is :&#123;sex&#125;&quot;.format(age&#x3D;age,sex&#x3D;sex))</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">s(20,&quot;man&quot;)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">age is :20,sex is :man</span><br></pre></td></tr></table></figure>
+<p>下面是之前装饰器的专题讲过的一个例子，现在再来看就好理解了，decorator(name=”func_decorator”)已经是一个类的实例了，再当做装饰器用，就相当于把对象当函数调用了，即会调用到call函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class decorator(object):</span><br><span class="line">    def __init__(self, name&#x3D;&quot;hello world&quot;):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __call__(self, func):</span><br><span class="line">        def wrapper(*args, **kwargs):</span><br><span class="line">            print(&quot;before func &#123;func&#125;()...&quot;.format(func&#x3D;func.__name__))</span><br><span class="line">            print(&quot;name&#x3D; &#123;name&#125;&quot;.format(name&#x3D;self.name))</span><br><span class="line">            result &#x3D; func(*args, **kwargs)</span><br><span class="line">            print(&quot;after func &#123;func&#125;()...&quot;.format(func&#x3D;func.__name__))</span><br><span class="line">            return result</span><br><span class="line"></span><br><span class="line">        return wrapper</span><br><span class="line"></span><br><span class="line">@decorator(name&#x3D;&quot;func_decorator&quot;)</span><br><span class="line">def func(a, b&#x3D;10):</span><br><span class="line">    print(&quot;in func func3()...&quot;)</span><br><span class="line">    print(&quot;a&#x3D;&#123;a&#125;, b&#x3D; &#123;b&#125;&quot;.format(a&#x3D;a, b&#x3D;b))</span><br><span class="line"></span><br><span class="line">func(10,b&#x3D;100)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">before func func()...</span><br><span class="line">name&#x3D; func_decorator</span><br><span class="line">in func func3()...</span><br><span class="line">a&#x3D;10, b&#x3D; 100</span><br><span class="line">after func func()...</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-with上下文管理器-enter-exit"><a href="#2-with上下文管理器-enter-exit" class="headerlink" title="2 with上下文管理器 __enter__(),__exit__()"></a>2 with上下文管理器 __enter__(),__exit__()</h4><p>这两个魔法函数是实现with上下文管理器的，with 后面的语句会实例化一个类，同时进入类的<br>__enter__方法，Enter方法返回值可以使用as xxx接受，然后执行with语句下面的内容，随后<br>执行<strong>exit</strong>()方法中的内容，如果类的<strong>init</strong>()或者<strong>enter</strong>()方法爆出了异常，则代码<br>不会进入到<strong>exit</strong>()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __enter__(self):</span><br><span class="line">        return self.name</span><br><span class="line"></span><br><span class="line">    def __exit__(self,exc_type,exc_val,exc_tb):</span><br><span class="line">        print(&quot;in exit...&quot;)</span><br><span class="line"></span><br><span class="line">with Student(&quot;Jack&quot;) as stunet_name:</span><br><span class="line">    print(stunet_name)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">in exit...</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-数值转换相关abs-bool-int-float"><a href="#3-数值转换相关abs-bool-int-float" class="headerlink" title="3 数值转换相关abs,__bool__,__int__,__float__"></a>3 数值转换相关<strong>abs</strong>,__bool__,__int__,__float__</h4><p>一个类如果实现了这几个魔法函数，就可以直接对类的对象使用abs(),bool(),int(),float()函数了，否则不能使用这几个函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name,age,score):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.age&#x3D;age</span><br><span class="line">        self.score&#x3D;score</span><br><span class="line">    def __abs__(self):</span><br><span class="line">        return abs(self.age)</span><br><span class="line"></span><br><span class="line">    def __bool__(self):</span><br><span class="line">        return bool(self.age)</span><br><span class="line"></span><br><span class="line">    def __int__(self):</span><br><span class="line">        return int(self.age)</span><br><span class="line"></span><br><span class="line">    def __float__(self):</span><br><span class="line">        return float(self.score)</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;jack&quot;,20,98.5)</span><br><span class="line">print(abs(s))</span><br><span class="line">print(bool(s))</span><br><span class="line">print(int(s))</span><br><span class="line">print(float(s))</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-类的实例化相关new-init-del"><a href="#4-类的实例化相关new-init-del" class="headerlink" title="4 类的实例化相关new,__init__,__del__"></a>4 类的实例化相关<strong>new</strong>,__init__,__del__</h4><p>new方法是创建类的实例，init方法是实例的初始化，而del方法则是类的析构函数，所以<br>如果同时又new又有init方法，则肯定是先执行new方法，然后在执行init方法的，用于垃圾回收的<br>new和init最大的区别是当继承一个不可变类型（如str，int）等的时候，通过init是无法改变数据的内容的，<br>而这时候需要改变数据的内容太，则此时需要使用new方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class MyInt(int):</span><br><span class="line">    def __init__(self,a):</span><br><span class="line">        self.a&#x3D;abs(a)</span><br><span class="line"></span><br><span class="line">temp&#x3D;MyInt(-123)</span><br><span class="line">print(temp)</span><br><span class="line"></span><br><span class="line">class MyInt2(int):</span><br><span class="line">    def __new__(cls,a):</span><br><span class="line">        return super(MyInt2,cls).__new__(cls,abs(a))</span><br><span class="line"></span><br><span class="line">temp2&#x3D;MyInt2(-123)</span><br><span class="line">print(temp2)</span><br><span class="line"></span><br><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        print(&quot;in __init__...&quot;)</span><br><span class="line"></span><br><span class="line">    def __new__(cls,*args,**kwargs):</span><br><span class="line">        print(&quot;in __new__...&quot;)</span><br><span class="line">        return object.__new__(cls)</span><br><span class="line"></span><br><span class="line">    def __del__(self):</span><br><span class="line">        print(&quot;in __del__...&quot;)</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-123</span><br><span class="line">123</span><br><span class="line">in __new__...</span><br><span class="line">in __init__...</span><br><span class="line">in __del__...</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(7)--迭代器相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:39:26 / 修改时间：08:43:22" itemprop="dateCreated datePublished" datetime="2020-09-06T08:39:26+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>Iterable，可迭代：<br>一个类实现了<strong>iter</strong>()函数，则这个类是可迭代的，通常<strong>iter</strong>()函数必须返回一个<br>实现了<strong>next</strong>()的类的对象，当然如果自己实现了<strong>next</strong>()，也可以返回自己</li>
+<li>Iterator 迭代器：<br>同时实现了<strong>iter</strong>()和<strong>next</strong>()的对象，就是迭代器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.start&#x3D;0</span><br><span class="line"></span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return self</span><br><span class="line"></span><br><span class="line">    def __next__(self):</span><br><span class="line">        if self.start &lt;len(self.name):</span><br><span class="line">            result&#x3D;self.name[self.start]</span><br><span class="line">            self.start+&#x3D;1</span><br><span class="line">            return result</span><br><span class="line">        else:</span><br><span class="line">            raise StopIteration</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack Macial&quot;)</span><br><span class="line">for elem in s:</span><br><span class="line">    print(elem)</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">J</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">k</span><br><span class="line"> </span><br><span class="line">M</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">i</span><br><span class="line">a</span><br><span class="line">l</span><br></pre></td></tr></table></figure>
+下面查看next函数的使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.start&#x3D;0</span><br><span class="line"></span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return self</span><br><span class="line"></span><br><span class="line">    def __next__(self):</span><br><span class="line">        if self.start &lt;len(self.name):</span><br><span class="line">            result&#x3D;self.name[self.start]</span><br><span class="line">            self.start+&#x3D;1</span><br><span class="line">            return result</span><br><span class="line">        else:</span><br><span class="line">            raise StopIteration</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack Macial&quot;)</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">J</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">k</span><br><span class="line"> </span><br><span class="line">M</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">i</span><br><span class="line">a</span><br><span class="line">l</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 29, in &lt;module&gt;</span><br><span class="line">    print(next(s))</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 15, in __next__</span><br><span class="line">    raise StopIteration</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(6)--容器相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:36:12 / 修改时间：08:39:01" itemprop="dateCreated datePublished" datetime="2020-09-06T08:36:12+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">__len__(self) 定义当被 len() 调用时的行为（返回容器中元素的个数）</span><br><span class="line"></span><br><span class="line">__getitem__(self, key) 定义获取容器中指定元素的行为，相当于 self[key]</span><br><span class="line"></span><br><span class="line">__setitem__(self, key, value) 定义设置容器中指定元素的行为，相当于 self[key] &#x3D; value</span><br><span class="line"></span><br><span class="line">__delitem__(self, key) 定义删除容器中指定元素的行为，相当于 del self[key]</span><br><span class="line"></span><br><span class="line">__contains__(self, item) 定义当使用成员测试运算符（in 或 not in）时的行为</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果一个勒种重写了<strong>len</strong>()魔法函数后，则可以直接对该类的对象使用len()方法计算长度，否则则不可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(len(s))</span><br></pre></td></tr></table></figure>
+执行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 6, in &lt;module&gt;</span><br><span class="line">    print(len(s))</span><br><span class="line">TypeError: object of type &#39;Student&#39; has no len()</span><br></pre></td></tr></table></figure>
+下面给上面的类中加一个<strong>len</strong>()方法的重写，返回学生名字的长度<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">    def __len__(self):</span><br><span class="line">        return len(self.name)</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(len(s))</span><br></pre></td></tr></table></figure>
+执行结果为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></li>
+<li>如果一个类重写了<strong>contains</strong>()方法，则对该类的对象可以使用in方法，否则不可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(&quot;J&quot; in s)</span><br></pre></td></tr></table></figure>
+执行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 8, in &lt;module&gt;</span><br><span class="line">    print(&quot;J&quot; in s)</span><br><span class="line">TypeError: argument of type &#39;Student&#39; is not iterable</span><br></pre></td></tr></table></figure>
+下面给上面的类中增加<strong>contains</strong>方法的实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __contains__(self,item):</span><br><span class="line">        return item in self.name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(&quot;J&quot; in s)</span><br></pre></td></tr></table></figure>
+执行结果为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">True</span><br></pre></td></tr></table></figure></li>
+<li><strong>getitem</strong>()，<strong>setitem</strong>() 可以让一个类拥有类似dict的使用方式去获取、设置属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.attr&#x3D;&#123;&#125;</span><br><span class="line"></span><br><span class="line">    def __setitem__(self, key, value):</span><br><span class="line">        self.attr[key]&#x3D;value</span><br><span class="line"></span><br><span class="line">    def __getitem__(self, item):</span><br><span class="line">        return self.attr[item]</span><br><span class="line"></span><br><span class="line">s&#x3D;Student()</span><br><span class="line">s[&quot;name&quot;]&#x3D;&quot;Jack&quot;</span><br><span class="line">s[&quot;age&quot;]&#x3D;20</span><br><span class="line">print(s[&quot;name&quot;])</span><br><span class="line">print(s[&quot;age&quot;])</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">20</span><br></pre></td></tr></table></figure></li>
+<li><strong>delitem</strong>() 可以使用del 方法去删除类对象的某一个属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.attr&#x3D;&#123;&#125;</span><br><span class="line"></span><br><span class="line">    def __setitem__(self, key, value):</span><br><span class="line">        self.attr[key]&#x3D;value</span><br><span class="line"></span><br><span class="line">    def __getitem__(self, item):</span><br><span class="line">        return self.attr[item]</span><br><span class="line"></span><br><span class="line">    def __delitem__(self, key):</span><br><span class="line">        del self.attr[key]</span><br><span class="line"></span><br><span class="line">s&#x3D;Student()</span><br><span class="line">s[&quot;name&quot;]&#x3D;&quot;Jack&quot;</span><br><span class="line">s[&quot;age&quot;]&#x3D;20</span><br><span class="line">print(s[&quot;name&quot;])</span><br><span class="line">print(s[&quot;age&quot;])</span><br><span class="line">del s[&quot;name&quot;]</span><br><span class="line">print(s[&quot;age&quot;])</span><br><span class="line">print(s[&quot;name&quot;])</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">20</span><br><span class="line">20</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    print(s[&quot;name&quot;])</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 9, in __getitem__</span><br><span class="line">    return self.attr[item]</span><br><span class="line">KeyError: &#39;name&#39;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(5)-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(5)-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(5)--字符串相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:32:54 / 修改时间：08:35:17" itemprop="dateCreated datePublished" datetime="2020-09-06T08:32:54+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(5)-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(5)-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="字符串表示-repr-和str"><a href="#字符串表示-repr-和str" class="headerlink" title="字符串表示:__repr__()和str()"></a>字符串表示:__repr__()和<strong>str</strong>()</h4><ul>
+<li>相同点：两个方法都是为了更好的显示类对象的，当使用print打印类对象的时候，这两个函数的作用是完全相同的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Student1():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student1(&quot;Jack&quot;)</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line">class Student2():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __repr__(self):</span><br><span class="line">        return &quot;Name:&#123;name&#125;&quot;.format(name&#x3D;self.name)</span><br><span class="line"></span><br><span class="line">s&#x3D;Student2(&quot;Jack&quot;)</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line">class Student3():</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return &quot;Name:&#123;name&#125;&quot;.format(name&#x3D;self.name)</span><br><span class="line"></span><br><span class="line">s &#x3D; Student3(&quot;Jack&quot;)</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;__main__.Student1 object at 0x0000019F359D3B50&gt;</span><br><span class="line">Name:Jack</span><br><span class="line">Name:Jack</span><br></pre></td></tr></table></figure></li>
+<li>不同点：在python交互式环境解释器中，不使用print，直接输入类对象名时，如果想定制化输出，则必须重写<strong>repr</strong>方法，此时重写<strong>str</strong>并没有什么作用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; class Student1():</span><br><span class="line">...     def __init__(self,name):</span><br><span class="line">...             self.name&#x3D;name</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; class Student2():</span><br><span class="line">...     def __init__(self,name):</span><br><span class="line">...             self.name&#x3D;name</span><br><span class="line">...     def __repr__(self):</span><br><span class="line">...             return &quot;Name:&#123;name&#125;&quot;.format(name&#x3D;self.name)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; class Student3():</span><br><span class="line">...     def __init__(self,name):</span><br><span class="line">...             self.name&#x3D;name</span><br><span class="line">...     def __str__(self):</span><br><span class="line">...             return &quot;Name:&#123;name&#125;&quot;.format(name&#x3D;self.name)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; s&#x3D;Student1(&quot;Jack&quot;)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&lt;__main__.Student1 object at 0x000001FFAE390820&gt;</span><br><span class="line">&gt;&gt;&gt; s&#x3D;Student2(&quot;Jack&quot;)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">Name:Jack</span><br><span class="line">&gt;&gt;&gt; s&#x3D;Student3(&quot;Jack&quot;)</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&lt;__main__.Student3 object at 0x000001FFAE390820&gt;</span><br></pre></td></tr></table></figure>
+总结：为了无论在使用print还是不适用print时，都能友好的显示类的对象，推荐重写<strong>repr</strong>()魔法函数</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1026,573 +1583,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/" class="post-title-link" itemprop="url">PyQt5系列(1)--PyQt5环境安装基于Pycharm</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-31 07:33:22 / 修改时间：07:49:24" itemprop="dateCreated datePublished" datetime="2020-08-31T07:33:22+08:00">2020-08-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/PyQt5%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">PyQt5系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>725</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>####注： 本文假设python和pycharm均已安装完成，python笨版本为3.6以上</p>
-<h4 id="1-安装PyQt5"><a href="#1-安装PyQt5" class="headerlink" title="1 安装PyQt5"></a>1 安装PyQt5</h4><p>在cmd窗口执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5</span><br></pre></td></tr></table></figure>
-<h4 id="2-安装PyQt5-tools"><a href="#2-安装PyQt5-tools" class="headerlink" title="2 安装PyQt5-tools"></a>2 安装PyQt5-tools</h4><p>在cmd窗口执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5-tools</span><br></pre></td></tr></table></figure>
-<h4 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3 配置环境变量"></a>3 配置环境变量</h4><p>在【计算机（此电脑）】右键-【属性】-【高级系统设置】-【高级】-【环境变量】，然后在系统变量中新建一个变量：Qt_Plugin_Path，它的值为（根据自己的安装位置调整）：<br>D:\Python38\Lib\site-packages\PyQt5\Qt\plugins</p>
-<h4 id="4-Pycharm配置"><a href="#4-Pycharm配置" class="headerlink" title="4 Pycharm配置"></a>4 Pycharm配置</h4><ul>
-<li>（1）打开Pycharm，点击【File】-【Setting】-【Tools】-【External Tools】</li>
-<li>（2）点击“+”，在弹出的Edit tool窗口中设置如下内容：<ul>
-<li>Name ： 设置为：QtDesigner</li>
-<li>Program： 设置为（根据自己的安装位置调整）：D:\Python38\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe</li>
-<li>Working directory：设置为：$FileDir$</li>
-</ul>
-</li>
-<li>（3）点击OK保存</li>
-<li>（4）同样的方法点击“+”，在弹出的Edit Tool窗口设置如下内容：<ul>
-<li>Name：设置为：PyUIC</li>
-<li>Program：设置为（根据自己的安装位置调整）：D:\Python38\python.exe</li>
-<li>Argument：设置为：-m PyQt5.uic.pyuic  $FileName$ -o $FileNameWithoutExtension$.py</li>
-<li>Working directory：设置为：$FileDir$</li>
-</ul>
-</li>
-</ul>
-<p>至此PyQt5 就已经安装OK了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/" class="post-title-link" itemprop="url">lamb-common系列(3)--非常简单的对linux服务器的Telnet操作库</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-30 13:18:06 / 修改时间：13:25:25" itemprop="dateCreated datePublished" datetime="2020-08-30T13:18:06+08:00">2020-08-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/lamb-common%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">lamb-common系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>602</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-lamb-common-简介"><a href="#1-lamb-common-简介" class="headerlink" title="1 lamb-common 简介"></a>1 lamb-common 简介</h4><p>lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库</p>
-<h4 id="2-lamb-common-的安装"><a href="#2-lamb-common-的安装" class="headerlink" title="2 lamb-common 的安装"></a>2 lamb-common 的安装</h4><ul>
-<li>1 安装最新版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common</span><br></pre></td></tr></table></figure></li>
-<li>2 安装指定版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common&#x3D;&#x3D;&#123;版本号&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-lamb-common-的SSH功能使用方法"><a href="#3-lamb-common-的SSH功能使用方法" class="headerlink" title="3 lamb-common 的SSH功能使用方法"></a>3 lamb-common 的SSH功能使用方法</h4>从 lamb-common-0.0.6 版本开始lamb-common开始提供Telnet功能，使用起来非常简单方便</li>
-</ul>
-<p>通过对SSHClient类实例化，调用exec_command，close方法对本地和远端机器做对应的操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.api.telnet import TelnetClient</span><br><span class="line"></span><br><span class="line">telnet&#x3D;TelnetClient(ip&#x3D;&quot;192.168.1.200&quot;,port&#x3D;23,username&#x3D;&quot;admin&quot;,password&#x3D;&quot;admin&quot;,prompt&#x3D;&quot;$&quot;)</span><br><span class="line"># 通过telnet方式在远端机器上执行 ls &#x2F; 的命令</span><br><span class="line">telnet.exec_command(&quot;ls &#x2F;&quot;)</span><br><span class="line"></span><br><span class="line"># 关闭telnet连接通道</span><br><span class="line">telnet.close()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">Linux系统环境安装系列(4)--centos7如何开启telnet功能</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-28 12:25:07 / 修改时间：12:38:05" itemprop="dateCreated datePublished" datetime="2020-08-28T12:25:07+08:00">2020-08-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Linux系统环境安装系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-执行如下安装命令"><a href="#1-执行如下安装命令" class="headerlink" title="1 执行如下安装命令"></a>1 执行如下安装命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y xinetd</span><br><span class="line"></span><br><span class="line">yum install -y telnet-server</span><br><span class="line"></span><br><span class="line">yum install -y telnet</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出"><a href="#2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出" class="headerlink" title="2 执行 vi /etc/xinetd.d/telnet 命令打开文件，若存在，则将disable=yes修改为disable=no，若文件不存在在直接编辑输入如下内容，保存退出"></a>2 执行 vi /etc/xinetd.d/telnet 命令打开文件，若存在，则将disable=yes修改为disable=no，若文件不存在在直接编辑输入如下内容，保存退出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># default: yes</span><br><span class="line"># description: The telnet server servestelnet sessions; it uses \</span><br><span class="line">#      unencrypted username&#x2F;password pairs for authentication.</span><br><span class="line">service telnet</span><br><span class="line">&#123;  </span><br><span class="line">  flags           &#x3D; REUSE  </span><br><span class="line">  socket_type     &#x3D; stream  </span><br><span class="line">  wait            &#x3D; no  </span><br><span class="line">  user            &#x3D; root  </span><br><span class="line">  server          &#x3D;&#x2F;usr&#x2F;sbin&#x2F;in.telnetd  </span><br><span class="line">  log_on_failure  +&#x3D; USERID  </span><br><span class="line">  disable         &#x3D; no   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-执行如下命令启动telnet服务"><a href="#3-执行如下命令启动telnet服务" class="headerlink" title="3 执行如下命令启动telnet服务"></a>3 执行如下命令启动telnet服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xinetd</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-执行如下命令查看服务是否已启动"><a href="#4-执行如下命令查看服务是否已启动" class="headerlink" title="4 执行如下命令查看服务是否已启动"></a>4 执行如下命令查看服务是否已启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep xinetd</span><br></pre></td></tr></table></figure>
-<p>执行结果若如下则表示已经启动OK</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# ps -ef | grep xinetd</span><br><span class="line">root      69017      1  0 12:32 ?        00:00:00 &#x2F;usr&#x2F;sbin&#x2F;xinetd -stayalive -pidfile &#x2F;var&#x2F;run&#x2F;xinetd.pid</span><br><span class="line">root      69686   4669  0 12:33 pts&#x2F;0    00:00:00 grep --color&#x3D;auto xinetd</span><br><span class="line">[root@redrose2100 lamb-common]#</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"><a href="#5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录" class="headerlink" title="5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"></a>5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# useradd admin</span><br><span class="line">[root@redrose2100 lamb-common]# passwd admin</span><br><span class="line">Changing password for user admin.</span><br><span class="line">New password:</span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password:</span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br><span class="line">[root@redrose2100 lamb-common]#</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1"><a href="#6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1" class="headerlink" title="6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1"></a>6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# telnet 127.0.0.1</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to 127.0.0.1.</span><br><span class="line">Escape character is &#39;^]&#39;.</span><br><span class="line"></span><br><span class="line">Kernel 3.10.0-1127.el7.x86_64 on an x86_64</span><br><span class="line">redrose2100 login: admin</span><br><span class="line">Password:</span><br><span class="line">[admin@redrose2100 ~]$ who am i</span><br><span class="line">admin    pts&#x2F;3        2020-08-28 12:37 (localhost)</span><br><span class="line">[admin@redrose2100 ~]$</span><br></pre></td></tr></table></figure>
-
-<p>OK，至此，telnet服务已经启动OK了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/" class="post-title-link" itemprop="url">lamb-common系列(2)--非常简单的对linux服务器的SSH操作库</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-28 00:18:06 / 修改时间：00:21:33" itemprop="dateCreated datePublished" datetime="2020-08-28T00:18:06+08:00">2020-08-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/lamb-common%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">lamb-common系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>978</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-lamb-common-简介"><a href="#1-lamb-common-简介" class="headerlink" title="1 lamb-common 简介"></a>1 lamb-common 简介</h4><p>lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库</p>
-<h4 id="2-lamb-common-的安装"><a href="#2-lamb-common-的安装" class="headerlink" title="2 lamb-common 的安装"></a>2 lamb-common 的安装</h4><ul>
-<li>1 安装最新版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common</span><br></pre></td></tr></table></figure></li>
-<li>2 安装指定版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common&#x3D;&#x3D;&#123;版本号&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-lamb-common-的SSH功能使用方法"><a href="#3-lamb-common-的SSH功能使用方法" class="headerlink" title="3 lamb-common 的SSH功能使用方法"></a>3 lamb-common 的SSH功能使用方法</h4>从 lamb-common-0.0.5 版本开始lamb-common开始提供SSH功能，使用起来非常简单方便</li>
-</ul>
-<p>通过对SSHClient类实例化，调用exec_command、upload，download，close方法对本地和远端机器做对应的操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.api.ssh import SSHClient</span><br><span class="line"></span><br><span class="line">ssh&#x3D;SSHClient(ip&#x3D;&quot;192.168.1.200&quot;,port&#x3D;22,username&#x3D;&quot;root&quot;,password&#x3D;&quot;root&quot;,prompt&#x3D;&quot;#&quot;)</span><br><span class="line"># 通过ssh方式在远端机器上执行 ls &#x2F; 的命令</span><br><span class="line">ssh.exec_command(&quot;ls &#x2F;&quot;)</span><br><span class="line"></span><br><span class="line"># 将本地当前路径下的__init__.py 文件上传到远端服务器的 &#x2F;opt&#x2F;unittest_test&#x2F;__init__.py</span><br><span class="line">ssh.upload(&quot;__init__.py&quot;,&quot;&#x2F;opt&#x2F;unittest_test&#x2F;__init__.py&quot;)</span><br><span class="line"></span><br><span class="line"># 将远端服务器上的 &#x2F;etc&#x2F;lamb_common&#x2F;log.conf 下载到本地 D:&#x2F;log.conf </span><br><span class="line">self.ssh.download(&quot;&#x2F;etc&#x2F;lamb_common&#x2F;log.conf&quot;,&quot;D:&#x2F;log.conf&quot;)</span><br><span class="line"></span><br><span class="line"># 关闭ssh连接通道</span><br><span class="line">ssh.close()</span><br></pre></td></tr></table></figure>
-<p>这样一来，对于在linux上执行命令，上传下载文件等操作实现起来非常简单方便</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/24/git%E4%B8%93%E9%A2%98(3)--git%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/24/git%E4%B8%93%E9%A2%98(3)--git%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git专题(3)--git回退操作命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-24 00:59:42 / 修改时间：01:38:46" itemprop="dateCreated datePublished" datetime="2020-08-24T00:59:42+08:00">2020-08-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/git%E4%B8%93%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">git专题</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/24/git%E4%B8%93%E9%A2%98(3)--git%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/24/git%E4%B8%93%E9%A2%98(3)--git%E5%9B%9E%E9%80%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>git 回退操作主要有四种：</p>
-<ul>
-<li>对文件做了修改之后，未执行任何git命令，此时想恢复被修改的文件</li>
-<li>对文件做了修改之后，执行了git add 命令之后，想撤销git add命令的操作</li>
-<li>对文件做了修改之后，执行了git add之后，且执行了git commit 命令，想撤回git commit命令</li>
-<li>对文件做了修改之后，执行了git add ，git commit， 而且执行了git push操作，这时候想撤回git push命令<h4 id="1-对文件了做了修改，但未执行任何git命令，想放弃对文件已经做的修改，恢复到之前的代码状态"><a href="#1-对文件了做了修改，但未执行任何git命令，想放弃对文件已经做的修改，恢复到之前的代码状态" class="headerlink" title="1 对文件了做了修改，但未执行任何git命令，想放弃对文件已经做的修改，恢复到之前的代码状态"></a>1 对文件了做了修改，但未执行任何git命令，想放弃对文件已经做的修改，恢复到之前的代码状态</h4></li>
-<li>若是新增文件，则直接删除即可</li>
-<li>若是修改了已存在的文件。执行 git checkout – file 即可<ul>
-<li>1）首先对test.txt文件做一些修改，比如增加几行代码，执行git status和git diff 查看一下状态和修改的内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line"># Changes not staged for commit:</span><br><span class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">#</span><br><span class="line">#       modified:   test.txt</span><br><span class="line">#</span><br><span class="line">no changes added to commit (use &quot;git add&quot; and&#x2F;or &quot;git commit -a&quot;)</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git diff test.txt</span><br><span class="line">diff --git a&#x2F;test.txt b&#x2F;test.txt</span><br><span class="line">index abbeded..7f91275 100644</span><br><span class="line">--- a&#x2F;test.txt</span><br><span class="line">+++ b&#x2F;test.txt</span><br><span class="line">@@ -1,3 +1,7 @@</span><br><span class="line"> hello world</span><br><span class="line"> hello china</span><br><span class="line"> hahaha hahahaha</span><br><span class="line">+</span><br><span class="line">+test 1</span><br><span class="line">+test 2</span><br><span class="line">+test 3</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>2）此时若想恢复，则只需执行 git checkout – test.txt<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git checkout -- test.txt</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure>
-此时之前的修改已经恢复了</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-对文件做了修改之后，执行了git-add-命令之后，想撤销git-add命令的操作"><a href="#2-对文件做了修改之后，执行了git-add-命令之后，想撤销git-add命令的操作" class="headerlink" title="2 对文件做了修改之后，执行了git add 命令之后，想撤销git add命令的操作"></a>2 对文件做了修改之后，执行了git add 命令之后，想撤销git add命令的操作</h4><p>使用的命令有如下两个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD # 上一次git add的内容全部撤销</span><br><span class="line">git reset HEAD file 撤销上次git add的file文件</span><br></pre></td></tr></table></figure>
-<ul>
-<li>1） 首先对test.txt做一下修改，然后执行git add . 命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line"># Changes not staged for commit:</span><br><span class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">#</span><br><span class="line">#       modified:   test.txt</span><br><span class="line">#</span><br><span class="line">no changes added to commit (use &quot;git add&quot; and&#x2F;or &quot;git commit -a&quot;)</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git add .</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line"># Changes to be committed:</span><br><span class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">#</span><br><span class="line">#       modified:   test.txt</span><br><span class="line">#</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>2）此时想撤销上一次的git add 操作<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git reset HEAD test.txt</span><br><span class="line">Unstaged changes after reset:</span><br><span class="line">M       test.txt</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line"># Changes not staged for commit:</span><br><span class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">#</span><br><span class="line">#       modified:   test.txt</span><br><span class="line">#</span><br><span class="line">no changes added to commit (use &quot;git add&quot; and&#x2F;or &quot;git commit -a&quot;)</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure>
-此时即撤销了git add操作，若继续恢复则可参考上述 1 继续操作</li>
-</ul>
-<h4 id="3-对文件做了修改之后，执行了git-add之后，且执行了git-commit-命令，想撤回git-commit命令"><a href="#3-对文件做了修改之后，执行了git-add之后，且执行了git-commit-命令，想撤回git-commit命令" class="headerlink" title="3 对文件做了修改之后，执行了git add之后，且执行了git commit 命令，想撤回git commit命令"></a>3 对文件做了修改之后，执行了git add之后，且执行了git commit 命令，想撤回git commit命令</h4><ul>
-<li>1）首先对test.txt文件做一些修改，然后依次执行git add 和gitcommit操作<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git add .</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line"># Changes to be committed:</span><br><span class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">#</span><br><span class="line">#       modified:   test.txt</span><br><span class="line">#</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git commit -m &quot;update for commit &quot;</span><br><span class="line">[master 19b71ac] update for commit</span><br><span class="line"> 1 file changed, 4 insertions(+)</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>2）执行git log命令，根据git commit的信息提示找到需要回退到的commit的id，如这里需要回退到16db0b48e14ce8e0377085d891c473cef873febb的位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git log</span><br><span class="line">commit 19b71ac466e2c30269e983deada775f3b393681f</span><br><span class="line">Author: hitredrose@163.com &lt;hitredrose@163.com&gt;</span><br><span class="line">Date:   Mon Aug 24 01:20:27 2020 +0800</span><br><span class="line"></span><br><span class="line">    update for commit</span><br><span class="line"></span><br><span class="line">commit 16db0b48e14ce8e0377085d891c473cef873febb</span><br><span class="line">Author: root &lt;root@redrose2100.com&gt;</span><br><span class="line">Date:   Mon Aug 24 00:33:26 2020 +0800</span><br><span class="line"></span><br><span class="line">    test for git</span><br><span class="line"></span><br><span class="line">commit 9d5b788cef89dbf3929586c9df43bf429fda8bd2</span><br><span class="line">Author: redrose2100 &lt;hitredrose@163.com&gt;</span><br><span class="line">Date:   Mon Aug 24 00:10:23 2020 +0800</span><br><span class="line"></span><br><span class="line">    Initial commit</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>3) 如果想仅仅是撤销commit操作，即修改的代码保留，只不过状态处于commit之前，需要执行git reset –soft commit-id<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git reset --soft 16db0b48e14ce8e0377085d891c473cef873febb</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line"># Changes to be committed:</span><br><span class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">#</span><br><span class="line">#       modified:   test.txt</span><br><span class="line">#</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure>
-此时若想再提交，直接git commit就可以了，修改的源代码都在</li>
-<li>4）在执行上述3之前，若想撤销commit并且丢弃源代码，则执行 git reset –hard commit-id命令进行回退<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git reset --hard 16db0b48e14ce8e0377085d891c473cef873febb</span><br><span class="line">HEAD is now at 16db0b4 test for git</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure>
-此时上次commit的代码也同步丢弃了</li>
-</ul>
-<h4 id="4-对文件做了修改之后，执行了git-add-，git-commit，-而且执行了git-push操作，这时候想撤回git-push命令"><a href="#4-对文件做了修改之后，执行了git-add-，git-commit，-而且执行了git-push操作，这时候想撤回git-push命令" class="headerlink" title="4 对文件做了修改之后，执行了git add ，git commit， 而且执行了git push操作，这时候想撤回git push命令"></a>4 对文件做了修改之后，执行了git add ，git commit， 而且执行了git push操作，这时候想撤回git push命令</h4><ul>
-<li>1）首先对test.txt文件做一些修改，然后依次执行git add 和gitcommit操作，并且执行git push操作<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git add .</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git commit -m &quot;update for push&quot;</span><br><span class="line">[master a6396af] update for push</span><br><span class="line"> 1 file changed, 4 insertions(+)</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git push origin master</span><br><span class="line">Counting objects: 5, done.</span><br><span class="line">Delta compression using up to 4 threads.</span><br><span class="line">Compressing objects: 100% (3&#x2F;3), done.</span><br><span class="line">Writing objects: 100% (3&#x2F;3), 341 bytes | 0 bytes&#x2F;s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To git@github.com:redrose2100&#x2F;test_for_git.git</span><br><span class="line">   16db0b4..a6396af  master -&gt; master</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>2）此时想撤销刚刚的git push操作，首先在本地执行git log查看提交记录，找到要恢复的commit的id，如这里需要恢复到commit的id为：16db0b48e14ce8e0377085d891c473cef873febb<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git log</span><br><span class="line">commit a6396af3876db489dbb73509a9e3008ca185290f</span><br><span class="line">Author: hitredrose@163.com &lt;hitredrose@163.com&gt;</span><br><span class="line">Date:   Mon Aug 24 01:33:55 2020 +0800</span><br><span class="line"></span><br><span class="line">    update for push</span><br><span class="line"></span><br><span class="line">commit 16db0b48e14ce8e0377085d891c473cef873febb</span><br><span class="line">Author: root &lt;root@redrose2100.com&gt;</span><br><span class="line">Date:   Mon Aug 24 00:33:26 2020 +0800</span><br><span class="line"></span><br><span class="line">    test for git</span><br><span class="line"></span><br><span class="line">commit 9d5b788cef89dbf3929586c9df43bf429fda8bd2</span><br><span class="line">Author: redrose2100 &lt;hitredrose@163.com&gt;</span><br><span class="line">Date:   Mon Aug 24 00:10:23 2020 +0800</span><br><span class="line"></span><br><span class="line">    Initial commit</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>3）执行 git reset –hard commit-id命令先将本地代码恢复到指定的commit的版本，并且丢弃已经上次提交的源代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git reset --hard 16db0b48e14ce8e0377085d891c473cef873febb</span><br><span class="line">HEAD is now at 16db0b4 test for git</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git status</span><br><span class="line"># On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br><span class="line">(base) [root@redrose2100 test_for_git]# git log</span><br><span class="line">commit 16db0b48e14ce8e0377085d891c473cef873febb</span><br><span class="line">Author: root &lt;root@redrose2100.com&gt;</span><br><span class="line">Date:   Mon Aug 24 00:33:26 2020 +0800</span><br><span class="line"></span><br><span class="line">    test for git</span><br><span class="line"></span><br><span class="line">commit 9d5b788cef89dbf3929586c9df43bf429fda8bd2</span><br><span class="line">Author: redrose2100 &lt;hitredrose@163.com&gt;</span><br><span class="line">Date:   Mon Aug 24 00:10:23 2020 +0800</span><br><span class="line"></span><br><span class="line">    Initial commit</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure></li>
-<li>4）然后执行 git push -f origin master即强制提交push即可恢复<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@redrose2100 test_for_git]# git push -f origin master</span><br><span class="line">Total 0 (delta 0), reused 0 (delta 0)</span><br><span class="line">To git@github.com:redrose2100&#x2F;test_for_git.git</span><br><span class="line"> + a6396af...16db0b4 master -&gt; master (forced update)</span><br><span class="line">(base) [root@redrose2100 test_for_git]#</span><br></pre></td></tr></table></figure>
-常见的恢复操作主要有以上四种</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1647,12 +1637,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">333k</span>
+    <span title="站点总字数">345k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:03</span>
+    <span title="站点阅读时长">5:14</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
