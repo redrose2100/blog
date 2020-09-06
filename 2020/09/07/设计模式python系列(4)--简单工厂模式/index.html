@@ -23,20 +23,20 @@
     var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 lamb-common 简介lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库 2 lamb-common 的安装 1 安装最新版本1pip3 install lamb-common 2 安装指定版本1pip3 install lamb-common&#x3D;&#x3D;&amp;#123;版本号&amp;#125; 3 lamb-common 的SSH功能使用方法从 l">
+  <meta name="description" content="1 简单工厂模式的含义：简单工厂模式，简单地来说，就是使用一个工厂类，然后根据传入的不同的参数生产出不同类，换句话就是将不同类的实例化过程又封装了一下，放到了一个工厂类的一个函数中，这样使用者在使用类是的时候就不需要去管实例化过程了，只需要使用工厂类来返回一个即可 2 简单工厂模式的使用场景：简单工厂模式适合于工厂负责的类不是太多的场景，当负责的场景很多的时候，会导致工厂生产实例的代码很多，此时将">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lamb-common系列(3)--非常简单的对linux服务器的Telnet操作库">
-<meta property="og:url" content="https://github.com/redrose2100/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/index.html">
+<meta property="og:title" content="设计模式python系列(4)--简单工厂模式">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Redrose2100的博客首页">
-<meta property="og:description" content="1 lamb-common 简介lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库 2 lamb-common 的安装 1 安装最新版本1pip3 install lamb-common 2 安装指定版本1pip3 install lamb-common&#x3D;&#x3D;&amp;#123;版本号&amp;#125; 3 lamb-common 的SSH功能使用方法从 l">
+<meta property="og:description" content="1 简单工厂模式的含义：简单工厂模式，简单地来说，就是使用一个工厂类，然后根据传入的不同的参数生产出不同类，换句话就是将不同类的实例化过程又封装了一下，放到了一个工厂类的一个函数中，这样使用者在使用类是的时候就不需要去管实例化过程了，只需要使用工厂类来返回一个即可 2 简单工厂模式的使用场景：简单工厂模式适合于工厂负责的类不是太多的场景，当负责的场景很多的时候，会导致工厂生产实例的代码很多，此时将">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-30T05:18:06.000Z">
-<meta property="article:modified_time" content="2020-08-30T05:25:25.216Z">
+<meta property="article:published_time" content="2020-09-06T19:57:52.000Z">
+<meta property="article:modified_time" content="2020-09-06T20:09:01.322Z">
 <meta property="article:author" content="微信：redrose2100">
-<meta property="article:tag" content="lamb-common系列">
+<meta property="article:tag" content="设计模式python系列">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/redrose2100/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/">
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>lamb-common系列(3)--非常简单的对linux服务器的Telnet操作库 | Redrose2100的博客首页</title>
+  <title>设计模式python系列(4)--简单工厂模式 | Redrose2100的博客首页</title>
   
 
 
@@ -205,7 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lamb-common-简介"><span class="nav-number">1.</span> <span class="nav-text">1 lamb-common 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-lamb-common-的安装"><span class="nav-number">2.</span> <span class="nav-text">2 lamb-common 的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-lamb-common-的SSH功能使用方法"><span class="nav-number">3.</span> <span class="nav-text">3 lamb-common 的SSH功能使用方法</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简单工厂模式的含义："><span class="nav-number">1.</span> <span class="nav-text">1 简单工厂模式的含义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-简单工厂模式的使用场景："><span class="nav-number">2.</span> <span class="nav-text">2 简单工厂模式的使用场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-简单工厂模式的实例"><span class="nav-number">3.</span> <span class="nav-text">3 简单工厂模式的实例</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -277,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -290,7 +290,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          lamb-common系列(3)--非常简单的对linux服务器的Telnet操作库
+          设计模式python系列(4)--简单工厂模式
         </h1>
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-30 13:18:06 / 修改时间：13:25:25" itemprop="dateCreated datePublished" datetime="2020-08-30T13:18:06+08:00">2020-08-30</time>
+              <time title="创建时间：2020-09-07 03:57:52 / 修改时间：04:09:01" itemprop="dateCreated datePublished" datetime="2020-09-07T03:57:52+08:00">2020-09-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/lamb-common%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">lamb-common系列</span></a>
+                  <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">设计模式python系列</span></a>
                 </span>
             </span>
 
@@ -329,8 +329,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/30/lamb-common%E7%B3%BB%E5%88%97(3)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Telnet%E6%93%8D%E4%BD%9C%E5%BA%93/" itemprop="commentCount"></span>
+    <a title="valine" href="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -340,7 +340,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>602</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -359,15 +359,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-lamb-common-简介"><a href="#1-lamb-common-简介" class="headerlink" title="1 lamb-common 简介"></a>1 lamb-common 简介</h4><p>lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库</p>
-<h4 id="2-lamb-common-的安装"><a href="#2-lamb-common-的安装" class="headerlink" title="2 lamb-common 的安装"></a>2 lamb-common 的安装</h4><ul>
-<li>1 安装最新版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common</span><br></pre></td></tr></table></figure></li>
-<li>2 安装指定版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common&#x3D;&#x3D;&#123;版本号&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-lamb-common-的SSH功能使用方法"><a href="#3-lamb-common-的SSH功能使用方法" class="headerlink" title="3 lamb-common 的SSH功能使用方法"></a>3 lamb-common 的SSH功能使用方法</h4>从 lamb-common-0.0.6 版本开始lamb-common开始提供Telnet功能，使用起来非常简单方便</li>
-</ul>
-<p>通过对SSHClient类实例化，调用exec_command，close方法对本地和远端机器做对应的操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.api.telnet import TelnetClient</span><br><span class="line"></span><br><span class="line">telnet&#x3D;TelnetClient(ip&#x3D;&quot;192.168.1.200&quot;,port&#x3D;23,username&#x3D;&quot;admin&quot;,password&#x3D;&quot;admin&quot;,prompt&#x3D;&quot;$&quot;)</span><br><span class="line"># 通过telnet方式在远端机器上执行 ls &#x2F; 的命令</span><br><span class="line">telnet.exec_command(&quot;ls &#x2F;&quot;)</span><br><span class="line"></span><br><span class="line"># 关闭telnet连接通道</span><br><span class="line">telnet.close()</span><br></pre></td></tr></table></figure>
-
+        <h4 id="1-简单工厂模式的含义："><a href="#1-简单工厂模式的含义：" class="headerlink" title="1 简单工厂模式的含义："></a>1 简单工厂模式的含义：</h4><p>简单工厂模式，简单地来说，就是使用一个工厂类，然后根据传入的不同的参数生产出不同类，换句话就是将不同类的实例化过程又封装了一下，放到了一个工厂类的一个函数中，这样使用者在使用类是的时候就不需要去管实例化过程了，只需要使用工厂类来返回一个即可</p>
+<h4 id="2-简单工厂模式的使用场景："><a href="#2-简单工厂模式的使用场景：" class="headerlink" title="2 简单工厂模式的使用场景："></a>2 简单工厂模式的使用场景：</h4><p>简单工厂模式适合于工厂负责的类不是太多的场景，当负责的场景很多的时候，会导致工厂生产实例的代码很多，此时将难于维护</p>
+<h4 id="3-简单工厂模式的实例"><a href="#3-简单工厂模式的实例" class="headerlink" title="3 简单工厂模式的实例"></a>3 简单工厂模式的实例</h4><p>如下工厂类负责Teacher类和Student类的实例化过程，使用者只需要调用工厂类的create方法，然后根据传入角色role的值即可得到对应的类型的实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def work(self):</span><br><span class="line">        print(&quot;student &#123;name&#125; begin to studying...&quot;.format(name&#x3D;self.name))</span><br><span class="line"></span><br><span class="line">class Teacher(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def work(self):</span><br><span class="line">        print(&quot;teacher &#123;name&#125; begin to teaching...&quot;.format(name&#x3D;self.name))</span><br><span class="line"></span><br><span class="line">class SimpleFactory(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def create(self,role,name):</span><br><span class="line">        if role&#x3D;&#x3D;&quot;student&quot;:</span><br><span class="line">            return Student(name)</span><br><span class="line">        if role&#x3D;&#x3D;&quot;teacher&quot;:</span><br><span class="line">            return Teacher(name)</span><br><span class="line"></span><br><span class="line">simple_factory&#x3D;SimpleFactory()</span><br><span class="line">s&#x3D;simple_factory.create(&quot;student&quot;,&quot;Jack&quot;)</span><br><span class="line">t&#x3D;simple_factory.create(&quot;teacher&quot;,&quot;Miss Wang&quot;)</span><br><span class="line">s.work()</span><br><span class="line">t.work()</span><br></pre></td></tr></table></figure>
+<p>运行结果如下；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">student Jack begin to studying...</span><br><span class="line">teacher Miss Wang begin to teaching...</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -396,7 +393,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/lamb-common%E7%B3%BB%E5%88%97/" rel="tag"># lamb-common系列</a>
+              <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" rel="tag"># 设计模式python系列</a>
           </div>
 
         
@@ -405,13 +402,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" rel="prev" title="Linux系统环境安装系列(4)--centos7如何开启telnet功能">
-      <i class="fa fa-chevron-left"></i> Linux系统环境安装系列(4)--centos7如何开启telnet功能
+    <a href="/blog/2020/09/07/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(10)--%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E3%80%81%E7%B1%BB%E6%96%B9%E6%B3%95%E3%80%81%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="python高级语法系列(10)--实例方法、类方法、静态方法的区别">
+      <i class="fa fa-chevron-left"></i> python高级语法系列(10)--实例方法、类方法、静态方法的区别
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/" rel="next" title="PyQt5系列(1)--PyQt5环境安装基于Pycharm">
-      PyQt5系列(1)--PyQt5环境安装基于Pycharm <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
