@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>python高级语法系列(12)--map、filter,reduce,zip</title>
+      <link href="/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(12)--map%E3%80%81filter-reduce-zip/"/>
+      <url>/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(12)--map%E3%80%81filter-reduce-zip/</url>
+      
+        <content type="html"><![CDATA[<p>map，filter，reduce，zip都是处理序列的便捷的内置函数</p><h4 id="1-map-func-iterable"><a href="#1-map-func-iterable" class="headerlink" title="1 map(func,iterable)"></a>1 map(func,iterable)</h4><p>map的作用主要是将一个函数应用于一个可迭代的序列，然后将返回值返回</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;[1,2,3,4,5,6]</span><br><span class="line">def func(x):</span><br><span class="line">    return x*x</span><br><span class="line"></span><br><span class="line">b&#x3D;map(func,a)</span><br><span class="line">print(list(b))</span><br></pre></td></tr></table></figure><p>运行结果为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 4, 9, 16, 25, 36]</span><br></pre></td></tr></table></figure><h4 id="2-filter-func-iterable"><a href="#2-filter-func-iterable" class="headerlink" title="2 filter(func,iterable)"></a>2 filter(func,iterable)</h4><p>filter的功能是通过func来对可迭代的序列进行过滤，如果func的返回值为真，则对应的iterable中的值保留下来，最后一起以序列的形式返回</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;[1,2,3,4,5,6]</span><br><span class="line">def func(x):</span><br><span class="line">    return x%2&#x3D;&#x3D;0</span><br><span class="line"></span><br><span class="line">b&#x3D;filter(func,a)</span><br><span class="line">print(list(b))</span><br></pre></td></tr></table></figure><p>执行结果如下所示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 4, 6]</span><br></pre></td></tr></table></figure><h4 id="3-reduce-func-iterable"><a href="#3-reduce-func-iterable" class="headerlink" title="3 reduce(func,iterable)"></a>3 reduce(func,iterable)</h4><p>reduce 的功能是股东计算应用于可迭代序列iterable的结果，最后将结果返回，非常适合应用类似累加和累乘的场景</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line"></span><br><span class="line">a&#x3D;[1,2,3,4,5,6]</span><br><span class="line">def add(x,y):</span><br><span class="line">    return x+y</span><br><span class="line"></span><br><span class="line">def multi(x,y):</span><br><span class="line">    return x*y</span><br><span class="line">b&#x3D;reduce(add,a)</span><br><span class="line">c&#x3D;reduce(multi,a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure><p>执行结果如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">21</span><br><span class="line">720</span><br></pre></td></tr></table></figure><h4 id="4-zip-iterable"><a href="#4-zip-iterable" class="headerlink" title="4 zip(*iterable)"></a>4 zip(*iterable)</h4><p>zip的功能是映射多个容器的相似索引，可以方便用于来构造字典</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;[1,2,3,4,5]</span><br><span class="line">b&#x3D;[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;]</span><br><span class="line">c&#x3D;dict(zip(b,a))</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure><p>执行结果为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5&#125;</span><br></pre></td></tr></table></figure><p>灵活地应用这几个内置函数，有时候可以是代码更加简洁</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python高级语法系列 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python高级语法系列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python高级语法系列(11)--lambda表达式</title>
+      <link href="/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(11)--lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(11)--lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> python高级语法系列 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python高级语法系列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pluggy源码解读系列(1)--从pluggy的简单应用入手</title>
       <link href="/blog/2020/09/08/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(1)-%E4%BB%8Epluggy%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%85%A5%E6%89%8B/"/>
       <url>/blog/2020/09/08/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(1)-%E4%BB%8Epluggy%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%85%A5%E6%89%8B/</url>
