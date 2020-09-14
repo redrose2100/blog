@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="EXFANpzRih">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/blog/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本系列前五篇其实已经将pluggy的流程原理等分析完了，只有PluginManager类还有几个方法的源代码没有提到，这里将这些方法拿出来简单的分析一下，因为有可能会用到，当然也有可能根本不会用这些 unregister 取消注册插件注册插件的过程都分析过了，取消注册过程就简单了，这里可以简单的看一下，这里主要就是对_name2plugin和_plugin2hookcallers这两个字典进行删除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pluggy源码解读系列(6)--PluginManager类的其他功能">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/index.html">
+<meta property="og:site_name" content="Redrose2100的博客首页">
+<meta property="og:description" content="本系列前五篇其实已经将pluggy的流程原理等分析完了，只有PluginManager类还有几个方法的源代码没有提到，这里将这些方法拿出来简单的分析一下，因为有可能会用到，当然也有可能根本不会用这些 unregister 取消注册插件注册插件的过程都分析过了，取消注册过程就简单了，这里可以简单的看一下，这里主要就是对_name2plugin和_plugin2hookcallers这两个字典进行删除">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-14T13:23:39.000Z">
+<meta property="article:modified_time" content="2020-09-14T13:44:32.127Z">
+<meta property="article:author" content="微信：redrose2100">
+<meta property="article:tag" content="pluggy源码解读系列">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>pluggy源码解读系列(6)--PluginManager类的其他功能 | Redrose2100的博客首页</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Redrose2100的博客首页</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#unregister-取消注册插件"><span class="nav-number">1.</span> <span class="nav-text">unregister 取消注册插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-blocked-设置阻塞状态"><span class="nav-number">2.</span> <span class="nav-text">set_blocked 设置阻塞状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#is-blocked-判断插件是否处于阻塞状态"><span class="nav-number">3.</span> <span class="nav-text">is_blocked 判断插件是否处于阻塞状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#is-registered-判断插件是否是注册的"><span class="nav-number">4.</span> <span class="nav-text">is_registered 判断插件是否是注册的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get-plugin-根据插件名称获取插件对象"><span class="nav-number">5.</span> <span class="nav-text">get_plugin 根据插件名称获取插件对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#get-name-根据插件对象获取插件名称"><span class="nav-number">6.</span> <span class="nav-text">get_name 根据插件对象获取插件名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#load-setuptools-entrypoints-通过setuptools的方式注册插件"><span class="nav-number">7.</span> <span class="nav-text">load_setuptools_entrypoints 通过setuptools的方式注册插件</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">微信：redrose2100</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/redrose2100" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;redrose2100"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hitredrose@163.com" title="E-Mail → mailto:hitredrose@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pluggy源码解读系列(6)--PluginManager类的其他功能
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-14 21:23:39 / 修改时间：21:44:32" itemprop="dateCreated datePublished" datetime="2020-09-14T21:23:39+08:00">2020-09-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pluggy源码解读系列</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本系列前五篇其实已经将pluggy的流程原理等分析完了，只有PluginManager类还有几个方法的源代码没有提到，这里将这些方法拿出来简单的分析一下，因为有可能会用到，当然也有可能根本不会用这些</p>
+<h4 id="unregister-取消注册插件"><a href="#unregister-取消注册插件" class="headerlink" title="unregister 取消注册插件"></a>unregister 取消注册插件</h4><p>注册插件的过程都分析过了，取消注册过程就简单了，这里可以简单的看一下，这里主要就是对_name2plugin和_plugin2hookcallers这两个字典进行删除对应的插件，即取消注册插件，源代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def unregister(self, plugin&#x3D;None, name&#x3D;None):</span><br><span class="line">    &quot;&quot;&quot; unregister a plugin object and all its contained hook implementations</span><br><span class="line">    from internal data structures. &quot;&quot;&quot;</span><br><span class="line">    if name is None:</span><br><span class="line">        assert plugin is not None, &quot;one of name or plugin needs to be specified&quot;</span><br><span class="line">        name &#x3D; self.get_name(plugin)</span><br><span class="line"></span><br><span class="line">    if plugin is None:</span><br><span class="line">        plugin &#x3D; self.get_plugin(name)</span><br><span class="line"></span><br><span class="line">    # if self._name2plugin[name] &#x3D;&#x3D; None registration was blocked: ignore</span><br><span class="line">    if self._name2plugin.get(name):</span><br><span class="line">        del self._name2plugin[name]</span><br><span class="line"></span><br><span class="line">    for hookcaller in self._plugin2hookcallers.pop(plugin, []):</span><br><span class="line">        hookcaller._remove_plugin(plugin)</span><br><span class="line"></span><br><span class="line">    return plugin</span><br></pre></td></tr></table></figure>
+<h4 id="set-blocked-设置阻塞状态"><a href="#set-blocked-设置阻塞状态" class="headerlink" title="set_blocked 设置阻塞状态"></a>set_blocked 设置阻塞状态</h4><p>这个设置阻塞状态可以是pluggy更加灵活，比如在在大多数场景下都要注册插件，但是在某中场景下，某个插件不支持，此时则可以暂时给设置阻塞状态，这样pluggy插件系统使用起来更加灵活</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def set_blocked(self, name):</span><br><span class="line">    &quot;&quot;&quot; block registrations of the given name, unregister if already registered. &quot;&quot;&quot;</span><br><span class="line">    self.unregister(name&#x3D;name)</span><br><span class="line">    self._name2plugin[name] &#x3D; None</span><br></pre></td></tr></table></figure>
+<h4 id="is-blocked-判断插件是否处于阻塞状态"><a href="#is-blocked-判断插件是否处于阻塞状态" class="headerlink" title="is_blocked 判断插件是否处于阻塞状态"></a>is_blocked 判断插件是否处于阻塞状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_blocked(self, name):</span><br><span class="line">    &quot;&quot;&quot; return &#96;&#96;True&#96;&#96; if the given plugin name is blocked. &quot;&quot;&quot;</span><br><span class="line">    return name in self._name2plugin and self._name2plugin[name] is None</span><br></pre></td></tr></table></figure>
+<h4 id="is-registered-判断插件是否是注册的"><a href="#is-registered-判断插件是否是注册的" class="headerlink" title="is_registered 判断插件是否是注册的"></a>is_registered 判断插件是否是注册的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_registered(self, plugin):</span><br><span class="line">    &quot;&quot;&quot; Return &#96;&#96;True&#96;&#96; if the plugin is already registered. &quot;&quot;&quot;</span><br><span class="line">    return plugin in self._plugin2hookcallers</span><br></pre></td></tr></table></figure>
+<h4 id="get-plugin-根据插件名称获取插件对象"><a href="#get-plugin-根据插件名称获取插件对象" class="headerlink" title="get_plugin 根据插件名称获取插件对象"></a>get_plugin 根据插件名称获取插件对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def get_plugin(self, name):</span><br><span class="line">    &quot;&quot;&quot; Return a plugin or &#96;&#96;None&#96;&#96; for the given name. &quot;&quot;&quot;</span><br><span class="line">    return self._name2plugin.get(name)</span><br></pre></td></tr></table></figure>
+<h4 id="get-name-根据插件对象获取插件名称"><a href="#get-name-根据插件对象获取插件名称" class="headerlink" title="get_name 根据插件对象获取插件名称"></a>get_name 根据插件对象获取插件名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def get_name(self, plugin):</span><br><span class="line">    &quot;&quot;&quot; Return name for registered plugin or &#96;&#96;None&#96;&#96; if not registered. &quot;&quot;&quot;</span><br><span class="line">    for name, val in self._name2plugin.items():</span><br><span class="line">        if plugin &#x3D;&#x3D; val:</span><br><span class="line">            return name</span><br></pre></td></tr></table></figure>
+<h4 id="load-setuptools-entrypoints-通过setuptools的方式注册插件"><a href="#load-setuptools-entrypoints-通过setuptools的方式注册插件" class="headerlink" title="load_setuptools_entrypoints 通过setuptools的方式注册插件"></a>load_setuptools_entrypoints 通过setuptools的方式注册插件</h4><p>这个方法需要注意一下，这个挺重要的，可以通过指定group名称的方式来自动注册插件，只要当前的环境中其他包中有通过setuptools的方式定义了此group名称的模块，就可以自动的注册，在著名的自动化测试框架pytest中，就是使用了这个函数，对group为“pytest11”的插件进行自动注册，使用起来非常方便，这样用户就可以通过自定义pytest11模块来对pytest做功能增强了，而不需要修改pytest的源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def load_setuptools_entrypoints(self, group, name&#x3D;None):</span><br><span class="line">    &quot;&quot;&quot; Load modules from querying the specified setuptools &#96;&#96;group&#96;&#96;.</span><br><span class="line"></span><br><span class="line">    :param str group: entry point group to load plugins</span><br><span class="line">    :param str name: if given, loads only plugins with the given &#96;&#96;name&#96;&#96;.</span><br><span class="line">    :rtype: int</span><br><span class="line">    :return: return the number of loaded plugins by this call.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    count &#x3D; 0</span><br><span class="line">    for dist in importlib_metadata.distributions():</span><br><span class="line">        for ep in dist.entry_points:</span><br><span class="line">            if (</span><br><span class="line">                ep.group !&#x3D; group</span><br><span class="line">                or (name is not None and ep.name !&#x3D; name)</span><br><span class="line">                # already registered</span><br><span class="line">                or self.get_plugin(ep.name)</span><br><span class="line">                or self.is_blocked(ep.name)</span><br><span class="line">            ):</span><br><span class="line">                continue</span><br><span class="line">            plugin &#x3D; ep.load()</span><br><span class="line">            self.register(plugin, name&#x3D;ep.name)</span><br><span class="line">            self._plugin_distinfo.append((plugin, DistFacade(dist)))</span><br><span class="line">            count +&#x3D; 1</span><br><span class="line">    return count</span><br></pre></td></tr></table></figure>
+
+<p>PluginManager类还有几个简单的方法，这里就不再一一分析了，至此对pluggy的源码分析就全部结束了</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="document.getElementById('post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div id="post-reward">
+      
+      <div>
+        <img src="/blog/images/wechat.jpg" alt="微信：redrose2100 微信">
+        <p>微信</p>
+      </div>
+      
+      <div>
+        <img src="/blog/images/aipay.png" alt="微信：redrose2100 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97/" rel="tag"># pluggy源码解读系列</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(5)--hook%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90/" rel="prev" title="pluggy源码解读系列(5)--hook钩子函数调用执行过程分析">
+      <i class="fa fa-chevron-left"></i> pluggy源码解读系列(5)--hook钩子函数调用执行过程分析
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微信：redrose2100</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">388k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:53</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: location.pathname,
+    }, {"enable":true,"appId":"GWT62g9VJxMHug2V6voccGST-gzGzoHsz","appKey":"VsJvTtXb38TTFkoTI1tAIgBJ","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,114 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">pluggy源码解读系列(6)--PluginManager类的其他功能</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-14 21:23:39 / 修改时间：21:44:32" itemprop="dateCreated datePublished" datetime="2020-09-14T21:23:39+08:00">2020-09-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pluggy源码解读系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本系列前五篇其实已经将pluggy的流程原理等分析完了，只有PluginManager类还有几个方法的源代码没有提到，这里将这些方法拿出来简单的分析一下，因为有可能会用到，当然也有可能根本不会用这些</p>
+<h4 id="unregister-取消注册插件"><a href="#unregister-取消注册插件" class="headerlink" title="unregister 取消注册插件"></a>unregister 取消注册插件</h4><p>注册插件的过程都分析过了，取消注册过程就简单了，这里可以简单的看一下，这里主要就是对_name2plugin和_plugin2hookcallers这两个字典进行删除对应的插件，即取消注册插件，源代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def unregister(self, plugin&#x3D;None, name&#x3D;None):</span><br><span class="line">    &quot;&quot;&quot; unregister a plugin object and all its contained hook implementations</span><br><span class="line">    from internal data structures. &quot;&quot;&quot;</span><br><span class="line">    if name is None:</span><br><span class="line">        assert plugin is not None, &quot;one of name or plugin needs to be specified&quot;</span><br><span class="line">        name &#x3D; self.get_name(plugin)</span><br><span class="line"></span><br><span class="line">    if plugin is None:</span><br><span class="line">        plugin &#x3D; self.get_plugin(name)</span><br><span class="line"></span><br><span class="line">    # if self._name2plugin[name] &#x3D;&#x3D; None registration was blocked: ignore</span><br><span class="line">    if self._name2plugin.get(name):</span><br><span class="line">        del self._name2plugin[name]</span><br><span class="line"></span><br><span class="line">    for hookcaller in self._plugin2hookcallers.pop(plugin, []):</span><br><span class="line">        hookcaller._remove_plugin(plugin)</span><br><span class="line"></span><br><span class="line">    return plugin</span><br></pre></td></tr></table></figure>
+<h4 id="set-blocked-设置阻塞状态"><a href="#set-blocked-设置阻塞状态" class="headerlink" title="set_blocked 设置阻塞状态"></a>set_blocked 设置阻塞状态</h4><p>这个设置阻塞状态可以是pluggy更加灵活，比如在在大多数场景下都要注册插件，但是在某中场景下，某个插件不支持，此时则可以暂时给设置阻塞状态，这样pluggy插件系统使用起来更加灵活</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def set_blocked(self, name):</span><br><span class="line">    &quot;&quot;&quot; block registrations of the given name, unregister if already registered. &quot;&quot;&quot;</span><br><span class="line">    self.unregister(name&#x3D;name)</span><br><span class="line">    self._name2plugin[name] &#x3D; None</span><br></pre></td></tr></table></figure>
+<h4 id="is-blocked-判断插件是否处于阻塞状态"><a href="#is-blocked-判断插件是否处于阻塞状态" class="headerlink" title="is_blocked 判断插件是否处于阻塞状态"></a>is_blocked 判断插件是否处于阻塞状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_blocked(self, name):</span><br><span class="line">    &quot;&quot;&quot; return &#96;&#96;True&#96;&#96; if the given plugin name is blocked. &quot;&quot;&quot;</span><br><span class="line">    return name in self._name2plugin and self._name2plugin[name] is None</span><br></pre></td></tr></table></figure>
+<h4 id="is-registered-判断插件是否是注册的"><a href="#is-registered-判断插件是否是注册的" class="headerlink" title="is_registered 判断插件是否是注册的"></a>is_registered 判断插件是否是注册的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_registered(self, plugin):</span><br><span class="line">    &quot;&quot;&quot; Return &#96;&#96;True&#96;&#96; if the plugin is already registered. &quot;&quot;&quot;</span><br><span class="line">    return plugin in self._plugin2hookcallers</span><br></pre></td></tr></table></figure>
+<h4 id="get-plugin-根据插件名称获取插件对象"><a href="#get-plugin-根据插件名称获取插件对象" class="headerlink" title="get_plugin 根据插件名称获取插件对象"></a>get_plugin 根据插件名称获取插件对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def get_plugin(self, name):</span><br><span class="line">    &quot;&quot;&quot; Return a plugin or &#96;&#96;None&#96;&#96; for the given name. &quot;&quot;&quot;</span><br><span class="line">    return self._name2plugin.get(name)</span><br></pre></td></tr></table></figure>
+<h4 id="get-name-根据插件对象获取插件名称"><a href="#get-name-根据插件对象获取插件名称" class="headerlink" title="get_name 根据插件对象获取插件名称"></a>get_name 根据插件对象获取插件名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def get_name(self, plugin):</span><br><span class="line">    &quot;&quot;&quot; Return name for registered plugin or &#96;&#96;None&#96;&#96; if not registered. &quot;&quot;&quot;</span><br><span class="line">    for name, val in self._name2plugin.items():</span><br><span class="line">        if plugin &#x3D;&#x3D; val:</span><br><span class="line">            return name</span><br></pre></td></tr></table></figure>
+<h4 id="load-setuptools-entrypoints-通过setuptools的方式注册插件"><a href="#load-setuptools-entrypoints-通过setuptools的方式注册插件" class="headerlink" title="load_setuptools_entrypoints 通过setuptools的方式注册插件"></a>load_setuptools_entrypoints 通过setuptools的方式注册插件</h4><p>这个方法需要注意一下，这个挺重要的，可以通过指定group名称的方式来自动注册插件，只要当前的环境中其他包中有通过setuptools的方式定义了此group名称的模块，就可以自动的注册，在著名的自动化测试框架pytest中，就是使用了这个函数，对group为“pytest11”的插件进行自动注册，使用起来非常方便，这样用户就可以通过自定义pytest11模块来对pytest做功能增强了，而不需要修改pytest的源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def load_setuptools_entrypoints(self, group, name&#x3D;None):</span><br><span class="line">    &quot;&quot;&quot; Load modules from querying the specified setuptools &#96;&#96;group&#96;&#96;.</span><br><span class="line"></span><br><span class="line">    :param str group: entry point group to load plugins</span><br><span class="line">    :param str name: if given, loads only plugins with the given &#96;&#96;name&#96;&#96;.</span><br><span class="line">    :rtype: int</span><br><span class="line">    :return: return the number of loaded plugins by this call.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    count &#x3D; 0</span><br><span class="line">    for dist in importlib_metadata.distributions():</span><br><span class="line">        for ep in dist.entry_points:</span><br><span class="line">            if (</span><br><span class="line">                ep.group !&#x3D; group</span><br><span class="line">                or (name is not None and ep.name !&#x3D; name)</span><br><span class="line">                # already registered</span><br><span class="line">                or self.get_plugin(ep.name)</span><br><span class="line">                or self.is_blocked(ep.name)</span><br><span class="line">            ):</span><br><span class="line">                continue</span><br><span class="line">            plugin &#x3D; ep.load()</span><br><span class="line">            self.register(plugin, name&#x3D;ep.name)</span><br><span class="line">            self._plugin_distinfo.append((plugin, DistFacade(dist)))</span><br><span class="line">            count +&#x3D; 1</span><br><span class="line">    return count</span><br></pre></td></tr></table></figure>
+
+<p>PluginManager类还有几个简单的方法，这里就不再一一分析了，至此对pluggy的源码分析就全部结束了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1346,141 +1454,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(3)--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(3)--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">设计模式python系列(3)--单例模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-07 00:33:48 / 修改时间：02:35:51" itemprop="dateCreated datePublished" datetime="2020-09-07T00:33:48+08:00">2020-09-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">设计模式python系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(3)--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(3)--%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-单例模式："><a href="#1-单例模式：" class="headerlink" title="1 单例模式："></a>1 单例模式：</h4><p>单例模式是设计模式中最为简单的一种，单例模式就是在这个系统中一个类只有一个实例，目的就是根据场景的需要节省资源比如读取配置文件，当然有一些场景是必须要单例的，比如日志等</p>
-<h4 id="2-单例模式常见的使用场景："><a href="#2-单例模式常见的使用场景：" class="headerlink" title="2 单例模式常见的使用场景："></a>2 单例模式常见的使用场景：</h4><p>1）. Windows的任务管理器就是很典型的单例模式</p>
-<p>2）. 应用程序的日志应用，一般都何用单例模式实现，这一般是由于共享的日志文件一直处于打开状态，因为只能有一个实例去操作，否则内容不好追加。</p>
-<p>3）. 应用的配置对象的读取，一般也应用单例模式，这个是由于配置文件是共享的资源。</p>
-<p>4）. 数据库连接池的设计一般也是采用单例模式，因为数据库连接是一种数据库资源。数据库软件系统中使用数据库连接池，主要是节省打开或者关闭数据库连接所引起的效率损耗，这种效率上的损耗还是非常昂贵的，因为何用单例模式来维护，就可以大大降低这种损耗。</p>
-<p>5）. 多线程的线程池的设计一般也是采用单例模式，这是由于线程池要方便对池中的线程进行控制。</p>
-<p>6）. 操作系统的文件系统，也是大的单例模式实现的具体例子，一个操作系统只能有一个文件系统。</p>
-<h4 id="3-在python中单例模式实现的方式有以下几种"><a href="#3-在python中单例模式实现的方式有以下几种" class="headerlink" title="3 在python中单例模式实现的方式有以下几种"></a>3 在python中单例模式实现的方式有以下几种</h4><ul>
-<li>1）使用模块导入的方式</li>
-<li>2）使用装饰器控制</li>
-<li>3）使用类方法实例化的方式</li>
-<li>4）使用静态方法实例化的方式</li>
-<li>5）基于<strong>new</strong>方法实现</li>
-<li>6）基于metaclass方式实现</li>
-</ul>
-<h4 id="4-实例演示python实现单例模式的方式"><a href="#4-实例演示python实现单例模式的方式" class="headerlink" title="4 实例演示python实现单例模式的方式"></a>4 实例演示python实现单例模式的方式</h4><ul>
-<li>1）使用模块导入的方式<br>首先建立三个文件，test.py，test01.py，在test.py中定义个Student类并且初始化一个实例，然后在另外一个测试文件连续两次导入test.py中的实例，打印其内容以及id观察是否一致<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#test.py</span><br><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">student&#x3D;Student(&quot;Jack&quot;)</span><br></pre></td></tr></table></figure>
-test01.py的代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from test import student</span><br><span class="line"></span><br><span class="line">print(student.name)</span><br><span class="line">print(id(student))</span><br><span class="line"></span><br><span class="line">from test import student as student2</span><br><span class="line"></span><br><span class="line">print(student2.name)</span><br><span class="line">print(id(student2))</span><br></pre></td></tr></table></figure>
-test01.py执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">2911141618064</span><br><span class="line">Jack</span><br><span class="line">2911141618064</span><br></pre></td></tr></table></figure></li>
-<li>使用装饰器的方式</li>
-</ul>
-<p>参照<a href="https://redrose2100.github.io/blog/2020/08/31/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(4)--%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_blank" rel="noopener">python高级语法系列(4)</a><br>中被装饰对象是类的场景，下面选择装饰器是函数，被装饰器是类的场景实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def singleton_decorator(cls):</span><br><span class="line">    __instance&#x3D;&#123;&#125;</span><br><span class="line">    def _singleton_decorator(*args,**kwargs):</span><br><span class="line">        if cls.__name__ not in __instance.keys():</span><br><span class="line">            __instance[cls.__name__]&#x3D;cls(*args,**kwargs)</span><br><span class="line">        return __instance[cls.__name__]</span><br><span class="line">    return _singleton_decorator</span><br><span class="line"></span><br><span class="line">@singleton_decorator</span><br><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s1&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(s1.name)</span><br><span class="line">print(id(s1))</span><br><span class="line"></span><br><span class="line">s2&#x3D;Student(&quot;Tom&quot;)</span><br><span class="line">print(s2.name)</span><br><span class="line">print(id(s2))</span><br></pre></td></tr></table></figure>
-<p>执行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">3003422531792</span><br><span class="line">Jack</span><br><span class="line">3003422531792</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用类方法的方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    @classmethod</span><br><span class="line">    def student(cls,*args,**kwargs):</span><br><span class="line">        if not hasattr(Student,&quot;_student&quot;):</span><br><span class="line">            Student._student&#x3D;Student(*args,**kwargs)</span><br><span class="line">        return Student._student</span><br><span class="line"></span><br><span class="line">s1&#x3D;Student.student(&quot;Jack&quot;)</span><br><span class="line">print(s1.name)</span><br><span class="line">print(id(s1))</span><br><span class="line"></span><br><span class="line">s2&#x3D;Student.student(&quot;Tom&quot;)</span><br><span class="line">print(s2.name)</span><br><span class="line">print(id(s2))</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">2481198283504</span><br><span class="line">Jack</span><br><span class="line">2481198283504</span><br></pre></td></tr></table></figure></li>
-<li>使用静态方法实例化的方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    @staticmethod</span><br><span class="line">    def student(*args,**kwargs):</span><br><span class="line">        if not hasattr(Student,&quot;_student&quot;):</span><br><span class="line">            Student._student&#x3D;Student(*args,**kwargs)</span><br><span class="line">        return Student._student</span><br><span class="line"></span><br><span class="line">s1&#x3D;Student.student(&quot;Jack&quot;)</span><br><span class="line">print(s1.name)</span><br><span class="line">print(id(s1))</span><br><span class="line"></span><br><span class="line">s2&#x3D;Student.student(&quot;Tom&quot;)</span><br><span class="line">print(s2.name)</span><br><span class="line">print(id(s2))</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">1572367645424</span><br><span class="line">Jack</span><br><span class="line">1572367645424</span><br></pre></td></tr></table></figure>
-<h1 id="使用new方法实现"><a href="#使用new方法实现" class="headerlink" title="使用new方法实现"></a>使用<strong>new</strong>方法实现</h1>这里初始化的时候需要注意下需要判断是否为第一次初始化，如果不是则不作任何操作<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    _instance&#x3D;None</span><br><span class="line">    _first_init&#x3D;True</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        cls&#x3D;type(self)</span><br><span class="line">        if cls._first_init:</span><br><span class="line">            self.name&#x3D;name</span><br><span class="line">            cls._first_init&#x3D;False</span><br><span class="line"></span><br><span class="line">    def __new__(cls,*args,**kwargs):</span><br><span class="line">        if not cls._instance:</span><br><span class="line">            cls._instance&#x3D;super().__new__(cls)</span><br><span class="line">        return cls._instance</span><br><span class="line"></span><br><span class="line">s1&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(s1.name)</span><br><span class="line">print(id(s1))</span><br><span class="line"></span><br><span class="line">s2&#x3D;Student(&quot;Tom&quot;)</span><br><span class="line">print(s2.name)</span><br><span class="line">print(id(s2))</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">1503017427392</span><br><span class="line">Jack</span><br><span class="line">1503017427392</span><br></pre></td></tr></table></figure></li>
-<li>基于metaclass方式实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class StudentMetaclass(type):</span><br><span class="line">    _instance&#x3D;None</span><br><span class="line">    def __init__(self,*args,**kwargs):</span><br><span class="line">        super(StudentMetaclass,self).__init__(*args,**kwargs)</span><br><span class="line"></span><br><span class="line">    def __call__(cls,*args,**kwargs):</span><br><span class="line">        if not cls._instance:</span><br><span class="line">            cls._instance&#x3D;super(StudentMetaclass,cls).__call__(*args,**kwargs)</span><br><span class="line">        return cls._instance</span><br><span class="line"></span><br><span class="line">class Student(metaclass&#x3D;StudentMetaclass):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s1&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(s1.name)</span><br><span class="line">print(id(s1))</span><br><span class="line"></span><br><span class="line">s2&#x3D;Student(&quot;Tom&quot;)</span><br><span class="line">print(s2.name)</span><br><span class="line">print(id(s2))</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">2074432889184</span><br><span class="line">Jack</span><br><span class="line">2074432889184</span><br></pre></td></tr></table></figure>
-总结：在上面讲述的实现python单例模式的方式中，推荐使用<strong>new</strong>的方式，简单容易理解，而且使用方式和普通类的使用方式保持一致，metaclass方式也不错，不过对python高级语法的理解要求比较高</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/6/">6</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1531,12 +1508,12 @@ test01.py执行结果如下：<figure class="highlight plain"><table><tr><td cla
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">385k</span>
+    <span title="站点总字数">388k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:50</span>
+    <span title="站点阅读时长">5:53</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
