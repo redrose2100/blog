@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,110 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/" class="post-title-link" itemprop="url">lamb-common系列(2)--非常简单的对linux服务器的SSH操作库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-28 00:18:06 / 修改时间：00:21:33" itemprop="dateCreated datePublished" datetime="2020-08-28T00:18:06+08:00">2020-08-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/lamb-common%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">lamb-common系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/28/lamb-common%E7%B3%BB%E5%88%97(2)--%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%B9linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84SSH%E6%93%8D%E4%BD%9C%E5%BA%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>978</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-lamb-common-简介"><a href="#1-lamb-common-简介" class="headerlink" title="1 lamb-common 简介"></a>1 lamb-common 简介</h4><p>lamb-common是一个致力于提供一个使用起来高度便捷，更加简单的常用的高层封装库</p>
+<h4 id="2-lamb-common-的安装"><a href="#2-lamb-common-的安装" class="headerlink" title="2 lamb-common 的安装"></a>2 lamb-common 的安装</h4><ul>
+<li>1 安装最新版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common</span><br></pre></td></tr></table></figure></li>
+<li>2 安装指定版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lamb-common&#x3D;&#x3D;&#123;版本号&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-lamb-common-的SSH功能使用方法"><a href="#3-lamb-common-的SSH功能使用方法" class="headerlink" title="3 lamb-common 的SSH功能使用方法"></a>3 lamb-common 的SSH功能使用方法</h4>从 lamb-common-0.0.5 版本开始lamb-common开始提供SSH功能，使用起来非常简单方便</li>
+</ul>
+<p>通过对SSHClient类实例化，调用exec_command、upload，download，close方法对本地和远端机器做对应的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from lamb_common.api.ssh import SSHClient</span><br><span class="line"></span><br><span class="line">ssh&#x3D;SSHClient(ip&#x3D;&quot;192.168.1.200&quot;,port&#x3D;22,username&#x3D;&quot;root&quot;,password&#x3D;&quot;root&quot;,prompt&#x3D;&quot;#&quot;)</span><br><span class="line"># 通过ssh方式在远端机器上执行 ls &#x2F; 的命令</span><br><span class="line">ssh.exec_command(&quot;ls &#x2F;&quot;)</span><br><span class="line"></span><br><span class="line"># 将本地当前路径下的__init__.py 文件上传到远端服务器的 &#x2F;opt&#x2F;unittest_test&#x2F;__init__.py</span><br><span class="line">ssh.upload(&quot;__init__.py&quot;,&quot;&#x2F;opt&#x2F;unittest_test&#x2F;__init__.py&quot;)</span><br><span class="line"></span><br><span class="line"># 将远端服务器上的 &#x2F;etc&#x2F;lamb_common&#x2F;log.conf 下载到本地 D:&#x2F;log.conf </span><br><span class="line">self.ssh.download(&quot;&#x2F;etc&#x2F;lamb_common&#x2F;log.conf&quot;,&quot;D:&#x2F;log.conf&quot;)</span><br><span class="line"></span><br><span class="line"># 关闭ssh连接通道</span><br><span class="line">ssh.close()</span><br></pre></td></tr></table></figure>
+<p>这样一来，对于在linux上执行命令，上传下载文件等操作实现起来非常简单方便</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1385,165 +1489,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">设计模式python系列(1)--设计模式简介</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-11 07:46:08 / 修改时间：18:18:22" itemprop="dateCreated datePublished" datetime="2020-08-11T07:46:08+08:00">2020-08-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">设计模式python系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(1)--%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>880</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-设计模式简介"><a href="#1-设计模式简介" class="headerlink" title="1 设计模式简介"></a>1 设计模式简介</h4><ul>
-<li>设计模式（Design Pattern）是一套被反复使用，多数人知晓的，经过分类编目的、代码设计经验的总结</li>
-<li>设计模式是为了可重用代码，让代码更容易被他人理解、保证代码可靠性</li>
-<li>设计模式使代码编程真正的工程化，设计模式是软件工程的基石</li>
-</ul>
-<h4 id="2-设计模式的分类"><a href="#2-设计模式的分类" class="headerlink" title="2 设计模式的分类"></a>2 设计模式的分类</h4><ul>
-<li>创建型模式<ul>
-<li>简单工厂模式（Simple Factory）</li>
-<li>工厂方法模式（Factory Method）</li>
-<li>抽象工厂模式（Abstract Factory）</li>
-<li>创建者模式（Builder）</li>
-<li>原型模式（Prototype）</li>
-<li>单例模式（Singleton）</li>
-</ul>
-</li>
-<li>结构型模式<ul>
-<li>外观模式（Facade）</li>
-<li>适配器模式（Adapter）</li>
-<li>代理模式（Proxy）</li>
-<li>装饰模式（Decorator）</li>
-<li>桥模式（Bridge）</li>
-<li>组合模式（Composite）</li>
-<li>享元模式（Flyweight）</li>
-</ul>
-</li>
-<li>行为型模式<ul>
-<li>模板方法模式（Template Method）</li>
-<li>观察者模式（Observer）</li>
-<li>状态模式（State）</li>
-<li>策略模式（Strategy）</li>
-<li>职责链模式（Chain of Responsibility）</li>
-<li>命令模式（Command）</li>
-<li>访问者模式（Visitor)</li>
-<li>调停者模式（Mediator）</li>
-<li>备忘录模式（Memento）</li>
-<li>迭代器模式（Iterator）</li>
-<li>解释器模式（Interpreter）<h4 id="3-设计模式的六大原则"><a href="#3-设计模式的六大原则" class="headerlink" title="3 设计模式的六大原则"></a>3 设计模式的六大原则</h4></li>
-</ul>
-</li>
-<li>开闭原则(Open Close Principle)<ul>
-<li>开闭原则就是对扩展开放，对修改关闭</li>
-</ul>
-</li>
-<li>里氏代换原则(Liskow Substitution Principle)<ul>
-<li>里氏代换原则是面向对象设计的基本原则之一，任何基类可以出现的地方，子类一定可以出现</li>
-</ul>
-</li>
-<li>依赖倒转原则(Dependence Inversion Principle)<ul>
-<li>只对接口编程，依赖于抽象而不依赖于具体</li>
-</ul>
-</li>
-<li>接口隔离原则(Interface Segregation Principle)<ul>
-<li>使用多个隔离的接口，比使用单个接口更好</li>
-</ul>
-</li>
-<li>迪米特法则（最少知道原则）(Demeter Principle)<ul>
-<li>一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立</li>
-</ul>
-</li>
-<li>合成复用原则(Composite Reuse Principle)<ul>
-<li>原则是尽量使用合成/聚合，尽量减少使用继承</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1598,12 +1543,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">404k</span>
+    <span title="站点总字数">408k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:07</span>
+    <span title="站点阅读时长">6:11</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
