@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,108 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(7)--迭代器相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:39:26 / 修改时间：08:43:22" itemprop="dateCreated datePublished" datetime="2020-09-06T08:39:26+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(7)--%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>Iterable，可迭代：<br>一个类实现了<strong>iter</strong>()函数，则这个类是可迭代的，通常<strong>iter</strong>()函数必须返回一个<br>实现了<strong>next</strong>()的类的对象，当然如果自己实现了<strong>next</strong>()，也可以返回自己</li>
+<li>Iterator 迭代器：<br>同时实现了<strong>iter</strong>()和<strong>next</strong>()的对象，就是迭代器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.start&#x3D;0</span><br><span class="line"></span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return self</span><br><span class="line"></span><br><span class="line">    def __next__(self):</span><br><span class="line">        if self.start &lt;len(self.name):</span><br><span class="line">            result&#x3D;self.name[self.start]</span><br><span class="line">            self.start+&#x3D;1</span><br><span class="line">            return result</span><br><span class="line">        else:</span><br><span class="line">            raise StopIteration</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack Macial&quot;)</span><br><span class="line">for elem in s:</span><br><span class="line">    print(elem)</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">J</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">k</span><br><span class="line"> </span><br><span class="line">M</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">i</span><br><span class="line">a</span><br><span class="line">l</span><br></pre></td></tr></table></figure>
+下面查看next函数的使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.start&#x3D;0</span><br><span class="line"></span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return self</span><br><span class="line"></span><br><span class="line">    def __next__(self):</span><br><span class="line">        if self.start &lt;len(self.name):</span><br><span class="line">            result&#x3D;self.name[self.start]</span><br><span class="line">            self.start+&#x3D;1</span><br><span class="line">            return result</span><br><span class="line">        else:</span><br><span class="line">            raise StopIteration</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack Macial&quot;)</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br><span class="line">print(next(s))</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">J</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">k</span><br><span class="line"> </span><br><span class="line">M</span><br><span class="line">a</span><br><span class="line">c</span><br><span class="line">i</span><br><span class="line">a</span><br><span class="line">l</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 29, in &lt;module&gt;</span><br><span class="line">    print(next(s))</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 15, in __next__</span><br><span class="line">    raise StopIteration</span><br><span class="line">StopIteration</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1461,116 +1563,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">Linux系统环境安装系列(4)--centos7如何开启telnet功能</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-28 12:25:07 / 修改时间：12:38:05" itemprop="dateCreated datePublished" datetime="2020-08-28T12:25:07+08:00">2020-08-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Linux系统环境安装系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/28/Linux%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B3%BB%E5%88%97(4)--centos7%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFtelnet%E5%8A%9F%E8%83%BD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-执行如下安装命令"><a href="#1-执行如下安装命令" class="headerlink" title="1 执行如下安装命令"></a>1 执行如下安装命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y xinetd</span><br><span class="line"></span><br><span class="line">yum install -y telnet-server</span><br><span class="line"></span><br><span class="line">yum install -y telnet</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出"><a href="#2-执行-vi-etc-xinetd-d-telnet-命令打开文件，若存在，则将disable-yes修改为disable-no，若文件不存在在直接编辑输入如下内容，保存退出" class="headerlink" title="2 执行 vi /etc/xinetd.d/telnet 命令打开文件，若存在，则将disable=yes修改为disable=no，若文件不存在在直接编辑输入如下内容，保存退出"></a>2 执行 vi /etc/xinetd.d/telnet 命令打开文件，若存在，则将disable=yes修改为disable=no，若文件不存在在直接编辑输入如下内容，保存退出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># default: yes</span><br><span class="line"># description: The telnet server servestelnet sessions; it uses \</span><br><span class="line">#      unencrypted username&#x2F;password pairs for authentication.</span><br><span class="line">service telnet</span><br><span class="line">&#123;  </span><br><span class="line">  flags           &#x3D; REUSE  </span><br><span class="line">  socket_type     &#x3D; stream  </span><br><span class="line">  wait            &#x3D; no  </span><br><span class="line">  user            &#x3D; root  </span><br><span class="line">  server          &#x3D;&#x2F;usr&#x2F;sbin&#x2F;in.telnetd  </span><br><span class="line">  log_on_failure  +&#x3D; USERID  </span><br><span class="line">  disable         &#x3D; no   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-执行如下命令启动telnet服务"><a href="#3-执行如下命令启动telnet服务" class="headerlink" title="3 执行如下命令启动telnet服务"></a>3 执行如下命令启动telnet服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xinetd</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-执行如下命令查看服务是否已启动"><a href="#4-执行如下命令查看服务是否已启动" class="headerlink" title="4 执行如下命令查看服务是否已启动"></a>4 执行如下命令查看服务是否已启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep xinetd</span><br></pre></td></tr></table></figure>
-<p>执行结果若如下则表示已经启动OK</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# ps -ef | grep xinetd</span><br><span class="line">root      69017      1  0 12:32 ?        00:00:00 &#x2F;usr&#x2F;sbin&#x2F;xinetd -stayalive -pidfile &#x2F;var&#x2F;run&#x2F;xinetd.pid</span><br><span class="line">root      69686   4669  0 12:33 pts&#x2F;0    00:00:00 grep --color&#x3D;auto xinetd</span><br><span class="line">[root@redrose2100 lamb-common]#</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"><a href="#5-给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录" class="headerlink" title="5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录"></a>5 给环境增加一个用户名，比如admin，设置密码，比如admin，因为telnet不支持使用root用户远程登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# useradd admin</span><br><span class="line">[root@redrose2100 lamb-common]# passwd admin</span><br><span class="line">Changing password for user admin.</span><br><span class="line">New password:</span><br><span class="line">BAD PASSWORD: The password is shorter than 8 characters</span><br><span class="line">Retype new password:</span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br><span class="line">[root@redrose2100 lamb-common]#</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1"><a href="#6-使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet-127-0-0-1" class="headerlink" title="6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1"></a>6 使用telnet验证是否可以远程登录，若只有一台服务器则可以使用telnet 127.0.0.1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@redrose2100 lamb-common]# telnet 127.0.0.1</span><br><span class="line">Trying 127.0.0.1...</span><br><span class="line">Connected to 127.0.0.1.</span><br><span class="line">Escape character is &#39;^]&#39;.</span><br><span class="line"></span><br><span class="line">Kernel 3.10.0-1127.el7.x86_64 on an x86_64</span><br><span class="line">redrose2100 login: admin</span><br><span class="line">Password:</span><br><span class="line">[admin@redrose2100 ~]$ who am i</span><br><span class="line">admin    pts&#x2F;3        2020-08-28 12:37 (localhost)</span><br><span class="line">[admin@redrose2100 ~]$</span><br></pre></td></tr></table></figure>
-
-<p>OK，至此，telnet服务已经启动OK了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1625,7 +1617,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">408k</span>
+    <span title="站点总字数">409k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
