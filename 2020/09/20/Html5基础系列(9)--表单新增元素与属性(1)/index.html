@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="EXFANpzRih">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/blog/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/blog/","scheme":"Pisces","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1 表单内元素的form属性在HTML4中，表单内的从属元素必须书写在表单内部，而在HTML5中，可以把他们书写在页面上任何地方，然后为钙元素指定一个form属性，属性值为该表单的id，这样就可以声明该元素从属于指定表单了 举例如下： 123456&lt;body&gt;    &lt;form id&#x3D;&quot;testform&quot;&gt;        &lt;input t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html5基础系列(9)--表单新增元素与属性(1)">
+<meta property="og:url" content="https://github.com/redrose2100/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/index.html">
+<meta property="og:site_name" content="Redrose2100的博客首页">
+<meta property="og:description" content="1 表单内元素的form属性在HTML4中，表单内的从属元素必须书写在表单内部，而在HTML5中，可以把他们书写在页面上任何地方，然后为钙元素指定一个form属性，属性值为该表单的id，这样就可以声明该元素从属于指定表单了 举例如下： 123456&lt;body&gt;    &lt;form id&#x3D;&quot;testform&quot;&gt;        &lt;input t">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-20T10:47:00.000Z">
+<meta property="article:modified_time" content="2020-09-20T13:22:43.159Z">
+<meta property="article:author" content="微信：redrose2100">
+<meta property="article:tag" content="Html5基础系列">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/redrose2100/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Html5基础系列(9)--表单新增元素与属性(1) | Redrose2100的博客首页</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Redrose2100的博客首页</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-表单内元素的form属性"><span class="nav-number">1.</span> <span class="nav-text">1 表单内元素的form属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-表单内元素的formaction属性"><span class="nav-number">2.</span> <span class="nav-text">2 表单内元素的formaction属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-表单内元素的formmethod属性"><span class="nav-number">3.</span> <span class="nav-text">3 表单内元素的formmethod属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-表单内元素的formenctype属性"><span class="nav-number">4.</span> <span class="nav-text">4 表单内元素的formenctype属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-表单内元素的formtarget属性"><span class="nav-number">5.</span> <span class="nav-text">5 表单内元素的formtarget属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-表单内元素的autofocus属性"><span class="nav-number">6.</span> <span class="nav-text">6 表单内元素的autofocus属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-表单内元素的required属性"><span class="nav-number">7.</span> <span class="nav-text">7 表单内元素的required属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-表单内元素的labels属性"><span class="nav-number">8.</span> <span class="nav-text">8 表单内元素的labels属性</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">微信：redrose2100</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/redrose2100" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;redrose2100"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hitredrose@163.com" title="E-Mail → mailto:hitredrose@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Html5基础系列(9)--表单新增元素与属性(1)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-20 18:47:00 / 修改时间：21:22:43" itemprop="dateCreated datePublished" datetime="2020-09-20T18:47:00+08:00">2020-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Html5基础系列</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1-表单内元素的form属性"><a href="#1-表单内元素的form属性" class="headerlink" title="1 表单内元素的form属性"></a>1 表单内元素的form属性</h4><p>在HTML4中，表单内的从属元素必须书写在表单内部，而在HTML5中，可以把他们书写在页面<br>上任何地方，然后为钙元素指定一个form属性，属性值为该表单的id，这样就可以声明该元素<br>从属于指定表单了</p>
+<p>举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">    &lt;input form&#x3D;&quot;testform&quot; type&#x3D;&quot;button&quot; value&#x3D;&quot;确定&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-表单内元素的formaction属性"><a href="#2-表单内元素的formaction属性" class="headerlink" title="2 表单内元素的formaction属性"></a>2 表单内元素的formaction属性</h4><p>在HTML4中，一个表单内的所有元素只能通过表单的action属性被统一提交到另一个页面，而在<br>HTML5中可以为所有的提交按钮，增加不同的formaction属性，使单击不同的按钮时可以<br>将表单提交到不同的页面</p>
+<p>举例如下：<br>首先使用如下flask代码起一个服务，提供两个接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask,request</span><br><span class="line"></span><br><span class="line">app&#x3D;Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;s1&quot;,methods&#x3D;[&quot;GET&quot;])</span><br><span class="line">def s1():</span><br><span class="line">    return &quot;hello s1&quot;</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;s2&quot;,methods&#x3D;[&quot;GET&quot;])</span><br><span class="line">def s2():</span><br><span class="line">    return &quot;hello s2&quot;</span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+<p>然后编写如下html代码，实现一个form中有多个formaction</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-表单内元素的formmethod属性"><a href="#3-表单内元素的formmethod属性" class="headerlink" title="3 表单内元素的formmethod属性"></a>3 表单内元素的formmethod属性</h4><p>在HTML4中，一个表单内只能有一个action属性用来对表单内所有元素统一制定提交页面，<br>所以每个表单内也只有一个method属性来统一指定提交方法，而在HTML5中，可以使用formmethod<br>属性来对每一个表单元素分别指定不同的提交方法</p>
+<p>下面是为实例代码，flask服务可以继续使用上述2中的接口服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-表单内元素的formenctype属性"><a href="#4-表单内元素的formenctype属性" class="headerlink" title="4 表单内元素的formenctype属性"></a>4 表单内元素的formenctype属性</h4><p>在HTML4中，表单元素具有一个enctype属性，该属性用于指定在表单发送到服务器之前应该<br>如何对表单内的数据进行编码。在HTML5中，可以使用formenctype属性对表单元素分别指定不同的编码<br>方式</p>
+<p>使用举例如下：flask服务可以继续使用上述2中的接口服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;text&#x2F;plain&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;multipart&#x2F;form-data&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-表单内元素的formtarget属性"><a href="#5-表单内元素的formtarget属性" class="headerlink" title="5 表单内元素的formtarget属性"></a>5 表单内元素的formtarget属性</h4><p>在HTML4中，表单元素具有一个target属性，该属性用于指定在何处打开表单提交后所需要的加载的页面。<br>在HTML5中，可以对多个提交按钮分别使用formtarget属性来指定提交后在何处打开所需要的加载的页面</p>
+<p>使用举例如下：flask服务可以继续使用上述2中的接口服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;text&#x2F;plain&quot; formtarget&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;multipart&#x2F;form-data&quot; formtarget&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-表单内元素的autofocus属性"><a href="#6-表单内元素的autofocus属性" class="headerlink" title="6 表单内元素的autofocus属性"></a>6 表单内元素的autofocus属性</h4><p>为文本框、选择框或按钮控件加上autofocus属性，当页面打开时，该控件自动获得光标焦点</p>
+<p>举例代码如下：当打开页面时，s1按钮会自动获取到鼠标焦点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;text&#x2F;plain&quot; formtarget&#x3D;&quot;_blank&quot; autofocus&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;multipart&#x2F;form-data&quot; formtarget&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-表单内元素的required属性"><a href="#7-表单内元素的required属性" class="headerlink" title="7 表单内元素的required属性"></a>7 表单内元素的required属性</h4><p>HTML5中新增的required属性可以应用到大多数输入元素上，在提交时，如果元素中的内容为空白，则不允许提交，同时在浏览器中显示信息提示文字</p>
+<p>flask服务使用如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask,request</span><br><span class="line"></span><br><span class="line">app&#x3D;Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;,methods&#x3D;[&quot;POST&quot;])</span><br><span class="line">def index():</span><br><span class="line">    if request.method&#x3D;&#x3D;&quot;POST&quot;:</span><br><span class="line">        username&#x3D;request.form.get(&quot;username&quot;)</span><br><span class="line">        password&#x3D;request.form.get(&quot;password&quot;)</span><br><span class="line">        return &quot;username:&quot;+username+&quot; password:&quot;+password</span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+<p>然后html表单举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;test&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot; action&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;username&quot; required&#x3D;&quot;required&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;password&quot; required&#x3D;&quot;required&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>当用户名或者密码不填的时候，会有错误提示，并且不会触发提交按钮</p>
+<h4 id="8-表单内元素的labels属性"><a href="#8-表单内元素的labels属性" class="headerlink" title="8 表单内元素的labels属性"></a>8 表单内元素的labels属性</h4><p>在HTML5中，为所有可使用标签的表单元素、button、select元素等，定义一个labels属性，属性值<br>为一个NodeList对象，代表该元素所绑定的标签元素所构成的结合</p>
+<p>举例如下：当不填姓名的时候，会出现定制的提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;test&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function Validate()&#123;</span><br><span class="line">            var txt_name&#x3D;document.getElementById(&quot;txt_name&quot;);</span><br><span class="line">            var button&#x3D;document.getElementById(&quot;btnValidate&quot;);</span><br><span class="line">            var form&#x3D;document.getElementById(&quot;testform&quot;);</span><br><span class="line">            if(txt_name.value.trim()&#x3D;&#x3D;&quot;&quot;)</span><br><span class="line">            &#123;</span><br><span class="line">                var label&#x3D;document.createElement(&quot;label&quot;);</span><br><span class="line">                label.setAttribute(&quot;for&quot;,&quot;txt_name&quot;);</span><br><span class="line">                form.insertBefore(label,button);</span><br><span class="line">                txt_name.labels[1].innerHTML&#x3D;&quot;请输入姓名：&quot;;</span><br><span class="line">                txt_name.labels[1].setAttribute(&quot;style&quot;,&quot;font-size:9px;color:red&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot; action&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">        &lt;label id&#x3D;&quot;label&quot; for&#x3D;&quot;txt_name&quot;&gt;姓名&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input id&#x3D;&quot;txt_name&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;button&quot; id&#x3D;&quot;btnValidate&quot; value&#x3D;&quot;验证&quot; onclick&#x3D;&quot;Validate()&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="document.getElementById('post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div id="post-reward">
+      
+      <div>
+        <img src="/blog/images/wechat.jpg" alt="微信：redrose2100 微信">
+        <p>微信</p>
+      </div>
+      
+      <div>
+        <img src="/blog/images/aipay.png" alt="微信：redrose2100 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" rel="tag"># Html5基础系列</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(8)--header%E3%80%81footer%E3%80%81hgroup%E3%80%81address%E7%AD%89%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7/" rel="prev" title="Html5基础系列(8)--header、footer、hgroup、address等元素与属性">
+      <i class="fa fa-chevron-left"></i> Html5基础系列(8)--header、footer、hgroup、address等元素与属性
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">微信：redrose2100</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">424k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:26</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: location.pathname,
+    }, {"enable":true,"appId":"GWT62g9VJxMHug2V6voccGST-gzGzoHsz","appKey":"VsJvTtXb38TTFkoTI1tAIgBJ","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

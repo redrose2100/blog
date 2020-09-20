@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,135 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/" class="post-title-link" itemprop="url">Html5基础系列(9)--表单新增元素与属性(1)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-20 18:47:00 / 修改时间：21:22:43" itemprop="dateCreated datePublished" datetime="2020-09-20T18:47:00+08:00">2020-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Html5基础系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/20/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(9)--%E8%A1%A8%E5%8D%95%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0%E4%B8%8E%E5%B1%9E%E6%80%A7(1)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-表单内元素的form属性"><a href="#1-表单内元素的form属性" class="headerlink" title="1 表单内元素的form属性"></a>1 表单内元素的form属性</h4><p>在HTML4中，表单内的从属元素必须书写在表单内部，而在HTML5中，可以把他们书写在页面<br>上任何地方，然后为钙元素指定一个form属性，属性值为该表单的id，这样就可以声明该元素<br>从属于指定表单了</p>
+<p>举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">    &lt;input form&#x3D;&quot;testform&quot; type&#x3D;&quot;button&quot; value&#x3D;&quot;确定&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-表单内元素的formaction属性"><a href="#2-表单内元素的formaction属性" class="headerlink" title="2 表单内元素的formaction属性"></a>2 表单内元素的formaction属性</h4><p>在HTML4中，一个表单内的所有元素只能通过表单的action属性被统一提交到另一个页面，而在<br>HTML5中可以为所有的提交按钮，增加不同的formaction属性，使单击不同的按钮时可以<br>将表单提交到不同的页面</p>
+<p>举例如下：<br>首先使用如下flask代码起一个服务，提供两个接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask,request</span><br><span class="line"></span><br><span class="line">app&#x3D;Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;s1&quot;,methods&#x3D;[&quot;GET&quot;])</span><br><span class="line">def s1():</span><br><span class="line">    return &quot;hello s1&quot;</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;s2&quot;,methods&#x3D;[&quot;GET&quot;])</span><br><span class="line">def s2():</span><br><span class="line">    return &quot;hello s2&quot;</span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+<p>然后编写如下html代码，实现一个form中有多个formaction</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-表单内元素的formmethod属性"><a href="#3-表单内元素的formmethod属性" class="headerlink" title="3 表单内元素的formmethod属性"></a>3 表单内元素的formmethod属性</h4><p>在HTML4中，一个表单内只能有一个action属性用来对表单内所有元素统一制定提交页面，<br>所以每个表单内也只有一个method属性来统一指定提交方法，而在HTML5中，可以使用formmethod<br>属性来对每一个表单元素分别指定不同的提交方法</p>
+<p>下面是为实例代码，flask服务可以继续使用上述2中的接口服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-表单内元素的formenctype属性"><a href="#4-表单内元素的formenctype属性" class="headerlink" title="4 表单内元素的formenctype属性"></a>4 表单内元素的formenctype属性</h4><p>在HTML4中，表单元素具有一个enctype属性，该属性用于指定在表单发送到服务器之前应该<br>如何对表单内的数据进行编码。在HTML5中，可以使用formenctype属性对表单元素分别指定不同的编码<br>方式</p>
+<p>使用举例如下：flask服务可以继续使用上述2中的接口服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;text&#x2F;plain&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;multipart&#x2F;form-data&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-表单内元素的formtarget属性"><a href="#5-表单内元素的formtarget属性" class="headerlink" title="5 表单内元素的formtarget属性"></a>5 表单内元素的formtarget属性</h4><p>在HTML4中，表单元素具有一个target属性，该属性用于指定在何处打开表单提交后所需要的加载的页面。<br>在HTML5中，可以对多个提交按钮分别使用formtarget属性来指定提交后在何处打开所需要的加载的页面</p>
+<p>使用举例如下：flask服务可以继续使用上述2中的接口服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;text&#x2F;plain&quot; formtarget&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;multipart&#x2F;form-data&quot; formtarget&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-表单内元素的autofocus属性"><a href="#6-表单内元素的autofocus属性" class="headerlink" title="6 表单内元素的autofocus属性"></a>6 表单内元素的autofocus属性</h4><p>为文本框、选择框或按钮控件加上autofocus属性，当页面打开时，该控件自动获得光标焦点</p>
+<p>举例代码如下：当打开页面时，s1按钮会自动获取到鼠标焦点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s1&quot; value&#x3D;&quot;v1&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s1&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;text&#x2F;plain&quot; formtarget&#x3D;&quot;_blank&quot; autofocus&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s2&quot; value&#x3D;&quot;v2&quot; formaction&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;s2&quot; formmethod&#x3D;&quot;get&quot; formenctype&#x3D;&quot;multipart&#x2F;form-data&quot; formtarget&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-表单内元素的required属性"><a href="#7-表单内元素的required属性" class="headerlink" title="7 表单内元素的required属性"></a>7 表单内元素的required属性</h4><p>HTML5中新增的required属性可以应用到大多数输入元素上，在提交时，如果元素中的内容为空白，则不允许提交，同时在浏览器中显示信息提示文字</p>
+<p>flask服务使用如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask,request</span><br><span class="line"></span><br><span class="line">app&#x3D;Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;,methods&#x3D;[&quot;POST&quot;])</span><br><span class="line">def index():</span><br><span class="line">    if request.method&#x3D;&#x3D;&quot;POST&quot;:</span><br><span class="line">        username&#x3D;request.form.get(&quot;username&quot;)</span><br><span class="line">        password&#x3D;request.form.get(&quot;password&quot;)</span><br><span class="line">        return &quot;username:&quot;+username+&quot; password:&quot;+password</span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
+<p>然后html表单举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;test&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot; action&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;username&quot; required&#x3D;&quot;required&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;password&quot; required&#x3D;&quot;required&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>当用户名或者密码不填的时候，会有错误提示，并且不会触发提交按钮</p>
+<h4 id="8-表单内元素的labels属性"><a href="#8-表单内元素的labels属性" class="headerlink" title="8 表单内元素的labels属性"></a>8 表单内元素的labels属性</h4><p>在HTML5中，为所有可使用标签的表单元素、button、select元素等，定义一个labels属性，属性值<br>为一个NodeList对象，代表该元素所绑定的标签元素所构成的结合</p>
+<p>举例如下：当不填姓名的时候，会出现定制的提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;test&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function Validate()&#123;</span><br><span class="line">            var txt_name&#x3D;document.getElementById(&quot;txt_name&quot;);</span><br><span class="line">            var button&#x3D;document.getElementById(&quot;btnValidate&quot;);</span><br><span class="line">            var form&#x3D;document.getElementById(&quot;testform&quot;);</span><br><span class="line">            if(txt_name.value.trim()&#x3D;&#x3D;&quot;&quot;)</span><br><span class="line">            &#123;</span><br><span class="line">                var label&#x3D;document.createElement(&quot;label&quot;);</span><br><span class="line">                label.setAttribute(&quot;for&quot;,&quot;txt_name&quot;);</span><br><span class="line">                form.insertBefore(label,button);</span><br><span class="line">                txt_name.labels[1].innerHTML&#x3D;&quot;请输入姓名：&quot;;</span><br><span class="line">                txt_name.labels[1].setAttribute(&quot;style&quot;,&quot;font-size:9px;color:red&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;form id&#x3D;&quot;testform&quot; action&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">        &lt;label id&#x3D;&quot;label&quot; for&#x3D;&quot;txt_name&quot;&gt;姓名&lt;&#x2F;label&gt;</span><br><span class="line">        &lt;input id&#x3D;&quot;txt_name&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;button&quot; id&#x3D;&quot;btnValidate&quot; value&#x3D;&quot;验证&quot; onclick&#x3D;&quot;Validate()&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1577,118 +1706,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">pluggy源码解读系列(6)--PluginManager类的其他功能</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-14 21:23:39 / 修改时间：21:44:32" itemprop="dateCreated datePublished" datetime="2020-09-14T21:23:39+08:00">2020-09-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pluggy源码解读系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/14/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(6)--PluginManager%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本系列前五篇其实已经将pluggy的流程原理等分析完了，只有PluginManager类还有几个方法的源代码没有提到，这里将这些方法拿出来简单的分析一下，因为有可能会用到，当然也有可能根本不会用这些</p>
-<h4 id="unregister-取消注册插件"><a href="#unregister-取消注册插件" class="headerlink" title="unregister 取消注册插件"></a>unregister 取消注册插件</h4><p>注册插件的过程都分析过了，取消注册过程就简单了，这里可以简单的看一下，这里主要就是对_name2plugin和_plugin2hookcallers这两个字典进行删除对应的插件，即取消注册插件，源代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def unregister(self, plugin&#x3D;None, name&#x3D;None):</span><br><span class="line">    &quot;&quot;&quot; unregister a plugin object and all its contained hook implementations</span><br><span class="line">    from internal data structures. &quot;&quot;&quot;</span><br><span class="line">    if name is None:</span><br><span class="line">        assert plugin is not None, &quot;one of name or plugin needs to be specified&quot;</span><br><span class="line">        name &#x3D; self.get_name(plugin)</span><br><span class="line"></span><br><span class="line">    if plugin is None:</span><br><span class="line">        plugin &#x3D; self.get_plugin(name)</span><br><span class="line"></span><br><span class="line">    # if self._name2plugin[name] &#x3D;&#x3D; None registration was blocked: ignore</span><br><span class="line">    if self._name2plugin.get(name):</span><br><span class="line">        del self._name2plugin[name]</span><br><span class="line"></span><br><span class="line">    for hookcaller in self._plugin2hookcallers.pop(plugin, []):</span><br><span class="line">        hookcaller._remove_plugin(plugin)</span><br><span class="line"></span><br><span class="line">    return plugin</span><br></pre></td></tr></table></figure>
-<h4 id="set-blocked-设置阻塞状态"><a href="#set-blocked-设置阻塞状态" class="headerlink" title="set_blocked 设置阻塞状态"></a>set_blocked 设置阻塞状态</h4><p>这个设置阻塞状态可以是pluggy更加灵活，比如在在大多数场景下都要注册插件，但是在某中场景下，某个插件不支持，此时则可以暂时给设置阻塞状态，这样pluggy插件系统使用起来更加灵活</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def set_blocked(self, name):</span><br><span class="line">    &quot;&quot;&quot; block registrations of the given name, unregister if already registered. &quot;&quot;&quot;</span><br><span class="line">    self.unregister(name&#x3D;name)</span><br><span class="line">    self._name2plugin[name] &#x3D; None</span><br></pre></td></tr></table></figure>
-<h4 id="is-blocked-判断插件是否处于阻塞状态"><a href="#is-blocked-判断插件是否处于阻塞状态" class="headerlink" title="is_blocked 判断插件是否处于阻塞状态"></a>is_blocked 判断插件是否处于阻塞状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_blocked(self, name):</span><br><span class="line">    &quot;&quot;&quot; return &#96;&#96;True&#96;&#96; if the given plugin name is blocked. &quot;&quot;&quot;</span><br><span class="line">    return name in self._name2plugin and self._name2plugin[name] is None</span><br></pre></td></tr></table></figure>
-<h4 id="is-registered-判断插件是否是注册的"><a href="#is-registered-判断插件是否是注册的" class="headerlink" title="is_registered 判断插件是否是注册的"></a>is_registered 判断插件是否是注册的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_registered(self, plugin):</span><br><span class="line">    &quot;&quot;&quot; Return &#96;&#96;True&#96;&#96; if the plugin is already registered. &quot;&quot;&quot;</span><br><span class="line">    return plugin in self._plugin2hookcallers</span><br></pre></td></tr></table></figure>
-<h4 id="get-plugin-根据插件名称获取插件对象"><a href="#get-plugin-根据插件名称获取插件对象" class="headerlink" title="get_plugin 根据插件名称获取插件对象"></a>get_plugin 根据插件名称获取插件对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def get_plugin(self, name):</span><br><span class="line">    &quot;&quot;&quot; Return a plugin or &#96;&#96;None&#96;&#96; for the given name. &quot;&quot;&quot;</span><br><span class="line">    return self._name2plugin.get(name)</span><br></pre></td></tr></table></figure>
-<h4 id="get-name-根据插件对象获取插件名称"><a href="#get-name-根据插件对象获取插件名称" class="headerlink" title="get_name 根据插件对象获取插件名称"></a>get_name 根据插件对象获取插件名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def get_name(self, plugin):</span><br><span class="line">    &quot;&quot;&quot; Return name for registered plugin or &#96;&#96;None&#96;&#96; if not registered. &quot;&quot;&quot;</span><br><span class="line">    for name, val in self._name2plugin.items():</span><br><span class="line">        if plugin &#x3D;&#x3D; val:</span><br><span class="line">            return name</span><br></pre></td></tr></table></figure>
-<h4 id="load-setuptools-entrypoints-通过setuptools的方式注册插件"><a href="#load-setuptools-entrypoints-通过setuptools的方式注册插件" class="headerlink" title="load_setuptools_entrypoints 通过setuptools的方式注册插件"></a>load_setuptools_entrypoints 通过setuptools的方式注册插件</h4><p>这个方法需要注意一下，这个挺重要的，可以通过指定group名称的方式来自动注册插件，只要当前的环境中其他包中有通过setuptools的方式定义了此group名称的模块，就可以自动的注册，在著名的自动化测试框架pytest中，就是使用了这个函数，对group为“pytest11”的插件进行自动注册，使用起来非常方便，这样用户就可以通过自定义pytest11模块来对pytest做功能增强了，而不需要修改pytest的源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def load_setuptools_entrypoints(self, group, name&#x3D;None):</span><br><span class="line">    &quot;&quot;&quot; Load modules from querying the specified setuptools &#96;&#96;group&#96;&#96;.</span><br><span class="line"></span><br><span class="line">    :param str group: entry point group to load plugins</span><br><span class="line">    :param str name: if given, loads only plugins with the given &#96;&#96;name&#96;&#96;.</span><br><span class="line">    :rtype: int</span><br><span class="line">    :return: return the number of loaded plugins by this call.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    count &#x3D; 0</span><br><span class="line">    for dist in importlib_metadata.distributions():</span><br><span class="line">        for ep in dist.entry_points:</span><br><span class="line">            if (</span><br><span class="line">                ep.group !&#x3D; group</span><br><span class="line">                or (name is not None and ep.name !&#x3D; name)</span><br><span class="line">                # already registered</span><br><span class="line">                or self.get_plugin(ep.name)</span><br><span class="line">                or self.is_blocked(ep.name)</span><br><span class="line">            ):</span><br><span class="line">                continue</span><br><span class="line">            plugin &#x3D; ep.load()</span><br><span class="line">            self.register(plugin, name&#x3D;ep.name)</span><br><span class="line">            self._plugin_distinfo.append((plugin, DistFacade(dist)))</span><br><span class="line">            count +&#x3D; 1</span><br><span class="line">    return count</span><br></pre></td></tr></table></figure>
-
-<p>PluginManager类还有几个简单的方法，这里就不再一一分析了，至此对pluggy的源码分析就全部结束了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1739,12 +1760,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">418k</span>
+    <span title="站点总字数">424k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:20</span>
+    <span title="站点阅读时长">6:26</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
