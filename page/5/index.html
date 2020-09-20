@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,143 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">python高级语法系列(3)--python中常见内置类型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-17 18:47:40 / 修改时间：19:06:41" itemprop="dateCreated datePublished" datetime="2020-08-17T18:47:40+08:00">2020-08-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/17/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(3)--python%E4%B8%AD%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>247</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-对象三个特征"><a href="#1-对象三个特征" class="headerlink" title="1 对象三个特征"></a>1 对象三个特征</h4><ul>
+<li>身份 ，可以通过id()获得</li>
+<li>类型</li>
+<li>值<h4 id="2-python中常见的内置类型"><a href="#2-python中常见的内置类型" class="headerlink" title="2 python中常见的内置类型"></a>2 python中常见的内置类型</h4></li>
+<li>（1）None（全局唯一）</li>
+<li>（2）数值<ul>
+<li>int</li>
+<li>float</li>
+<li>complex</li>
+<li>bool</li>
+</ul>
+</li>
+<li>（3）序列类型<ul>
+<li>list</li>
+<li>bytes,bytearray,memoryview</li>
+<li>range</li>
+<li>tuple</li>
+<li>str</li>
+<li>array</li>
+</ul>
+</li>
+<li>（4）迭代类型</li>
+<li>（5）映射类型（dict）</li>
+<li>（6）集合<ul>
+<li>set</li>
+<li>frozenset</li>
+</ul>
+</li>
+<li>（7）上下文管理类型(with)</li>
+<li>其他<ul>
+<li>模块类型</li>
+<li>class 和 实例</li>
+<li>函数类型</li>
+<li>方法类型</li>
+<li>代码类型</li>
+<li>object对象</li>
+<li>type类型</li>
+<li>ellipsis</li>
+<li>notimplemented类型</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1430,125 +1567,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(4)--setup%E4%B8%8Eteardown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(4)--setup%E4%B8%8Eteardown/" class="post-title-link" itemprop="url">pytest系列(4)--setup与teardown</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-09 18:59:28 / 修改时间：19:20:05" itemprop="dateCreated datePublished" datetime="2020-08-09T18:59:28+08:00">2020-08-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/pytest%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pytest系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(4)--setup%E4%B8%8Eteardown/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/09/pytest%E7%B3%BB%E5%88%97(4)--setup%E4%B8%8Eteardown/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-测试类中的setup与teardown"><a href="#1-测试类中的setup与teardown" class="headerlink" title="1 测试类中的setup与teardown"></a>1 测试类中的setup与teardown</h4><p>测试类中的setup与teardown共有三类：</p>
-<ul>
-<li>setup_class 和 teardown_class 在类的所有用例之前和之后执行</li>
-<li>setup_method 和 teardown_method 在类中每个用例之前和之后执行</li>
-<li>setup 和 teardown 也是在类中的每个用例之前和之后执行，但是setup在setup_method之后执行，teardown在teardown_methond之前执行</li>
-</ul>
-<p>在test_example.py中编写如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class TestExample():</span><br><span class="line"></span><br><span class="line">    def setup_class(self):</span><br><span class="line">        print(&quot;\nin setup_class&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown_class(self):</span><br><span class="line">        print(&quot;in teardown_class&quot;)</span><br><span class="line"></span><br><span class="line">    def setup_method(self):</span><br><span class="line">        print(&quot;in setup_method&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown_method(self):</span><br><span class="line">        print(&quot;in teardown_method&quot;)</span><br><span class="line"></span><br><span class="line">    def setup(self):</span><br><span class="line">        print(&quot;in setup&quot;)</span><br><span class="line"></span><br><span class="line">    def teardown(self):</span><br><span class="line">        print(&quot;teardown&quot;)</span><br><span class="line"></span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in test_01&quot;)</span><br><span class="line"></span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in test_02&quot;)</span><br><span class="line"></span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>使用pytest -s 执行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\test_demo&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\test_demo</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_example.py</span><br><span class="line">in setup_class</span><br><span class="line">in setup_method</span><br><span class="line">in setup</span><br><span class="line">in test_01</span><br><span class="line">.teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in setup</span><br><span class="line">in test_02</span><br><span class="line">.teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in setup</span><br><span class="line">in test_03</span><br><span class="line">.teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in teardown_class</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-<h4 id="2-测试类之外的setup和teardown"><a href="#2-测试类之外的setup和teardown" class="headerlink" title="2 测试类之外的setup和teardown"></a>2 测试类之外的setup和teardown</h4><p>测试类外的setup和teardown有两类：</p>
-<ul>
-<li>setup_function 和 teardown_function 在类外的每个用例之前和之后执行</li>
-<li>setup 和 teardown 在类外的每个测试用例之前和之后执行，其中setup在setup_function之后执行，teardown在teardown_function之前执行</li>
-</ul>
-<p>test_example.py文件中编写如下测试代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def setup_function():</span><br><span class="line">    print(&quot;\nin setup_function&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown_function():</span><br><span class="line">    print(&quot;in teardown_function&quot;)</span><br><span class="line">    </span><br><span class="line">def setup():</span><br><span class="line">    print(&quot;in setup&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown():</span><br><span class="line">    print(&quot;in teardown&quot;)</span><br><span class="line">    </span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in test_01&quot;)</span><br><span class="line">    </span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in test_02&quot;)</span><br><span class="line">    </span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;in test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>使用 pytest -s 执行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\test_demo&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\test_demo</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 3 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_example.py</span><br><span class="line">in setup_function</span><br><span class="line">in setup</span><br><span class="line">in test_01</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_function</span><br><span class="line"></span><br><span class="line">in setup_function</span><br><span class="line">in setup</span><br><span class="line">in test_02</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_function</span><br><span class="line"></span><br><span class="line">in setup_function</span><br><span class="line">in setup</span><br><span class="line">in test_03</span><br><span class="line">.in teardown</span><br><span class="line">in teardown_function</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 3 passed in 0.06s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-<h4 id="3-测试模块中的setup和teardown"><a href="#3-测试模块中的setup和teardown" class="headerlink" title="3 测试模块中的setup和teardown"></a>3 测试模块中的setup和teardown</h4><p>测试模块的setup和teardown只有一种，即：setup_module和teardown_module，在模块即文件中的所有测试用例包括测试类中和测试类外的之前和之后运行一次</p>
-<p>在test_example.py文件中编写如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">def setup_module():</span><br><span class="line">    print(&quot;\nin setup_module&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown_module():</span><br><span class="line">    print(&quot;in teardown_module&quot;)</span><br><span class="line">    </span><br><span class="line">def setup_function():</span><br><span class="line">    print(&quot;in setup_function&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown_function():</span><br><span class="line">    print(&quot;in teardown_function&quot;)</span><br><span class="line">    </span><br><span class="line">def setup():</span><br><span class="line">    print(&quot;in class outer setup&quot;)</span><br><span class="line">    </span><br><span class="line">def teardown():</span><br><span class="line">    print(&quot;in class outer teardown&quot;)</span><br><span class="line">    </span><br><span class="line">def test_01():</span><br><span class="line">    print(&quot;in class outer test_01&quot;)</span><br><span class="line">    </span><br><span class="line">def test_02():</span><br><span class="line">    print(&quot;in class outer test_02&quot;)</span><br><span class="line">    </span><br><span class="line">def test_03():</span><br><span class="line">    print(&quot;in class outer test_03&quot;)</span><br><span class="line">    </span><br><span class="line">class TestExample():</span><br><span class="line">    def setup_class(self):</span><br><span class="line">        print(&quot;in setup_class&quot;)</span><br><span class="line">        </span><br><span class="line">    def testdown_class(self):</span><br><span class="line">        print(&quot;in teardown_class&quot;)</span><br><span class="line">        </span><br><span class="line">    def setup_method(self):</span><br><span class="line">        print(&quot;in setup_method&quot;)</span><br><span class="line">        </span><br><span class="line">    def teardown_method(self):</span><br><span class="line">        print(&quot;in teardown_method&quot;)</span><br><span class="line">        </span><br><span class="line">    def setup(self):</span><br><span class="line">        print(&quot;in class inner setup&quot;)</span><br><span class="line">        </span><br><span class="line">    def teardown(self):</span><br><span class="line">        print(&quot;in class inner teardown&quot;)</span><br><span class="line">    </span><br><span class="line">    def test_01(self):</span><br><span class="line">        print(&quot;in class inner test_01&quot;)</span><br><span class="line">        </span><br><span class="line">    def test_02(self):</span><br><span class="line">        print(&quot;in class inner test_02&quot;)</span><br><span class="line">    </span><br><span class="line">    def test_03(self):</span><br><span class="line">        print(&quot;in class inner test_03&quot;)</span><br></pre></td></tr></table></figure>
-<p>使用pytest -s 执行的结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">(PytestEnv) G:\lamb_source\pytest_example_for_full_documentation\test_demo&gt;pytest -s</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; test session starts &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">platform win32 -- Python 3.8.3, pytest-5.4.3, py-1.9.0, pluggy-0.13.1</span><br><span class="line">rootdir: G:\lamb_source\pytest_example_for_full_documentation\test_demo</span><br><span class="line">plugins: html-2.1.1, metadata-1.10.0</span><br><span class="line">collected 7 items                                                                                                                                                       </span><br><span class="line"></span><br><span class="line">test_example.py</span><br><span class="line">in setup_module</span><br><span class="line">in setup_function</span><br><span class="line">in class outer setup</span><br><span class="line">in class outer test_01</span><br><span class="line">.in class outer teardown</span><br><span class="line">in teardown_function</span><br><span class="line">in setup_function</span><br><span class="line">in class outer setup</span><br><span class="line">in class outer test_02</span><br><span class="line">.in class outer teardown</span><br><span class="line">in teardown_function</span><br><span class="line">in setup_function</span><br><span class="line">in class outer setup</span><br><span class="line">in class outer test_03</span><br><span class="line">.in class outer teardown</span><br><span class="line">in teardown_function</span><br><span class="line">in setup_class</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in teardown_class</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in class inner test_01</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in class inner test_02</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in setup_method</span><br><span class="line">in class inner setup</span><br><span class="line">in class inner test_03</span><br><span class="line">.in class inner teardown</span><br><span class="line">in teardown_method</span><br><span class="line">in teardown_module</span><br><span class="line"></span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 7 passed in 0.05s &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1603,12 +1621,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">409k</span>
+    <span title="站点总字数">412k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:11</span>
+    <span title="站点阅读时长">6:14</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
