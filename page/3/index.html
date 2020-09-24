@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,122 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(12)--map,filter-reduce-zip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(12)--map,filter-reduce-zip/" class="post-title-link" itemprop="url">python高级语法系列(12)--map、filter,reduce,zip</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-09 00:43:06 / 修改时间：01:19:12" itemprop="dateCreated datePublished" datetime="2020-09-09T00:43:06+08:00">2020-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(12)--map,filter-reduce-zip/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/09/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(12)--map,filter-reduce-zip/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>939</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>map，filter，reduce，zip都是处理序列的便捷的内置函数</p>
+<h4 id="1-map-func-iterable"><a href="#1-map-func-iterable" class="headerlink" title="1 map(func,iterable)"></a>1 map(func,iterable)</h4><p>map的作用主要是将一个函数应用于一个可迭代的序列，然后将返回值返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;[1,2,3,4,5,6]</span><br><span class="line">def func(x):</span><br><span class="line">    return x*x</span><br><span class="line"></span><br><span class="line">b&#x3D;map(func,a)</span><br><span class="line">print(list(b))</span><br></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 4, 9, 16, 25, 36]</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-filter-func-iterable"><a href="#2-filter-func-iterable" class="headerlink" title="2 filter(func,iterable)"></a>2 filter(func,iterable)</h4><p>filter的功能是通过func来对可迭代的序列进行过滤，如果func的返回值为真，则对应的iterable中的值保留下来，最后一起以序列的形式返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;[1,2,3,4,5,6]</span><br><span class="line">def func(x):</span><br><span class="line">    return x%2&#x3D;&#x3D;0</span><br><span class="line"></span><br><span class="line">b&#x3D;filter(func,a)</span><br><span class="line">print(list(b))</span><br></pre></td></tr></table></figure>
+<p>执行结果如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 4, 6]</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-reduce-func-iterable"><a href="#3-reduce-func-iterable" class="headerlink" title="3 reduce(func,iterable)"></a>3 reduce(func,iterable)</h4><p>reduce 的功能是股东计算应用于可迭代序列iterable的结果，最后将结果返回，非常适合应用类似累加和累乘的场景</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line"></span><br><span class="line">a&#x3D;[1,2,3,4,5,6]</span><br><span class="line">def add(x,y):</span><br><span class="line">    return x+y</span><br><span class="line"></span><br><span class="line">def multi(x,y):</span><br><span class="line">    return x*y</span><br><span class="line">b&#x3D;reduce(add,a)</span><br><span class="line">c&#x3D;reduce(multi,a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">21</span><br><span class="line">720</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-zip-iterable"><a href="#4-zip-iterable" class="headerlink" title="4 zip(*iterable)"></a>4 zip(*iterable)</h4><p>zip的功能是映射多个容器的相似索引，可以方便用于来构造字典</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a&#x3D;[1,2,3,4,5]</span><br><span class="line">b&#x3D;[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;]</span><br><span class="line">c&#x3D;dict(zip(b,a))</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<p>执行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5&#125;</span><br></pre></td></tr></table></figure>
+<p>灵活地应用这几个内置函数，有时候可以是代码更加简洁</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1302,118 +1418,6 @@ test01.py执行结果如下：<figure class="highlight plain"><table><tr><td cla
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(6)--容器相关的魔法函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-06 08:36:12 / 修改时间：08:39:01" itemprop="dateCreated datePublished" datetime="2020-09-06T08:36:12+08:00">2020-09-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(6)--%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">__len__(self) 定义当被 len() 调用时的行为（返回容器中元素的个数）</span><br><span class="line"></span><br><span class="line">__getitem__(self, key) 定义获取容器中指定元素的行为，相当于 self[key]</span><br><span class="line"></span><br><span class="line">__setitem__(self, key, value) 定义设置容器中指定元素的行为，相当于 self[key] &#x3D; value</span><br><span class="line"></span><br><span class="line">__delitem__(self, key) 定义删除容器中指定元素的行为，相当于 del self[key]</span><br><span class="line"></span><br><span class="line">__contains__(self, item) 定义当使用成员测试运算符（in 或 not in）时的行为</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果一个勒种重写了<strong>len</strong>()魔法函数后，则可以直接对该类的对象使用len()方法计算长度，否则则不可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(len(s))</span><br></pre></td></tr></table></figure>
-执行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 6, in &lt;module&gt;</span><br><span class="line">    print(len(s))</span><br><span class="line">TypeError: object of type &#39;Student&#39; has no len()</span><br></pre></td></tr></table></figure>
-下面给上面的类中加一个<strong>len</strong>()方法的重写，返回学生名字的长度<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">    def __len__(self):</span><br><span class="line">        return len(self.name)</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(len(s))</span><br></pre></td></tr></table></figure>
-执行结果为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></li>
-<li>如果一个类重写了<strong>contains</strong>()方法，则对该类的对象可以使用in方法，否则不可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(&quot;J&quot; in s)</span><br></pre></td></tr></table></figure>
-执行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 8, in &lt;module&gt;</span><br><span class="line">    print(&quot;J&quot; in s)</span><br><span class="line">TypeError: argument of type &#39;Student&#39; is not iterable</span><br></pre></td></tr></table></figure>
-下面给上面的类中增加<strong>contains</strong>方法的实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __contains__(self,item):</span><br><span class="line">        return item in self.name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(&quot;J&quot; in s)</span><br></pre></td></tr></table></figure>
-执行结果为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">True</span><br></pre></td></tr></table></figure></li>
-<li><strong>getitem</strong>()，<strong>setitem</strong>() 可以让一个类拥有类似dict的使用方式去获取、设置属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.attr&#x3D;&#123;&#125;</span><br><span class="line"></span><br><span class="line">    def __setitem__(self, key, value):</span><br><span class="line">        self.attr[key]&#x3D;value</span><br><span class="line"></span><br><span class="line">    def __getitem__(self, item):</span><br><span class="line">        return self.attr[item]</span><br><span class="line"></span><br><span class="line">s&#x3D;Student()</span><br><span class="line">s[&quot;name&quot;]&#x3D;&quot;Jack&quot;</span><br><span class="line">s[&quot;age&quot;]&#x3D;20</span><br><span class="line">print(s[&quot;name&quot;])</span><br><span class="line">print(s[&quot;age&quot;])</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">20</span><br></pre></td></tr></table></figure></li>
-<li><strong>delitem</strong>() 可以使用del 方法去删除类对象的某一个属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Student():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.attr&#x3D;&#123;&#125;</span><br><span class="line"></span><br><span class="line">    def __setitem__(self, key, value):</span><br><span class="line">        self.attr[key]&#x3D;value</span><br><span class="line"></span><br><span class="line">    def __getitem__(self, item):</span><br><span class="line">        return self.attr[item]</span><br><span class="line"></span><br><span class="line">    def __delitem__(self, key):</span><br><span class="line">        del self.attr[key]</span><br><span class="line"></span><br><span class="line">s&#x3D;Student()</span><br><span class="line">s[&quot;name&quot;]&#x3D;&quot;Jack&quot;</span><br><span class="line">s[&quot;age&quot;]&#x3D;20</span><br><span class="line">print(s[&quot;name&quot;])</span><br><span class="line">print(s[&quot;age&quot;])</span><br><span class="line">del s[&quot;name&quot;]</span><br><span class="line">print(s[&quot;age&quot;])</span><br><span class="line">print(s[&quot;name&quot;])</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">20</span><br><span class="line">20</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    print(s[&quot;name&quot;])</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 9, in __getitem__</span><br><span class="line">    return self.attr[item]</span><br><span class="line">KeyError: &#39;name&#39;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1468,12 +1472,12 @@ test01.py执行结果如下：<figure class="highlight plain"><table><tr><td cla
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">443k</span>
+    <span title="站点总字数">447k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:43</span>
+    <span title="站点阅读时长">6:47</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
