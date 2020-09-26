@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,166 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--%E5%88%97%E8%A1%A8%E3%80%81%E5%9D%97%E3%80%81%E5%B8%83%E5%B1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--%E5%88%97%E8%A1%A8%E3%80%81%E5%9D%97%E3%80%81%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">Html5基础系列(2)--列表、块、布局</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-17 19:48:16 / 修改时间：23:18:27" itemprop="dateCreated datePublished" datetime="2020-09-17T19:48:16+08:00">2020-09-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Html5基础系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--%E5%88%97%E8%A1%A8%E3%80%81%E5%9D%97%E3%80%81%E5%B8%83%E5%B1%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--%E5%88%97%E8%A1%A8%E3%80%81%E5%9D%97%E3%80%81%E5%B8%83%E5%B1%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h4><p>常用的标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;                            有序列表</span><br><span class="line">&lt;ul&gt;                            无序列表</span><br><span class="line">&lt;li&gt;                            列表项</span><br><span class="line">&lt;dl&gt;                            列表</span><br><span class="line">&lt;dt&gt;                            列表项</span><br><span class="line">&lt;dd&gt;                            描述</span><br></pre></td></tr></table></figure>
+<p>举例：这个是无序列表，显示以点表示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;苹果&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;橘子&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;香蕉&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+<p>下面是一个有序列表，有序号1,2,3…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">    &lt;li&gt;苹果&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;橘子&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;香蕉&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ol&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-Html列表分类"><a href="#2-Html列表分类" class="headerlink" title="2 Html列表分类"></a>2 Html列表分类</h4><ul>
+<li><p>无序列表</p>
+<ul>
+<li>使用的标签：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;,&lt;li&gt;</span><br></pre></td></tr></table></figure></li>
+<li>属性：disc（实心圆点）,circle（空心圆圈）,square（实心方块）<br>如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul type&#x3D;&quot;square&quot;&gt;</span><br><span class="line">    &lt;li&gt;苹果&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;橘子&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;火龙果&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>有序列表</p>
+<ul>
+<li>使用的标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;,&lt;li&gt;</span><br></pre></td></tr></table></figure></li>
+<li>属性：A（序号为A,B,C…）,a（序号为a,b,c…),I（序号为罗马数字）,i（序号为小写的罗马数字）,start（可以定义从指定数字开始），type不设置时默认为数字从1开始<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol type&#x3D;&quot;A&quot;&gt;</span><br><span class="line">    &lt;li&gt;苹果&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;橘子&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;火龙果&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ol&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>嵌套列表</p>
+<ul>
+<li>使用的标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;,&lt;ol&gt;,&lt;li&gt;</span><br></pre></td></tr></table></figure>
+如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul type&#x3D;&quot;square&quot;&gt;</span><br><span class="line">    &lt;li&gt;水果&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;ol&gt;</span><br><span class="line">            &lt;li&gt;苹果&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;橘子&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;火龙果&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ol&gt;</span><br><span class="line">    &lt;li&gt;动物&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;ol&gt;</span><br><span class="line">            &lt;li&gt;小狗&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;小猫&lt;&#x2F;li&gt;</span><br><span class="line">            &lt;li&gt;小老鼠&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ol&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>自定义列表</p>
+<ul>
+<li>使用的标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;,&lt;dt&gt;,&lt;dd&gt;</span><br></pre></td></tr></table></figure>
+如下：自定义的可以没有开头的列表标识符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">    &lt;dt&gt;hello world&lt;&#x2F;dt&gt;</span><br><span class="line">        &lt;dd&gt;打印hello world&lt;&#x2F;dd&gt;</span><br><span class="line">    &lt;dt&gt;hello world&lt;&#x2F;dt&gt;</span><br><span class="line">        &lt;dd&gt;打印hello world&lt;&#x2F;dd&gt;</span><br><span class="line">    &lt;dt&gt;hello world&lt;&#x2F;dt&gt;</span><br><span class="line">        &lt;dd&gt;打印hello world&lt;&#x2F;dd&gt;</span><br><span class="line">&lt;&#x2F;dl&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-Html-的块"><a href="#3-Html-的块" class="headerlink" title="3 Html 的块"></a>3 Html 的块</h4></li>
+</ul>
+</li>
+<li><p>HTML块元素</p>
+<ul>
+<li>块元素在显示时，通常会以新行开始,如 :<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;,&lt;p&gt;,&lt;ul&gt;</span><br></pre></td></tr></table></figure>
+如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;!-- 块 --&gt;</span><br><span class="line"> &lt;h1&gt; 标题 &lt;&#x2F;h1&gt;</span><br><span class="line"> &lt;p&gt; 段落 &lt;&#x2F;p&gt;</span><br><span class="line"> &lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>HTML内联元素</p>
+<ul>
+<li>内联元素通常不会以新行开始如: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;,&lt;a&gt;,&lt;img&gt;</span><br></pre></td></tr></table></figure>
+如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;!-- 内联元素 --&gt;</span><br><span class="line"> &lt;b&gt;加粗字体&lt;&#x2F;b&gt;</span><br><span class="line"> &lt;a&gt;百度一下&lt;&#x2F;a&gt;</span><br><span class="line"> &lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>HTML div元素</p>
+<p> div元素也被成为块元素，其主要是组合HTML元素的容器，div本身没有任何效果，主要是配置css样式使用的，当在css文件中如果使用了指定了div的id，指定的div中的所有内容都会被改变样式，如果通过div的id以及子标签指定，则可以修改指定div的id下面的指定的标签的样式</p>
+<p> 如下创建一个css文件，指定_div_id 下面的p标签的内容的颜色为红色（#用来指定div的id，空格指定其下的子标签）</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#div_id p&#123;</span><br><span class="line"> color: crimson;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p> 然后编写一个html文件，并在其中引入css样式文件，具体如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;div&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;mycss.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;div_id&quot;&gt;</span><br><span class="line">        &lt;p&gt;hello world&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;a&gt;百度一下&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTML span元素</p>
+<p> span元素时内联元素，可作为文本的容器<br> span和div差不多，只不过span强调了作为文本的容器，可以对一部分文本样式进行设置，div和span如果不设置css样式，那么这两个标签对页面没有任何显示效果<br> 如：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;div&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;mycss.css&quot;&gt;</span><br><span class="line">    &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">        span&#123;</span><br><span class="line">            color: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;div_id&quot;&gt;</span><br><span class="line">        &lt;p&gt;&lt;span&gt;hello world&lt;&#x2F;span&gt; good morning&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;a&gt;百度一下&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="4-HTML布局"><a href="#4-HTML布局" class="headerlink" title="4 HTML布局"></a>4 HTML布局</h4><ul>
+<li>使用div元素布局<br>如：float表示浮动，从左到右排列，如果继续在下面布局，需要使用clear：both<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;div&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">        #container&#123;</span><br><span class="line">            width:100%;</span><br><span class="line">            height:950px;</span><br><span class="line">            background-color: darkgray;</span><br><span class="line">        &#125;</span><br><span class="line">        #heading&#123;</span><br><span class="line">            width:100%;</span><br><span class="line">            height:5%;</span><br><span class="line">            background-color: dimgrey;</span><br><span class="line">        &#125;</span><br><span class="line">        #content_menu&#123;</span><br><span class="line">            width:30%;</span><br><span class="line">            height: 80%;</span><br><span class="line">            background-color: burlywood;</span><br><span class="line">            float:left</span><br><span class="line">        &#125;</span><br><span class="line">        #content_body&#123;</span><br><span class="line">            width:70%;</span><br><span class="line">            height:80%;</span><br><span class="line">            background-color: aliceblue;</span><br><span class="line">            float:left</span><br><span class="line">        &#125;</span><br><span class="line">        #footing&#123;</span><br><span class="line">            width:100%;</span><br><span class="line">            height: 15%;</span><br><span class="line">            background-color: chocolate;</span><br><span class="line">            clear:both</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;container&quot;&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;heading&quot;&gt;头部&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;content_menu&quot;&gt;内容菜单&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;content_body&quot;&gt;内容主题&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;footing&quot;&gt;底部&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></li>
+<li>使用table元素布局<br>如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;table&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body marginheight&#x3D;&quot;0px&quot; marginwidth&#x3D;&quot;0px&quot;&gt;</span><br><span class="line">    &lt;table width&#x3D;&quot;100%&quot; height&#x3D;&quot;950px&quot; style&#x3D;&quot;background-color: darkgray&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td colspan&#x3D;&quot;3&quot; width&#x3D;&quot;100%&quot; height&#x3D;&quot;5%&quot; style&#x3D;&quot;background-color: dimgray&quot;&gt;这是头部&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td width&#x3D;&quot;20%&quot; height&#x3D;&quot;80%&quot; style&#x3D;&quot;background-color: darkgoldenrod&quot;&gt;</span><br><span class="line">                左菜单</span><br><span class="line">            &lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td width&#x3D;&quot;60%&quot; height&#x3D;&quot;80%&quot; style&#x3D;&quot;background-color: aliceblue&quot;&gt;</span><br><span class="line">                中间主题</span><br><span class="line">            &lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td width&#x3D;&quot;20%&quot; height&#x3D;&quot;80%&quot; style&#x3D;&quot;background-color: darkgoldenrod&quot;&gt;</span><br><span class="line">                右菜单</span><br><span class="line">            &lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td colspan&#x3D;&quot;3&quot; width&#x3D;&quot;100%&quot; height&#x3D;&quot;15%&quot; style&#x3D;&quot;background-color: chocolate&quot;</span><br><span class="line">                底部</span><br><span class="line">            &lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1371,141 +1531,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/08/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(1)--HookspecMarker%E7%B1%BB%E5%92%8CHookimplMarker%E7%B1%BB%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/08/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(1)--HookspecMarker%E7%B1%BB%E5%92%8CHookimplMarker%E7%B1%BB%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">pluggy源码解读系列(1)--HookspecMarker类和HookimplMarker类分析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-08 22:55:11" itemprop="dateCreated datePublished" datetime="2020-09-08T22:55:11+08:00">2020-09-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-14 21:50:46" itemprop="dateModified" datetime="2020-09-14T21:50:46+08:00">2020-09-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">pluggy源码解读系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/08/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(1)--HookspecMarker%E7%B1%BB%E5%92%8CHookimplMarker%E7%B1%BB%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/08/pluggy%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E7%B3%BB%E5%88%97(1)--HookspecMarker%E7%B1%BB%E5%92%8CHookimplMarker%E7%B1%BB%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-pluggy简介"><a href="#1-pluggy简介" class="headerlink" title="1 pluggy简介"></a>1 pluggy简介</h4><p>pluggy是一个非常优秀的插件系统，它是理解pytest的核心，只有理解了pluggy的原理，才能更好的理解和使用pytest，否则见到了pytest的很多应用都会感觉很难理解</p>
-<p>pluggy插件总共的代码量不足一千行，而实现的功能却是如此的强大和好用，这不由得让我们对pytest的源码实现充满了好奇，接下来一段时间就详细的由浅入深的来解读pluggy源码，这个过程中，同样会继续总结一些基础的或者高级的python的知识点。</p>
-<p>当然随着对pluggy源码的深入，也会发现很多在网上书上博客上看不到的pluggy的高级应用，同样本系列都会使用实例演示和分析。</p>
-<h4 id="2-pluggy的简单应用"><a href="#2-pluggy的简单应用" class="headerlink" title="2 pluggy的简单应用"></a>2 pluggy的简单应用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import pluggy</span><br><span class="line"></span><br><span class="line"># HookspecMarker 和 HookimplMarker 实质上是一个装饰器带参数的装饰器类，作用是给函数增加额外的属性设置</span><br><span class="line">hookspec &#x3D; pluggy.HookspecMarker(&quot;myproject&quot;)</span><br><span class="line">hookimpl &#x3D; pluggy.HookimplMarker(&quot;myproject&quot;)</span><br><span class="line"></span><br><span class="line"># 定义自己的Spec，这里可以理解为定义接口类</span><br><span class="line">class MySpec:</span><br><span class="line">    # hookspec 是一个装饰类中的方法的装饰器，为此方法增额外的属性设置，这里myhook可以理解为定义了一个接口</span><br><span class="line">    @hookspec</span><br><span class="line">    def myhook(self, arg1, arg2):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line"># 定义了一个插件</span><br><span class="line">class Plugin_1:</span><br><span class="line">    # 插件中实现了上面定义的接口，同样这个实现接口的方法用 hookimpl装饰器装饰，功能是返回两个参数的和</span><br><span class="line">    @hookimpl</span><br><span class="line">    def myhook(self, arg1, arg2):</span><br><span class="line">        print(&quot;inside Plugin_1.myhook()&quot;)</span><br><span class="line">        return arg1 + arg2</span><br><span class="line"></span><br><span class="line"># 定义第二个插件</span><br><span class="line">class Plugin_2:</span><br><span class="line">    # 插件中实现了上面定义的接口，同样这个实现接口的方法用 hookimpl装饰器装饰，功能是返回两个参数的差</span><br><span class="line">    @hookimpl</span><br><span class="line">    def myhook(self, arg1, arg2):</span><br><span class="line">        print(&quot;inside Plugin_2.myhook()&quot;)</span><br><span class="line">        return arg1 - arg2</span><br><span class="line"></span><br><span class="line"># 实例化一个插件管理的对象，注意这里的名称要与文件开头定义装饰器的时候的名称一致</span><br><span class="line">pm &#x3D; pluggy.PluginManager(&quot;myproject&quot;)</span><br><span class="line"># 将自定义的接口类加到钩子定义中去</span><br><span class="line">pm.add_hookspecs(MySpec)</span><br><span class="line"># 注册定义的两个插件</span><br><span class="line">pm.register(Plugin_1())</span><br><span class="line">pm.register(Plugin_2())</span><br><span class="line"># 通过插件管理对象的钩子调用方法，这时候两个插件中的这个方法都会执行，而且遵循后注册先执行即LIFO的原则，两个插件的结果讲义列表的形式返回</span><br><span class="line">results &#x3D; pm.hook.myhook(arg1&#x3D;1, arg2&#x3D;2)</span><br><span class="line">print(results)</span><br></pre></td></tr></table></figure>
-<p>执行结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inside Plugin_2.myhook()</span><br><span class="line">inside Plugin_1.myhook()</span><br><span class="line">[-1, 3]</span><br></pre></td></tr></table></figure>
-<h4 id="3-pluggy的文件组织结构："><a href="#3-pluggy的文件组织结构：" class="headerlink" title="3 pluggy的文件组织结构："></a>3 pluggy的文件组织结构：</h4><p>pluggy模块总共就有如下6个文件，总共代码行数不到1k行，这6个文件中，caller、hooks.py和manager.py是pluggy的最核心的部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pluggy</span><br><span class="line">  |--------__init__.py</span><br><span class="line">  |--------_result.py</span><br><span class="line">  |--------_tracing.py</span><br><span class="line">  |--------caller.py</span><br><span class="line">  |--------hooks.py</span><br><span class="line">  |--------manager.py</span><br></pre></td></tr></table></figure>
-<h4 id="4-HookspecMarker类和HookimplMarker类分析"><a href="#4-HookspecMarker类和HookimplMarker类分析" class="headerlink" title="4 HookspecMarker类和HookimplMarker类分析"></a>4 HookspecMarker类和HookimplMarker类分析</h4><p>从上面的使用举例看，我们首先是看到了实例化了这两个类的实例，所以，我们就先从这两个类开始分析<br>下面看下HookspecMarker类的源码（在hooks.py文件中）</p>
-<p>阅读源码有一个好处就是能发现一些比较高级的语法和比较好的用法，如果觉得读源码有难度，至少说明一点，我们对python的基础语法或者高级语法掌握的还不是很到位。比如下面<br>HookspecMarker类的定义，这里面涉及到python的两个相对高级一定的语法，一个是类中<strong>call</strong>魔法函数的作用，一个就是装饰器类，如果说对这两个知识点不清楚的话，那看到这个类就会有点头大了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">class HookspecMarker:</span><br><span class="line">    &quot;&quot;&quot; Decorator helper class for marking functions as hook specifications.</span><br><span class="line"></span><br><span class="line">    You can instantiate it with a project_name to get a decorator.</span><br><span class="line">    Calling :py:meth:&#96;.PluginManager.add_hookspecs&#96; later will discover all marked functions</span><br><span class="line">    if the :py:class:&#96;.PluginManager&#96; uses the same project_name.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def __init__(self, project_name):</span><br><span class="line">        self.project_name &#x3D; project_name</span><br><span class="line"></span><br><span class="line">    def __call__(</span><br><span class="line">        self, function&#x3D;None, firstresult&#x3D;False, historic&#x3D;False, warn_on_impl&#x3D;None</span><br><span class="line">    ):</span><br><span class="line">        &quot;&quot;&quot; if passed a function, directly sets attributes on the function</span><br><span class="line">        which will make it discoverable to :py:meth:&#96;.PluginManager.add_hookspecs&#96;.</span><br><span class="line">        If passed no function, returns a decorator which can be applied to a function</span><br><span class="line">        later using the attributes supplied.</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;firstresult&#96;&#96; is &#96;&#96;True&#96;&#96; the 1:N hook call (N being the number of registered</span><br><span class="line">        hook implementation functions) will stop at I&lt;&#x3D;N when the I&#39;th function</span><br><span class="line">        returns a non-&#96;&#96;None&#96;&#96; result.</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;historic&#96;&#96; is &#96;&#96;True&#96;&#96; calls to a hook will be memorized and replayed</span><br><span class="line">        on later registered plugins.</span><br><span class="line"></span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        def setattr_hookspec_opts(func):</span><br><span class="line">            if historic and firstresult:</span><br><span class="line">                raise ValueError(&quot;cannot have a historic firstresult hook&quot;)</span><br><span class="line">            setattr(</span><br><span class="line">                func,</span><br><span class="line">                self.project_name + &quot;_spec&quot;,</span><br><span class="line">                dict(</span><br><span class="line">                    firstresult&#x3D;firstresult,</span><br><span class="line">                    historic&#x3D;historic,</span><br><span class="line">                    warn_on_impl&#x3D;warn_on_impl,</span><br><span class="line">                ),</span><br><span class="line">            )</span><br><span class="line">            return func</span><br><span class="line"></span><br><span class="line">        if function is not None:</span><br><span class="line">            return setattr_hookspec_opts(function)</span><br><span class="line">        else:</span><br><span class="line">            return setattr_hookspec_opts</span><br></pre></td></tr></table></figure>
-<p>为了彻底理解上面这个类的定义，下面先搞定几个基础的语法知识：</p>
-<ul>
-<li><strong>call</strong>魔法函数的作用就是类的实例可以继续像函数一样调用，像函数一样调用对象的时候就会走到类的<strong>call</strong>魔法函数了<br>下面用一个实例演示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Test(object):</span><br><span class="line">    def __init__(self,a,b&#x3D;10):</span><br><span class="line">        self.a&#x3D;a</span><br><span class="line">        self.b&#x3D;b</span><br><span class="line"></span><br><span class="line">    def __call__(self,c,d&#x3D;20):</span><br><span class="line">        print(self.a+c)</span><br><span class="line">        print(self.b+d)</span><br><span class="line"></span><br><span class="line">test&#x3D;Test(10,20)</span><br><span class="line">test(100,200)</span><br></pre></td></tr></table></figure>
-可以看到，test本来是Test类的一个实例，下面紧接着把test当函数一样调用，而且传入了参数，执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">110</span><br><span class="line">220</span><br></pre></td></tr></table></figure></li>
-<li>利用类中<strong>call</strong>模范函数的额特性，装饰器可以使用类实现，即装饰器类<br>下面本质是就是实现了一个装饰器类，装饰器可以传入参数a和b，被装饰器对象可以是函数，即func，也可以传入参数，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Test(object):</span><br><span class="line">    def __init__(self,a,b&#x3D;10):</span><br><span class="line">        self.a&#x3D;a</span><br><span class="line">        self.b&#x3D;b</span><br><span class="line"></span><br><span class="line">    def __call__(self,func):</span><br><span class="line">        def wrapper(*args,**kwargs):</span><br><span class="line">            print(&quot;before func &#123;func&#125;&quot;.format(func&#x3D;func.__name__))</span><br><span class="line">            results&#x3D;func(*args,**kwargs)</span><br><span class="line">            print(&quot;after func &#123;func&#125;&quot;.format(func&#x3D;func.__name__))</span><br><span class="line">            return results</span><br><span class="line">        return wrapper</span><br><span class="line"></span><br><span class="line">@Test(10,100)</span><br><span class="line">def print_sum(v1,v2):</span><br><span class="line">    print(&quot;in print_sum()...&quot;)</span><br><span class="line">    print(v1+v2)</span><br><span class="line"></span><br><span class="line">print_sum(20,200)</span><br></pre></td></tr></table></figure>
-执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">before func print_sum</span><br><span class="line">in print_sum()...</span><br><span class="line">220</span><br><span class="line">after func print_sum</span><br></pre></td></tr></table></figure></li>
-<li>setattr的作用<br>setattr的作用即给一个对象设置属性,下面用一个最简单的例子展示：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Test(object):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">t&#x3D;Test()</span><br><span class="line">setattr(t,&quot;a&quot;,10)</span><br><span class="line"></span><br><span class="line">print(t.a)</span><br></pre></td></tr></table></figure>
-结果会打印10，此时t这个实例就已经有了属性a，而且属性a的值为10</li>
-</ul>
-<p>熟悉了上述python基础或高级语法后，再回过头看下HookspecMarker类的代码：<br>其实它的本质就是一个装饰器类，如果只把这个类实例化，即不用语法糖加在一个具体的函数上时，<br>即此时返回的是一个setattr_hookimpl_opts，它的参数是另外一个被装饰的函数func，作用就是给<br>被装饰的函数func设置一个属性，属性名就是初始化的时候传入的名称加上”_spec”,属性值时一个字典，字典<br>里面有三个字段，分别是firstresult，historic和warm_on_impl</p>
-<p>如下是HookspecMarker类的两种使用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import pluggy</span><br><span class="line"></span><br><span class="line">hookspec &#x3D; pluggy.HookspecMarker(&quot;myproject&quot;)</span><br><span class="line"></span><br><span class="line">@hookspec</span><br><span class="line">def test1():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">@pluggy.HookspecMarker(&quot;myproject2&quot;)</span><br><span class="line">def test2():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">print(test1.myproject_spec)</span><br><span class="line">print(test2.myproject2_spec)</span><br></pre></td></tr></table></figure>
-<p>执行结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;firstresult&#39;: False, &#39;historic&#39;: False, &#39;warn_on_impl&#39;: None&#125;</span><br><span class="line">&#123;&#39;firstresult&#39;: False, &#39;historic&#39;: False, &#39;warn_on_impl&#39;: None&#125;</span><br></pre></td></tr></table></figure>
-<p>所以HookspecMarker类的本质就是为了给被装饰的函数对象增加这么一个属性</p>
-<p>同理HookimplMarker类的代码如下，也同样是一个装饰器，也是为了给函数增加一个属性，属性名称为HookimplMarker类初始化时给的project_name加上”_impl”，其值主要有5个参数，至于每个参数做什么用的，可以到后面分析manager文件的时候再回头看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">class HookimplMarker:</span><br><span class="line">    &quot;&quot;&quot; Decorator helper class for marking functions as hook implementations.</span><br><span class="line"></span><br><span class="line">    You can instantiate with a &#96;&#96;project_name&#96;&#96; to get a decorator.</span><br><span class="line">    Calling :py:meth:&#96;.PluginManager.register&#96; later will discover all marked functions</span><br><span class="line">    if the :py:class:&#96;.PluginManager&#96; uses the same project_name.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def __init__(self, project_name):</span><br><span class="line">        self.project_name &#x3D; project_name</span><br><span class="line"></span><br><span class="line">    def __call__(</span><br><span class="line">        self,</span><br><span class="line">        function&#x3D;None,</span><br><span class="line">        hookwrapper&#x3D;False,</span><br><span class="line">        optionalhook&#x3D;False,</span><br><span class="line">        tryfirst&#x3D;False,</span><br><span class="line">        trylast&#x3D;False,</span><br><span class="line">        specname&#x3D;None,</span><br><span class="line">    ):</span><br><span class="line"></span><br><span class="line">        &quot;&quot;&quot; if passed a function, directly sets attributes on the function</span><br><span class="line">        which will make it discoverable to :py:meth:&#96;.PluginManager.register&#96;.</span><br><span class="line">        If passed no function, returns a decorator which can be applied to a</span><br><span class="line">        function later using the attributes supplied.</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;optionalhook&#96;&#96; is &#96;&#96;True&#96;&#96; a missing matching hook specification will not result</span><br><span class="line">        in an error (by default it is an error if no matching spec is found).</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;tryfirst&#96;&#96; is &#96;&#96;True&#96;&#96; this hook implementation will run as early as possible</span><br><span class="line">        in the chain of N hook implementations for a specification.</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;trylast&#96;&#96; is &#96;&#96;True&#96;&#96; this hook implementation will run as late as possible</span><br><span class="line">        in the chain of N hook implementations.</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;hookwrapper&#96;&#96; is &#96;&#96;True&#96;&#96; the hook implementations needs to execute exactly</span><br><span class="line">        one &#96;&#96;yield&#96;&#96;.  The code before the &#96;&#96;yield&#96;&#96; is run early before any non-hookwrapper</span><br><span class="line">        function is run.  The code after the &#96;&#96;yield&#96;&#96; is run after all non-hookwrapper</span><br><span class="line">        function have run.  The &#96;&#96;yield&#96;&#96; receives a :py:class:&#96;.callers._Result&#96; object</span><br><span class="line">        representing the exception or result outcome of the inner calls (including other</span><br><span class="line">        hookwrapper calls).</span><br><span class="line"></span><br><span class="line">        If &#96;&#96;specname&#96;&#96; is provided, it will be used instead of the function name when</span><br><span class="line">        matching this hook implementation to a hook specification during registration.</span><br><span class="line"></span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">        def setattr_hookimpl_opts(func):</span><br><span class="line">            setattr(</span><br><span class="line">                func,</span><br><span class="line">                self.project_name + &quot;_impl&quot;,</span><br><span class="line">                dict(</span><br><span class="line">                    hookwrapper&#x3D;hookwrapper,</span><br><span class="line">                    optionalhook&#x3D;optionalhook,</span><br><span class="line">                    tryfirst&#x3D;tryfirst,</span><br><span class="line">                    trylast&#x3D;trylast,</span><br><span class="line">                    specname&#x3D;specname,</span><br><span class="line">                ),</span><br><span class="line">            )</span><br><span class="line">            return func</span><br><span class="line"></span><br><span class="line">        if function is None:</span><br><span class="line">            return setattr_hookimpl_opts</span><br><span class="line">        else:</span><br><span class="line">            return setattr_hookimpl_opts(function)</span><br></pre></td></tr></table></figure>
-<p>下面用简单的代码演示HookimplMarker装饰器类给函数设置属性的结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import pluggy</span><br><span class="line"></span><br><span class="line">hookspec &#x3D; pluggy.HookimplMarker(&quot;myproject&quot;)</span><br><span class="line"></span><br><span class="line">@hookspec</span><br><span class="line">def test1():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">@pluggy.HookimplMarker(&quot;myproject2&quot;)</span><br><span class="line">def test2():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">print(test1.myproject_impl)</span><br><span class="line">print(test2.myproject2_impl)</span><br></pre></td></tr></table></figure>
-<p>执行结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;hookwrapper&#39;: False, &#39;optionalhook&#39;: False, &#39;tryfirst&#39;: False, &#39;trylast&#39;: False, &#39;specname&#39;: None&#125;</span><br><span class="line">&#123;&#39;hookwrapper&#39;: False, &#39;optionalhook&#39;: False, &#39;tryfirst&#39;: False, &#39;trylast&#39;: False, &#39;specname&#39;: None&#125;</span><br></pre></td></tr></table></figure>
-
-<p>至此 HookspecMarker类和HookimplMarker类的代码就分析完了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1560,12 +1585,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">487k</span>
+    <span title="站点总字数">488k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:23</span>
+    <span title="站点阅读时长">7:24</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
