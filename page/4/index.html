@@ -213,20 +213,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -266,6 +266,106 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">设计模式python系列(4)--简单工厂模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-07 03:57:52 / 修改时间：04:09:01" itemprop="dateCreated datePublished" datetime="2020-09-07T03:57:52+08:00">2020-09-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">设计模式python系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(4)--%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-简单工厂模式的含义："><a href="#1-简单工厂模式的含义：" class="headerlink" title="1 简单工厂模式的含义："></a>1 简单工厂模式的含义：</h4><p>简单工厂模式，简单地来说，就是使用一个工厂类，然后根据传入的不同的参数生产出不同类，换句话就是将不同类的实例化过程又封装了一下，放到了一个工厂类的一个函数中，这样使用者在使用类是的时候就不需要去管实例化过程了，只需要使用工厂类来返回一个即可</p>
+<h4 id="2-简单工厂模式的使用场景："><a href="#2-简单工厂模式的使用场景：" class="headerlink" title="2 简单工厂模式的使用场景："></a>2 简单工厂模式的使用场景：</h4><p>简单工厂模式适合于工厂负责的类不是太多的场景，当负责的场景很多的时候，会导致工厂生产实例的代码很多，此时将难于维护</p>
+<h4 id="3-简单工厂模式的实例"><a href="#3-简单工厂模式的实例" class="headerlink" title="3 简单工厂模式的实例"></a>3 简单工厂模式的实例</h4><p>如下工厂类负责Teacher类和Student类的实例化过程，使用者只需要调用工厂类的create方法，然后根据传入角色role的值即可得到对应的类型的实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def work(self):</span><br><span class="line">        print(&quot;student &#123;name&#125; begin to studying...&quot;.format(name&#x3D;self.name))</span><br><span class="line"></span><br><span class="line">class Teacher(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def work(self):</span><br><span class="line">        print(&quot;teacher &#123;name&#125; begin to teaching...&quot;.format(name&#x3D;self.name))</span><br><span class="line"></span><br><span class="line">class SimpleFactory(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def create(self,role,name):</span><br><span class="line">        if role&#x3D;&#x3D;&quot;student&quot;:</span><br><span class="line">            return Student(name)</span><br><span class="line">        if role&#x3D;&#x3D;&quot;teacher&quot;:</span><br><span class="line">            return Teacher(name)</span><br><span class="line"></span><br><span class="line">simple_factory&#x3D;SimpleFactory()</span><br><span class="line">s&#x3D;simple_factory.create(&quot;student&quot;,&quot;Jack&quot;)</span><br><span class="line">t&#x3D;simple_factory.create(&quot;teacher&quot;,&quot;Miss Wang&quot;)</span><br><span class="line">s.work()</span><br><span class="line">t.work()</span><br></pre></td></tr></table></figure>
+<p>运行结果如下；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">student Jack begin to studying...</span><br><span class="line">teacher Miss Wang begin to teaching...</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1310,166 +1410,6 @@ test01.py执行结果如下：<figure class="highlight plain"><table><tr><td cla
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(2)--%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(2)--%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">设计模式python系列(2)--装饰器模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-03 07:40:07 / 修改时间：12:55:06" itemprop="dateCreated datePublished" datetime="2020-09-03T07:40:07+08:00">2020-09-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">设计模式python系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(2)--%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8Fpython%E7%B3%BB%E5%88%97(2)--%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>874</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-什么是面向切面编程（AOP）？"><a href="#1-什么是面向切面编程（AOP）？" class="headerlink" title="1 什么是面向切面编程（AOP）？"></a>1 什么是面向切面编程（AOP）？</h4><ul>
-<li>AOP是Aspect Oriented Programming的缩写，即面向切面编程</li>
-<li>面向切面编程，通俗一点说，就是在原有的业务处理流程中切开一刀，然后加入一点额外的功能，原有的整个业务流程不受任何影响</li>
-<li>面向切面编程，说白了就是给原有的功能做功能增强，但是对原有的代码逻辑不做任何处理</li>
-</ul>
-<h4 id="2-装饰器的作用"><a href="#2-装饰器的作用" class="headerlink" title="2 装饰器的作用"></a>2 装饰器的作用</h4><p>在<a href="https://redrose2100.github.io/blog/2020/08/31/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(4)--%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_blank" rel="noopener">python高级语法系列(4)–装饰器</a> 一篇中已经对装饰器的使用情况做了非常详细的介绍，这里简单总结一下装饰器的具体作用：</p>
-<p>总的来说装饰器就是利用了AOP面向切面编程的思想，在既有的功能的某个切面上做功能加强</p>
-<p>具体展开来说就在如下三个层面做功能加强：</p>
-<ul>
-<li>函数执行前后</li>
-<li>类初始化前后</li>
-<li>类中的方法执行前后</li>
-</ul>
-<h4 id="3-装饰器模式"><a href="#3-装饰器模式" class="headerlink" title="3 装饰器模式"></a>3 装饰器模式</h4><p>装饰器模式在python领域说白了就是装饰器的灵活应用，比如对一个主题功能做一些辅助功能的扩展，即很适合使用装饰器模式做功能加强</p>
-<p>下面是python中支持的装饰器的使用场景，同样，装饰器模式就完全可以根据这些使用场景对既有的功能做功能加强</p>
-<ul>
-<li>装饰器是函数，<ul>
-<li>被装饰对象也是函数<ul>
-<li>装饰器无参数，被装饰对象无参数</li>
-<li>装饰器无参数，被装饰对象有参数</li>
-<li>装饰器有参数，被装饰对象无参数</li>
-<li>装饰器有参数，被装饰器对象有参数</li>
-</ul>
-</li>
-<li>被装饰对象是类<ul>
-<li>装饰器无参数，被装饰类无参数</li>
-<li>装饰器无参数，被装饰类有参数</li>
-<li>装饰器有参数，被装饰类无参数</li>
-<li>装饰器有参数，被装饰类有参数</li>
-</ul>
-</li>
-<li>被装饰对象是类中的方法<ul>
-<li>装饰器无参数，被装饰类中的方法无参数</li>
-<li>装饰器无参数，被装饰类中的方法有参数</li>
-<li>装饰器有参数，被装饰类中的方法无参数</li>
-<li>装饰器有参数，被装饰类中的方法有参数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>装饰器是类<ul>
-<li>被装饰对象也是函数<ul>
-<li>装饰器无参数，被装饰对象无参数</li>
-<li>装饰器无参数，被装饰对象有参数</li>
-<li>装饰器有参数，被装饰对象无参数</li>
-<li>装饰器有参数，被装饰器对象有参数</li>
-</ul>
-</li>
-<li>被装饰器对象是类<ul>
-<li>装饰器无参数，被装饰类无参数</li>
-<li>装饰器无参数，被装饰类有参数</li>
-<li>装饰器有参数，被装饰类无参数</li>
-<li>装饰器有参数，被装饰类有参数</li>
-</ul>
-</li>
-<li>被装饰对象是类中的方法<ul>
-<li>装饰器无参数，被装饰类中的方法无参数</li>
-<li>装饰器无参数，被装饰类中的方法有参数</li>
-<li>装饰器有参数，被装饰类中的方法无参数</li>
-<li>装饰器有参数，被装饰类中的方法有参数</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1524,12 +1464,12 @@ test01.py执行结果如下：<figure class="highlight plain"><table><tr><td cla
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">484k</span>
+    <span title="站点总字数">487k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:20</span>
+    <span title="站点阅读时长">7:23</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
