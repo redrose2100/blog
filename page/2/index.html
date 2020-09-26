@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,377 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/22/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--CSS%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%B5%AE%E5%8A%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/22/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--CSS%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%B5%AE%E5%8A%A8/" class="post-title-link" itemprop="url">CSS基础系列(3)--CSS定位和浮动</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-22 23:35:20" itemprop="dateCreated datePublished" datetime="2020-09-22T23:35:20+08:00">2020-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-24 13:42:45" itemprop="dateModified" datetime="2020-09-24T13:42:45+08:00">2020-09-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">CSS基础系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/22/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--CSS%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%B5%AE%E5%8A%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/22/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--CSS%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%B5%AE%E5%8A%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-CSS-定位"><a href="#1-CSS-定位" class="headerlink" title="1 CSS 定位"></a>1 CSS 定位</h4><ul>
+<li><p>CSS定位改变元素在页面上的位置</p>
+</li>
+<li><p>CSS定位机制：</p>
+<ul>
+<li>普通流：元素按照其在HTML中的位置顺序决定排布的过程</li>
+<li>浮动：</li>
+<li>绝对布局</li>
+</ul>
+</li>
+<li><p>CSS定位属性常用的有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">position                把元素放在一个静态的、相对的、绝对的、固定的位置中</span><br><span class="line">top                     元素向上的偏移量</span><br><span class="line">left                    元素向左的偏移量</span><br><span class="line">right                   元素向右的偏移量</span><br><span class="line">bottom                  元素向下的偏移量</span><br><span class="line">overflow                设置元素溢出其区域发生的事情</span><br><span class="line">clip                    设置元素显示的形状</span><br><span class="line">vertical-align          设置元素垂直对齐方式</span><br><span class="line">z-index                 设置元素的堆叠顺序</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS position属性：<br>index.html 文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;position1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        for(var i&#x3D;0;i&lt;100;i++)&#123;</span><br><span class="line">            document.write(i+&quot;&lt;br&#x2F;&gt;&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>static</p>
+</li>
+</ul>
+<p>更新css文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#position1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    position: static;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>relative</p>
+<p>更新css文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#position1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    position: relative;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>absolute</p>
+<p>更新css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#position1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:20px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>fixed</p>
+<p>更新css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#position1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    position: fixed;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>z-index 当右多个块时，z-index大的在前面</p>
+<p>index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;position1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;position2&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        for(var i&#x3D;0;i&lt;100;i++)&#123;</span><br><span class="line">            document.write(i+&quot;&lt;br&#x2F;&gt;&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#position1&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    position: relative;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:200px;</span><br><span class="line">    z-index: 2;</span><br><span class="line">&#125;</span><br><span class="line">#position2&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    position: relative;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:150px;</span><br><span class="line">    z-index: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-CSS-浮动"><a href="#2-CSS-浮动" class="headerlink" title="2 CSS 浮动"></a>2 CSS 浮动</h4><p>float属性可用的值有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">left                    元素向左浮动</span><br><span class="line">right                   元素向右浮动</span><br><span class="line">none                    元素不浮动</span><br><span class="line">inherit                 从父级继承浮动属性</span><br></pre></td></tr></table></figure>
+<p>举例1如下，index.html代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;container&quot;&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;fd&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;sd&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;td&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#fd&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br><span class="line">#sd&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">#td&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: green;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br><span class="line">#container&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 1000px;</span><br><span class="line">    background-color: lightsteelblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>clear属性： 去掉浮动属性（包括继承来的属性）</p>
+<p>clear属性值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">left                    去掉元素向左浮动</span><br><span class="line">right                   去掉元素向右浮动</span><br><span class="line">both                    去掉元素左右左侧浮动</span><br><span class="line">inherit                 从父级继承来的clear的值</span><br></pre></td></tr></table></figure>
+<p>举例如下，index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;container&quot;&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;fd&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;sd&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;td&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;text&quot;&gt;Hello world hahahah&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#fd&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: grey;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br><span class="line">#sd&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: red;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">#td&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: green;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br><span class="line">#container&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 1000px;</span><br><span class="line">    background-color: lightsteelblue;</span><br><span class="line">&#125;</span><br><span class="line">#text&#123;</span><br><span class="line">    clear:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/21/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--CSS%E6%A0%B7%E5%BC%8F%E8%83%8C%E6%99%AF%E3%80%81%E6%96%87%E6%9C%AC%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E8%A1%A8%E6%A0%BC%E3%80%81%E8%BD%AE%E5%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/21/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--CSS%E6%A0%B7%E5%BC%8F%E8%83%8C%E6%99%AF%E3%80%81%E6%96%87%E6%9C%AC%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E8%A1%A8%E6%A0%BC%E3%80%81%E8%BD%AE%E5%BB%93/" class="post-title-link" itemprop="url">CSS基础系列(2)--CSS样式背景、文本、字体、链接、列表、表格、轮廓</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-21 20:09:29" itemprop="dateCreated datePublished" datetime="2020-09-21T20:09:29+08:00">2020-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-22 13:30:53" itemprop="dateModified" datetime="2020-09-22T13:30:53+08:00">2020-09-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">CSS基础系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/21/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--CSS%E6%A0%B7%E5%BC%8F%E8%83%8C%E6%99%AF%E3%80%81%E6%96%87%E6%9C%AC%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E8%A1%A8%E6%A0%BC%E3%80%81%E8%BD%AE%E5%BB%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/21/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--CSS%E6%A0%B7%E5%BC%8F%E8%83%8C%E6%99%AF%E3%80%81%E6%96%87%E6%9C%AC%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E8%A1%A8%E6%A0%BC%E3%80%81%E8%BD%AE%E5%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-CSS背景"><a href="#1-CSS背景" class="headerlink" title="1 CSS背景"></a>1 CSS背景</h4><ul>
+<li>背景：<br> CSS允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果</li>
+</ul>
+<p>常见的背景属性：</p>
+<ul>
+<li><p>background-color                    设置元素的背景颜色<br>demo.css代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-color: grey;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>index.html代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt; 测试背景是否可以继承 &lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>可见，背景颜色也是可以继承的</p>
+</li>
+<li><p>background-image                    把图片设置为背景<br>index.html文件保持不变，值只改变css文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image: url(&quot;statics&#x2F;image&#x2F;0001.jpg&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>background-position                 设置背景图片的起始位置<br>只修改demo.css文件观察效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image: url(&quot;statics&#x2F;image&#x2F;0001.jpg&quot;);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-position: center top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>background-repeat                   设置背景图片是否及如何重复<br>只修改css文件观察效果，其中background-repeat属性可以有好多中值可以设置，可以通过IDE设置后观察</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image: url(&quot;statics&#x2F;image&#x2F;0001.jpg&quot;);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>background-attachment               背景图像是否固定或者随着页面的其余部分滚动<br>如下设置，可以设置图片随着页面滚动而滚动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image: url(&quot;statics&#x2F;image&#x2F;0001.jpg&quot;);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-attachment: scroll;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>background-size                     规定背景图片的尺寸<br>如下可以设置图片的尺寸</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background-image: url(&quot;statics&#x2F;image&#x2F;0001.jpg&quot;);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-size:1000px 1000px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>background-origin                   规定背景图片的定位区域</p>
+</li>
+<li><p>background-clip                     规定背景的绘制区域</p>
+<h4 id="2-CSS文本"><a href="#2-CSS文本" class="headerlink" title="2 CSS文本"></a>2 CSS文本</h4></li>
+<li><p>CSS文本属性可定义文本外观</p>
+</li>
+<li><p>通过文本属性，可以改变文本的颜色、字符间距、对齐文本、装饰文本、对文本缩进</p>
+</li>
+</ul>
+<p>文本的常用属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">color               文本颜色</span><br><span class="line">direction           文本方向</span><br><span class="line">line-height         行高</span><br><span class="line">letter-spacing      字符间距</span><br><span class="line">text-align          对齐元素中的文本</span><br><span class="line">text-decoration     向文本添加装饰</span><br><span class="line">text-indent         缩进元素中文本的首行</span><br><span class="line">text-transform      元素中的字母</span><br><span class="line">unicode-bidi        设置文本方向</span><br><span class="line">white-space         元素中空白的处理方式</span><br><span class="line">word-spacing        字间距</span><br></pre></td></tr></table></figure>
+<p>CSS3 提供的特别的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text-shadow         向文本添加阴影</span><br><span class="line">word-wrap           规定文本的换行规则</span><br></pre></td></tr></table></figure>
+<p>demo.css中代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125;</span><br><span class="line">h1&#123;</span><br><span class="line">    color:green;</span><br><span class="line">    text-align: center;</span><br><span class="line">    text-shadow: 5px 5px 1px red;</span><br><span class="line">&#125;</span><br><span class="line">p&#123;</span><br><span class="line">    width: 20em;</span><br><span class="line">    text-align: left;</span><br><span class="line">    text-indent: 2em;</span><br><span class="line">    text-transform: capitalize;</span><br><span class="line">    word-wrap: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>index.html文件中的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt; h1 title&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p&gt;段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试&lt;&#x2F;p&gt;</span><br><span class="line">    段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试</span><br><span class="line">    &lt;p &gt;this is my first Paragph&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-CSS字体"><a href="#3-CSS字体" class="headerlink" title="3 CSS字体"></a>3 CSS字体</h4><ul>
+<li>CSS字体属性定义文本的字体系列、大小、加粗、风格和变形</li>
+</ul>
+<p>常用的字体属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">font-family                 设置字体系列</span><br><span class="line">font-size                   设置字体的尺寸</span><br><span class="line">font-style                  设置字体的风格</span><br><span class="line">font-variant                以小型大写字体或正常字体显示文本</span><br><span class="line">font-weight                 设置字体的粗细</span><br></pre></td></tr></table></figure>
+
+<p>demo.css代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    font-size: 20px;</span><br><span class="line">    font-family: Arial;</span><br><span class="line">    font-variant: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>index.html代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;hello world&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="4-CSS链接"><a href="#4-CSS链接" class="headerlink" title="4 CSS链接"></a>4 CSS链接</h4><p>CSS链接的四种状态：</p>
+<ul>
+<li>a:link 普通的、未被访问的链接</li>
+<li>a:visited 用户已访问过的链接</li>
+<li>a:hover 鼠标指针位于链接的上方</li>
+<li>a:actve 链接被点击的时刻</li>
+</ul>
+<p>常用的链接方式：</p>
+<ul>
+<li>text-decoration 属性大多用于去掉链接中的下划线</li>
+</ul>
+<p>设置背景颜色：</p>
+<ul>
+<li>background-color</li>
+</ul>
+<p>举例如下：demo.css内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a:link&#123;</span><br><span class="line">    color:red;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line">a:visited&#123;</span><br><span class="line">    color: green;</span><br><span class="line">&#125;</span><br><span class="line">a:hover&#123;</span><br><span class="line">    color: blue;</span><br><span class="line">&#125;</span><br><span class="line">a:active&#123;</span><br><span class="line">    color: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.baidu.com&quot; target&#x3D;&quot;_blank&quot;&gt;百度一下&lt;&#x2F;a&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="5-CSS列表"><a href="#5-CSS列表" class="headerlink" title="5 CSS列表"></a>5 CSS列表</h4><p>CSS列表属性允许你放置、改变列表标志，或者将图像作为列表项标志</p>
+<p>常用的CSS列表属性有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list-stype                  简写列表项</span><br><span class="line">list-style-image            列表项图像</span><br><span class="line">list-style-position         列表标志位置</span><br><span class="line">list-style-type             列表类型</span><br></pre></td></tr></table></figure>
+
+<p>举例index.html代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt; 列表1 &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt; 列表2 &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt; 列表3 &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li&gt; 列表4 &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>下面通过改变不同css样式来观察效果：<br>demo.css如下：表示列表项用数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ul li&#123;</span><br><span class="line">    list-style-type:decimal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>改变CSS样式可以让列表项用图片：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ul li&#123;</span><br><span class="line">    list-style-image:url(&quot;statics&#x2F;image&#x2F;0001.jpg&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继续修改参css样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ul li&#123;</span><br><span class="line">    list-style-position: inside;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-CSS表格"><a href="#6-CSS表格" class="headerlink" title="6 CSS表格"></a>6 CSS表格</h4><ul>
+<li>CSS表格属性可以帮助我们极大的改善表格的外观</li>
+</ul>
+<p>首先建立index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;table id&#x3D;&quot;tb&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;姓名&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;年龄&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;性别&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;张三&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;100&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;男&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;李四&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;10&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;男&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;王五&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;30&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;女&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>表格边框</li>
+</ul>
+<p>通过css样式设置边框：<br>demo.css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#tb,tr,th,td&#123;</span><br><span class="line">    border: 1px solid grey;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>折叠边框</li>
+</ul>
+<p>修改css样式即可改变表格为单条线，即折叠边框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#tb,tr,th,td&#123;</span><br><span class="line">    border: 1px solid grey;</span><br><span class="line">&#125;</span><br><span class="line">#tb&#123;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>表格宽高</li>
+</ul>
+<p>继续修改css样式设置宽和高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#tb,tr,th,td&#123;</span><br><span class="line">    border: 1px solid grey;</span><br><span class="line">&#125;</span><br><span class="line">#tb&#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>表格文本对齐</li>
+</ul>
+<p>继续修改样式，设置对齐格式，比如居中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#tb,tr,th,td&#123;</span><br><span class="line">    border: 1px solid grey;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">#tb&#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>表格内边距</p>
+</li>
+<li><p>表格颜色</p>
+</li>
+</ul>
+<p>继续修改样式可以设置表格背景颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#tb,tr,th,td&#123;</span><br><span class="line">    border: 1px solid grey;</span><br><span class="line">    text-align: center;</span><br><span class="line">    background-color: lightsteelblue;</span><br><span class="line">&#125;</span><br><span class="line">#tb&#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-CSS轮廓"><a href="#7-CSS轮廓" class="headerlink" title="7 CSS轮廓"></a>7 CSS轮廓</h4><p>轮廓主要用例突出元素的作用</p>
+<p>常用的属性如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">outline                 设置轮廓属性</span><br><span class="line">outline-colr            设置轮廓的颜色</span><br><span class="line">outline-style           设置轮廓的样式</span><br><span class="line">outline-width           设置轮廓的宽度</span><br></pre></td></tr></table></figure>
+<p>例如：<br>index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;这是用于测试轮廓的字符&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>demo.css样式内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    outline-style: dotted;</span><br><span class="line">    outline-width: 1px;</span><br><span class="line">    outline-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1430,286 +1801,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/18/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--%E6%A1%86%E6%9E%B6%E3%80%81%E8%83%8C%E6%99%AF%E3%80%81%E5%AE%9E%E4%BD%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/18/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--%E6%A1%86%E6%9E%B6%E3%80%81%E8%83%8C%E6%99%AF%E3%80%81%E5%AE%9E%E4%BD%93/" class="post-title-link" itemprop="url">Html5基础系列(4)--框架、背景、实体</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-18 07:09:37 / 修改时间：13:34:14" itemprop="dateCreated datePublished" datetime="2020-09-18T07:09:37+08:00">2020-09-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Html5基础系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/18/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--%E6%A1%86%E6%9E%B6%E3%80%81%E8%83%8C%E6%99%AF%E3%80%81%E5%AE%9E%E4%BD%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/18/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--%E6%A1%86%E6%9E%B6%E3%80%81%E8%83%8C%E6%99%AF%E3%80%81%E5%AE%9E%E4%BD%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-HTML框架"><a href="#1-HTML框架" class="headerlink" title="1 HTML框架"></a>1 HTML框架</h4><ul>
-<li><p>框架标签：frame<br> 框架对于页面的设计有着很大的作用</p>
-</li>
-<li><p>框架集标签（frameset）<br> 框架集标签定义如何将窗口分割为框架</p>
-<p> 每个frameset定义一系列行和列</p>
-<p> rows/cols的值规定了每行或每列占据屏幕的面积</p>
-</li>
-<li><p>常用标签：<br> noresize：固定框架大小</p>
-<p> cols：列</p>
-<p> rows：行</p>
-</li>
-</ul>
-<p>frame框架在HTML5中已经被不推荐使用了，这里进用一个实例演示一下来理解框架的原由<br>首先创建三个框架文件，文件名分别为：frame_1.html,frame_2.html,frame_3.html</p>
-<p>frame_1.html的内容为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame_1&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body bgcolor&#x3D;&quot;#696969&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>frame_2.html的内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame_2&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body bgcolor&#x3D;&quot;#7fffd4&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>frame_3.html的内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame_3&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body bgcolor&#x3D;&quot;blue&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>然后在index.html文件中使用frameset和frame标签来设计框架<br>index.html内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">    &lt;frameset cols&#x3D;&quot;20%,50%,30%&quot;&gt;</span><br><span class="line">        &lt;frame src&#x3D;&quot;frame_1.html&quot;&gt;&lt;&#x2F;frame&gt;</span><br><span class="line">        &lt;frame src&#x3D;&quot;frame_2.html&quot;&gt;&lt;&#x2F;frame&gt;</span><br><span class="line">        &lt;frame src&#x3D;&quot;frame_3.html&quot;&gt;&lt;&#x2F;frame&gt;</span><br><span class="line">    &lt;&#x2F;frameset&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>内联框架：iframe<br>内联框架iframe在HTML5中使用的还是很多的</li>
-</ul>
-<p>下面用一个实例演示iframe结合之前讲的链接a中target字段，除了self，_blank之外，还可以是_parent以及_top值，此时就可以演示这两个属性值的效果了</p>
-<p>frame_1.html代码如下：这里一会可以通过改变target属性值查看效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame_1&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body bgcolor&#x3D;&quot;#696969&quot;&gt;</span><br><span class="line">    frame_1</span><br><span class="line">    &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&quot; target&#x3D;&quot;_top&quot;&gt;百度一下&lt;&#x2F;a&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>frame_2.html的代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame_2&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body bgcolor&#x3D;&quot;#7fffd4&quot;&gt;</span><br><span class="line">    frame_2</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    &lt;iframe src&#x3D;&quot;frame_1.html&quot; frameborder&#x3D;&quot;0&quot; width&#x3D;&quot;400&quot; height&#x3D;&quot;400&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>frame_3.html的的代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame_3&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body bgcolor&#x3D;&quot;blue&quot;&gt;</span><br><span class="line">    frame_3</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    &lt;iframe src&#x3D;&quot;frame_2.html&quot; frameborder&#x3D;&quot;0&quot; width&#x3D;&quot;600&quot; height&#x3D;&quot;600&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>index.html代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;frame&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">    &lt;iframe src&#x3D;&quot;frame_3.html&quot; frameborder&#x3D;&quot;0&quot; width&#x3D;&quot;800&quot; height&#x3D;&quot;800&quot;&gt;</span><br><span class="line">    &lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-<p>此时可以通过修改frame_1.html中链接a中的target字段的值来查看不同的效果</p>
-<h4 id="2-背景、颜色"><a href="#2-背景、颜色" class="headerlink" title="2 背景、颜色"></a>2 背景、颜色</h4><p>背景颜色使用bgcolor标签，背景图片使用background标签<br>如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body background&#x3D;&quot;statics&#x2F;image&#x2F;0001.jpg&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-<p>颜色是是有红绿蓝（RGB）组成的，每个颜色最小值是0（#00），最大值是255（#FF）</p>
-<p>红色：#FF0000</p>
-<p>绿色：#00FF00</p>
-<p>蓝色：#0000FF</p>
-<p>常见的组合颜色：</p>
-<p>白色：#FFFFFF</p>
-<p>黑色：#000000</p>
-<p>如黑色：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body bgcolor&#x3D;&quot;#000000&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-HTML实体"><a href="#3-HTML实体" class="headerlink" title="3 HTML实体"></a>3 HTML实体</h4><p>实体：HTML中预留字符串必须被替换成字符实体，如：&lt;,&gt;,&amp;等<br>如：所以实体就相当于其他编程语言种字符串转义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;html&gt;&lt;&#x2F;html&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-<p>常见的实体有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">显示结果	描述	实体名称	实体编号</span><br><span class="line"></span><br><span class="line">空格	&amp;nbsp;	&amp;#160;</span><br><span class="line">&lt;	小于号	&lt;	&amp;#60;</span><br><span class="line">&gt;	大于号	&gt;	&amp;#62;</span><br><span class="line">&amp;	和号	&amp;	&amp;#38;</span><br><span class="line">&quot;	引号	&quot;	&amp;#34;</span><br><span class="line">&#39;	撇号 	&amp;apos; (IE不支持)	&#39;</span><br><span class="line">￠	分	&amp;cent;	&amp;#162;</span><br><span class="line">£	镑	&amp;pound;	&amp;#163;</span><br><span class="line">¥	日圆	&amp;yen;	&amp;#165;</span><br><span class="line">€	欧元	&amp;euro;	&amp;#8364;</span><br><span class="line">§	小节	&amp;sect;	&amp;#167;</span><br><span class="line">©	版权	&amp;copy;	&amp;#169;</span><br><span class="line">®	注册商标	&amp;reg;	&amp;#174;</span><br><span class="line">™	商标	&amp;trade;	&amp;#8482;</span><br><span class="line">×	乘号	&amp;times;	&amp;#215;</span><br><span class="line">÷	除号	&amp;divide;	&amp;#247;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--%E8%A1%A8%E5%8D%95%E3%80%81flask%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%81%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E4%B8%8Epython%E4%BA%A4%E4%BA%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--%E8%A1%A8%E5%8D%95%E3%80%81flask%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%81%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E4%B8%8Epython%E4%BA%A4%E4%BA%92/" class="post-title-link" itemprop="url">Html5基础系列(3)--表单、flask环境搭建、表单提交数据与python交互</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-17 23:55:51" itemprop="dateCreated datePublished" datetime="2020-09-17T23:55:51+08:00">2020-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-18 01:41:39" itemprop="dateModified" datetime="2020-09-18T01:41:39+08:00">2020-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Html5基础系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--%E8%A1%A8%E5%8D%95%E3%80%81flask%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%81%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E4%B8%8Epython%E4%BA%A4%E4%BA%92/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/17/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--%E8%A1%A8%E5%8D%95%E3%80%81flask%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%81%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E4%B8%8Epython%E4%BA%A4%E4%BA%92/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p>HTML表单</p>
-<ul>
-<li>作用：表单用于获取不同类型的用户输入</li>
-<li>常用的标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;                                  表单</span><br><span class="line">&lt;input&gt;                                 输入域</span><br><span class="line">&lt;textarea&gt;                              文本域</span><br><span class="line">&lt;lable&gt;                                 控制标签</span><br><span class="line">&lt;fieldset&gt;                              定义域</span><br><span class="line">&lt;legend&gt;                                域的标题</span><br><span class="line">&lt;select&gt;                                选择列表</span><br><span class="line">&lt;optgroup&gt;                              选项组</span><br><span class="line">&lt;option&gt;                                下拉列表中的选项</span><br><span class="line">&lt;button&gt;                                按钮</span><br></pre></td></tr></table></figure>
-举例1：用户输入用户名和密码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">     用户名</span><br><span class="line">     &lt;input type&#x3D;&quot;text&quot;&gt;</span><br><span class="line">     &lt;br&#x2F;&gt;</span><br><span class="line">     密码：</span><br><span class="line">     &lt;input type&#x3D;&quot;password&quot;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-举例2：复选框<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">      选修课程：</span><br><span class="line">      &lt;br&#x2F;&gt;</span><br><span class="line">      语文&lt;input type&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">      数学&lt;input type&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">      英语&lt;input type&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">      物理&lt;input type&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-举例3：单选框<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">      性别：</span><br><span class="line">      &lt;br&#x2F;&gt;</span><br><span class="line">      男&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot;&gt;</span><br><span class="line">      女&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-举例4：下拉选框<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">      最大的网站：</span><br><span class="line">      &lt;select&gt;</span><br><span class="line">          &lt;option&gt;百度&lt;&#x2F;option&gt;</span><br><span class="line">          &lt;option&gt;腾讯&lt;&#x2F;option&gt;</span><br><span class="line">          &lt;option&gt;阿里&lt;&#x2F;option&gt;</span><br><span class="line">      &lt;&#x2F;select&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
-举例5：文本域<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body marginheight&#x3D;&quot;0px&quot; marginwidth&#x3D;&quot;0px&quot;&gt;</span><br><span class="line">    &lt;textarea cols&#x3D;&quot;30&quot; rows&#x3D;&quot;30&quot;&gt;请在此输入信息：&lt;&#x2F;textarea&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-举例6：按钮<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body marginheight&#x3D;&quot;0px&quot; marginwidth&#x3D;&quot;0px&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;OK&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Cacel&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-举例7：提交<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body marginheight&#x3D;&quot;0px&quot; marginwidth&#x3D;&quot;0px&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>flask环境搭建</p>
-<ul>
-<li>pip install flask</li>
-<li>编辑如下代码，然后执行，如此便起了一个web服务，增加了一个<a href="http://127.0.0.1:5000/的服务接口" target="_blank" rel="noopener">http://127.0.0.1:5000/的服务接口</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app&#x3D;Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;)</span><br><span class="line">def index():</span><br><span class="line">    return &quot;hello world&quot;</span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>表单提交数据与python交互</p>
-<ul>
-<li><p>编写如下代码，编写表单，增加一个提交按钮，action设置为flask服务的接口，此接口返回“hello world” ，具体代码如下：<br>如此，点击提交按钮后页面就会返回“hello world”字符串了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;form&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body marginheight&#x3D;&quot;0px&quot; marginwidth&#x3D;&quot;0px&quot;&gt;</span><br><span class="line">&lt;form action&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1:5000&#x2F;&quot; method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">    用户名</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;username&quot;&gt;</span><br><span class="line">    &lt;br&#x2F;&gt;</span><br><span class="line">    密码：</span><br><span class="line">    &lt;input type&#x3D;&quot;password&quot; name&#x3D;&quot;password&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;提交&quot;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>上面只是将提交按钮绑定了flask服务的一个接口，下面看下如何在flask接口服务中获取到表单的数据，下面对flask代码稍作修改：如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask,request</span><br><span class="line"></span><br><span class="line">app&#x3D;Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;,methods&#x3D;[&quot;POST&quot;])</span><br><span class="line">def index():</span><br><span class="line">    if request.method&#x3D;&#x3D;&quot;POST&quot;:</span><br><span class="line">        username&#x3D;request.form.get(&quot;username&quot;)</span><br><span class="line">        password&#x3D;request.form.get(&quot;password&quot;)</span><br><span class="line">        return &quot;username:&quot;+username+&quot; password:&quot;+password</span><br><span class="line"></span><br><span class="line">app.run()</span><br></pre></td></tr></table></figure>
-<p>此时，在flask代码中就已经获取到了表单的数据，如此即可与表单进行交互了</p>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1764,12 +1855,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">488k</span>
+    <span title="站点总字数">496k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:24</span>
+    <span title="站点阅读时长">7:31</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
