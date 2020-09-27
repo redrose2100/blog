@@ -213,20 +213,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -266,6 +266,133 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">python高级语法系列(9)--属性相关的魔法函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-06 08:43:50 / 修改时间：10:19:17" itemprop="dateCreated datePublished" datetime="2020-09-06T08:43:50+08:00">2020-09-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">python高级语法系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/06/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E7%B3%BB%E5%88%97(9)--%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">__getattr__(self, name) 定义当用户试图获取一个不存在的属性时的行为</span><br><span class="line"></span><br><span class="line">__setattr__(self, name, value) 定义当一个属性被设置时的行为</span><br><span class="line"></span><br><span class="line">__delattr__(self, name) 定义当一个属性被删除时的行为</span><br><span class="line"></span><br><span class="line">__getattribute__(self, name) 定义当该类的属性被访问时的行为</span><br><span class="line"></span><br><span class="line">__dir__(self) 定义当 dir() 被调用时的行为</span><br><span class="line"></span><br><span class="line">__get__(self, instance, owner) 定义当描述符的值被取得时的行为</span><br><span class="line"></span><br><span class="line">__set__(self, instance, value) 定义当描述符的值被改变时的行为</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__getattr__，__setattr__，__delattr__<br>当我们访问一个不存在的属性的时候，会抛出异常，提示我们不存在这个属性。而这个异常就是<strong>getattr</strong>方法抛出的，其原因在于他是访问一个不存在的属性的最后落脚点，作为异常抛出的地方提示出错再适合不过了</li>
+</ul>
+<p>如果不重写<strong>getattr</strong>魔法函数，当访问不存在属性时会自动报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">s&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 7, in &lt;module&gt;</span><br><span class="line">    print(s.age)</span><br><span class="line">AttributeError: &#39;Student&#39; object has no attribute &#39;age&#39;</span><br></pre></td></tr></table></figure>
+<p>__getattr__可以在有一些属性不存在的时候异常处理可以更灵活</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __getattr__(self,item):</span><br><span class="line">        print(&quot;no &#123;attr&#125; exist...&quot;.format(attr&#x3D;item))</span><br><span class="line">        return 0</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">print(s.name)</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Jack</span><br><span class="line">no age exist...</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>同样<strong>setattr</strong>也可以在属性设置的时候做一些功能增强功能,包括初始化的时候如果有初始化变量也会走到这个魔法函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __setattr__(self,key,value):</span><br><span class="line">        print(&quot;in __setattr__...key&#x3D;&#123;key&#125;,value&#x3D;&#123;value&#125;&quot;.format(key&#x3D;key,value&#x3D;value))</span><br><span class="line">        object.__setattr__(self,key,value)</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">s.age&#x3D;20</span><br><span class="line">s.name&#x3D;&quot;hello&quot;</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">in __setattr__...key&#x3D;name,value&#x3D;Jack</span><br><span class="line">in __setattr__...key&#x3D;age,value&#x3D;20</span><br><span class="line">in __setattr__...key&#x3D;name,value&#x3D;hello</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+<p>需要注意的是下面一段代码是一个死循环,具体来说当实例化的时候进入<strong>init</strong>函数，然后对name进行设置，<br>然后进入<strong>setattr</strong>函数，进入之后又开始进行self.key=value的设置，则再次进入<strong>setattr</strong>函数，<br>即已经进入死循环了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __setattr__(self,key,value):</span><br><span class="line">        print(&quot;in __setattr__...key&#x3D;&#123;key&#125;,value&#x3D;&#123;value&#125;&quot;.format(key&#x3D;key,value&#x3D;value))</span><br><span class="line">        self.key&#x3D;value</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">s.age&#x3D;20</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>魔法函数<strong>delattr</strong>和<strong>setattr</strong>的使用方法基本是一致的，同样要注意容易陷入死循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name,age):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line">        self.age&#x3D;age</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;,20)</span><br><span class="line">print(s.age)</span><br><span class="line">del s.age</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">20</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;G:&#x2F;python_flask&#x2F;test.py&quot;, line 9, in &lt;module&gt;</span><br><span class="line">    print(s.age)</span><br><span class="line">AttributeError: &#39;Student2&#39; object has no attribute &#39;age&#39;</span><br></pre></td></tr></table></figure>
+<p>最后需要注意的是<strong>getattr</strong>方法只有当属性不存在的时候才会走进来，而<strong>setattr</strong>只要是对属性设置，不管属性是否已经存在，都会走进来</p>
+<ul>
+<li>__getattribute__:调用对象的属性时，都会进入到<strong>getattribute</strong>魔法函数，然后进入基类的<strong>getattribute</strong>,所以<strong>getattribute</strong>功能也是给获取属性<br>的时候做功能增强，如果属性存在，则不会调用<em>getattr__方法，如果属性不存在，则会抛出AttributeError异常，此时则会进入<strong>getattr</strong>方法<br>需要注意的是：如果重写了<em>_getattribute</em></em>,则需要判断如果属性不存在应继续主动抛出异常，因为此时不会自动触发异常了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Student2(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name &#x3D; name</span><br><span class="line"></span><br><span class="line">    def __getattribute__(self, item):</span><br><span class="line">        print(&quot;in __getattribute__  get attr &#123;attr&#125;&quot;.format(attr&#x3D;item))</span><br><span class="line">        return object.__getattribute__(self,item)</span><br><span class="line"></span><br><span class="line">    def __getattr__(self,item):</span><br><span class="line">        print(&quot;no &#123;attr&#125; exist...&quot;.format(attr&#x3D;item))</span><br><span class="line">        return 0</span><br><span class="line"></span><br><span class="line">s &#x3D; Student2(&quot;Jack&quot;)</span><br><span class="line">print(s.name)</span><br><span class="line">print(s.age)</span><br></pre></td></tr></table></figure>
+执行结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">in __getattribute__  get attr name</span><br><span class="line">Jack</span><br><span class="line">in __getattribute__  get attr age</span><br><span class="line">no age exist...</span><br><span class="line">0</span><br></pre></td></tr></table></figure></li>
+<li>__get__与<strong>set</strong><br>__get__和<strong>set</strong>方法通俗点来说就是在至少两个类中起作用，说白了就是实现对象的绑定关系的</li>
+</ul>
+<p>注意：如下只有在Group类的类成员变量用Student类初始化进行赋值的时候，才会走到Student类中的<strong>get</strong>和<strong>set</strong>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Student(object):</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    def __get__(self,instance,owner):</span><br><span class="line">        print(&quot;in Student __get__ name is &#123;name&#125;&quot;.format(name&#x3D;self.name))</span><br><span class="line">        return self</span><br><span class="line"></span><br><span class="line">    def __set__(self,instance,value):</span><br><span class="line">        self &#x3D; value</span><br><span class="line">        print(&quot;in Student __set__ name is &#123;name&#125;&quot;.format(name&#x3D;self.name))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Group(object):</span><br><span class="line">    menber1&#x3D;Student(&quot;Jack&quot;)</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.menber2&#x3D;Student(&quot;Hellen&quot;)</span><br><span class="line"></span><br><span class="line">group&#x3D;Group()</span><br><span class="line">print(group.menber1)</span><br><span class="line">print(group.menber2)</span><br><span class="line">stu1&#x3D;Student(&quot;Tom&quot;)</span><br><span class="line">group.menber1&#x3D;stu1</span><br><span class="line">stu2&#x3D;Student(&quot;Sam&quot;)</span><br><span class="line">group.menber2&#x3D;stu2</span><br></pre></td></tr></table></figure>
+<p>执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">in Student __get__ name is Jack</span><br><span class="line">&lt;__main__.Student object at 0x000001DCD3423B50&gt;</span><br><span class="line">&lt;__main__.Student object at 0x000001DCD342E430&gt;</span><br><span class="line">in Student __set__ name is Tom</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1456,125 +1583,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/" class="post-title-link" itemprop="url">PyQt5系列(1)--PyQt5环境安装基于Pycharm</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-31 07:33:22 / 修改时间：07:49:24" itemprop="dateCreated datePublished" datetime="2020-08-31T07:33:22+08:00">2020-08-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/PyQt5%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">PyQt5系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/08/31/PyQt5%E7%B3%BB%E5%88%97(1)--PyQt5%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%9F%BA%E4%BA%8EPycharm/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>725</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>####注： 本文假设python和pycharm均已安装完成，python笨版本为3.6以上</p>
-<h4 id="1-安装PyQt5"><a href="#1-安装PyQt5" class="headerlink" title="1 安装PyQt5"></a>1 安装PyQt5</h4><p>在cmd窗口执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5</span><br></pre></td></tr></table></figure>
-<h4 id="2-安装PyQt5-tools"><a href="#2-安装PyQt5-tools" class="headerlink" title="2 安装PyQt5-tools"></a>2 安装PyQt5-tools</h4><p>在cmd窗口执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyQt5-tools</span><br></pre></td></tr></table></figure>
-<h4 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3 配置环境变量"></a>3 配置环境变量</h4><p>在【计算机（此电脑）】右键-【属性】-【高级系统设置】-【高级】-【环境变量】，然后在系统变量中新建一个变量：Qt_Plugin_Path，它的值为（根据自己的安装位置调整）：<br>D:\Python38\Lib\site-packages\PyQt5\Qt\plugins</p>
-<h4 id="4-Pycharm配置"><a href="#4-Pycharm配置" class="headerlink" title="4 Pycharm配置"></a>4 Pycharm配置</h4><ul>
-<li>（1）打开Pycharm，点击【File】-【Setting】-【Tools】-【External Tools】</li>
-<li>（2）点击“+”，在弹出的Edit tool窗口中设置如下内容：<ul>
-<li>Name ： 设置为：QtDesigner</li>
-<li>Program： 设置为（根据自己的安装位置调整）：D:\Python38\Lib\site-packages\pyqt5_tools\Qt\bin\designer.exe</li>
-<li>Working directory：设置为：$FileDir$</li>
-</ul>
-</li>
-<li>（3）点击OK保存</li>
-<li>（4）同样的方法点击“+”，在弹出的Edit Tool窗口设置如下内容：<ul>
-<li>Name：设置为：PyUIC</li>
-<li>Program：设置为（根据自己的安装位置调整）：D:\Python38\python.exe</li>
-<li>Argument：设置为：-m PyQt5.uic.pyuic  $FileName$ -o $FileNameWithoutExtension$.py</li>
-<li>Working directory：设置为：$FileDir$</li>
-</ul>
-</li>
-</ul>
-<p>至此PyQt5 就已经安装OK了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1629,12 +1637,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">499k</span>
+    <span title="站点总字数">501k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:34</span>
+    <span title="站点阅读时长">7:35</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
