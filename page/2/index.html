@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,174 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">CSS基础系列(4)--CSS盒子模型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-24 19:19:24 / 修改时间：21:03:09" itemprop="dateCreated datePublished" datetime="2020-09-24T19:19:24+08:00">2020-09-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">CSS基础系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-CSS盒子模型概述"><a href="#1-CSS盒子模型概述" class="headerlink" title="1 CSS盒子模型概述"></a>1 CSS盒子模型概述</h4><ul>
+<li>margin 外边距</li>
+<li>border 边框</li>
+<li>padding 内边距</li>
+<li>content 内容</li>
+</ul>
+<h4 id="2-CSS内边距"><a href="#2-CSS内边距" class="headerlink" title="2 CSS内边距"></a>2 CSS内边距</h4><p>内边距在content外，在边框内部</p>
+<p>内边距属性有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">padding</span><br><span class="line">padding-botton</span><br><span class="line">padding-left</span><br><span class="line">padding-right</span><br><span class="line">padding-top</span><br></pre></td></tr></table></figure>
+
+<p>举例如下，index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;table border&#x3D;&quot;1&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;内边距&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">td&#123;</span><br><span class="line">    padding-right: 100px;</span><br><span class="line">    padding-left: 50px;</span><br><span class="line">    padding-top:25px;</span><br><span class="line">    padding-bottom: 13px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-CSS边框"><a href="#3-CSS边框" class="headerlink" title="3 CSS边框"></a>3 CSS边框</h4><ul>
+<li><p>CSS边框可以创建出效果出色的边框，并且可以应用于任何元素</p>
+</li>
+<li><p>border-style 定义了十多种不同的非继承样式，包括none</p>
+<ul>
+<li>border-top-style</li>
+<li>border-left-style</li>
+<li>border-right-style</li>
+<li>botder-bottom-style</li>
+</ul>
+</li>
+<li><p>border-width 定义边框的宽度</p>
+<ul>
+<li>border-top-width</li>
+<li>border-left-width</li>
+<li>border-right-width</li>
+<li>border-bottom-width</li>
+</ul>
+</li>
+<li><p>border-color 定义边框的颜色</p>
+<ul>
+<li>border-top-color</li>
+<li>border-left-color</li>
+<li>border-right-color</li>
+<li>border-bottom-color</li>
+</ul>
+</li>
+<li><p>CSS3边框</p>
+<ul>
+<li>border-radius：圆角边框</li>
+<li>border-shadow：边框阴影</li>
+<li>border-image：边框图片</li>
+</ul>
+</li>
+</ul>
+<p>举例如下，index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;CSS边框&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    border-style: dotted;</span><br><span class="line">    border-color:red;</span><br><span class="line">    border-width: 10px;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-CSS外边距"><a href="#4-CSS外边距" class="headerlink" title="4 CSS外边距"></a>4 CSS外边距</h4><p>围绕在内容边框的区域就是外边距，外边距默认为透明区域，外边距接受任何长度单位，百分数值</p>
+<p>外边距常用属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">margin                      设置所有边距</span><br><span class="line">margin-button               设置底边距</span><br><span class="line">margin-left                 设置左边距</span><br><span class="line">margin-right                设置右边距</span><br><span class="line">margin-top                  设置上边距</span><br></pre></td></tr></table></figure>
+<p>举例如下：index.html的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;mg&quot;&gt;外边距&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    margin: 0px;</span><br><span class="line">&#125;</span><br><span class="line">.mg&#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    margin:100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-CSS外边距合并"><a href="#5-CSS外边距合并" class="headerlink" title="5 CSS外边距合并"></a>5 CSS外边距合并</h4><p>下面的例子中，外边距设置了100，但是两个div块之间的举例通过观察明显也是100，这就是外边距合并的效果<br>index.html内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;bd&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;pd&quot;&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;content&quot;&gt;</span><br><span class="line">                    Hello World</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;bd&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;pd&quot;&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;content&quot;&gt;</span><br><span class="line">                    Hello World</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    margin: 0px;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">    margin: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.bd&#123;</span><br><span class="line">    border-style: groove;</span><br><span class="line">&#125;</span><br><span class="line">.pd&#123;</span><br><span class="line">    padding:10px;</span><br><span class="line">&#125;</span><br><span class="line">.content&#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-盒子模型的应用"><a href="#6-盒子模型的应用" class="headerlink" title="6 盒子模型的应用"></a>6 盒子模型的应用</h4><p>下面代码是模仿一个网站的首页布局，利用盒子模型大概设计的的分块的代码</p>
+<p>index.html如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;demo.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;top&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;top_conetent&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;body&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;body_image&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class&#x3D;&quot;body-content&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;body-no&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;footing&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;footing_content&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;footing_menu&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>css代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0px;</span><br><span class="line">    padding: 0px;</span><br><span class="line">&#125;</span><br><span class="line">.top&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height:60px;</span><br><span class="line">    background-color: black;</span><br><span class="line">&#125;</span><br><span class="line">.top_conetent&#123;</span><br><span class="line">    width: 75%;</span><br><span class="line">    height: 60px;</span><br><span class="line">    margin: 0px auto;</span><br><span class="line">    background-color: darkgrey;</span><br><span class="line">&#125;</span><br><span class="line">.body&#123;</span><br><span class="line">    margin: 20px auto;</span><br><span class="line">    width: 75%;</span><br><span class="line">    height: 1500px;</span><br><span class="line">    background-color: cornflowerblue;</span><br><span class="line">&#125;</span><br><span class="line">.body_image&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 400px;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br><span class="line">.body-content&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 1100px;</span><br><span class="line">    background-color: green;</span><br><span class="line">&#125;</span><br><span class="line">.body-no&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 50px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line">.footing&#123;</span><br><span class="line">    width: 75%;</span><br><span class="line">    height:400px;</span><br><span class="line">    margin: 0px auto;</span><br><span class="line">    background-color: aqua;</span><br><span class="line">&#125;</span><br><span class="line">.footing_content&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 330px;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line">.footing_menu&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height:70px;</span><br><span class="line">    background-color: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1663,144 +1831,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/19/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--XHTML%E7%AE%80%E4%BB%8B%E3%80%81%E5%85%83%E7%B4%A0%E3%80%81%E5%B1%9E%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/19/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--XHTML%E7%AE%80%E4%BB%8B%E3%80%81%E5%85%83%E7%B4%A0%E3%80%81%E5%B1%9E%E6%80%A7/" class="post-title-link" itemprop="url">Html5基础系列(5)--XHTML简介、元素、属性</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-19 08:23:42 / 修改时间：13:14:00" itemprop="dateCreated datePublished" datetime="2020-09-19T08:23:42+08:00">2020-09-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Html5基础系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/19/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--XHTML%E7%AE%80%E4%BB%8B%E3%80%81%E5%85%83%E7%B4%A0%E3%80%81%E5%B1%9E%E6%80%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/19/Html5%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--XHTML%E7%AE%80%E4%BB%8B%E3%80%81%E5%85%83%E7%B4%A0%E3%80%81%E5%B1%9E%E6%80%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>590</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-XHTML简介"><a href="#1-XHTML简介" class="headerlink" title="1 XHTML简介"></a>1 XHTML简介</h4><ul>
-<li>什么是XHTML？<ul>
-<li>XHTML指的是可扩展超文本标记语言</li>
-<li>XHTML与HTML4.01几乎是相同的</li>
-<li>XHTML是更严格更纯净的HTML版本</li>
-<li>XHTML是以XML应用的方式定义HTML</li>
-<li>XHTML得到所有主流浏览器的支持</li>
-</ul>
-</li>
-<li>为什么使用XHTML？<ul>
-<li>为了代码的完整性和良好性</li>
-</ul>
-</li>
-<li>文档声明：<ul>
-<li>DTD：规定了使用通用标记语言的网页语法<ul>
-<li>STRICT（严格类型）</li>
-<li>TRANSITION（过度类型）</li>
-<li>FRAMESET(框架类型)</li>
-</ul>
-</li>
-<li>XHTML 1.0 Strict：DTD 包含了所有HTML元素和属性，但是不包括展示性的和弃用的元素，不允许框架集（Framesets）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE htmlPUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Strict&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-strict.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-XHTML元素"><a href="#2-XHTML元素" class="headerlink" title="2 XHTML元素"></a>2 XHTML元素</h4><ul>
-<li>XHTML元素语法：<ul>
-<li>XHTML元素必须正确嵌套</li>
-<li>XHTML元素必须始终关闭</li>
-<li>XHTML元素必须小写</li>
-<li>XHTML文档必须有一个根元素</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-XHTML属性"><a href="#3-XHTML属性" class="headerlink" title="3 XHTML属性"></a>3 XHTML属性</h4><ul>
-<li>XHTML属性语法规则：<ul>
-<li>XHTML属性必须使用小写</li>
-<li>XHTML属性值必须用引号包围</li>
-<li>XHTML属性最小化也是禁止的</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1855,12 +1885,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">496k</span>
+    <span title="站点总字数">499k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:31</span>
+    <span title="站点阅读时长">7:33</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
