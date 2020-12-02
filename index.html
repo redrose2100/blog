@@ -213,7 +213,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,155 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/12/01/Spring5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97(4)--IOC%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86XML%E7%9A%84%E6%96%B9%E5%BC%8F-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%92%8Cset%E6%B3%A8%E5%85%A5%E5%B1%9E%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="微信：redrose2100">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Redrose2100的博客首页">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/12/01/Spring5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97(4)--IOC%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86XML%E7%9A%84%E6%96%B9%E5%BC%8F-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%92%8Cset%E6%B3%A8%E5%85%A5%E5%B1%9E%E6%80%A7/" class="post-title-link" itemprop="url">Spring5学习笔记系列(4)--IOC容器管理XML的方式-创建对象和set注入属性</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-01 22:04:59" itemprop="dateCreated datePublished" datetime="2020-12-01T22:04:59+08:00">2020-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-02 23:18:22" itemprop="dateModified" datetime="2020-12-02T23:18:22+08:00">2020-12-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Spring学习笔记系列</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2020/12/01/Spring5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97(4)--IOC%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86XML%E7%9A%84%E6%96%B9%E5%BC%8F-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%92%8Cset%E6%B3%A8%E5%85%A5%E5%B1%9E%E6%80%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/12/01/Spring5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97(4)--IOC%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86XML%E7%9A%84%E6%96%B9%E5%BC%8F-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%92%8Cset%E6%B3%A8%E5%85%A5%E5%B1%9E%E6%80%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-IOC操作-Bean管理"><a href="#1-IOC操作-Bean管理" class="headerlink" title="1 IOC操作-Bean管理"></a>1 IOC操作-Bean管理</h4><ul>
+<li>1 什么是Bean管理？<ul>
+<li>Bean管理是指两个操作</li>
+<li>Spring创建对象</li>
+<li>Spring注入属性</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Bean管理操作有两种方式"><a href="#2-Bean管理操作有两种方式" class="headerlink" title="2 Bean管理操作有两种方式"></a>2 Bean管理操作有两种方式</h4><ul>
+<li>基于XML配置文件方式实现</li>
+<li>基于注解方式实现</li>
+</ul>
+<h4 id="3-IOC操作Bean管理（基于xml方式）"><a href="#3-IOC操作Bean管理（基于xml方式）" class="headerlink" title="3 IOC操作Bean管理（基于xml方式）"></a>3 IOC操作Bean管理（基于xml方式）</h4><ul>
+<li><p>基于xml方式创建对象</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;user&quot; class&#x3D;&quot;com.redrose2100.spring5.User&quot;&gt;&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在spring配置文件中，使用bean标签，标签里面添加对应属性，既可以实现对象创建</li>
+<li>在bean标签里面有很多属性，介绍常用的属性<ul>
+<li>id 属性：标签的别名</li>
+<li>class 属性：创建类的全路径（包+类名）</li>
+<li>name 属性：和id属性功能基本一致，区别是id属性不可以使用特殊符号，而name属性时可以的比如/</li>
+</ul>
+</li>
+<li>在创建对象的时候，默认也是执行无参数的默认的构造方法</li>
+</ul>
+</li>
+<li><p>基于xml方式注入属性</p>
+<ul>
+<li><p>DI：依赖注入，就是输入属性</p>
+<ul>
+<li><p>使用set 方法进行注入</p>
+<ul>
+<li>创建类，定义属性和对应的set方法<br>如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com.redrose2100.spring5;</span><br><span class="line"></span><br><span class="line">public class Book &#123;</span><br><span class="line">    private String bname;</span><br><span class="line">    private String bauthor;</span><br><span class="line"></span><br><span class="line">    public void setBname(String bname) &#123;</span><br><span class="line">        this.bname &#x3D; bname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setBauthor(String bauthor) &#123;</span><br><span class="line">        this.bauthor &#x3D; bauthor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在Spring配置文件中配置对象创建，配置属性注入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id &#x3D; &quot;book&quot; class &#x3D; &quot;com.redrose2100.spring5.Book&quot;&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;bname&quot; value&#x3D;&quot;yijingjing&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">        &lt;property name&#x3D;&quot;bauthor&quot; value&#x3D;&quot;redrose2100&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>使用有参数的构造进行注入</p>
+<ul>
+<li>创建类，定义属性，创建属性对应的有参数构造方法<br>如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.redrose2100.spring5;</span><br><span class="line"></span><br><span class="line">public class Orders &#123;</span><br><span class="line">    private String oname;</span><br><span class="line">    private String address;</span><br><span class="line"></span><br><span class="line">    public Orders(String oname,String address)</span><br><span class="line">    &#123;</span><br><span class="line">        this.oname&#x3D;oname;</span><br><span class="line">        this.address&#x3D;address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在Spring配置文件中进行配置<br>如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id &#x3D; &quot;orders&quot; class &#x3D;&quot;com.redrose2100.spring5.Orders&quot; &gt;</span><br><span class="line">        &lt;constructor-arg name &#x3D; &quot;oname&quot; value&#x3D;&quot;abc&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">        &lt;constructor-arg name &#x3D; &quot;address&quot; value&#x3D;&quot;China&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">&lt;&#x2F;bean&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1426,108 +1575,6 @@ JavaScript运算语法和其他编程语言基本类似，这里不再详细举�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/redrose2100/blog/2020/09/25/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="微信：redrose2100">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Redrose2100的博客首页">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/25/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">CSS基础系列学习系列总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-25 12:43:44 / 修改时间：12:47:27" itemprop="dateCreated datePublished" datetime="2020-09-25T12:43:44+08:00">2020-09-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">CSS基础系列</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/blog/2020/09/25/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/25/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>157</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://redrose2100.github.io/blog/2020/09/21/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(1)--%E7%AE%80%E4%BB%8B%E3%80%81%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E3%80%81%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E3%80%81%E9%80%89%E6%8B%A9%E5%99%A8/" target="_blank" rel="noopener">CSS基础系列(1)–简介、基础语法、高级语法、选择器</a></p>
-<p><a href="https://redrose2100.github.io/blog/2020/09/21/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(2)--CSS%E6%A0%B7%E5%BC%8F%E8%83%8C%E6%99%AF%E3%80%81%E6%96%87%E6%9C%AC%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%88%97%E8%A1%A8%E3%80%81%E8%A1%A8%E6%A0%BC%E3%80%81%E8%BD%AE%E5%BB%93/" target="_blank" rel="noopener">CSS基础系列(2)–CSS样式背景、文本、字体、链接、列表、表格、轮廓</a></p>
-<p><a href="https://redrose2100.github.io/blog/2020/09/22/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(3)--CSS%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%B5%AE%E5%8A%A8/" target="_blank" rel="noopener">CSS基础系列(3)–CSS定位和浮动</a></p>
-<p><a href="https://redrose2100.github.io/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(4)--CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener">CSS基础系列(4)–CSS盒子模型</a></p>
-<p><a href="https://redrose2100.github.io/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(5)--CSS%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener">CSS基础系列(5)–CSS常用操作</a></p>
-<p><a href="https://redrose2100.github.io/blog/2020/09/24/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(6)--CSS%E9%80%89%E6%8B%A9%E5%99%A8%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">CSS基础系列(6)–CSS选择器详解</a></p>
-<p><a href="https://redrose2100.github.io/blog/2020/09/25/CSS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97(7)--CSS%E5%8A%A8%E7%94%BB%E5%8F%8A%E7%80%91%E5%B8%83%E6%B5%81/" target="_blank" rel="noopener">CSS基础系列(7)–CSS动画及瀑布流</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1582,12 +1629,12 @@ JavaScript运算语法和其他编程语言基本类似，这里不再详细举�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">503k</span>
+    <span title="站点总字数">504k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:37</span>
+    <span title="站点阅读时长">7:39</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
